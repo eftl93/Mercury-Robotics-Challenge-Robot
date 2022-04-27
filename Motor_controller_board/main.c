@@ -117,7 +117,7 @@ White>>>>>>Hall Sensor B Output
 #include "lm629.h"
 #include "spi.h"
 #include <p18f46k22.h>            //For compability with PICC18?
-#define _XTAL_FREQ 40000000       //Use 64MHz as FOSC (16MHz Crystal with 4X PLL)
+#define _XTAL_FREQ 64000000       //Use 64MHz as FOSC (16MHz Crystal with 4X PLL)
 
 
 
