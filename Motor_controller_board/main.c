@@ -154,13 +154,6 @@ spi_slave_init();
 unsigned char received_data;
 unsigned char temp_clear;
 
-
-
-
-
-
-
-
 while(1)
 {
 temp_clear=SSP1BUF;
