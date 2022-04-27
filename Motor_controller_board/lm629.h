@@ -23,7 +23,7 @@ End of Revisions
 #define LM629_H
 #include <htc.h>
 #include <p18f46k22.h>
-#define _XTAL_FREQ 40000000       //Use 64MHz as FOSC (16MHz Crystal with 4X PLL)
+#define _XTAL_FREQ 64000000       //Use 64MHz as FOSC (16MHz Crystal with 4X PLL)
 /***********************************************************************
 Declaration
 ***********************************************************************/
