@@ -17,9 +17,9 @@ End of Revisions
 ***********************************************************************/
 #ifndef SPI_H
 #define SPI_H
-#include <htc.h>
-#include <p18f46k22.h>
-#define _XTAL_FREQ 40000000
+
+#include <xc.h>
+#define _XTAL_FREQ 64000000
 
 #define SS1 PORTAbits.RA5
 #define SCLK1 PORTCbits.RC3
@@ -31,44 +31,9 @@ End of Revisions
 #define SDI1_DIR TRISCbits.RC4
 #define SDO1_DIR TRISCbits.RC5
 
-
-void spi_slave_init();
+void spi_slave_init(void);
 void spi_data(unsigned char tx_data);
-unsigned char spi_read_data;
+volatile unsigned char spi_read_data;
 
-void interrupt SPI()
-{
-if(PIR1bits.SSP1IF&&PIE1bits.SSP1IE)
-{
-//while(!SSPSTATbits.BF);
-spi_read_data=SSP1BUF;
-SSP1IF=0;
-}
-}
-
-void spi_slave_init()
-{
-SSP1IE=1;
-PEIE=1;
-GIE=1;
-SSPSTAT=0x00;
-SSPCON1=0b00100100;
-SSP1CON3=0b00010000;
-ADCON0=0x00;
-ADCON1=0x00;
-SS1_DIR =1;
-SCLK1_DIR=1;
-SDO1_DIR=0;
-SDI1_DIR=1;
-}
-
-void spi_data(unsigned char tx_data)
-{
-SSP1BUF=tx_data;
-}
-
-/***********************************************************************
-End of definition of functions
-***********************************************************************/
 #endif 
 
