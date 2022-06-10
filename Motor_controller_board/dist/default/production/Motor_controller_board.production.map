@@ -5,10 +5,10 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.36\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Motor_controller_board.production.sym \
   --cmf=dist/default/production\Motor_controller_board.production.cmf -z \
-  -Q18F46K22 -oC:\Users\eder0\AppData\Local\Temp\xcAsfvc.4 \
+  -Q18F46K22 -oC:\Users\eder0\AppData\Local\Temp\xcAsdc0.4 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Motor_controller_board.production.map \
-  --md=C:\Users\eder0\AppData\Local\Temp\xcAsfvc.dat -E1 -ver=XC8 Compiler \
+  --md=C:\Users\eder0\AppData\Local\Temp\xcAsdc0.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh \
   -ASMALLCONST=01000h-010FFhx240 -AMEDIUMCONST=01000h-0FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0F37h -ABIGRAM=01h-0F37h \
@@ -28,7 +28,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\eder0\AppData\Local\Temp\xcAsfvc.o \
+  C:\Users\eder0\AppData\Local\Temp\xcAsdc0.o \
   dist/default/production\Motor_controller_board.production.o 
 
 Object code version is 3.11
@@ -38,7 +38,7 @@ Machine type is 18F46K22
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\eder0\AppData\Local\Temp\xcAsfvc.o
+C:\Users\eder0\AppData\Local\Temp\xcAsdc0.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                 30       30        4        4       0
@@ -548,7 +548,7 @@ wtemp8                   temp         00000D
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-./lm629.h
+lm629.c
 		_DATABUS       		CODE           	0250	0000	498
 		_DATABUS_DIR   		CODE           	0D86	0000	64
 		_filter_module 		CODE           	0CCE	0000	92
@@ -567,14 +567,14 @@ Module		Function		Class		Link	Load	Size
 		_chip_select   		CODE           	0C46	0000	136
 		_read_status   		CODE           	0DFE	0000	46
 
-./lm629.h estimated size: 3470
+lm629.c estimated size: 3470
 
-./spi.h
+spi.c
 		_spi_slave_init		CODE           	0E80	0000	36
 		_spi_data      		CODE           	0F0E	0000	8
 		_SPI           		CODE           	0008	0000	40
 
-./spi.h estimated size: 84
+spi.c estimated size: 84
 
 shared
 		__initialization		CODE           	0F02	0000	2

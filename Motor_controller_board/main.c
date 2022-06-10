@@ -116,6 +116,7 @@ White>>>>>>Hall Sensor B Output
 #include <xc.h>                  //For use in Hi-Tech, change to <xc.h> for xc8
 #include "lm629.h"
 #include "spi.h"
+#include "main.h"
 #define _XTAL_FREQ 64000000       //Use 64MHz as FOSC (16MHz Crystal with 4X PLL)
 
 
@@ -127,78 +128,78 @@ White>>>>>>Hall Sensor B Output
 ////////////////////////////////////////////////////////////////////////////////
 void main(void)
 {
-IPEN=0;
-INTCON=0;
-ANSELA=0;
-ANSELB=0;
-ANSELC=0;
-ANSELD=0;
-ANSELE=0;
-SSP1CON1=0x00;
-SSP2CON1=0x00;
-CM1CON0=0b00000000;
-CM2CON0=0b00000000;
-PORTB=0x00;
-TRISA=0x00;
-TRISD=0x00;
-TRISB=0x00;
-TRISC=0x00;
-CTMUCONH=0x00;
-SRCON0=0x00;
-VREFCON0=0x00;
-VREFCON1=0x00;
-HLVDCON=0x00;
-LM629_init();
-spi_slave_init();
-unsigned char received_data;
-unsigned char temp_clear;
+    IPEN=0;
+    INTCON=0;
+    ANSELA=0;
+    ANSELB=0;
+    ANSELC=0;
+    ANSELD=0;
+    ANSELE=0;
+    SSP1CON1=0x00;
+    SSP2CON1=0x00;
+    CM1CON0=0b00000000;
+    CM2CON0=0b00000000;
+    PORTB=0x00;
+    TRISA=0x00;
+    TRISD=0x00;
+    TRISB=0x00;
+    TRISC=0x00;
+    CTMUCONH=0x00;
+    SRCON0=0x00;
+    VREFCON0=0x00;
+    VREFCON1=0x00;
+    HLVDCON=0x00;
+    LM629_init();
+    spi_slave_init();
+    unsigned char received_data;
+    unsigned char temp_clear;
 
-while(1)
-{
-temp_clear=SSP1BUF;
-spi_data(0b01010100);
-received_data=spi_read_data;
+    while(1)
+    {
+        temp_clear=SSP1BUF;
+        spi_data(0b01010100);
+        received_data=spi_read_data;
 
-if(received_data==0x77)
-{
-all_off();
-forward();
-}
+        if(received_data==0x77)
+        {
+            all_off();
+            forward();
+        }
 
-else if(received_data==0x73)
-{
-all_off();
-reverse();
-}
+        else if(received_data==0x73)
+        {
+            all_off();
+            reverse();
+        }
 
-else if(received_data==0x61)
-{
-all_off();
-left();
-}
+        else if(received_data==0x61)
+        {
+            all_off();
+            left();
+        }
 
-else if(received_data==0x64)
-{
-all_off();
-right();
-}
+        else if(received_data==0x64)
+        {
+            all_off();
+            right();
+        }
 
-else if(received_data==0x6F)
-{
-all_off();
-}
+        else if(received_data==0x6F)
+        {
+            all_off();
+        }
 
-else if(received_data==0x62)
-{
-all_break();
-}
+        else if(received_data==0x62)
+        {
+            all_break();
+        }
 
-else if(received_data==0x71)
-{
-}
+        else if(received_data==0x71)
+        {
+        }
 
 
-}
+    }
 
 }
 ////////////////////////////////////////////////////////////////////////////////

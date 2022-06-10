@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "spi.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,15 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 116 "main.c"
+# 1 "spi.c" 2
+
+
+
+
+
+
+
+
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9642,158 +9649,42 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 2 3
-# 116 "main.c" 2
-
-# 1 "./lm629.h" 1
-# 76 "./lm629.h"
-void LM629_init(void);
-void DATABUS_DIR(unsigned char dir);
-unsigned char DATABUS(unsigned char dir1, unsigned char byte0);
-void LM629_velocity_start(const unsigned char chip, unsigned long vel);
-void LM629_position_start(const unsigned char chip, const unsigned long vel, const long pos);
-void check_busy(void);
-unsigned char read_status(void);
-unsigned int read_data(void);
-void write_data(unsigned char byte1, unsigned char byte2);
-void write_command(unsigned char command);
-void chip_select(unsigned char chip);
-void motor_break(void);
-void all_break(void);
-void motor_off(void);
-void all_off(void);
-void filter_module(void);
-void simple_absolute_position(void);
-void simple_relative_position(void);
-void velocity_mode_breakpoints(void);
-void forward(void);
-void reverse(void);
-void left(void);
-void right(void);
-# 117 "main.c" 2
+# 9 "spi.c" 2
 
 # 1 "./spi.h" 1
 # 34 "./spi.h"
 void spi_slave_init(void);
 void spi_data(unsigned char tx_data);
 volatile unsigned char spi_read_data;
-# 118 "main.c" 2
+# 10 "spi.c" 2
 
-# 1 "./main.h" 1
-# 16 "./main.h"
-#pragma config FOSC = HSHP
-#pragma config PLLCFG = ON
-#pragma config PRICLKEN = ON
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRTEN = OFF
-#pragma config BOREN = OFF
-
-
-#pragma config WDTEN = OFF
-
-
-#pragma config CCP2MX = PORTC1
-#pragma config PBADEN = OFF
-#pragma config CCP3MX = PORTE0
-#pragma config HFOFST = OFF
-#pragma config T3CMX = PORTC0
-#pragma config P2BMX = PORTC0
-#pragma config MCLRE = EXTMCLR
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config DEBUG = OFF
-
-
-#pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF
-
-#pragma config CPB = OFF, CPD = OFF
-
-#pragma config WRT0 = OFF, WRT1 = OFF, WRT2 = OFF, WRT3 = OFF
-
-#pragma config WRTC = OFF, WRTB = OFF, WRTD = OFF
-
-#pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
-
-#pragma config EBTRB = OFF
-# 119 "main.c" 2
-# 129 "main.c"
-void main(void)
+void spi_slave_init()
 {
-IPEN=0;
-INTCON=0;
-ANSELA=0;
-ANSELB=0;
-ANSELC=0;
-ANSELD=0;
-ANSELE=0;
-SSP1CON1=0x00;
-SSP2CON1=0x00;
-CM1CON0=0b00000000;
-CM2CON0=0b00000000;
-PORTB=0x00;
-TRISA=0x00;
-TRISD=0x00;
-TRISB=0x00;
-TRISC=0x00;
-CTMUCONH=0x00;
-SRCON0=0x00;
-VREFCON0=0x00;
-VREFCON1=0x00;
-HLVDCON=0x00;
-LM629_init();
-spi_slave_init();
-unsigned char received_data;
-unsigned char temp_clear;
-
-while(1)
-{
-temp_clear=SSP1BUF;
-spi_data(0b01010100);
-received_data=spi_read_data;
-
-if(received_data==0x77)
-{
-all_off();
-forward();
+SSP1IE=1;
+PEIE=1;
+GIE=1;
+SSPSTAT=0x00;
+SSPCON1=0b00100100;
+SSP1CON3=0b00010000;
+ADCON0=0x00;
+ADCON1=0x00;
+TRISAbits.RA5 =1;
+TRISCbits.RC3=1;
+TRISCbits.RC5=0;
+TRISCbits.RC4=1;
 }
 
-else if(received_data==0x73)
+void spi_data(unsigned char tx_data)
 {
-all_off();
-reverse();
+SSP1BUF=tx_data;
 }
 
-else if(received_data==0x61)
+void __attribute__((picinterrupt(("")))) SPI()
 {
-all_off();
-left();
-}
+    if(PIR1bits.SSP1IF&&PIE1bits.SSP1IE)
+    {
 
-else if(received_data==0x64)
-{
-all_off();
-right();
-}
-
-else if(received_data==0x6F)
-{
-all_off();
-}
-
-else if(received_data==0x62)
-{
-all_break();
-}
-
-else if(received_data==0x71)
-{
-}
-
-
-}
-
+        spi_read_data=SSP1BUF;
+        SSP1IF=0;
+    }
 }

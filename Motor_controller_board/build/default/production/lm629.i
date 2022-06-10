@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "lm629.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,15 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 116 "main.c"
+# 1 "lm629.c" 2
+
+
+
+
+
+
+
+
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9642,7 +9649,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 2 3
-# 116 "main.c" 2
+# 9 "lm629.c" 2
 
 # 1 "./lm629.h" 1
 # 76 "./lm629.h"
@@ -9669,131 +9676,783 @@ void forward(void);
 void reverse(void);
 void left(void);
 void right(void);
-# 117 "main.c" 2
-
-# 1 "./spi.h" 1
-# 34 "./spi.h"
-void spi_slave_init(void);
-void spi_data(unsigned char tx_data);
-volatile unsigned char spi_read_data;
-# 118 "main.c" 2
-
-# 1 "./main.h" 1
-# 16 "./main.h"
-#pragma config FOSC = HSHP
-#pragma config PLLCFG = ON
-#pragma config PRICLKEN = ON
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
+# 10 "lm629.c" 2
 
 
-#pragma config PWRTEN = OFF
-#pragma config BOREN = OFF
 
 
-#pragma config WDTEN = OFF
 
 
-#pragma config CCP2MX = PORTC1
-#pragma config PBADEN = OFF
-#pragma config CCP3MX = PORTE0
-#pragma config HFOFST = OFF
-#pragma config T3CMX = PORTC0
-#pragma config P2BMX = PORTC0
-#pragma config MCLRE = EXTMCLR
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config DEBUG = OFF
-
-
-#pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF
-
-#pragma config CPB = OFF, CPD = OFF
-
-#pragma config WRT0 = OFF, WRT1 = OFF, WRT2 = OFF, WRT3 = OFF
-
-#pragma config WRTC = OFF, WRTB = OFF, WRTD = OFF
-
-#pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
-
-#pragma config EBTRB = OFF
-# 119 "main.c" 2
-# 129 "main.c"
-void main(void)
+void check_busy()
 {
-IPEN=0;
-INTCON=0;
-ANSELA=0;
-ANSELB=0;
-ANSELC=0;
-ANSELD=0;
-ANSELE=0;
-SSP1CON1=0x00;
-SSP2CON1=0x00;
-CM1CON0=0b00000000;
-CM2CON0=0b00000000;
-PORTB=0x00;
-TRISA=0x00;
-TRISD=0x00;
-TRISB=0x00;
-TRISC=0x00;
-CTMUCONH=0x00;
-SRCON0=0x00;
-VREFCON0=0x00;
-VREFCON1=0x00;
-HLVDCON=0x00;
-LM629_init();
-spi_slave_init();
-unsigned char received_data;
-unsigned char temp_clear;
-
-while(1)
-{
-temp_clear=SSP1BUF;
-spi_data(0b01010100);
-received_data=spi_read_data;
-
-if(received_data==0x77)
-{
-all_off();
-forward();
-}
-
-else if(received_data==0x73)
-{
-all_off();
-reverse();
-}
-
-else if(received_data==0x61)
-{
-all_off();
-left();
-}
-
-else if(received_data==0x64)
-{
-all_off();
-right();
-}
-
-else if(received_data==0x6F)
-{
-all_off();
-}
-
-else if(received_data==0x62)
-{
-all_break();
-}
-
-else if(received_data==0x71)
-{
+ unsigned char x;
+ x=read_status();
+ while (x & 0x01)
+  {
+   x=read_status();
+  }
 }
 
 
+
+unsigned char read_status()
+{
+ unsigned char status;
+ DATABUS_DIR(0xFF);
+ PORTCbits.RC2=0;
+ _delay(3);
+ PORTDbits.RD2=0;
+ _delay(12);
+ status=DATABUS(0xFF,0);
+ PORTDbits.RD2=1;
+ _delay(5);
+ PORTCbits.RC2=1;
+
+return status;
 }
 
+unsigned int read_data()
+{
+ unsigned char left_value;
+ unsigned char right_value;
+ unsigned int data;
+ DATABUS_DIR(0xFF);
+ PORTCbits.RC2=1;
+ _delay(3);
+ PORTDbits.RD2=0;
+ _delay(12);
+ left_value=DATABUS(0xFF,0);
+ PORTDbits.RD2=1;
+ _delay(12);
+ PORTDbits.RD2=0;
+ _delay(12);
+ right_value=DATABUS(0xFF,0);
+ PORTDbits.RD2=1;
+ _delay(3);
+ PORTCbits.RC2=1;
+ data=left_value;
+ data=data<<8;
+ data=data+right_value;
+
+ return data;
+}
+
+void write_data( unsigned char byte1, unsigned char byte2)
+{
+ _delay((unsigned long)((1)*(64000000/4000000.0)));
+ DATABUS_DIR(0);
+ PORTCbits.RC2=1;
+ _delay(3);
+ PORTDbits.RD1=0;
+ _delay(8);
+ DATABUS(0,byte1);
+ _delay(5);
+ PORTDbits.RD1=1;
+ _delay(10);
+ PORTDbits.RD1=0;
+ _delay(5);
+ DATABUS(0,byte2);
+ _delay(5);
+ PORTDbits.RD1=1;
+ _delay(3);
+ PORTCbits.RC2=1;
+
+}
+
+void write_command(unsigned char command)
+{
+ DATABUS_DIR(0);
+ PORTCbits.RC2=0;
+ _delay(3);
+ PORTDbits.RD1=0;
+ _delay(5);
+ DATABUS(0,command);
+ _delay(5);
+ PORTDbits.RD1=1;
+ _delay(3);
+ PORTCbits.RC2=1;
+ _delay(11);
+
+}
+
+void LM629_init()
+{
+ unsigned char x;
+ x=0;
+ TRISB&=0b11000011;
+ TRISD&=0b11110001;
+ TRISC&=0b11111011;
+ PORTCbits.RC2=1;
+ PORTDbits.RD2=1;
+ PORTDbits.RD1=1;
+ PORTBbits.RB5=1;
+ chip_select(0);
+beginning:
+ _delay((unsigned long)((10)*(64000000/4000000.0)));
+ PORTBbits.RB5=0;
+ _delay((unsigned long)((2)*(64000000/4000000.0)));
+ PORTBbits.RB5=1;
+ _delay((unsigned long)((2)*(64000000/4000.0)));
+ x=read_status();
+ if(!(x==0xC4 || x==0x84))
+  {
+  goto beginning;
+  }
+ else
+  {
+   check_busy();
+   write_command(0x1D);
+         check_busy();
+   write_data(0x00,0x00);
+   check_busy();
+   x=read_status();
+            if(!(x==0xC0 || x==0x80))
+    {
+    goto beginning;
+    }
+  }
+
+ chip_select(1);
+beginning1:
+ _delay((unsigned long)((10)*(64000000/4000000.0)));
+ PORTBbits.RB5=0;
+ _delay((unsigned long)((2)*(64000000/4000000.0)));
+ PORTBbits.RB5=1;
+ _delay((unsigned long)((2)*(64000000/4000.0)));
+ x=read_status();
+ if(!(x==0xC4 || x==0x84))
+  {
+  goto beginning1;
+  }
+ else
+  {
+   check_busy();
+   write_command(0x1D);
+         check_busy();
+   write_data(0x00,0x00);
+   check_busy();
+   x=read_status();
+            if(!(x==0xC0 || x==0x80))
+    {
+    goto beginning1;
+    }
+  }
+
+ chip_select(3);
+beginning3:
+ _delay((unsigned long)((10)*(64000000/4000000.0)));
+ PORTBbits.RB5=0;
+ _delay((unsigned long)((2)*(64000000/4000000.0)));
+ PORTBbits.RB5=1;
+ _delay((unsigned long)((2)*(64000000/4000.0)));
+ x=read_status();
+ if(!(x==0xC4 || x==0x84))
+  {
+  goto beginning3;
+  }
+ else
+  {
+   check_busy();
+   write_command(0x1D);
+         check_busy();
+   write_data(0x00,0x00);
+   check_busy();
+   x=read_status();
+            if(!(x==0xC0 || x==0x80))
+    {
+    goto beginning3;
+    }
+  }
+chip_select(0);
+filter_module();
+chip_select(1);
+filter_module();
+chip_select(2);
+filter_module();
+chip_select(3);
+filter_module();
+}
+
+
+
+
+
+
+void DATABUS_DIR(unsigned char dir)
+{
+if(dir==0)
+{
+TRISC&=0b00111111;
+TRISD&=0b00001111;
+TRISB&=0b11111100;
+}
+else if(dir==0xFF)
+{
+TRISC|=0b11000000;
+TRISD|=0b11110000;
+TRISB|=0b00000011;
+}
+}
+
+
+
+
+unsigned char DATABUS(unsigned char dir1, unsigned char byte0)
+{
+unsigned char x;
+if(dir1==0)
+{
+PORTCbits.RC6 = ((byte0 & 0x01) >> 0);
+PORTCbits.RC7 = ((byte0 & 0x02) >> 1);
+PORTDbits.RD4 = ((byte0 & 0x04) >> 2);
+PORTDbits.RD5 = ((byte0 & 0x08) >> 3);
+PORTDbits.RD6 = ((byte0 & 0x10) >> 4);
+PORTDbits.RD7 = ((byte0 & 0x20) >> 5);
+PORTBbits.RB0 = ((byte0 & 0x40) >> 6);
+PORTBbits.RB1 = ((byte0 & 0x80) >> 7);
+x=0;
+}
+
+else if (dir1==0xFF)
+{
+x=PORTBbits.RB1;
+x=(x<<1)+PORTBbits.RB0;
+x=(x<<1)+PORTDbits.RD7;
+x=(x<<1)+PORTDbits.RD6;
+x=(x<<1)+PORTDbits.RD5;
+x=(x<<1)+PORTDbits.RD4;
+x=(x<<1)+PORTCbits.RC7;
+x=(x<<1)+PORTCbits.RC6;
+}
+return x;
+}
+
+void chip_select(unsigned char chip)
+{
+ if(chip==0)
+ {
+  PORTDbits.RD3=0;
+  PORTBbits.RB2=1;
+  PORTAbits.RA0=1;
+  PORTBbits.RB4=1;
+ }
+ else if(chip==1)
+ {
+  PORTDbits.RD3=1;
+  PORTBbits.RB2=0;
+  PORTAbits.RA0=1;
+  PORTBbits.RB4=1;
+ }
+ else if(chip==2)
+ {
+  PORTDbits.RD3=1;
+  PORTBbits.RB2=1;
+  PORTAbits.RA0=0;
+  PORTBbits.RB4=1;
+ }
+ else if(chip==3)
+ {
+  PORTDbits.RD3=1;
+  PORTBbits.RB2=1;
+  PORTAbits.RA0=1;
+  PORTBbits.RB4=0;
+ }
+ else
+ {
+  PORTDbits.RD3=1;
+  PORTBbits.RB2=1;
+  PORTAbits.RA0=1;
+  PORTBbits.RB4=1;
+ }
+
+ _delay((unsigned long)((10)*(64000000/4000000.0)));
+}
+
+void motor_off()
+{
+write_command(0x1F);
+check_busy();
+write_data(0x01,0x00);
+check_busy();
+write_command(0x01);
+check_busy();
+}
+
+void motor_break()
+{
+write_command(0x1F);
+check_busy();
+write_data(0x02,0x00);
+check_busy();
+write_command(0x01);
+check_busy();
+}
+
+void all_break()
+{
+chip_select(0);
+motor_break();
+chip_select(1);
+motor_break();
+chip_select(2);
+motor_break();
+chip_select(3);
+motor_break();
+}
+
+void all_off()
+{
+chip_select(0);
+motor_off();
+chip_select(1);
+motor_off();
+chip_select(2);
+motor_off();
+chip_select(3);
+motor_off();
+}
+
+void filter_module()
+{
+write_command(0x1E);
+check_busy();
+write_data(0x00,0x0F);
+check_busy();
+write_data(0x01,0x0F);
+check_busy();
+write_data(0x00,0x04);
+check_busy();
+write_data(0x7F,0xFF);
+check_busy();
+write_data(0x00,0xFF);
+check_busy();
+write_command(0x04);
+check_busy();
+}
+
+void simple_absolute_postion()
+{
+write_command(0x1F);
+check_busy();
+write_data(0x00,0x24);
+check_busy();
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x02);
+check_busy();
+write_data(0x00,0x00);
+check_busy();
+write_data(0x34,0x6E);
+check_busy();
+write_data(0x00,0x00);
+check_busy();
+write_data(0x1F,0x40);
+check_busy();
+write_command(0x01);
+}
+
+void simple_relative_position()
+{
+write_command(0x1F);
+check_busy();
+write_data(0x00,0x2B);
+check_busy();
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x11);
+check_busy();
+write_data(0x00,0x02);
+check_busy();
+write_data(0x75,0x3F);
+check_busy();
+write_data(0xFF,0xFE);
+check_busy();
+write_data(0x2B,0x40);
+check_busy();
+write_command(0x01);
+}
+
+void velocity_mode_breakpoints()
+{
+
+}
+
+void forward()
+{
+chip_select(0);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x18,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+
+chip_select(1);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x08,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+
+chip_select(2);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x08,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+
+chip_select(3);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x18,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+
+chip_select(0);
+write_command(0x01);
+check_busy();
+
+chip_select(2);
+write_command(0x01);
+check_busy();
+
+chip_select(1);
+write_command(0x01);
+check_busy();
+
+chip_select(3);
+write_command(0x01);
+check_busy();
+}
+
+
+void reverse()
+{
+chip_select(1);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x18,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+
+chip_select(0);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x08,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+
+
+chip_select(3);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x08,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+chip_select(2);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x18,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+
+chip_select(0);
+write_command(0x01);
+check_busy();
+
+chip_select(2);
+write_command(0x01);
+check_busy();
+
+chip_select(1);
+write_command(0x01);
+check_busy();
+
+chip_select(3);
+write_command(0x01);
+check_busy();
+}
+
+void right()
+{
+chip_select(0);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x08,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+
+chip_select(1);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x08,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+
+chip_select(2);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x08,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+
+chip_select(3);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x08,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+
+chip_select(0);
+write_command(0x01);
+check_busy();
+
+chip_select(2);
+write_command(0x01);
+check_busy();
+
+chip_select(1);
+write_command(0x01);
+check_busy();
+
+chip_select(3);
+write_command(0x01);
+check_busy();
+}
+
+void left()
+{
+chip_select(0);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x18,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+chip_select(1);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x18,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+
+chip_select(2);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x18,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+
+chip_select(3);
+check_busy();
+motor_off();
+write_command(0x1F);
+check_busy();
+write_data(0x18,0x28);
+check_busy();
+
+write_data(0x00,0x00);
+check_busy();
+write_data(0x00,0x48);
+check_busy();
+
+write_data(0x00,0x01);
+check_busy();
+write_data(0xFA,0xD0);
+check_busy();
+
+
+chip_select(0);
+write_command(0x01);
+check_busy();
+
+chip_select(2);
+write_command(0x01);
+check_busy();
+
+chip_select(1);
+write_command(0x01);
+check_busy();
+
+chip_select(3);
+write_command(0x01);
+check_busy();
 }
