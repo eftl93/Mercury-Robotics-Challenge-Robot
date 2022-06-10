@@ -11,7 +11,7 @@
 //Name: Eder Torres
 //Project: TI Innovation Challenge
 
-/*******************************************************************************
+/********************************************************************************
 ********************************************************************************
 *******************************Hardware Information*****************************
 ********************************************************************************
@@ -37,7 +37,7 @@ Blue>>>>>>>Hall Sensor Vcc (3.5-20V)
 Green>>>>>>Hall Sensor GND
 Yellow>>>>>Hall Sensor A Output
 White>>>>>>Hall Sensor B Output
-/*******************************************************************************
+********************************************************************************
 ********************************************************************************
 ************************End of Hardware Information*****************************
 ********************************************************************************
@@ -113,10 +113,9 @@ White>>>>>>Hall Sensor B Output
 //Clock correctly. Formated C main file. 
 
 
-#include <htc.h>                  //For use in Hi-Tech, change to <xc.h> for xc8
+#include <xc.h>                  //For use in Hi-Tech, change to <xc.h> for xc8
 #include "lm629.h"
 #include "spi.h"
-#include <p18f46k22.h>            //For compability with PICC18?
 #define _XTAL_FREQ 64000000       //Use 64MHz as FOSC (16MHz Crystal with 4X PLL)
 
 

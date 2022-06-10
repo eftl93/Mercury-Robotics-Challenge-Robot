@@ -21,8 +21,7 @@ End of Revisions
 
 #ifndef LM629_H
 #define LM629_H
-#include <htc.h>
-#include <p18f46k22.h>
+#include <xc.h>
 #define _XTAL_FREQ 64000000       //Use 64MHz as FOSC (16MHz Crystal with 4X PLL)
 /***********************************************************************
 Declaration
@@ -57,10 +56,11 @@ Declaration
 #define LM629_2_CS  PORTAbits.RA0
 #define LM629_3_CS  PORTBbits.RB4
 
-#define LM629_RD    PORTDbits.RD2
-#define LM629_PS    PORTCbits.RC2
-#define LM629_WR    PORTDbits.RD1
+#define LM629_RD    PORTDbits.RD2 //~Read
+#define LM629_PS    PORTCbits.RC2 //~Port Select
+#define LM629_WR    PORTDbits.RD1 //~Write (command byte is latched into the LM629 on the rising edge)
 #define LM629_RST   PORTBbits.RB5
+#define busy_bit    0x01          //bit 0 of the status register is the busy bit is logic "high" no command write may take place
 
 #define D0          PORTCbits.RC6
 #define D1          PORTCbits.RC7
@@ -85,7 +85,6 @@ unsigned int read_data();
 void write_data(unsigned char byte1, unsigned char byte2);
 void write_command(unsigned char command);
 void chip_select(unsigned char chip);
-bit busy_bit;
 void motor_break();
 void all_break();
 void motor_off();
@@ -112,11 +111,9 @@ void check_busy()
 {
 	unsigned char x;
 	x=read_status();
-	busy_bit=x;
-	while (busy_bit==1)
+	while (x & busy_bit)
 		{
 			x=read_status();
-			busy_bit=x;
 		}
 }
 	
@@ -298,10 +295,13 @@ chip_select(2);
 filter_module();
 chip_select(3);
 filter_module();
-
-
 }
 
+//Since the same bus is used for both reading and writing
+//the direction of the bus must be changed to input or output
+//before writing or reading data to the bus
+//if arg is 0x00, the direction will be OUT
+//if arg is 0xFF, the direction will be IN
 void DATABUS_DIR(unsigned char dir)
 {
 if(dir==0)
@@ -318,6 +318,9 @@ TRISB|=0b00000011;
 }
 }
 
+//either read or write data to the pins connected to the DATABUS in the correct order (connected to the lm629)
+//if dirl is 0x00, byte0 must be passed to the DATABUS in the correct order
+//if dirl is 0xFF, The values in the DATABUS must be returned in the correct order
 unsigned char DATABUS(unsigned char dir1, unsigned char byte0)
 {
 unsigned char x;
@@ -475,21 +478,21 @@ write_command(STT);
 void simple_relative_position()
 {
 write_command(LTRJ);
-check_busy;
+check_busy();
 write_data(0x00,0x2B); //All parameter will be loaded Vel & Acc
-check_busy;
+check_busy();
 write_data(0x00,0x00); //Acc. High
-check_busy;
+check_busy();
 write_data(0x00,0x11); //Acc. Low
-check_busy;
+check_busy();
 write_data(0x00,0x02); //Vel. High
-check_busy;
+check_busy();
 write_data(0x75,0x3F); //Vel. Low
-check_busy;
+check_busy();
 write_data(0xFF,0xFE); //Pos. High
-check_busy;
+check_busy();
 write_data(0x2B,0x40); //Pos. Low
-check_busy;
+check_busy();
 write_command(STT);
 }
 

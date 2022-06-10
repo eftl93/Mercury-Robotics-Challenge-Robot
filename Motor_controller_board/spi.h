@@ -17,9 +17,8 @@ End of Revisions
 ***********************************************************************/
 #ifndef SPI_H
 #define SPI_H
-#include <htc.h>
-#include <p18f46k22.h>
-#define _XTAL_FREQ 40000000
+#include <xc.h>
+#define _XTAL_FREQ 64000000
 
 #define SS1 PORTAbits.RA5
 #define SCLK1 PORTCbits.RC3
@@ -36,7 +35,7 @@ void spi_slave_init();
 void spi_data(unsigned char tx_data);
 unsigned char spi_read_data;
 
-void interrupt SPI()
+void __interrupt() SPI()
 {
 if(PIR1bits.SSP1IF&&PIE1bits.SSP1IE)
 {
