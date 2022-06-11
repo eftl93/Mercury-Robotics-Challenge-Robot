@@ -12,7 +12,6 @@
 Definition of Functions
 ***********************************************************************/
 
-
 void check_busy()
 {
 	unsigned char x;
@@ -23,8 +22,6 @@ void check_busy()
 		}
 }
 	
-
-
 unsigned char read_status()
 {
 	unsigned char status;
@@ -210,18 +207,18 @@ filter_module();
 //if arg is 0xFF, the direction will be IN
 void DATABUS_DIR(unsigned char dir)
 {
-if(dir==0)
-{
-TRISC&=0b00111111;
-TRISD&=0b00001111;
-TRISB&=0b11111100;
-}
-else if(dir==0xFF)
-{
-TRISC|=0b11000000;
-TRISD|=0b11110000;
-TRISB|=0b00000011;
-}
+    if(dir==0)
+    {
+        TRISC&=0b00111111;
+        TRISD&=0b00001111;
+        TRISB&=0b11111100;
+    }
+    else if(dir==0xFF)
+    {
+        TRISC|=0b11000000;
+        TRISD|=0b11110000;
+        TRISB|=0b00000011;
+    }
 }
 
 //either read or write data to the pins connected to the DATABUS in the correct order (connected to the lm629)
@@ -231,28 +228,40 @@ unsigned char DATABUS(unsigned char dir1, unsigned char byte0)
 {
 unsigned char x;
 if(dir1==0)
-{
-D0 = ((byte0 & 0x01) >> 0);
-D1 = ((byte0 & 0x02) >> 1);
-D2 = ((byte0 & 0x04) >> 2);
-D3 = ((byte0 & 0x08) >> 3);
-D4 = ((byte0 & 0x10) >> 4);
-D5 = ((byte0 & 0x20) >> 5);
-D6 = ((byte0 & 0x40) >> 6);
-D7 = ((byte0 & 0x80) >> 7);
-x=0;
+{ 
+    D0 = ((byte0 & 0x01) >> 0);
+    D1 = ((byte0 & 0x02) >> 1);
+    D2 = ((byte0 & 0x04) >> 2);
+    D3 = ((byte0 & 0x08) >> 3);
+    D4 = ((byte0 & 0x10) >> 4);
+    D5 = ((byte0 & 0x20) >> 5);
+    D6 = ((byte0 & 0x40) >> 6);
+    D7 = ((byte0 & 0x80) >> 7);
+    x=0;
 }
 
 else if (dir1==0xFF)
 {
-x=D7;
-x=(x<<1)+D6;
-x=(x<<1)+D5;
-x=(x<<1)+D4;
-x=(x<<1)+D3;
-x=(x<<1)+D2;
-x=(x<<1)+D1;
-x=(x<<1)+D0; 
+    x |= (D7 << 7);
+    x |= (D6 << 6);
+    x |= (D5 << 5);
+    x |= (D4 << 4);
+    x |= (D3 << 3);
+    x |= (D2 << 2);
+    x |= (D1 << 1);
+    x |= D0;
+    
+    //xc8 compiler seems to not like this
+/*            
+    x |= D7;
+    x = (x<<1) | D6;
+    x = (x<<1) | D5;
+    x = (x<<1) | D4;
+    x = (x<<1) | D3;
+    x = (x<<1) | D2;
+    x = (x<<1) | D1;
+    x = (x<<1) | D0; 
+ */
 }
 return x;
 }
@@ -300,106 +309,106 @@ void chip_select(unsigned char chip)
 
 void motor_off()
 {
-write_command(LTRJ);
-check_busy();
-write_data(0x01,0x00);
-check_busy();
-write_command(STT);
-check_busy();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x01,0x00);
+    check_busy();
+    write_command(STT);
+    check_busy();
 }
 
 void motor_break()
 {
-write_command(LTRJ);
-check_busy();
-write_data(0x02,0x00);
-check_busy();
-write_command(STT);
-check_busy();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x02,0x00);
+    check_busy();
+    write_command(STT);
+    check_busy();
 }
 
 void all_break()
 {
-chip_select(0);
-motor_break();
-chip_select(1);
-motor_break();
-chip_select(2);
-motor_break();
-chip_select(3);
-motor_break();
+    chip_select(0);
+    motor_break();
+    chip_select(1);
+    motor_break();
+    chip_select(2);
+    motor_break();
+    chip_select(3);
+    motor_break();
 }
 
 void all_off()
 {
-chip_select(0);
-motor_off();
-chip_select(1);
-motor_off();
-chip_select(2);
-motor_off();
-chip_select(3);
-motor_off();
+    chip_select(0);
+    motor_off();
+    chip_select(1);
+    motor_off();
+    chip_select(2);
+    motor_off();
+    chip_select(3);
+    motor_off();
 }
 
 void filter_module()
 {
-write_command(LFIL);
-check_busy();
-write_data(0x00,0x0F); //set all coefficients kp, ki, kd, il
-check_busy();
-write_data(0x01,0x0F); //kp
-check_busy();
-write_data(0x00,0x04); //ki
-check_busy();
-write_data(0x7F,0xFF); //kd
-check_busy();
-write_data(0x00,0xFF); //il
-check_busy();
-write_command(UDF);
-check_busy();
+    write_command(LFIL);
+    check_busy();
+    write_data(0x00,0x0F); //set all coefficients kp, ki, kd, il
+    check_busy();
+    write_data(0x01,0x0F); //kp
+    check_busy();
+    write_data(0x00,0x04); //ki
+    check_busy();
+    write_data(0x7F,0xFF); //kd
+    check_busy();
+    write_data(0x00,0xFF); //il
+    check_busy();
+    write_command(UDF);
+    check_busy();
 }
 
 void simple_absolute_postion()
 {
-write_command(LTRJ);
-check_busy();
-write_data(0x00,0x24);
-check_busy();
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x02);
-check_busy();
-write_data(0x00,0x00);
-check_busy();
-write_data(0x34,0x6E);
-check_busy();
-write_data(0x00,0x00);
-check_busy();
-write_data(0x1F,0x40);
-check_busy();
-write_command(STT);
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x00,0x24);
+    check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x02);
+    check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x34,0x6E);
+    check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x1F,0x40);
+    check_busy();
+    write_command(STT);
 }
 
 void simple_relative_position()
 {
-write_command(LTRJ);
-check_busy();
-write_data(0x00,0x2B); //All parameter will be loaded Vel & Acc
-check_busy();
-write_data(0x00,0x00); //Acc. High
-check_busy();
-write_data(0x00,0x11); //Acc. Low
-check_busy();
-write_data(0x00,0x02); //Vel. High
-check_busy();
-write_data(0x75,0x3F); //Vel. Low
-check_busy();
-write_data(0xFF,0xFE); //Pos. High
-check_busy();
-write_data(0x2B,0x40); //Pos. Low
-check_busy();
-write_command(STT);
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x00,0x2B); //All parameter will be loaded Vel & Acc
+    check_busy();
+    write_data(0x00,0x00); //Acc. High
+    check_busy();
+    write_data(0x00,0x11); //Acc. Low
+    check_busy();
+    write_data(0x00,0x02); //Vel. High
+    check_busy();
+    write_data(0x75,0x3F); //Vel. Low
+    check_busy();
+    write_data(0xFF,0xFE); //Pos. High
+    check_busy();
+    write_data(0x2B,0x40); //Pos. Low
+    check_busy();
+    write_command(STT);
 }
 
 void velocity_mode_breakpoints()
@@ -409,384 +418,763 @@ void velocity_mode_breakpoints()
 
 void forward()
 {
-chip_select(0);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x18,0x28);
-check_busy();
+    chip_select(0);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);
+    check_busy();
 
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
 
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
-
-
-chip_select(1);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x08,0x28);
-check_busy();
-
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
-
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
 
 
-chip_select(2);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x08,0x28);
-check_busy();
+    chip_select(1);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
 
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
 
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
-
-
-chip_select(3);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x18,0x28);
-check_busy();
-
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
-
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
 
 
-chip_select(0);
-write_command(STT);
-check_busy();
+    chip_select(2);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
 
-chip_select(2);
-write_command(STT);
-check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
 
-chip_select(1);
-write_command(STT);
-check_busy();
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
 
-chip_select(3);
-write_command(STT);
-check_busy();
+
+    chip_select(3);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
+
+
+    chip_select(0);
+    write_command(STT);
+    check_busy();
+
+    chip_select(2);
+    write_command(STT);
+    check_busy();
+
+    chip_select(1);
+    write_command(STT);
+    check_busy();
+
+    chip_select(3);
+    write_command(STT);
+    check_busy();
 }
 
 
 void reverse()
 {
-chip_select(1);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x18,0x28);
-check_busy();
+    chip_select(1);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);
+    check_busy();
 
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
 
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
-
-
-chip_select(0);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x08,0x28);
-check_busy();
-
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
-
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
 
 
+    chip_select(0);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
 
-chip_select(3);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x08,0x28);
-check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
 
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
-
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
-
-chip_select(2);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x18,0x28);
-check_busy();
-
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
-
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
 
 
-chip_select(0);
-write_command(STT);
-check_busy();
 
-chip_select(2);
-write_command(STT);
-check_busy();
+    chip_select(3);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
 
-chip_select(1);
-write_command(STT);
-check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
 
-chip_select(3);
-write_command(STT);
-check_busy();
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
+
+    chip_select(2);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
+
+
+    chip_select(0);
+    write_command(STT);
+    check_busy();
+
+    chip_select(2);
+    write_command(STT);
+    check_busy();
+
+    chip_select(1);
+    write_command(STT);
+    check_busy();
+
+    chip_select(3);
+    write_command(STT);
+    check_busy();
 }
 
 void right()
 {
-chip_select(0);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x08,0x28);
-check_busy();
+    chip_select(0);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
 
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
 
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
-
-
-chip_select(1);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x08,0x28);
-check_busy();
-
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
-
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
 
 
-chip_select(2);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x08,0x28);
-check_busy();
+    chip_select(1);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
 
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
 
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
-
-
-chip_select(3);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x08,0x28);
-check_busy();
-
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
-
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
 
 
-chip_select(0);
-write_command(STT);
-check_busy();
+    chip_select(2);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
 
-chip_select(2);
-write_command(STT);
-check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
 
-chip_select(1);
-write_command(STT);
-check_busy();
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
 
-chip_select(3);
-write_command(STT);
-check_busy();
+
+    chip_select(3);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
+
+
+    chip_select(0);
+    write_command(STT);
+    check_busy();
+
+    chip_select(2);
+    write_command(STT);
+    check_busy();
+
+    chip_select(1);
+    write_command(STT);
+    check_busy();
+
+    chip_select(3);
+    write_command(STT);
+    check_busy();
 }
 
 void left()
 {
-chip_select(0);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x18,0x28);
-check_busy();
+    chip_select(0);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);
+    check_busy();
 
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
 
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
 
-chip_select(1);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x18,0x28);
-check_busy();
+    chip_select(1);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);
+    check_busy();
 
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
 
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
-
-
-chip_select(2);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x18,0x28);
-check_busy();
-
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
-
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
 
 
-chip_select(3);
-check_busy();
-motor_off();
-write_command(LTRJ);
-check_busy();
-write_data(0x18,0x28);
-check_busy();
+    chip_select(2);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);
+    check_busy();
 
-write_data(0x00,0x00);
-check_busy();
-write_data(0x00,0x48);
-check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
 
-write_data(0x00,0x01);
-check_busy();
-write_data(0xFA,0xD0);
-check_busy();
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
 
 
-chip_select(0);
-write_command(STT);
-check_busy();
+    chip_select(3);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);
+    check_busy();
 
-chip_select(2);
-write_command(STT);
-check_busy();
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
 
-chip_select(1);
-write_command(STT);
-check_busy();
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
 
-chip_select(3);
-write_command(STT);
-check_busy();
+
+    chip_select(0);
+    write_command(STT);
+    check_busy();
+
+    chip_select(2);
+    write_command(STT);
+    check_busy();
+
+    chip_select(1);
+    write_command(STT);
+    check_busy();
+
+    chip_select(3);
+    write_command(STT);
+    check_busy();
 }
 
+void forward_left()
+{
+    chip_select(0);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
+
+
+    chip_select(1); 
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0xFD,0x68);
+    check_busy();
+
+
+    chip_select(2); 
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0xFD,0x68);
+    check_busy();
+
+
+    chip_select(3);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
+
+
+    chip_select(0);
+    write_command(STT);
+    check_busy();
+
+    chip_select(2);
+    write_command(STT);
+    check_busy();
+
+    chip_select(1);
+    write_command(STT);
+    check_busy();
+
+    chip_select(3);
+    write_command(STT);
+    check_busy();
+    }
+
+    void forward_right()
+    {
+    chip_select(0);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);  //right wheel
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0xFD,0x68);
+    check_busy();
+
+
+    chip_select(1);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
+
+
+    chip_select(2);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
+
+
+    chip_select(3);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28); //right wheel
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0xFD,0x68);
+    check_busy();
+
+
+    chip_select(0);
+    write_command(STT);
+    check_busy();
+
+    chip_select(2);
+    write_command(STT);
+    check_busy();
+
+    chip_select(1);
+    write_command(STT);
+    check_busy();
+
+    chip_select(3);
+    write_command(STT);
+    check_busy();
+    }
+
+    void reverse_left()
+    {
+    chip_select(1);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
+
+
+    chip_select(0); 
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0xFD,0x68);
+    check_busy();
+
+
+
+    chip_select(3); 
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0xFD,0x68);
+    check_busy();
+
+    chip_select(2);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
+
+
+    chip_select(0);
+    write_command(STT);
+    check_busy();
+
+    chip_select(2);
+    write_command(STT);
+    check_busy();
+
+    chip_select(1);
+    write_command(STT);
+    check_busy();
+
+    chip_select(3);
+    write_command(STT);
+    check_busy();
+}
+
+void reverse_right()
+{
+    chip_select(1);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0xFD,0x68);
+    check_busy();
+
+
+    chip_select(0); 
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
+
+
+
+    chip_select(3); 
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x08,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
+    check_busy();
+
+    chip_select(2);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0xFD,0x68);
+    check_busy();
+
+
+    chip_select(0);
+    write_command(STT);
+    check_busy();
+
+    chip_select(2);
+    write_command(STT);
+    check_busy();
+
+    chip_select(1);
+    write_command(STT);
+    check_busy();
+
+    chip_select(3);
+    write_command(STT);
+    check_busy();
+}
 /***********************************************************************
 End of definition of functions
 ***********************************************************************/

@@ -119,83 +119,114 @@ White>>>>>>Hall Sensor B Output
 #include "main.h"
 #define _XTAL_FREQ 64000000       //Use 64MHz as FOSC (16MHz Crystal with 4X PLL)
 
-
-
 ////////////////////////////////////////////////////////////////////////////////
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
 //%///////////////////////////Start Main Loop////////////////////////////////%//
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
 ////////////////////////////////////////////////////////////////////////////////
+extern volatile unsigned char spi_read_data;
+
 void main(void)
 {
-    IPEN=0;
-    INTCON=0;
-    ANSELA=0;
-    ANSELB=0;
-    ANSELC=0;
-    ANSELD=0;
-    ANSELE=0;
-    SSP1CON1=0x00;
-    SSP2CON1=0x00;
-    CM1CON0=0b00000000;
-    CM2CON0=0b00000000;
-    PORTB=0x00;
-    TRISA=0x00;
-    TRISD=0x00;
-    TRISB=0x00;
-    TRISC=0x00;
-    CTMUCONH=0x00;
-    SRCON0=0x00;
-    VREFCON0=0x00;
-    VREFCON1=0x00;
-    HLVDCON=0x00;
-    LM629_init();
-    spi_slave_init();
+    RCON &= 0x7F;   //RCONbits.IPEN = 0, Disable priority level on interrupts
+    INTCON=0;       //disable global interrupt and peripheral interrupts
+    ANSELA=0;       //disable analog output on port A
+    ANSELB=0;       //disable analog output on port B
+    ANSELC=0;       //disable analog output on port C
+    ANSELD=0;       //disable analog output on port D
+    ANSELE=0;       //disable analog output on port E
+    SSP1CON1=0x00;  //disable serial peripherals 1
+    SSP2CON1=0x00;  //disable serial peripherals 2
+    CM1CON0=0b00000000; //disable comparator 1
+    CM2CON0=0b00000000; //disable comparator 2
+    TRISA=0xFF;     //initialize as input for safety
+    TRISD=0xFF;     //initialize as input for safety
+    TRISB=0xFF;     //initialize as input for safety
+    TRISC=0xFF;     //initialize as input for safety
+    CTMUCONH=0x00;  //disables charge time measurement unit
+    SRCON0=0x00;    //disable SR-latch
+    VREFCON0=0x00;  //disables fixed voltage reference
+    VREFCON1=0x00;  //disables the DDC
+    HLVDCON=0x00;   //disables the high/low voltage detect module
+    
+    LM629_init();       //initializes the four LM629 (precision Motion Controllers)
+    spi_slave_init();   //initializes the SSP as an SPI slave device
     unsigned char received_data;
-    unsigned char temp_clear;
-
+    unsigned char dummy_data;
+    received_data = 0x00;
+    dummy_data = 0x55;
+    spi_data(dummy_data); //load the SPI buffer with a dummy
+    
+    //every time this MCU receives a character via SPI, the ISR will read the buffer
+    //in this infinite loop, the value of the received character is read and the 
+    //correct function is called, each function is meant to send commands to the
+    //LM629s in order to generate the correct PWM signals which are fed to H-Bridges
+    //to start mobilizing the robot
     while(1)
     {
-        temp_clear=SSP1BUF;
-        spi_data(0b01010100);
-        received_data=spi_read_data;
+        received_data = spi_read_data;
 
-        if(received_data==0x77)
+        if(received_data==0x77) //'w'
         {
             all_off();
             forward();
         }
 
-        else if(received_data==0x73)
+        else if(received_data==0x73)//'s'
         {
             all_off();
             reverse();
         }
 
-        else if(received_data==0x61)
+        else if(received_data==0x61)//'a'
         {
             all_off();
             left();
         }
 
-        else if(received_data==0x64)
+        else if(received_data==0x64)//'d'
         {
             all_off();
             right();
         }
 
-        else if(received_data==0x6F)
+        else if(received_data==0x6F)//'o'
         {
             all_off();
         }
 
-        else if(received_data==0x62)
+        else if(received_data==0x62)//'b'
         {
             all_break();
         }
 
-        else if(received_data==0x71)
+        else if (received_data==0) //'\0'
         {
+            all_off();
+        }
+
+        else if(received_data==0x34) //'4'
+        {
+            all_off();
+            forward_right();
+        }
+
+        else if(received_data==0x31) //'1'
+        {
+            all_off();
+            forward_left();
+        }
+
+        else if(received_data==0x32) //'2'
+        {
+            all_off();
+            reverse_left();
+        }
+
+        else if(received_data==0x33) //'3'
+        {
+            all_off();
+            reverse_right();
         }
 
 

@@ -10,7 +10,7 @@
 #ifndef XC_HEADER_TEMPLATE_H
 #define	XC_HEADER_TEMPLATE_H
 
-#include <xc.h> // include processor files - each processor file is guarded.  
+#include <xc.h> // include processor files   
 
 //Register: CONFIG1H @0x300001
 #pragma config FOSC = HSHP      //High Speed Oscillator, High Power

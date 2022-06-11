@@ -54,8 +54,8 @@ Declaration
 //Pins Declaration
 #define LM629_0_CS  PORTDbits.RD3 //Chip Select 0
 #define LM629_1_CS  PORTBbits.RB2 //Chip Select 1
-#define LM629_2_CS  PORTAbits.RA0
-#define LM629_3_CS  PORTBbits.RB4
+#define LM629_2_CS  PORTAbits.RA0 //Chip Select 2
+#define LM629_3_CS  PORTBbits.RB4 //Chip Select 3
 
 #define LM629_RD    PORTDbits.RD2 //~Read
 #define LM629_PS    PORTCbits.RC2 //~Port Select
@@ -96,6 +96,10 @@ void forward(void);
 void reverse(void);
 void left(void);
 void right(void);
+void forward_right(void);
+void forward_left(void);
+void reverse_right(void);
+void reverse_left(void);
 /***********************************************************************
 End of Declaration
 ***********************************************************************/

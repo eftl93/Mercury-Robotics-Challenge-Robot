@@ -954,2104 +954,3016 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17407
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f46k22.h: 17407: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"16 lm629.c
-[; ;lm629.c: 16: void check_busy()
+"15 lm629.c
+[; ;lm629.c: 15: void check_busy()
 [v _check_busy `(v ~T0 @X0 1 ef ]
-"17
-[; ;lm629.c: 17: {
+"16
+[; ;lm629.c: 16: {
 {
 [e :U _check_busy ]
 [f ]
-"18
-[; ;lm629.c: 18:  unsigned char x;
+"17
+[; ;lm629.c: 17:  unsigned char x;
 [v _x `uc ~T0 @X0 1 a ]
-"19
-[; ;lm629.c: 19:  x=read_status();
+"18
+[; ;lm629.c: 18:  x=read_status();
 [e = _x ( _read_status ..  ]
-"20
-[; ;lm629.c: 20:  while (x & 0x01)
+"19
+[; ;lm629.c: 19:  while (x & 0x01)
 [e $U 855  ]
 [e :U 856 ]
-"21
-[; ;lm629.c: 21:   {
+"20
+[; ;lm629.c: 20:   {
 {
-"22
-[; ;lm629.c: 22:    x=read_status();
+"21
+[; ;lm629.c: 21:    x=read_status();
 [e = _x ( _read_status ..  ]
-"23
-[; ;lm629.c: 23:   }
+"22
+[; ;lm629.c: 22:   }
 }
 [e :U 855 ]
-"20
-[; ;lm629.c: 20:  while (x & 0x01)
+"19
+[; ;lm629.c: 19:  while (x & 0x01)
 [e $ != & -> _x `i -> 1 `i -> 0 `i 856  ]
 [e :U 857 ]
-"24
-[; ;lm629.c: 24: }
+"23
+[; ;lm629.c: 23: }
 [e :UE 854 ]
 }
-"28
-[; ;lm629.c: 28: unsigned char read_status()
+"25
+[; ;lm629.c: 25: unsigned char read_status()
 [v _read_status `(uc ~T0 @X0 1 ef ]
-"29
-[; ;lm629.c: 29: {
+"26
+[; ;lm629.c: 26: {
 {
 [e :U _read_status ]
 [f ]
-"30
-[; ;lm629.c: 30:  unsigned char status;
+"27
+[; ;lm629.c: 27:  unsigned char status;
 [v _status `uc ~T0 @X0 1 a ]
-"31
-[; ;lm629.c: 31:  DATABUS_DIR(0xFF);
+"28
+[; ;lm629.c: 28:  DATABUS_DIR(0xFF);
 [e ( _DATABUS_DIR (1 -> -> 255 `i `uc ]
-"32
-[; ;lm629.c: 32:  PORTCbits.RC2=0;
+"29
+[; ;lm629.c: 29:  PORTCbits.RC2=0;
 [e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-"33
-[; ;lm629.c: 33:  _delay(3);
+"30
+[; ;lm629.c: 30:  _delay(3);
 [e ( __delay (1 -> -> -> 3 `i `l `ul ]
-"34
-[; ;lm629.c: 34:  PORTDbits.RD2=0;
+"31
+[; ;lm629.c: 31:  PORTDbits.RD2=0;
 [e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
-"35
-[; ;lm629.c: 35:  _delay(12);
+"32
+[; ;lm629.c: 32:  _delay(12);
 [e ( __delay (1 -> -> -> 12 `i `l `ul ]
-"36
-[; ;lm629.c: 36:  status=DATABUS(0xFF,0);
+"33
+[; ;lm629.c: 33:  status=DATABUS(0xFF,0);
 [e = _status ( _DATABUS (2 , -> -> 255 `i `uc -> -> 0 `i `uc ]
-"37
-[; ;lm629.c: 37:  PORTDbits.RD2=1;
+"34
+[; ;lm629.c: 34:  PORTDbits.RD2=1;
 [e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-"38
-[; ;lm629.c: 38:  _delay(5);
+"35
+[; ;lm629.c: 35:  _delay(5);
 [e ( __delay (1 -> -> -> 5 `i `l `ul ]
-"39
-[; ;lm629.c: 39:  PORTCbits.RC2=1;
+"36
+[; ;lm629.c: 36:  PORTCbits.RC2=1;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"41
-[; ;lm629.c: 41: return status;
+"38
+[; ;lm629.c: 38: return status;
 [e ) _status ]
 [e $UE 858  ]
-"42
-[; ;lm629.c: 42: }
+"39
+[; ;lm629.c: 39: }
 [e :UE 858 ]
 }
-"44
-[; ;lm629.c: 44: unsigned int read_data()
+"41
+[; ;lm629.c: 41: unsigned int read_data()
 [v _read_data `(ui ~T0 @X0 1 ef ]
-"45
-[; ;lm629.c: 45: {
+"42
+[; ;lm629.c: 42: {
 {
 [e :U _read_data ]
 [f ]
-"46
-[; ;lm629.c: 46:  unsigned char left_value;
+"43
+[; ;lm629.c: 43:  unsigned char left_value;
 [v _left_value `uc ~T0 @X0 1 a ]
-"47
-[; ;lm629.c: 47:  unsigned char right_value;
+"44
+[; ;lm629.c: 44:  unsigned char right_value;
 [v _right_value `uc ~T0 @X0 1 a ]
-"48
-[; ;lm629.c: 48:  unsigned int data;
+"45
+[; ;lm629.c: 45:  unsigned int data;
 [v _data `ui ~T0 @X0 1 a ]
-"49
-[; ;lm629.c: 49:  DATABUS_DIR(0xFF);
+"46
+[; ;lm629.c: 46:  DATABUS_DIR(0xFF);
 [e ( _DATABUS_DIR (1 -> -> 255 `i `uc ]
-"50
-[; ;lm629.c: 50:  PORTCbits.RC2=1;
+"47
+[; ;lm629.c: 47:  PORTCbits.RC2=1;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"51
-[; ;lm629.c: 51:  _delay(3);
+"48
+[; ;lm629.c: 48:  _delay(3);
 [e ( __delay (1 -> -> -> 3 `i `l `ul ]
-"52
-[; ;lm629.c: 52:  PORTDbits.RD2=0;
+"49
+[; ;lm629.c: 49:  PORTDbits.RD2=0;
 [e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
+"50
+[; ;lm629.c: 50:  _delay(12);
+[e ( __delay (1 -> -> -> 12 `i `l `ul ]
+"51
+[; ;lm629.c: 51:  left_value=DATABUS(0xFF,0);
+[e = _left_value ( _DATABUS (2 , -> -> 255 `i `uc -> -> 0 `i `uc ]
+"52
+[; ;lm629.c: 52:  PORTDbits.RD2=1;
+[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
 "53
 [; ;lm629.c: 53:  _delay(12);
 [e ( __delay (1 -> -> -> 12 `i `l `ul ]
 "54
-[; ;lm629.c: 54:  left_value=DATABUS(0xFF,0);
-[e = _left_value ( _DATABUS (2 , -> -> 255 `i `uc -> -> 0 `i `uc ]
-"55
-[; ;lm629.c: 55:  PORTDbits.RD2=1;
-[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-"56
-[; ;lm629.c: 56:  _delay(12);
-[e ( __delay (1 -> -> -> 12 `i `l `ul ]
-"57
-[; ;lm629.c: 57:  PORTDbits.RD2=0;
+[; ;lm629.c: 54:  PORTDbits.RD2=0;
 [e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
-"58
-[; ;lm629.c: 58:  _delay(12);
+"55
+[; ;lm629.c: 55:  _delay(12);
 [e ( __delay (1 -> -> -> 12 `i `l `ul ]
-"59
-[; ;lm629.c: 59:  right_value=DATABUS(0xFF,0);
+"56
+[; ;lm629.c: 56:  right_value=DATABUS(0xFF,0);
 [e = _right_value ( _DATABUS (2 , -> -> 255 `i `uc -> -> 0 `i `uc ]
-"60
-[; ;lm629.c: 60:  PORTDbits.RD2=1;
+"57
+[; ;lm629.c: 57:  PORTDbits.RD2=1;
 [e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-"61
-[; ;lm629.c: 61:  _delay(3);
+"58
+[; ;lm629.c: 58:  _delay(3);
 [e ( __delay (1 -> -> -> 3 `i `l `ul ]
-"62
-[; ;lm629.c: 62:  PORTCbits.RC2=1;
+"59
+[; ;lm629.c: 59:  PORTCbits.RC2=1;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"63
-[; ;lm629.c: 63:  data=left_value;
+"60
+[; ;lm629.c: 60:  data=left_value;
 [e = _data -> _left_value `ui ]
-"64
-[; ;lm629.c: 64:  data=data<<8;
+"61
+[; ;lm629.c: 61:  data=data<<8;
 [e = _data << _data -> 8 `i ]
-"65
-[; ;lm629.c: 65:  data=data+right_value;
+"62
+[; ;lm629.c: 62:  data=data+right_value;
 [e = _data + _data -> _right_value `ui ]
-"67
-[; ;lm629.c: 67:  return data;
+"64
+[; ;lm629.c: 64:  return data;
 [e ) _data ]
 [e $UE 859  ]
-"68
-[; ;lm629.c: 68: }
+"65
+[; ;lm629.c: 65: }
 [e :UE 859 ]
 }
-"70
-[; ;lm629.c: 70: void write_data( unsigned char byte1, unsigned char byte2)
+"67
+[; ;lm629.c: 67: void write_data( unsigned char byte1, unsigned char byte2)
 [v _write_data `(v ~T0 @X0 1 ef2`uc`uc ]
-"71
-[; ;lm629.c: 71: {
+"68
+[; ;lm629.c: 68: {
 {
 [e :U _write_data ]
-"70
-[; ;lm629.c: 70: void write_data( unsigned char byte1, unsigned char byte2)
+"67
+[; ;lm629.c: 67: void write_data( unsigned char byte1, unsigned char byte2)
 [v _byte1 `uc ~T0 @X0 1 r1 ]
 [v _byte2 `uc ~T0 @X0 1 r2 ]
-"71
-[; ;lm629.c: 71: {
+"68
+[; ;lm629.c: 68: {
 [f ]
-"72
-[; ;lm629.c: 72:  _delay((unsigned long)((1)*(64000000/4000000.0)));
+"69
+[; ;lm629.c: 69:  _delay((unsigned long)((1)*(64000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"73
-[; ;lm629.c: 73:  DATABUS_DIR(0);
+"70
+[; ;lm629.c: 70:  DATABUS_DIR(0);
 [e ( _DATABUS_DIR (1 -> -> 0 `i `uc ]
+"71
+[; ;lm629.c: 71:  PORTCbits.RC2=1;
+[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
+"72
+[; ;lm629.c: 72:  _delay(3);
+[e ( __delay (1 -> -> -> 3 `i `l `ul ]
+"73
+[; ;lm629.c: 73:  PORTDbits.RD1=0;
+[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
 "74
-[; ;lm629.c: 74:  PORTCbits.RC2=1;
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"75
-[; ;lm629.c: 75:  _delay(3);
-[e ( __delay (1 -> -> -> 3 `i `l `ul ]
-"76
-[; ;lm629.c: 76:  PORTDbits.RD1=0;
-[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-"77
-[; ;lm629.c: 77:  _delay(8);
+[; ;lm629.c: 74:  _delay(8);
 [e ( __delay (1 -> -> -> 8 `i `l `ul ]
-"78
-[; ;lm629.c: 78:  DATABUS(0,byte1);
+"75
+[; ;lm629.c: 75:  DATABUS(0,byte1);
 [e ( _DATABUS (2 , -> -> 0 `i `uc _byte1 ]
-"79
-[; ;lm629.c: 79:  _delay(5);
+"76
+[; ;lm629.c: 76:  _delay(5);
 [e ( __delay (1 -> -> -> 5 `i `l `ul ]
-"80
-[; ;lm629.c: 80:  PORTDbits.RD1=1;
+"77
+[; ;lm629.c: 77:  PORTDbits.RD1=1;
 [e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
-"81
-[; ;lm629.c: 81:  _delay(10);
+"78
+[; ;lm629.c: 78:  _delay(10);
 [e ( __delay (1 -> -> -> 10 `i `l `ul ]
-"82
-[; ;lm629.c: 82:  PORTDbits.RD1=0;
+"79
+[; ;lm629.c: 79:  PORTDbits.RD1=0;
 [e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-"83
-[; ;lm629.c: 83:  _delay(5);
+"80
+[; ;lm629.c: 80:  _delay(5);
 [e ( __delay (1 -> -> -> 5 `i `l `ul ]
-"84
-[; ;lm629.c: 84:  DATABUS(0,byte2);
+"81
+[; ;lm629.c: 81:  DATABUS(0,byte2);
 [e ( _DATABUS (2 , -> -> 0 `i `uc _byte2 ]
-"85
-[; ;lm629.c: 85:  _delay(5);
+"82
+[; ;lm629.c: 82:  _delay(5);
 [e ( __delay (1 -> -> -> 5 `i `l `ul ]
-"86
-[; ;lm629.c: 86:  PORTDbits.RD1=1;
+"83
+[; ;lm629.c: 83:  PORTDbits.RD1=1;
 [e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
-"87
-[; ;lm629.c: 87:  _delay(3);
+"84
+[; ;lm629.c: 84:  _delay(3);
 [e ( __delay (1 -> -> -> 3 `i `l `ul ]
-"88
-[; ;lm629.c: 88:  PORTCbits.RC2=1;
+"85
+[; ;lm629.c: 85:  PORTCbits.RC2=1;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"90
-[; ;lm629.c: 90: }
+"87
+[; ;lm629.c: 87: }
 [e :UE 860 ]
 }
-"92
-[; ;lm629.c: 92: void write_command(unsigned char command)
+"89
+[; ;lm629.c: 89: void write_command(unsigned char command)
 [v _write_command `(v ~T0 @X0 1 ef1`uc ]
-"93
-[; ;lm629.c: 93: {
+"90
+[; ;lm629.c: 90: {
 {
 [e :U _write_command ]
-"92
-[; ;lm629.c: 92: void write_command(unsigned char command)
+"89
+[; ;lm629.c: 89: void write_command(unsigned char command)
 [v _command `uc ~T0 @X0 1 r1 ]
-"93
-[; ;lm629.c: 93: {
+"90
+[; ;lm629.c: 90: {
 [f ]
-"94
-[; ;lm629.c: 94:  DATABUS_DIR(0);
+"91
+[; ;lm629.c: 91:  DATABUS_DIR(0);
 [e ( _DATABUS_DIR (1 -> -> 0 `i `uc ]
-"95
-[; ;lm629.c: 95:  PORTCbits.RC2=0;
+"92
+[; ;lm629.c: 92:  PORTCbits.RC2=0;
 [e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-"96
-[; ;lm629.c: 96:  _delay(3);
+"93
+[; ;lm629.c: 93:  _delay(3);
 [e ( __delay (1 -> -> -> 3 `i `l `ul ]
-"97
-[; ;lm629.c: 97:  PORTDbits.RD1=0;
+"94
+[; ;lm629.c: 94:  PORTDbits.RD1=0;
 [e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-"98
-[; ;lm629.c: 98:  _delay(5);
+"95
+[; ;lm629.c: 95:  _delay(5);
 [e ( __delay (1 -> -> -> 5 `i `l `ul ]
-"99
-[; ;lm629.c: 99:  DATABUS(0,command);
+"96
+[; ;lm629.c: 96:  DATABUS(0,command);
 [e ( _DATABUS (2 , -> -> 0 `i `uc _command ]
-"100
-[; ;lm629.c: 100:  _delay(5);
+"97
+[; ;lm629.c: 97:  _delay(5);
 [e ( __delay (1 -> -> -> 5 `i `l `ul ]
-"101
-[; ;lm629.c: 101:  PORTDbits.RD1=1;
+"98
+[; ;lm629.c: 98:  PORTDbits.RD1=1;
 [e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
-"102
-[; ;lm629.c: 102:  _delay(3);
+"99
+[; ;lm629.c: 99:  _delay(3);
 [e ( __delay (1 -> -> -> 3 `i `l `ul ]
-"103
-[; ;lm629.c: 103:  PORTCbits.RC2=1;
+"100
+[; ;lm629.c: 100:  PORTCbits.RC2=1;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"104
-[; ;lm629.c: 104:  _delay(11);
+"101
+[; ;lm629.c: 101:  _delay(11);
 [e ( __delay (1 -> -> -> 11 `i `l `ul ]
-"106
-[; ;lm629.c: 106: }
+"103
+[; ;lm629.c: 103: }
 [e :UE 861 ]
 }
-"108
-[; ;lm629.c: 108: void LM629_init()
+"105
+[; ;lm629.c: 105: void LM629_init()
 [v _LM629_init `(v ~T0 @X0 1 ef ]
-"109
-[; ;lm629.c: 109: {
+"106
+[; ;lm629.c: 106: {
 {
 [e :U _LM629_init ]
 [f ]
-"110
-[; ;lm629.c: 110:  unsigned char x;
+"107
+[; ;lm629.c: 107:  unsigned char x;
 [v _x `uc ~T0 @X0 1 a ]
-"111
-[; ;lm629.c: 111:  x=0;
+"108
+[; ;lm629.c: 108:  x=0;
 [e = _x -> -> 0 `i `uc ]
-"112
-[; ;lm629.c: 112:  TRISB&=0b11000011;
+"109
+[; ;lm629.c: 109:  TRISB&=0b11000011;
 [e =& _TRISB -> -> 195 `i `Vuc ]
-"113
-[; ;lm629.c: 113:  TRISD&=0b11110001;
+"110
+[; ;lm629.c: 110:  TRISD&=0b11110001;
 [e =& _TRISD -> -> 241 `i `Vuc ]
-"114
-[; ;lm629.c: 114:  TRISC&=0b11111011;
+"111
+[; ;lm629.c: 111:  TRISC&=0b11111011;
 [e =& _TRISC -> -> 251 `i `Vuc ]
-"115
-[; ;lm629.c: 115:  PORTCbits.RC2=1;
+"112
+[; ;lm629.c: 112:  PORTCbits.RC2=1;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"116
-[; ;lm629.c: 116:  PORTDbits.RD2=1;
+"113
+[; ;lm629.c: 113:  PORTDbits.RD2=1;
 [e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-"117
-[; ;lm629.c: 117:  PORTDbits.RD1=1;
+"114
+[; ;lm629.c: 114:  PORTDbits.RD1=1;
 [e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
-"118
-[; ;lm629.c: 118:  PORTBbits.RB5=1;
+"115
+[; ;lm629.c: 115:  PORTBbits.RB5=1;
 [e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
-"119
-[; ;lm629.c: 119:  chip_select(0);
+"116
+[; ;lm629.c: 116:  chip_select(0);
 [e ( _chip_select (1 -> -> 0 `i `uc ]
-"120
-[; ;lm629.c: 120: beginning:
+"117
+[; ;lm629.c: 117: beginning:
 [e :U 863 ]
-"121
-[; ;lm629.c: 121:  _delay((unsigned long)((10)*(64000000/4000000.0)));
+"118
+[; ;lm629.c: 118:  _delay((unsigned long)((10)*(64000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"122
-[; ;lm629.c: 122:  PORTBbits.RB5=0;
+"119
+[; ;lm629.c: 119:  PORTBbits.RB5=0;
 [e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
-"123
-[; ;lm629.c: 123:  _delay((unsigned long)((2)*(64000000/4000000.0)));
+"120
+[; ;lm629.c: 120:  _delay((unsigned long)((2)*(64000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"124
-[; ;lm629.c: 124:  PORTBbits.RB5=1;
+"121
+[; ;lm629.c: 121:  PORTBbits.RB5=1;
 [e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
-"125
-[; ;lm629.c: 125:  _delay((unsigned long)((2)*(64000000/4000.0)));
+"122
+[; ;lm629.c: 122:  _delay((unsigned long)((2)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"126
-[; ;lm629.c: 126:  x=read_status();
+"123
+[; ;lm629.c: 123:  x=read_status();
 [e = _x ( _read_status ..  ]
-"127
-[; ;lm629.c: 127:  if(!(x==0xC4 || x==0x84))
+"124
+[; ;lm629.c: 124:  if(!(x==0xC4 || x==0x84))
 [e $ ! ! || == -> _x `i -> 196 `i == -> _x `i -> 132 `i 864  ]
-"128
-[; ;lm629.c: 128:   {
+"125
+[; ;lm629.c: 125:   {
 {
-"129
-[; ;lm629.c: 129:   goto beginning;
+"126
+[; ;lm629.c: 126:   goto beginning;
 [e $U 863  ]
-"130
-[; ;lm629.c: 130:   }
+"127
+[; ;lm629.c: 127:   }
 }
 [e $U 865  ]
-"131
-[; ;lm629.c: 131:  else
+"128
+[; ;lm629.c: 128:  else
 [e :U 864 ]
-"132
-[; ;lm629.c: 132:   {
+"129
+[; ;lm629.c: 129:   {
 {
-"133
-[; ;lm629.c: 133:    check_busy();
+"130
+[; ;lm629.c: 130:    check_busy();
 [e ( _check_busy ..  ]
-"134
-[; ;lm629.c: 134:    write_command(0x1D);
+"131
+[; ;lm629.c: 131:    write_command(0x1D);
 [e ( _write_command (1 -> -> 29 `i `uc ]
-"135
-[; ;lm629.c: 135:          check_busy();
+"132
+[; ;lm629.c: 132:          check_busy();
 [e ( _check_busy ..  ]
-"136
-[; ;lm629.c: 136:    write_data(0x00,0x00);
+"133
+[; ;lm629.c: 133:    write_data(0x00,0x00);
 [e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"137
-[; ;lm629.c: 137:    check_busy();
+"134
+[; ;lm629.c: 134:    check_busy();
 [e ( _check_busy ..  ]
-"138
-[; ;lm629.c: 138:    x=read_status();
+"135
+[; ;lm629.c: 135:    x=read_status();
 [e = _x ( _read_status ..  ]
-"139
-[; ;lm629.c: 139:             if(!(x==0xC0 || x==0x80))
+"136
+[; ;lm629.c: 136:             if(!(x==0xC0 || x==0x80))
 [e $ ! ! || == -> _x `i -> 192 `i == -> _x `i -> 128 `i 866  ]
-"140
-[; ;lm629.c: 140:     {
+"137
+[; ;lm629.c: 137:     {
 {
-"141
-[; ;lm629.c: 141:     goto beginning;
+"138
+[; ;lm629.c: 138:     goto beginning;
 [e $U 863  ]
-"142
-[; ;lm629.c: 142:     }
+"139
+[; ;lm629.c: 139:     }
 }
 [e :U 866 ]
-"143
-[; ;lm629.c: 143:   }
+"140
+[; ;lm629.c: 140:   }
 }
 [e :U 865 ]
-"145
-[; ;lm629.c: 145:  chip_select(1);
+"142
+[; ;lm629.c: 142:  chip_select(1);
 [e ( _chip_select (1 -> -> 1 `i `uc ]
-"146
-[; ;lm629.c: 146: beginning1:
+"143
+[; ;lm629.c: 143: beginning1:
 [e :U 867 ]
-"147
-[; ;lm629.c: 147:  _delay((unsigned long)((10)*(64000000/4000000.0)));
+"144
+[; ;lm629.c: 144:  _delay((unsigned long)((10)*(64000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"148
-[; ;lm629.c: 148:  PORTBbits.RB5=0;
+"145
+[; ;lm629.c: 145:  PORTBbits.RB5=0;
 [e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
-"149
-[; ;lm629.c: 149:  _delay((unsigned long)((2)*(64000000/4000000.0)));
+"146
+[; ;lm629.c: 146:  _delay((unsigned long)((2)*(64000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"150
-[; ;lm629.c: 150:  PORTBbits.RB5=1;
+"147
+[; ;lm629.c: 147:  PORTBbits.RB5=1;
 [e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
-"151
-[; ;lm629.c: 151:  _delay((unsigned long)((2)*(64000000/4000.0)));
+"148
+[; ;lm629.c: 148:  _delay((unsigned long)((2)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"152
-[; ;lm629.c: 152:  x=read_status();
+"149
+[; ;lm629.c: 149:  x=read_status();
 [e = _x ( _read_status ..  ]
-"153
-[; ;lm629.c: 153:  if(!(x==0xC4 || x==0x84))
+"150
+[; ;lm629.c: 150:  if(!(x==0xC4 || x==0x84))
 [e $ ! ! || == -> _x `i -> 196 `i == -> _x `i -> 132 `i 868  ]
-"154
-[; ;lm629.c: 154:   {
+"151
+[; ;lm629.c: 151:   {
 {
-"155
-[; ;lm629.c: 155:   goto beginning1;
+"152
+[; ;lm629.c: 152:   goto beginning1;
 [e $U 867  ]
-"156
-[; ;lm629.c: 156:   }
+"153
+[; ;lm629.c: 153:   }
 }
 [e $U 869  ]
-"157
-[; ;lm629.c: 157:  else
+"154
+[; ;lm629.c: 154:  else
 [e :U 868 ]
-"158
-[; ;lm629.c: 158:   {
+"155
+[; ;lm629.c: 155:   {
 {
-"159
-[; ;lm629.c: 159:    check_busy();
+"156
+[; ;lm629.c: 156:    check_busy();
 [e ( _check_busy ..  ]
-"160
-[; ;lm629.c: 160:    write_command(0x1D);
+"157
+[; ;lm629.c: 157:    write_command(0x1D);
 [e ( _write_command (1 -> -> 29 `i `uc ]
-"161
-[; ;lm629.c: 161:          check_busy();
+"158
+[; ;lm629.c: 158:          check_busy();
 [e ( _check_busy ..  ]
-"162
-[; ;lm629.c: 162:    write_data(0x00,0x00);
+"159
+[; ;lm629.c: 159:    write_data(0x00,0x00);
 [e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"163
-[; ;lm629.c: 163:    check_busy();
+"160
+[; ;lm629.c: 160:    check_busy();
 [e ( _check_busy ..  ]
-"164
-[; ;lm629.c: 164:    x=read_status();
+"161
+[; ;lm629.c: 161:    x=read_status();
 [e = _x ( _read_status ..  ]
-"165
-[; ;lm629.c: 165:             if(!(x==0xC0 || x==0x80))
+"162
+[; ;lm629.c: 162:             if(!(x==0xC0 || x==0x80))
 [e $ ! ! || == -> _x `i -> 192 `i == -> _x `i -> 128 `i 870  ]
-"166
-[; ;lm629.c: 166:     {
+"163
+[; ;lm629.c: 163:     {
 {
-"167
-[; ;lm629.c: 167:     goto beginning1;
+"164
+[; ;lm629.c: 164:     goto beginning1;
 [e $U 867  ]
-"168
-[; ;lm629.c: 168:     }
+"165
+[; ;lm629.c: 165:     }
 }
 [e :U 870 ]
-"169
-[; ;lm629.c: 169:   }
+"166
+[; ;lm629.c: 166:   }
 }
 [e :U 869 ]
-"171
-[; ;lm629.c: 171:  chip_select(3);
+"168
+[; ;lm629.c: 168:  chip_select(3);
 [e ( _chip_select (1 -> -> 3 `i `uc ]
-"172
-[; ;lm629.c: 172: beginning3:
+"169
+[; ;lm629.c: 169: beginning3:
 [e :U 871 ]
-"173
-[; ;lm629.c: 173:  _delay((unsigned long)((10)*(64000000/4000000.0)));
+"170
+[; ;lm629.c: 170:  _delay((unsigned long)((10)*(64000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"174
-[; ;lm629.c: 174:  PORTBbits.RB5=0;
+"171
+[; ;lm629.c: 171:  PORTBbits.RB5=0;
 [e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
-"175
-[; ;lm629.c: 175:  _delay((unsigned long)((2)*(64000000/4000000.0)));
+"172
+[; ;lm629.c: 172:  _delay((unsigned long)((2)*(64000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"176
-[; ;lm629.c: 176:  PORTBbits.RB5=1;
+"173
+[; ;lm629.c: 173:  PORTBbits.RB5=1;
 [e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
-"177
-[; ;lm629.c: 177:  _delay((unsigned long)((2)*(64000000/4000.0)));
+"174
+[; ;lm629.c: 174:  _delay((unsigned long)((2)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"178
-[; ;lm629.c: 178:  x=read_status();
+"175
+[; ;lm629.c: 175:  x=read_status();
 [e = _x ( _read_status ..  ]
-"179
-[; ;lm629.c: 179:  if(!(x==0xC4 || x==0x84))
+"176
+[; ;lm629.c: 176:  if(!(x==0xC4 || x==0x84))
 [e $ ! ! || == -> _x `i -> 196 `i == -> _x `i -> 132 `i 872  ]
-"180
-[; ;lm629.c: 180:   {
+"177
+[; ;lm629.c: 177:   {
 {
-"181
-[; ;lm629.c: 181:   goto beginning3;
+"178
+[; ;lm629.c: 178:   goto beginning3;
 [e $U 871  ]
-"182
-[; ;lm629.c: 182:   }
+"179
+[; ;lm629.c: 179:   }
 }
 [e $U 873  ]
-"183
-[; ;lm629.c: 183:  else
+"180
+[; ;lm629.c: 180:  else
 [e :U 872 ]
-"184
-[; ;lm629.c: 184:   {
+"181
+[; ;lm629.c: 181:   {
 {
-"185
-[; ;lm629.c: 185:    check_busy();
+"182
+[; ;lm629.c: 182:    check_busy();
 [e ( _check_busy ..  ]
-"186
-[; ;lm629.c: 186:    write_command(0x1D);
+"183
+[; ;lm629.c: 183:    write_command(0x1D);
 [e ( _write_command (1 -> -> 29 `i `uc ]
-"187
-[; ;lm629.c: 187:          check_busy();
+"184
+[; ;lm629.c: 184:          check_busy();
 [e ( _check_busy ..  ]
-"188
-[; ;lm629.c: 188:    write_data(0x00,0x00);
+"185
+[; ;lm629.c: 185:    write_data(0x00,0x00);
 [e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"189
-[; ;lm629.c: 189:    check_busy();
+"186
+[; ;lm629.c: 186:    check_busy();
 [e ( _check_busy ..  ]
-"190
-[; ;lm629.c: 190:    x=read_status();
+"187
+[; ;lm629.c: 187:    x=read_status();
 [e = _x ( _read_status ..  ]
-"191
-[; ;lm629.c: 191:             if(!(x==0xC0 || x==0x80))
+"188
+[; ;lm629.c: 188:             if(!(x==0xC0 || x==0x80))
 [e $ ! ! || == -> _x `i -> 192 `i == -> _x `i -> 128 `i 874  ]
-"192
-[; ;lm629.c: 192:     {
+"189
+[; ;lm629.c: 189:     {
 {
-"193
-[; ;lm629.c: 193:     goto beginning3;
+"190
+[; ;lm629.c: 190:     goto beginning3;
 [e $U 871  ]
-"194
-[; ;lm629.c: 194:     }
+"191
+[; ;lm629.c: 191:     }
 }
 [e :U 874 ]
-"195
-[; ;lm629.c: 195:   }
+"192
+[; ;lm629.c: 192:   }
 }
 [e :U 873 ]
-"196
-[; ;lm629.c: 196: chip_select(0);
+"193
+[; ;lm629.c: 193: chip_select(0);
 [e ( _chip_select (1 -> -> 0 `i `uc ]
-"197
-[; ;lm629.c: 197: filter_module();
+"194
+[; ;lm629.c: 194: filter_module();
 [e ( _filter_module ..  ]
-"198
-[; ;lm629.c: 198: chip_select(1);
+"195
+[; ;lm629.c: 195: chip_select(1);
 [e ( _chip_select (1 -> -> 1 `i `uc ]
-"199
-[; ;lm629.c: 199: filter_module();
+"196
+[; ;lm629.c: 196: filter_module();
 [e ( _filter_module ..  ]
-"200
-[; ;lm629.c: 200: chip_select(2);
+"197
+[; ;lm629.c: 197: chip_select(2);
 [e ( _chip_select (1 -> -> 2 `i `uc ]
-"201
-[; ;lm629.c: 201: filter_module();
+"198
+[; ;lm629.c: 198: filter_module();
 [e ( _filter_module ..  ]
-"202
-[; ;lm629.c: 202: chip_select(3);
+"199
+[; ;lm629.c: 199: chip_select(3);
 [e ( _chip_select (1 -> -> 3 `i `uc ]
-"203
-[; ;lm629.c: 203: filter_module();
+"200
+[; ;lm629.c: 200: filter_module();
 [e ( _filter_module ..  ]
-"204
-[; ;lm629.c: 204: }
+"201
+[; ;lm629.c: 201: }
 [e :UE 862 ]
 }
-"211
-[; ;lm629.c: 211: void DATABUS_DIR(unsigned char dir)
+"208
+[; ;lm629.c: 208: void DATABUS_DIR(unsigned char dir)
 [v _DATABUS_DIR `(v ~T0 @X0 1 ef1`uc ]
-"212
-[; ;lm629.c: 212: {
+"209
+[; ;lm629.c: 209: {
 {
 [e :U _DATABUS_DIR ]
-"211
-[; ;lm629.c: 211: void DATABUS_DIR(unsigned char dir)
+"208
+[; ;lm629.c: 208: void DATABUS_DIR(unsigned char dir)
 [v _dir `uc ~T0 @X0 1 r1 ]
-"212
-[; ;lm629.c: 212: {
+"209
+[; ;lm629.c: 209: {
 [f ]
-"213
-[; ;lm629.c: 213: if(dir==0)
+"210
+[; ;lm629.c: 210:     if(dir==0)
 [e $ ! == -> _dir `i -> 0 `i 876  ]
-"214
-[; ;lm629.c: 214: {
+"211
+[; ;lm629.c: 211:     {
 {
-"215
-[; ;lm629.c: 215: TRISC&=0b00111111;
+"212
+[; ;lm629.c: 212:         TRISC&=0b00111111;
 [e =& _TRISC -> -> 63 `i `Vuc ]
-"216
-[; ;lm629.c: 216: TRISD&=0b00001111;
+"213
+[; ;lm629.c: 213:         TRISD&=0b00001111;
 [e =& _TRISD -> -> 15 `i `Vuc ]
-"217
-[; ;lm629.c: 217: TRISB&=0b11111100;
+"214
+[; ;lm629.c: 214:         TRISB&=0b11111100;
 [e =& _TRISB -> -> 252 `i `Vuc ]
-"218
-[; ;lm629.c: 218: }
+"215
+[; ;lm629.c: 215:     }
 }
 [e $U 877  ]
-"219
-[; ;lm629.c: 219: else if(dir==0xFF)
+"216
+[; ;lm629.c: 216:     else if(dir==0xFF)
 [e :U 876 ]
 [e $ ! == -> _dir `i -> 255 `i 878  ]
-"220
-[; ;lm629.c: 220: {
+"217
+[; ;lm629.c: 217:     {
 {
-"221
-[; ;lm629.c: 221: TRISC|=0b11000000;
+"218
+[; ;lm629.c: 218:         TRISC|=0b11000000;
 [e =| _TRISC -> -> 192 `i `Vuc ]
-"222
-[; ;lm629.c: 222: TRISD|=0b11110000;
+"219
+[; ;lm629.c: 219:         TRISD|=0b11110000;
 [e =| _TRISD -> -> 240 `i `Vuc ]
-"223
-[; ;lm629.c: 223: TRISB|=0b00000011;
+"220
+[; ;lm629.c: 220:         TRISB|=0b00000011;
 [e =| _TRISB -> -> 3 `i `Vuc ]
-"224
-[; ;lm629.c: 224: }
+"221
+[; ;lm629.c: 221:     }
 }
 [e :U 878 ]
 [e :U 877 ]
-"225
-[; ;lm629.c: 225: }
+"222
+[; ;lm629.c: 222: }
 [e :UE 875 ]
 }
-"230
-[; ;lm629.c: 230: unsigned char DATABUS(unsigned char dir1, unsigned char byte0)
+"227
+[; ;lm629.c: 227: unsigned char DATABUS(unsigned char dir1, unsigned char byte0)
 [v _DATABUS `(uc ~T0 @X0 1 ef2`uc`uc ]
-"231
-[; ;lm629.c: 231: {
+"228
+[; ;lm629.c: 228: {
 {
 [e :U _DATABUS ]
-"230
-[; ;lm629.c: 230: unsigned char DATABUS(unsigned char dir1, unsigned char byte0)
+"227
+[; ;lm629.c: 227: unsigned char DATABUS(unsigned char dir1, unsigned char byte0)
 [v _dir1 `uc ~T0 @X0 1 r1 ]
 [v _byte0 `uc ~T0 @X0 1 r2 ]
+"228
+[; ;lm629.c: 228: {
+[f ]
+"229
+[; ;lm629.c: 229: unsigned char x;
+[v _x `uc ~T0 @X0 1 a ]
+"230
+[; ;lm629.c: 230: if(dir1==0)
+[e $ ! == -> _dir1 `i -> 0 `i 880  ]
 "231
 [; ;lm629.c: 231: {
-[f ]
-"232
-[; ;lm629.c: 232: unsigned char x;
-[v _x `uc ~T0 @X0 1 a ]
-"233
-[; ;lm629.c: 233: if(dir1==0)
-[e $ ! == -> _dir1 `i -> 0 `i 880  ]
-"234
-[; ;lm629.c: 234: {
 {
-"235
-[; ;lm629.c: 235: PORTCbits.RC6 = ((byte0 & 0x01) >> 0);
+"232
+[; ;lm629.c: 232:     PORTCbits.RC6 = ((byte0 & 0x01) >> 0);
 [e = . . _PORTCbits 0 6 -> >> & -> _byte0 `i -> 1 `i -> 0 `i `uc ]
-"236
-[; ;lm629.c: 236: PORTCbits.RC7 = ((byte0 & 0x02) >> 1);
+"233
+[; ;lm629.c: 233:     PORTCbits.RC7 = ((byte0 & 0x02) >> 1);
 [e = . . _PORTCbits 0 7 -> >> & -> _byte0 `i -> 2 `i -> 1 `i `uc ]
-"237
-[; ;lm629.c: 237: PORTDbits.RD4 = ((byte0 & 0x04) >> 2);
+"234
+[; ;lm629.c: 234:     PORTDbits.RD4 = ((byte0 & 0x04) >> 2);
 [e = . . _PORTDbits 0 4 -> >> & -> _byte0 `i -> 4 `i -> 2 `i `uc ]
-"238
-[; ;lm629.c: 238: PORTDbits.RD5 = ((byte0 & 0x08) >> 3);
+"235
+[; ;lm629.c: 235:     PORTDbits.RD5 = ((byte0 & 0x08) >> 3);
 [e = . . _PORTDbits 0 5 -> >> & -> _byte0 `i -> 8 `i -> 3 `i `uc ]
-"239
-[; ;lm629.c: 239: PORTDbits.RD6 = ((byte0 & 0x10) >> 4);
+"236
+[; ;lm629.c: 236:     PORTDbits.RD6 = ((byte0 & 0x10) >> 4);
 [e = . . _PORTDbits 0 6 -> >> & -> _byte0 `i -> 16 `i -> 4 `i `uc ]
-"240
-[; ;lm629.c: 240: PORTDbits.RD7 = ((byte0 & 0x20) >> 5);
+"237
+[; ;lm629.c: 237:     PORTDbits.RD7 = ((byte0 & 0x20) >> 5);
 [e = . . _PORTDbits 0 7 -> >> & -> _byte0 `i -> 32 `i -> 5 `i `uc ]
-"241
-[; ;lm629.c: 241: PORTBbits.RB0 = ((byte0 & 0x40) >> 6);
+"238
+[; ;lm629.c: 238:     PORTBbits.RB0 = ((byte0 & 0x40) >> 6);
 [e = . . _PORTBbits 0 0 -> >> & -> _byte0 `i -> 64 `i -> 6 `i `uc ]
-"242
-[; ;lm629.c: 242: PORTBbits.RB1 = ((byte0 & 0x80) >> 7);
+"239
+[; ;lm629.c: 239:     PORTBbits.RB1 = ((byte0 & 0x80) >> 7);
 [e = . . _PORTBbits 0 1 -> >> & -> _byte0 `i -> 128 `i -> 7 `i `uc ]
-"243
-[; ;lm629.c: 243: x=0;
+"240
+[; ;lm629.c: 240:     x=0;
 [e = _x -> -> 0 `i `uc ]
-"244
-[; ;lm629.c: 244: }
+"241
+[; ;lm629.c: 241: }
 }
 [e $U 881  ]
-"246
-[; ;lm629.c: 246: else if (dir1==0xFF)
+"243
+[; ;lm629.c: 243: else if (dir1==0xFF)
 [e :U 880 ]
 [e $ ! == -> _dir1 `i -> 255 `i 882  ]
-"247
-[; ;lm629.c: 247: {
+"244
+[; ;lm629.c: 244: {
 {
+"245
+[; ;lm629.c: 245:     x |= (PORTBbits.RB1 << 7);
+[e =| _x -> << -> . . _PORTBbits 0 1 `i -> 7 `i `uc ]
+"246
+[; ;lm629.c: 246:     x |= (PORTBbits.RB0 << 6);
+[e =| _x -> << -> . . _PORTBbits 0 0 `i -> 6 `i `uc ]
+"247
+[; ;lm629.c: 247:     x |= (PORTDbits.RD7 << 5);
+[e =| _x -> << -> . . _PORTDbits 0 7 `i -> 5 `i `uc ]
 "248
-[; ;lm629.c: 248: x=PORTBbits.RB1;
-[e = _x . . _PORTBbits 0 1 ]
+[; ;lm629.c: 248:     x |= (PORTDbits.RD6 << 4);
+[e =| _x -> << -> . . _PORTDbits 0 6 `i -> 4 `i `uc ]
 "249
-[; ;lm629.c: 249: x=(x<<1)+PORTBbits.RB0;
-[e = _x -> + << -> _x `i -> 1 `i -> . . _PORTBbits 0 0 `i `uc ]
+[; ;lm629.c: 249:     x |= (PORTDbits.RD5 << 3);
+[e =| _x -> << -> . . _PORTDbits 0 5 `i -> 3 `i `uc ]
 "250
-[; ;lm629.c: 250: x=(x<<1)+PORTDbits.RD7;
-[e = _x -> + << -> _x `i -> 1 `i -> . . _PORTDbits 0 7 `i `uc ]
+[; ;lm629.c: 250:     x |= (PORTDbits.RD4 << 2);
+[e =| _x -> << -> . . _PORTDbits 0 4 `i -> 2 `i `uc ]
 "251
-[; ;lm629.c: 251: x=(x<<1)+PORTDbits.RD6;
-[e = _x -> + << -> _x `i -> 1 `i -> . . _PORTDbits 0 6 `i `uc ]
+[; ;lm629.c: 251:     x |= (PORTCbits.RC7 << 1);
+[e =| _x -> << -> . . _PORTCbits 0 7 `i -> 1 `i `uc ]
 "252
-[; ;lm629.c: 252: x=(x<<1)+PORTDbits.RD5;
-[e = _x -> + << -> _x `i -> 1 `i -> . . _PORTDbits 0 5 `i `uc ]
-"253
-[; ;lm629.c: 253: x=(x<<1)+PORTDbits.RD4;
-[e = _x -> + << -> _x `i -> 1 `i -> . . _PORTDbits 0 4 `i `uc ]
-"254
-[; ;lm629.c: 254: x=(x<<1)+PORTCbits.RC7;
-[e = _x -> + << -> _x `i -> 1 `i -> . . _PORTCbits 0 7 `i `uc ]
-"255
-[; ;lm629.c: 255: x=(x<<1)+PORTCbits.RC6;
-[e = _x -> + << -> _x `i -> 1 `i -> . . _PORTCbits 0 6 `i `uc ]
-"256
-[; ;lm629.c: 256: }
+[; ;lm629.c: 252:     x |= PORTCbits.RC6;
+[e =| _x -> . . _PORTCbits 0 6 `uc ]
+"265
+[; ;lm629.c: 265: }
 }
 [e :U 882 ]
 [e :U 881 ]
-"257
-[; ;lm629.c: 257: return x;
+"266
+[; ;lm629.c: 266: return x;
 [e ) _x ]
 [e $UE 879  ]
-"258
-[; ;lm629.c: 258: }
+"267
+[; ;lm629.c: 267: }
 [e :UE 879 ]
 }
-"260
-[; ;lm629.c: 260: void chip_select(unsigned char chip)
+"269
+[; ;lm629.c: 269: void chip_select(unsigned char chip)
 [v _chip_select `(v ~T0 @X0 1 ef1`uc ]
-"261
-[; ;lm629.c: 261: {
+"270
+[; ;lm629.c: 270: {
 {
 [e :U _chip_select ]
-"260
-[; ;lm629.c: 260: void chip_select(unsigned char chip)
+"269
+[; ;lm629.c: 269: void chip_select(unsigned char chip)
 [v _chip `uc ~T0 @X0 1 r1 ]
-"261
-[; ;lm629.c: 261: {
+"270
+[; ;lm629.c: 270: {
 [f ]
-"262
-[; ;lm629.c: 262:  if(chip==0)
+"271
+[; ;lm629.c: 271:  if(chip==0)
 [e $ ! == -> _chip `i -> 0 `i 884  ]
-"263
-[; ;lm629.c: 263:  {
+"272
+[; ;lm629.c: 272:  {
 {
-"264
-[; ;lm629.c: 264:   PORTDbits.RD3=0;
+"273
+[; ;lm629.c: 273:   PORTDbits.RD3=0;
 [e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
-"265
-[; ;lm629.c: 265:   PORTBbits.RB2=1;
+"274
+[; ;lm629.c: 274:   PORTBbits.RB2=1;
 [e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
-"266
-[; ;lm629.c: 266:   PORTAbits.RA0=1;
+"275
+[; ;lm629.c: 275:   PORTAbits.RA0=1;
 [e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
-"267
-[; ;lm629.c: 267:   PORTBbits.RB4=1;
+"276
+[; ;lm629.c: 276:   PORTBbits.RB4=1;
 [e = . . _PORTBbits 0 4 -> -> 1 `i `uc ]
-"268
-[; ;lm629.c: 268:  }
+"277
+[; ;lm629.c: 277:  }
 }
 [e $U 885  ]
-"269
-[; ;lm629.c: 269:  else if(chip==1)
+"278
+[; ;lm629.c: 278:  else if(chip==1)
 [e :U 884 ]
 [e $ ! == -> _chip `i -> 1 `i 886  ]
-"270
-[; ;lm629.c: 270:  {
+"279
+[; ;lm629.c: 279:  {
 {
-"271
-[; ;lm629.c: 271:   PORTDbits.RD3=1;
+"280
+[; ;lm629.c: 280:   PORTDbits.RD3=1;
 [e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
-"272
-[; ;lm629.c: 272:   PORTBbits.RB2=0;
+"281
+[; ;lm629.c: 281:   PORTBbits.RB2=0;
 [e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
-"273
-[; ;lm629.c: 273:   PORTAbits.RA0=1;
+"282
+[; ;lm629.c: 282:   PORTAbits.RA0=1;
 [e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
-"274
-[; ;lm629.c: 274:   PORTBbits.RB4=1;
+"283
+[; ;lm629.c: 283:   PORTBbits.RB4=1;
 [e = . . _PORTBbits 0 4 -> -> 1 `i `uc ]
-"275
-[; ;lm629.c: 275:  }
+"284
+[; ;lm629.c: 284:  }
 }
 [e $U 887  ]
-"276
-[; ;lm629.c: 276:  else if(chip==2)
+"285
+[; ;lm629.c: 285:  else if(chip==2)
 [e :U 886 ]
 [e $ ! == -> _chip `i -> 2 `i 888  ]
-"277
-[; ;lm629.c: 277:  {
+"286
+[; ;lm629.c: 286:  {
 {
-"278
-[; ;lm629.c: 278:   PORTDbits.RD3=1;
+"287
+[; ;lm629.c: 287:   PORTDbits.RD3=1;
 [e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
-"279
-[; ;lm629.c: 279:   PORTBbits.RB2=1;
+"288
+[; ;lm629.c: 288:   PORTBbits.RB2=1;
 [e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
-"280
-[; ;lm629.c: 280:   PORTAbits.RA0=0;
+"289
+[; ;lm629.c: 289:   PORTAbits.RA0=0;
 [e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
-"281
-[; ;lm629.c: 281:   PORTBbits.RB4=1;
+"290
+[; ;lm629.c: 290:   PORTBbits.RB4=1;
 [e = . . _PORTBbits 0 4 -> -> 1 `i `uc ]
-"282
-[; ;lm629.c: 282:  }
+"291
+[; ;lm629.c: 291:  }
 }
 [e $U 889  ]
-"283
-[; ;lm629.c: 283:  else if(chip==3)
+"292
+[; ;lm629.c: 292:  else if(chip==3)
 [e :U 888 ]
 [e $ ! == -> _chip `i -> 3 `i 890  ]
-"284
-[; ;lm629.c: 284:  {
+"293
+[; ;lm629.c: 293:  {
 {
-"285
-[; ;lm629.c: 285:   PORTDbits.RD3=1;
+"294
+[; ;lm629.c: 294:   PORTDbits.RD3=1;
 [e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
-"286
-[; ;lm629.c: 286:   PORTBbits.RB2=1;
+"295
+[; ;lm629.c: 295:   PORTBbits.RB2=1;
 [e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
-"287
-[; ;lm629.c: 287:   PORTAbits.RA0=1;
+"296
+[; ;lm629.c: 296:   PORTAbits.RA0=1;
 [e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
-"288
-[; ;lm629.c: 288:   PORTBbits.RB4=0;
+"297
+[; ;lm629.c: 297:   PORTBbits.RB4=0;
 [e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
-"289
-[; ;lm629.c: 289:  }
+"298
+[; ;lm629.c: 298:  }
 }
 [e $U 891  ]
-"290
-[; ;lm629.c: 290:  else
+"299
+[; ;lm629.c: 299:  else
 [e :U 890 ]
-"291
-[; ;lm629.c: 291:  {
+"300
+[; ;lm629.c: 300:  {
 {
-"292
-[; ;lm629.c: 292:   PORTDbits.RD3=1;
+"301
+[; ;lm629.c: 301:   PORTDbits.RD3=1;
 [e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
-"293
-[; ;lm629.c: 293:   PORTBbits.RB2=1;
+"302
+[; ;lm629.c: 302:   PORTBbits.RB2=1;
 [e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
-"294
-[; ;lm629.c: 294:   PORTAbits.RA0=1;
+"303
+[; ;lm629.c: 303:   PORTAbits.RA0=1;
 [e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
-"295
-[; ;lm629.c: 295:   PORTBbits.RB4=1;
+"304
+[; ;lm629.c: 304:   PORTBbits.RB4=1;
 [e = . . _PORTBbits 0 4 -> -> 1 `i `uc ]
-"296
-[; ;lm629.c: 296:  }
+"305
+[; ;lm629.c: 305:  }
 }
 [e :U 891 ]
 [e :U 889 ]
 [e :U 887 ]
 [e :U 885 ]
-"298
-[; ;lm629.c: 298:  _delay((unsigned long)((10)*(64000000/4000000.0)));
+"307
+[; ;lm629.c: 307:  _delay((unsigned long)((10)*(64000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"299
-[; ;lm629.c: 299: }
+"308
+[; ;lm629.c: 308: }
 [e :UE 883 ]
 }
-"301
-[; ;lm629.c: 301: void motor_off()
+"310
+[; ;lm629.c: 310: void motor_off()
 [v _motor_off `(v ~T0 @X0 1 ef ]
-"302
-[; ;lm629.c: 302: {
+"311
+[; ;lm629.c: 311: {
 {
 [e :U _motor_off ]
 [f ]
-"303
-[; ;lm629.c: 303: write_command(0x1F);
+"312
+[; ;lm629.c: 312:     write_command(0x1F);
 [e ( _write_command (1 -> -> 31 `i `uc ]
-"304
-[; ;lm629.c: 304: check_busy();
+"313
+[; ;lm629.c: 313:     check_busy();
 [e ( _check_busy ..  ]
-"305
-[; ;lm629.c: 305: write_data(0x01,0x00);
+"314
+[; ;lm629.c: 314:     write_data(0x01,0x00);
 [e ( _write_data (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-"306
-[; ;lm629.c: 306: check_busy();
+"315
+[; ;lm629.c: 315:     check_busy();
 [e ( _check_busy ..  ]
-"307
-[; ;lm629.c: 307: write_command(0x01);
+"316
+[; ;lm629.c: 316:     write_command(0x01);
 [e ( _write_command (1 -> -> 1 `i `uc ]
-"308
-[; ;lm629.c: 308: check_busy();
+"317
+[; ;lm629.c: 317:     check_busy();
 [e ( _check_busy ..  ]
-"309
-[; ;lm629.c: 309: }
+"318
+[; ;lm629.c: 318: }
 [e :UE 892 ]
 }
-"311
-[; ;lm629.c: 311: void motor_break()
+"320
+[; ;lm629.c: 320: void motor_break()
 [v _motor_break `(v ~T0 @X0 1 ef ]
-"312
-[; ;lm629.c: 312: {
+"321
+[; ;lm629.c: 321: {
 {
 [e :U _motor_break ]
 [f ]
-"313
-[; ;lm629.c: 313: write_command(0x1F);
+"322
+[; ;lm629.c: 322:     write_command(0x1F);
 [e ( _write_command (1 -> -> 31 `i `uc ]
-"314
-[; ;lm629.c: 314: check_busy();
+"323
+[; ;lm629.c: 323:     check_busy();
 [e ( _check_busy ..  ]
-"315
-[; ;lm629.c: 315: write_data(0x02,0x00);
+"324
+[; ;lm629.c: 324:     write_data(0x02,0x00);
 [e ( _write_data (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
-"316
-[; ;lm629.c: 316: check_busy();
+"325
+[; ;lm629.c: 325:     check_busy();
 [e ( _check_busy ..  ]
-"317
-[; ;lm629.c: 317: write_command(0x01);
+"326
+[; ;lm629.c: 326:     write_command(0x01);
 [e ( _write_command (1 -> -> 1 `i `uc ]
-"318
-[; ;lm629.c: 318: check_busy();
+"327
+[; ;lm629.c: 327:     check_busy();
 [e ( _check_busy ..  ]
-"319
-[; ;lm629.c: 319: }
+"328
+[; ;lm629.c: 328: }
 [e :UE 893 ]
 }
-"321
-[; ;lm629.c: 321: void all_break()
+"330
+[; ;lm629.c: 330: void all_break()
 [v _all_break `(v ~T0 @X0 1 ef ]
-"322
-[; ;lm629.c: 322: {
+"331
+[; ;lm629.c: 331: {
 {
 [e :U _all_break ]
 [f ]
-"323
-[; ;lm629.c: 323: chip_select(0);
+"332
+[; ;lm629.c: 332:     chip_select(0);
 [e ( _chip_select (1 -> -> 0 `i `uc ]
-"324
-[; ;lm629.c: 324: motor_break();
+"333
+[; ;lm629.c: 333:     motor_break();
 [e ( _motor_break ..  ]
-"325
-[; ;lm629.c: 325: chip_select(1);
+"334
+[; ;lm629.c: 334:     chip_select(1);
 [e ( _chip_select (1 -> -> 1 `i `uc ]
-"326
-[; ;lm629.c: 326: motor_break();
+"335
+[; ;lm629.c: 335:     motor_break();
 [e ( _motor_break ..  ]
-"327
-[; ;lm629.c: 327: chip_select(2);
+"336
+[; ;lm629.c: 336:     chip_select(2);
 [e ( _chip_select (1 -> -> 2 `i `uc ]
-"328
-[; ;lm629.c: 328: motor_break();
+"337
+[; ;lm629.c: 337:     motor_break();
 [e ( _motor_break ..  ]
-"329
-[; ;lm629.c: 329: chip_select(3);
+"338
+[; ;lm629.c: 338:     chip_select(3);
 [e ( _chip_select (1 -> -> 3 `i `uc ]
-"330
-[; ;lm629.c: 330: motor_break();
+"339
+[; ;lm629.c: 339:     motor_break();
 [e ( _motor_break ..  ]
-"331
-[; ;lm629.c: 331: }
+"340
+[; ;lm629.c: 340: }
 [e :UE 894 ]
 }
-"333
-[; ;lm629.c: 333: void all_off()
+"342
+[; ;lm629.c: 342: void all_off()
 [v _all_off `(v ~T0 @X0 1 ef ]
-"334
-[; ;lm629.c: 334: {
+"343
+[; ;lm629.c: 343: {
 {
 [e :U _all_off ]
 [f ]
-"335
-[; ;lm629.c: 335: chip_select(0);
+"344
+[; ;lm629.c: 344:     chip_select(0);
 [e ( _chip_select (1 -> -> 0 `i `uc ]
-"336
-[; ;lm629.c: 336: motor_off();
+"345
+[; ;lm629.c: 345:     motor_off();
 [e ( _motor_off ..  ]
-"337
-[; ;lm629.c: 337: chip_select(1);
+"346
+[; ;lm629.c: 346:     chip_select(1);
 [e ( _chip_select (1 -> -> 1 `i `uc ]
-"338
-[; ;lm629.c: 338: motor_off();
+"347
+[; ;lm629.c: 347:     motor_off();
 [e ( _motor_off ..  ]
-"339
-[; ;lm629.c: 339: chip_select(2);
+"348
+[; ;lm629.c: 348:     chip_select(2);
 [e ( _chip_select (1 -> -> 2 `i `uc ]
-"340
-[; ;lm629.c: 340: motor_off();
+"349
+[; ;lm629.c: 349:     motor_off();
 [e ( _motor_off ..  ]
-"341
-[; ;lm629.c: 341: chip_select(3);
+"350
+[; ;lm629.c: 350:     chip_select(3);
 [e ( _chip_select (1 -> -> 3 `i `uc ]
-"342
-[; ;lm629.c: 342: motor_off();
+"351
+[; ;lm629.c: 351:     motor_off();
 [e ( _motor_off ..  ]
-"343
-[; ;lm629.c: 343: }
+"352
+[; ;lm629.c: 352: }
 [e :UE 895 ]
 }
-"345
-[; ;lm629.c: 345: void filter_module()
+"354
+[; ;lm629.c: 354: void filter_module()
 [v _filter_module `(v ~T0 @X0 1 ef ]
-"346
-[; ;lm629.c: 346: {
+"355
+[; ;lm629.c: 355: {
 {
 [e :U _filter_module ]
 [f ]
-"347
-[; ;lm629.c: 347: write_command(0x1E);
-[e ( _write_command (1 -> -> 30 `i `uc ]
-"348
-[; ;lm629.c: 348: check_busy();
-[e ( _check_busy ..  ]
-"349
-[; ;lm629.c: 349: write_data(0x00,0x0F);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 15 `i `uc ]
-"350
-[; ;lm629.c: 350: check_busy();
-[e ( _check_busy ..  ]
-"351
-[; ;lm629.c: 351: write_data(0x01,0x0F);
-[e ( _write_data (2 , -> -> 1 `i `uc -> -> 15 `i `uc ]
-"352
-[; ;lm629.c: 352: check_busy();
-[e ( _check_busy ..  ]
-"353
-[; ;lm629.c: 353: write_data(0x00,0x04);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 4 `i `uc ]
-"354
-[; ;lm629.c: 354: check_busy();
-[e ( _check_busy ..  ]
-"355
-[; ;lm629.c: 355: write_data(0x7F,0xFF);
-[e ( _write_data (2 , -> -> 127 `i `uc -> -> 255 `i `uc ]
 "356
-[; ;lm629.c: 356: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 356:     write_command(0x1E);
+[e ( _write_command (1 -> -> 30 `i `uc ]
 "357
-[; ;lm629.c: 357: write_data(0x00,0xFF);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 255 `i `uc ]
+[; ;lm629.c: 357:     check_busy();
+[e ( _check_busy ..  ]
 "358
-[; ;lm629.c: 358: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 358:     write_data(0x00,0x0F);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 15 `i `uc ]
 "359
-[; ;lm629.c: 359: write_command(0x04);
-[e ( _write_command (1 -> -> 4 `i `uc ]
-"360
-[; ;lm629.c: 360: check_busy();
+[; ;lm629.c: 359:     check_busy();
 [e ( _check_busy ..  ]
+"360
+[; ;lm629.c: 360:     write_data(0x01,0x0F);
+[e ( _write_data (2 , -> -> 1 `i `uc -> -> 15 `i `uc ]
 "361
-[; ;lm629.c: 361: }
+[; ;lm629.c: 361:     check_busy();
+[e ( _check_busy ..  ]
+"362
+[; ;lm629.c: 362:     write_data(0x00,0x04);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 4 `i `uc ]
+"363
+[; ;lm629.c: 363:     check_busy();
+[e ( _check_busy ..  ]
+"364
+[; ;lm629.c: 364:     write_data(0x7F,0xFF);
+[e ( _write_data (2 , -> -> 127 `i `uc -> -> 255 `i `uc ]
+"365
+[; ;lm629.c: 365:     check_busy();
+[e ( _check_busy ..  ]
+"366
+[; ;lm629.c: 366:     write_data(0x00,0xFF);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 255 `i `uc ]
+"367
+[; ;lm629.c: 367:     check_busy();
+[e ( _check_busy ..  ]
+"368
+[; ;lm629.c: 368:     write_command(0x04);
+[e ( _write_command (1 -> -> 4 `i `uc ]
+"369
+[; ;lm629.c: 369:     check_busy();
+[e ( _check_busy ..  ]
+"370
+[; ;lm629.c: 370: }
 [e :UE 896 ]
 }
-"363
-[; ;lm629.c: 363: void simple_absolute_postion()
+"372
+[; ;lm629.c: 372: void simple_absolute_postion()
 [v _simple_absolute_postion `(v ~T0 @X0 1 ef ]
-"364
-[; ;lm629.c: 364: {
+"373
+[; ;lm629.c: 373: {
 {
 [e :U _simple_absolute_postion ]
 [f ]
-"365
-[; ;lm629.c: 365: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
-"366
-[; ;lm629.c: 366: check_busy();
-[e ( _check_busy ..  ]
-"367
-[; ;lm629.c: 367: write_data(0x00,0x24);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 36 `i `uc ]
-"368
-[; ;lm629.c: 368: check_busy();
-[e ( _check_busy ..  ]
-"369
-[; ;lm629.c: 369: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"370
-[; ;lm629.c: 370: check_busy();
-[e ( _check_busy ..  ]
-"371
-[; ;lm629.c: 371: write_data(0x00,0x02);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 2 `i `uc ]
-"372
-[; ;lm629.c: 372: check_busy();
-[e ( _check_busy ..  ]
-"373
-[; ;lm629.c: 373: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
 "374
-[; ;lm629.c: 374: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 374:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
 "375
-[; ;lm629.c: 375: write_data(0x34,0x6E);
-[e ( _write_data (2 , -> -> 52 `i `uc -> -> 110 `i `uc ]
+[; ;lm629.c: 375:     check_busy();
+[e ( _check_busy ..  ]
 "376
-[; ;lm629.c: 376: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 376:     write_data(0x00,0x24);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 36 `i `uc ]
 "377
-[; ;lm629.c: 377: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;lm629.c: 377:     check_busy();
+[e ( _check_busy ..  ]
 "378
-[; ;lm629.c: 378: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 378:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
 "379
-[; ;lm629.c: 379: write_data(0x1F,0x40);
-[e ( _write_data (2 , -> -> 31 `i `uc -> -> 64 `i `uc ]
-"380
-[; ;lm629.c: 380: check_busy();
+[; ;lm629.c: 379:     check_busy();
 [e ( _check_busy ..  ]
+"380
+[; ;lm629.c: 380:     write_data(0x00,0x02);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 2 `i `uc ]
 "381
-[; ;lm629.c: 381: write_command(0x01);
-[e ( _write_command (1 -> -> 1 `i `uc ]
+[; ;lm629.c: 381:     check_busy();
+[e ( _check_busy ..  ]
 "382
-[; ;lm629.c: 382: }
+[; ;lm629.c: 382:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"383
+[; ;lm629.c: 383:     check_busy();
+[e ( _check_busy ..  ]
+"384
+[; ;lm629.c: 384:     write_data(0x34,0x6E);
+[e ( _write_data (2 , -> -> 52 `i `uc -> -> 110 `i `uc ]
+"385
+[; ;lm629.c: 385:     check_busy();
+[e ( _check_busy ..  ]
+"386
+[; ;lm629.c: 386:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"387
+[; ;lm629.c: 387:     check_busy();
+[e ( _check_busy ..  ]
+"388
+[; ;lm629.c: 388:     write_data(0x1F,0x40);
+[e ( _write_data (2 , -> -> 31 `i `uc -> -> 64 `i `uc ]
+"389
+[; ;lm629.c: 389:     check_busy();
+[e ( _check_busy ..  ]
+"390
+[; ;lm629.c: 390:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"391
+[; ;lm629.c: 391: }
 [e :UE 897 ]
 }
-"384
-[; ;lm629.c: 384: void simple_relative_position()
+"393
+[; ;lm629.c: 393: void simple_relative_position()
 [v _simple_relative_position `(v ~T0 @X0 1 ef ]
-"385
-[; ;lm629.c: 385: {
+"394
+[; ;lm629.c: 394: {
 {
 [e :U _simple_relative_position ]
 [f ]
-"386
-[; ;lm629.c: 386: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
-"387
-[; ;lm629.c: 387: check_busy();
-[e ( _check_busy ..  ]
-"388
-[; ;lm629.c: 388: write_data(0x00,0x2B);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 43 `i `uc ]
-"389
-[; ;lm629.c: 389: check_busy();
-[e ( _check_busy ..  ]
-"390
-[; ;lm629.c: 390: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"391
-[; ;lm629.c: 391: check_busy();
-[e ( _check_busy ..  ]
-"392
-[; ;lm629.c: 392: write_data(0x00,0x11);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 17 `i `uc ]
-"393
-[; ;lm629.c: 393: check_busy();
-[e ( _check_busy ..  ]
-"394
-[; ;lm629.c: 394: write_data(0x00,0x02);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 2 `i `uc ]
 "395
-[; ;lm629.c: 395: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 395:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
 "396
-[; ;lm629.c: 396: write_data(0x75,0x3F);
-[e ( _write_data (2 , -> -> 117 `i `uc -> -> 63 `i `uc ]
+[; ;lm629.c: 396:     check_busy();
+[e ( _check_busy ..  ]
 "397
-[; ;lm629.c: 397: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 397:     write_data(0x00,0x2B);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 43 `i `uc ]
 "398
-[; ;lm629.c: 398: write_data(0xFF,0xFE);
-[e ( _write_data (2 , -> -> 255 `i `uc -> -> 254 `i `uc ]
+[; ;lm629.c: 398:     check_busy();
+[e ( _check_busy ..  ]
 "399
-[; ;lm629.c: 399: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 399:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
 "400
-[; ;lm629.c: 400: write_data(0x2B,0x40);
-[e ( _write_data (2 , -> -> 43 `i `uc -> -> 64 `i `uc ]
-"401
-[; ;lm629.c: 401: check_busy();
+[; ;lm629.c: 400:     check_busy();
 [e ( _check_busy ..  ]
+"401
+[; ;lm629.c: 401:     write_data(0x00,0x11);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 17 `i `uc ]
 "402
-[; ;lm629.c: 402: write_command(0x01);
-[e ( _write_command (1 -> -> 1 `i `uc ]
+[; ;lm629.c: 402:     check_busy();
+[e ( _check_busy ..  ]
 "403
-[; ;lm629.c: 403: }
+[; ;lm629.c: 403:     write_data(0x00,0x02);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 2 `i `uc ]
+"404
+[; ;lm629.c: 404:     check_busy();
+[e ( _check_busy ..  ]
+"405
+[; ;lm629.c: 405:     write_data(0x75,0x3F);
+[e ( _write_data (2 , -> -> 117 `i `uc -> -> 63 `i `uc ]
+"406
+[; ;lm629.c: 406:     check_busy();
+[e ( _check_busy ..  ]
+"407
+[; ;lm629.c: 407:     write_data(0xFF,0xFE);
+[e ( _write_data (2 , -> -> 255 `i `uc -> -> 254 `i `uc ]
+"408
+[; ;lm629.c: 408:     check_busy();
+[e ( _check_busy ..  ]
+"409
+[; ;lm629.c: 409:     write_data(0x2B,0x40);
+[e ( _write_data (2 , -> -> 43 `i `uc -> -> 64 `i `uc ]
+"410
+[; ;lm629.c: 410:     check_busy();
+[e ( _check_busy ..  ]
+"411
+[; ;lm629.c: 411:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"412
+[; ;lm629.c: 412: }
 [e :UE 898 ]
 }
-"405
-[; ;lm629.c: 405: void velocity_mode_breakpoints()
+"414
+[; ;lm629.c: 414: void velocity_mode_breakpoints()
 [v _velocity_mode_breakpoints `(v ~T0 @X0 1 ef ]
-"406
-[; ;lm629.c: 406: {
+"415
+[; ;lm629.c: 415: {
 {
 [e :U _velocity_mode_breakpoints ]
 [f ]
-"408
-[; ;lm629.c: 408: }
+"417
+[; ;lm629.c: 417: }
 [e :UE 899 ]
 }
-"410
-[; ;lm629.c: 410: void forward()
+"419
+[; ;lm629.c: 419: void forward()
 [v _forward `(v ~T0 @X0 1 ef ]
-"411
-[; ;lm629.c: 411: {
+"420
+[; ;lm629.c: 420: {
 {
 [e :U _forward ]
 [f ]
-"412
-[; ;lm629.c: 412: chip_select(0);
-[e ( _chip_select (1 -> -> 0 `i `uc ]
-"413
-[; ;lm629.c: 413: check_busy();
-[e ( _check_busy ..  ]
-"414
-[; ;lm629.c: 414: motor_off();
-[e ( _motor_off ..  ]
-"415
-[; ;lm629.c: 415: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
-"416
-[; ;lm629.c: 416: check_busy();
-[e ( _check_busy ..  ]
-"417
-[; ;lm629.c: 417: write_data(0x18,0x28);
-[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
-"418
-[; ;lm629.c: 418: check_busy();
-[e ( _check_busy ..  ]
-"420
-[; ;lm629.c: 420: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
 "421
-[; ;lm629.c: 421: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 421:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
 "422
-[; ;lm629.c: 422: write_data(0x00,0x48);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+[; ;lm629.c: 422:     check_busy();
+[e ( _check_busy ..  ]
 "423
-[; ;lm629.c: 423: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 423:     motor_off();
+[e ( _motor_off ..  ]
+"424
+[; ;lm629.c: 424:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
 "425
-[; ;lm629.c: 425: write_data(0x00,0x01);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"426
-[; ;lm629.c: 426: check_busy();
+[; ;lm629.c: 425:     check_busy();
 [e ( _check_busy ..  ]
+"426
+[; ;lm629.c: 426:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
 "427
-[; ;lm629.c: 427: write_data(0xFA,0xD0);
-[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"428
-[; ;lm629.c: 428: check_busy();
+[; ;lm629.c: 427:     check_busy();
+[e ( _check_busy ..  ]
+"429
+[; ;lm629.c: 429:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"430
+[; ;lm629.c: 430:     check_busy();
 [e ( _check_busy ..  ]
 "431
-[; ;lm629.c: 431: chip_select(1);
-[e ( _chip_select (1 -> -> 1 `i `uc ]
+[; ;lm629.c: 431:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
 "432
-[; ;lm629.c: 432: check_busy();
+[; ;lm629.c: 432:     check_busy();
 [e ( _check_busy ..  ]
-"433
-[; ;lm629.c: 433: motor_off();
-[e ( _motor_off ..  ]
 "434
-[; ;lm629.c: 434: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
+[; ;lm629.c: 434:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "435
-[; ;lm629.c: 435: check_busy();
+[; ;lm629.c: 435:     check_busy();
 [e ( _check_busy ..  ]
 "436
-[; ;lm629.c: 436: write_data(0x08,0x28);
-[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
-"437
-[; ;lm629.c: 437: check_busy();
-[e ( _check_busy ..  ]
-"439
-[; ;lm629.c: 439: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"440
-[; ;lm629.c: 440: check_busy();
-[e ( _check_busy ..  ]
-"441
-[; ;lm629.c: 441: write_data(0x00,0x48);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
-"442
-[; ;lm629.c: 442: check_busy();
-[e ( _check_busy ..  ]
-"444
-[; ;lm629.c: 444: write_data(0x00,0x01);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"445
-[; ;lm629.c: 445: check_busy();
-[e ( _check_busy ..  ]
-"446
-[; ;lm629.c: 446: write_data(0xFA,0xD0);
+[; ;lm629.c: 436:     write_data(0xFA,0xD0);
 [e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"447
-[; ;lm629.c: 447: check_busy();
+"437
+[; ;lm629.c: 437:     check_busy();
+[e ( _check_busy ..  ]
+"440
+[; ;lm629.c: 440:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"441
+[; ;lm629.c: 441:     check_busy();
+[e ( _check_busy ..  ]
+"442
+[; ;lm629.c: 442:     motor_off();
+[e ( _motor_off ..  ]
+"443
+[; ;lm629.c: 443:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"444
+[; ;lm629.c: 444:     check_busy();
+[e ( _check_busy ..  ]
+"445
+[; ;lm629.c: 445:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"446
+[; ;lm629.c: 446:     check_busy();
+[e ( _check_busy ..  ]
+"448
+[; ;lm629.c: 448:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"449
+[; ;lm629.c: 449:     check_busy();
 [e ( _check_busy ..  ]
 "450
-[; ;lm629.c: 450: chip_select(2);
-[e ( _chip_select (1 -> -> 2 `i `uc ]
+[; ;lm629.c: 450:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
 "451
-[; ;lm629.c: 451: check_busy();
+[; ;lm629.c: 451:     check_busy();
 [e ( _check_busy ..  ]
-"452
-[; ;lm629.c: 452: motor_off();
-[e ( _motor_off ..  ]
 "453
-[; ;lm629.c: 453: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
+[; ;lm629.c: 453:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "454
-[; ;lm629.c: 454: check_busy();
+[; ;lm629.c: 454:     check_busy();
 [e ( _check_busy ..  ]
 "455
-[; ;lm629.c: 455: write_data(0x08,0x28);
-[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
-"456
-[; ;lm629.c: 456: check_busy();
-[e ( _check_busy ..  ]
-"458
-[; ;lm629.c: 458: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"459
-[; ;lm629.c: 459: check_busy();
-[e ( _check_busy ..  ]
-"460
-[; ;lm629.c: 460: write_data(0x00,0x48);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
-"461
-[; ;lm629.c: 461: check_busy();
-[e ( _check_busy ..  ]
-"463
-[; ;lm629.c: 463: write_data(0x00,0x01);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"464
-[; ;lm629.c: 464: check_busy();
-[e ( _check_busy ..  ]
-"465
-[; ;lm629.c: 465: write_data(0xFA,0xD0);
+[; ;lm629.c: 455:     write_data(0xFA,0xD0);
 [e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"466
-[; ;lm629.c: 466: check_busy();
+"456
+[; ;lm629.c: 456:     check_busy();
+[e ( _check_busy ..  ]
+"459
+[; ;lm629.c: 459:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"460
+[; ;lm629.c: 460:     check_busy();
+[e ( _check_busy ..  ]
+"461
+[; ;lm629.c: 461:     motor_off();
+[e ( _motor_off ..  ]
+"462
+[; ;lm629.c: 462:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"463
+[; ;lm629.c: 463:     check_busy();
+[e ( _check_busy ..  ]
+"464
+[; ;lm629.c: 464:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"465
+[; ;lm629.c: 465:     check_busy();
+[e ( _check_busy ..  ]
+"467
+[; ;lm629.c: 467:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"468
+[; ;lm629.c: 468:     check_busy();
 [e ( _check_busy ..  ]
 "469
-[; ;lm629.c: 469: chip_select(3);
-[e ( _chip_select (1 -> -> 3 `i `uc ]
+[; ;lm629.c: 469:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
 "470
-[; ;lm629.c: 470: check_busy();
+[; ;lm629.c: 470:     check_busy();
 [e ( _check_busy ..  ]
-"471
-[; ;lm629.c: 471: motor_off();
-[e ( _motor_off ..  ]
 "472
-[; ;lm629.c: 472: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
+[; ;lm629.c: 472:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "473
-[; ;lm629.c: 473: check_busy();
+[; ;lm629.c: 473:     check_busy();
 [e ( _check_busy ..  ]
 "474
-[; ;lm629.c: 474: write_data(0x18,0x28);
-[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
-"475
-[; ;lm629.c: 475: check_busy();
-[e ( _check_busy ..  ]
-"477
-[; ;lm629.c: 477: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"478
-[; ;lm629.c: 478: check_busy();
-[e ( _check_busy ..  ]
-"479
-[; ;lm629.c: 479: write_data(0x00,0x48);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
-"480
-[; ;lm629.c: 480: check_busy();
-[e ( _check_busy ..  ]
-"482
-[; ;lm629.c: 482: write_data(0x00,0x01);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"483
-[; ;lm629.c: 483: check_busy();
-[e ( _check_busy ..  ]
-"484
-[; ;lm629.c: 484: write_data(0xFA,0xD0);
+[; ;lm629.c: 474:     write_data(0xFA,0xD0);
 [e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"485
-[; ;lm629.c: 485: check_busy();
+"475
+[; ;lm629.c: 475:     check_busy();
+[e ( _check_busy ..  ]
+"478
+[; ;lm629.c: 478:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"479
+[; ;lm629.c: 479:     check_busy();
+[e ( _check_busy ..  ]
+"480
+[; ;lm629.c: 480:     motor_off();
+[e ( _motor_off ..  ]
+"481
+[; ;lm629.c: 481:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"482
+[; ;lm629.c: 482:     check_busy();
+[e ( _check_busy ..  ]
+"483
+[; ;lm629.c: 483:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
+"484
+[; ;lm629.c: 484:     check_busy();
+[e ( _check_busy ..  ]
+"486
+[; ;lm629.c: 486:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"487
+[; ;lm629.c: 487:     check_busy();
 [e ( _check_busy ..  ]
 "488
-[; ;lm629.c: 488: chip_select(0);
-[e ( _chip_select (1 -> -> 0 `i `uc ]
+[; ;lm629.c: 488:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
 "489
-[; ;lm629.c: 489: write_command(0x01);
-[e ( _write_command (1 -> -> 1 `i `uc ]
-"490
-[; ;lm629.c: 490: check_busy();
+[; ;lm629.c: 489:     check_busy();
 [e ( _check_busy ..  ]
+"491
+[; ;lm629.c: 491:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "492
-[; ;lm629.c: 492: chip_select(2);
-[e ( _chip_select (1 -> -> 2 `i `uc ]
+[; ;lm629.c: 492:     check_busy();
+[e ( _check_busy ..  ]
 "493
-[; ;lm629.c: 493: write_command(0x01);
-[e ( _write_command (1 -> -> 1 `i `uc ]
+[; ;lm629.c: 493:     write_data(0xFA,0xD0);
+[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
 "494
-[; ;lm629.c: 494: check_busy();
+[; ;lm629.c: 494:     check_busy();
 [e ( _check_busy ..  ]
-"496
-[; ;lm629.c: 496: chip_select(1);
-[e ( _chip_select (1 -> -> 1 `i `uc ]
 "497
-[; ;lm629.c: 497: write_command(0x01);
-[e ( _write_command (1 -> -> 1 `i `uc ]
+[; ;lm629.c: 497:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
 "498
-[; ;lm629.c: 498: check_busy();
-[e ( _check_busy ..  ]
-"500
-[; ;lm629.c: 500: chip_select(3);
-[e ( _chip_select (1 -> -> 3 `i `uc ]
-"501
-[; ;lm629.c: 501: write_command(0x01);
+[; ;lm629.c: 498:     write_command(0x01);
 [e ( _write_command (1 -> -> 1 `i `uc ]
-"502
-[; ;lm629.c: 502: check_busy();
+"499
+[; ;lm629.c: 499:     check_busy();
 [e ( _check_busy ..  ]
+"501
+[; ;lm629.c: 501:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"502
+[; ;lm629.c: 502:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
 "503
-[; ;lm629.c: 503: }
+[; ;lm629.c: 503:     check_busy();
+[e ( _check_busy ..  ]
+"505
+[; ;lm629.c: 505:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"506
+[; ;lm629.c: 506:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"507
+[; ;lm629.c: 507:     check_busy();
+[e ( _check_busy ..  ]
+"509
+[; ;lm629.c: 509:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"510
+[; ;lm629.c: 510:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"511
+[; ;lm629.c: 511:     check_busy();
+[e ( _check_busy ..  ]
+"512
+[; ;lm629.c: 512: }
 [e :UE 900 ]
 }
-"506
-[; ;lm629.c: 506: void reverse()
+"515
+[; ;lm629.c: 515: void reverse()
 [v _reverse `(v ~T0 @X0 1 ef ]
-"507
-[; ;lm629.c: 507: {
+"516
+[; ;lm629.c: 516: {
 {
 [e :U _reverse ]
 [f ]
-"508
-[; ;lm629.c: 508: chip_select(1);
-[e ( _chip_select (1 -> -> 1 `i `uc ]
-"509
-[; ;lm629.c: 509: check_busy();
-[e ( _check_busy ..  ]
-"510
-[; ;lm629.c: 510: motor_off();
-[e ( _motor_off ..  ]
-"511
-[; ;lm629.c: 511: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
-"512
-[; ;lm629.c: 512: check_busy();
-[e ( _check_busy ..  ]
-"513
-[; ;lm629.c: 513: write_data(0x18,0x28);
-[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
-"514
-[; ;lm629.c: 514: check_busy();
-[e ( _check_busy ..  ]
-"516
-[; ;lm629.c: 516: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
 "517
-[; ;lm629.c: 517: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 517:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
 "518
-[; ;lm629.c: 518: write_data(0x00,0x48);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+[; ;lm629.c: 518:     check_busy();
+[e ( _check_busy ..  ]
 "519
-[; ;lm629.c: 519: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 519:     motor_off();
+[e ( _motor_off ..  ]
+"520
+[; ;lm629.c: 520:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
 "521
-[; ;lm629.c: 521: write_data(0x00,0x01);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"522
-[; ;lm629.c: 522: check_busy();
+[; ;lm629.c: 521:     check_busy();
 [e ( _check_busy ..  ]
+"522
+[; ;lm629.c: 522:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
 "523
-[; ;lm629.c: 523: write_data(0xFA,0xD0);
-[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"524
-[; ;lm629.c: 524: check_busy();
+[; ;lm629.c: 523:     check_busy();
+[e ( _check_busy ..  ]
+"525
+[; ;lm629.c: 525:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"526
+[; ;lm629.c: 526:     check_busy();
 [e ( _check_busy ..  ]
 "527
-[; ;lm629.c: 527: chip_select(0);
-[e ( _chip_select (1 -> -> 0 `i `uc ]
+[; ;lm629.c: 527:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
 "528
-[; ;lm629.c: 528: check_busy();
+[; ;lm629.c: 528:     check_busy();
 [e ( _check_busy ..  ]
-"529
-[; ;lm629.c: 529: motor_off();
-[e ( _motor_off ..  ]
 "530
-[; ;lm629.c: 530: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
+[; ;lm629.c: 530:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "531
-[; ;lm629.c: 531: check_busy();
+[; ;lm629.c: 531:     check_busy();
 [e ( _check_busy ..  ]
 "532
-[; ;lm629.c: 532: write_data(0x08,0x28);
-[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
-"533
-[; ;lm629.c: 533: check_busy();
-[e ( _check_busy ..  ]
-"535
-[; ;lm629.c: 535: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"536
-[; ;lm629.c: 536: check_busy();
-[e ( _check_busy ..  ]
-"537
-[; ;lm629.c: 537: write_data(0x00,0x48);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
-"538
-[; ;lm629.c: 538: check_busy();
-[e ( _check_busy ..  ]
-"540
-[; ;lm629.c: 540: write_data(0x00,0x01);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"541
-[; ;lm629.c: 541: check_busy();
-[e ( _check_busy ..  ]
-"542
-[; ;lm629.c: 542: write_data(0xFA,0xD0);
+[; ;lm629.c: 532:     write_data(0xFA,0xD0);
 [e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"543
-[; ;lm629.c: 543: check_busy();
+"533
+[; ;lm629.c: 533:     check_busy();
 [e ( _check_busy ..  ]
+"536
+[; ;lm629.c: 536:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
+"537
+[; ;lm629.c: 537:     check_busy();
+[e ( _check_busy ..  ]
+"538
+[; ;lm629.c: 538:     motor_off();
+[e ( _motor_off ..  ]
+"539
+[; ;lm629.c: 539:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"540
+[; ;lm629.c: 540:     check_busy();
+[e ( _check_busy ..  ]
+"541
+[; ;lm629.c: 541:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"542
+[; ;lm629.c: 542:     check_busy();
+[e ( _check_busy ..  ]
+"544
+[; ;lm629.c: 544:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"545
+[; ;lm629.c: 545:     check_busy();
+[e ( _check_busy ..  ]
+"546
+[; ;lm629.c: 546:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
 "547
-[; ;lm629.c: 547: chip_select(3);
-[e ( _chip_select (1 -> -> 3 `i `uc ]
-"548
-[; ;lm629.c: 548: check_busy();
+[; ;lm629.c: 547:     check_busy();
 [e ( _check_busy ..  ]
 "549
-[; ;lm629.c: 549: motor_off();
-[e ( _motor_off ..  ]
+[; ;lm629.c: 549:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "550
-[; ;lm629.c: 550: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
+[; ;lm629.c: 550:     check_busy();
+[e ( _check_busy ..  ]
 "551
-[; ;lm629.c: 551: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 551:     write_data(0xFA,0xD0);
+[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
 "552
-[; ;lm629.c: 552: write_data(0x08,0x28);
-[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
-"553
-[; ;lm629.c: 553: check_busy();
+[; ;lm629.c: 552:     check_busy();
 [e ( _check_busy ..  ]
-"555
-[; ;lm629.c: 555: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
 "556
-[; ;lm629.c: 556: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 556:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
 "557
-[; ;lm629.c: 557: write_data(0x00,0x48);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+[; ;lm629.c: 557:     check_busy();
+[e ( _check_busy ..  ]
 "558
-[; ;lm629.c: 558: check_busy();
-[e ( _check_busy ..  ]
-"560
-[; ;lm629.c: 560: write_data(0x00,0x01);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"561
-[; ;lm629.c: 561: check_busy();
-[e ( _check_busy ..  ]
-"562
-[; ;lm629.c: 562: write_data(0xFA,0xD0);
-[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"563
-[; ;lm629.c: 563: check_busy();
-[e ( _check_busy ..  ]
-"565
-[; ;lm629.c: 565: chip_select(2);
-[e ( _chip_select (1 -> -> 2 `i `uc ]
-"566
-[; ;lm629.c: 566: check_busy();
-[e ( _check_busy ..  ]
-"567
-[; ;lm629.c: 567: motor_off();
+[; ;lm629.c: 558:     motor_off();
 [e ( _motor_off ..  ]
-"568
-[; ;lm629.c: 568: write_command(0x1F);
+"559
+[; ;lm629.c: 559:     write_command(0x1F);
 [e ( _write_command (1 -> -> 31 `i `uc ]
-"569
-[; ;lm629.c: 569: check_busy();
+"560
+[; ;lm629.c: 560:     check_busy();
 [e ( _check_busy ..  ]
-"570
-[; ;lm629.c: 570: write_data(0x18,0x28);
-[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
-"571
-[; ;lm629.c: 571: check_busy();
+"561
+[; ;lm629.c: 561:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"562
+[; ;lm629.c: 562:     check_busy();
 [e ( _check_busy ..  ]
-"573
-[; ;lm629.c: 573: write_data(0x00,0x00);
+"564
+[; ;lm629.c: 564:     write_data(0x00,0x00);
 [e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"574
-[; ;lm629.c: 574: check_busy();
+"565
+[; ;lm629.c: 565:     check_busy();
 [e ( _check_busy ..  ]
-"575
-[; ;lm629.c: 575: write_data(0x00,0x48);
+"566
+[; ;lm629.c: 566:     write_data(0x00,0x48);
 [e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
-"576
-[; ;lm629.c: 576: check_busy();
+"567
+[; ;lm629.c: 567:     check_busy();
 [e ( _check_busy ..  ]
-"578
-[; ;lm629.c: 578: write_data(0x00,0x01);
+"569
+[; ;lm629.c: 569:     write_data(0x00,0x01);
 [e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"579
-[; ;lm629.c: 579: check_busy();
+"570
+[; ;lm629.c: 570:     check_busy();
 [e ( _check_busy ..  ]
-"580
-[; ;lm629.c: 580: write_data(0xFA,0xD0);
+"571
+[; ;lm629.c: 571:     write_data(0xFA,0xD0);
 [e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"581
-[; ;lm629.c: 581: check_busy();
+"572
+[; ;lm629.c: 572:     check_busy();
+[e ( _check_busy ..  ]
+"574
+[; ;lm629.c: 574:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"575
+[; ;lm629.c: 575:     check_busy();
+[e ( _check_busy ..  ]
+"576
+[; ;lm629.c: 576:     motor_off();
+[e ( _motor_off ..  ]
+"577
+[; ;lm629.c: 577:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"578
+[; ;lm629.c: 578:     check_busy();
+[e ( _check_busy ..  ]
+"579
+[; ;lm629.c: 579:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
+"580
+[; ;lm629.c: 580:     check_busy();
+[e ( _check_busy ..  ]
+"582
+[; ;lm629.c: 582:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"583
+[; ;lm629.c: 583:     check_busy();
 [e ( _check_busy ..  ]
 "584
-[; ;lm629.c: 584: chip_select(0);
-[e ( _chip_select (1 -> -> 0 `i `uc ]
+[; ;lm629.c: 584:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
 "585
-[; ;lm629.c: 585: write_command(0x01);
-[e ( _write_command (1 -> -> 1 `i `uc ]
-"586
-[; ;lm629.c: 586: check_busy();
+[; ;lm629.c: 585:     check_busy();
 [e ( _check_busy ..  ]
+"587
+[; ;lm629.c: 587:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "588
-[; ;lm629.c: 588: chip_select(2);
-[e ( _chip_select (1 -> -> 2 `i `uc ]
+[; ;lm629.c: 588:     check_busy();
+[e ( _check_busy ..  ]
 "589
-[; ;lm629.c: 589: write_command(0x01);
-[e ( _write_command (1 -> -> 1 `i `uc ]
+[; ;lm629.c: 589:     write_data(0xFA,0xD0);
+[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
 "590
-[; ;lm629.c: 590: check_busy();
+[; ;lm629.c: 590:     check_busy();
 [e ( _check_busy ..  ]
-"592
-[; ;lm629.c: 592: chip_select(1);
-[e ( _chip_select (1 -> -> 1 `i `uc ]
 "593
-[; ;lm629.c: 593: write_command(0x01);
-[e ( _write_command (1 -> -> 1 `i `uc ]
+[; ;lm629.c: 593:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
 "594
-[; ;lm629.c: 594: check_busy();
-[e ( _check_busy ..  ]
-"596
-[; ;lm629.c: 596: chip_select(3);
-[e ( _chip_select (1 -> -> 3 `i `uc ]
-"597
-[; ;lm629.c: 597: write_command(0x01);
+[; ;lm629.c: 594:     write_command(0x01);
 [e ( _write_command (1 -> -> 1 `i `uc ]
-"598
-[; ;lm629.c: 598: check_busy();
+"595
+[; ;lm629.c: 595:     check_busy();
 [e ( _check_busy ..  ]
+"597
+[; ;lm629.c: 597:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"598
+[; ;lm629.c: 598:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
 "599
-[; ;lm629.c: 599: }
+[; ;lm629.c: 599:     check_busy();
+[e ( _check_busy ..  ]
+"601
+[; ;lm629.c: 601:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"602
+[; ;lm629.c: 602:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"603
+[; ;lm629.c: 603:     check_busy();
+[e ( _check_busy ..  ]
+"605
+[; ;lm629.c: 605:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"606
+[; ;lm629.c: 606:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"607
+[; ;lm629.c: 607:     check_busy();
+[e ( _check_busy ..  ]
+"608
+[; ;lm629.c: 608: }
 [e :UE 901 ]
 }
-"601
-[; ;lm629.c: 601: void right()
+"610
+[; ;lm629.c: 610: void right()
 [v _right `(v ~T0 @X0 1 ef ]
-"602
-[; ;lm629.c: 602: {
+"611
+[; ;lm629.c: 611: {
 {
 [e :U _right ]
 [f ]
-"603
-[; ;lm629.c: 603: chip_select(0);
-[e ( _chip_select (1 -> -> 0 `i `uc ]
-"604
-[; ;lm629.c: 604: check_busy();
-[e ( _check_busy ..  ]
-"605
-[; ;lm629.c: 605: motor_off();
-[e ( _motor_off ..  ]
-"606
-[; ;lm629.c: 606: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
-"607
-[; ;lm629.c: 607: check_busy();
-[e ( _check_busy ..  ]
-"608
-[; ;lm629.c: 608: write_data(0x08,0x28);
-[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
-"609
-[; ;lm629.c: 609: check_busy();
-[e ( _check_busy ..  ]
-"611
-[; ;lm629.c: 611: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
 "612
-[; ;lm629.c: 612: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 612:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
 "613
-[; ;lm629.c: 613: write_data(0x00,0x48);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+[; ;lm629.c: 613:     check_busy();
+[e ( _check_busy ..  ]
 "614
-[; ;lm629.c: 614: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 614:     motor_off();
+[e ( _motor_off ..  ]
+"615
+[; ;lm629.c: 615:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
 "616
-[; ;lm629.c: 616: write_data(0x00,0x01);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"617
-[; ;lm629.c: 617: check_busy();
+[; ;lm629.c: 616:     check_busy();
 [e ( _check_busy ..  ]
+"617
+[; ;lm629.c: 617:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
 "618
-[; ;lm629.c: 618: write_data(0xFA,0xD0);
-[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"619
-[; ;lm629.c: 619: check_busy();
+[; ;lm629.c: 618:     check_busy();
+[e ( _check_busy ..  ]
+"620
+[; ;lm629.c: 620:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"621
+[; ;lm629.c: 621:     check_busy();
 [e ( _check_busy ..  ]
 "622
-[; ;lm629.c: 622: chip_select(1);
-[e ( _chip_select (1 -> -> 1 `i `uc ]
+[; ;lm629.c: 622:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
 "623
-[; ;lm629.c: 623: check_busy();
+[; ;lm629.c: 623:     check_busy();
 [e ( _check_busy ..  ]
-"624
-[; ;lm629.c: 624: motor_off();
-[e ( _motor_off ..  ]
 "625
-[; ;lm629.c: 625: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
+[; ;lm629.c: 625:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "626
-[; ;lm629.c: 626: check_busy();
+[; ;lm629.c: 626:     check_busy();
 [e ( _check_busy ..  ]
 "627
-[; ;lm629.c: 627: write_data(0x08,0x28);
-[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
-"628
-[; ;lm629.c: 628: check_busy();
-[e ( _check_busy ..  ]
-"630
-[; ;lm629.c: 630: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"631
-[; ;lm629.c: 631: check_busy();
-[e ( _check_busy ..  ]
-"632
-[; ;lm629.c: 632: write_data(0x00,0x48);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
-"633
-[; ;lm629.c: 633: check_busy();
-[e ( _check_busy ..  ]
-"635
-[; ;lm629.c: 635: write_data(0x00,0x01);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"636
-[; ;lm629.c: 636: check_busy();
-[e ( _check_busy ..  ]
-"637
-[; ;lm629.c: 637: write_data(0xFA,0xD0);
+[; ;lm629.c: 627:     write_data(0xFA,0xD0);
 [e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"638
-[; ;lm629.c: 638: check_busy();
+"628
+[; ;lm629.c: 628:     check_busy();
+[e ( _check_busy ..  ]
+"631
+[; ;lm629.c: 631:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"632
+[; ;lm629.c: 632:     check_busy();
+[e ( _check_busy ..  ]
+"633
+[; ;lm629.c: 633:     motor_off();
+[e ( _motor_off ..  ]
+"634
+[; ;lm629.c: 634:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"635
+[; ;lm629.c: 635:     check_busy();
+[e ( _check_busy ..  ]
+"636
+[; ;lm629.c: 636:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"637
+[; ;lm629.c: 637:     check_busy();
+[e ( _check_busy ..  ]
+"639
+[; ;lm629.c: 639:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"640
+[; ;lm629.c: 640:     check_busy();
 [e ( _check_busy ..  ]
 "641
-[; ;lm629.c: 641: chip_select(2);
-[e ( _chip_select (1 -> -> 2 `i `uc ]
+[; ;lm629.c: 641:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
 "642
-[; ;lm629.c: 642: check_busy();
+[; ;lm629.c: 642:     check_busy();
 [e ( _check_busy ..  ]
-"643
-[; ;lm629.c: 643: motor_off();
-[e ( _motor_off ..  ]
 "644
-[; ;lm629.c: 644: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
+[; ;lm629.c: 644:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "645
-[; ;lm629.c: 645: check_busy();
+[; ;lm629.c: 645:     check_busy();
 [e ( _check_busy ..  ]
 "646
-[; ;lm629.c: 646: write_data(0x08,0x28);
-[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
-"647
-[; ;lm629.c: 647: check_busy();
-[e ( _check_busy ..  ]
-"649
-[; ;lm629.c: 649: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"650
-[; ;lm629.c: 650: check_busy();
-[e ( _check_busy ..  ]
-"651
-[; ;lm629.c: 651: write_data(0x00,0x48);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
-"652
-[; ;lm629.c: 652: check_busy();
-[e ( _check_busy ..  ]
-"654
-[; ;lm629.c: 654: write_data(0x00,0x01);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"655
-[; ;lm629.c: 655: check_busy();
-[e ( _check_busy ..  ]
-"656
-[; ;lm629.c: 656: write_data(0xFA,0xD0);
+[; ;lm629.c: 646:     write_data(0xFA,0xD0);
 [e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"657
-[; ;lm629.c: 657: check_busy();
+"647
+[; ;lm629.c: 647:     check_busy();
+[e ( _check_busy ..  ]
+"650
+[; ;lm629.c: 650:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"651
+[; ;lm629.c: 651:     check_busy();
+[e ( _check_busy ..  ]
+"652
+[; ;lm629.c: 652:     motor_off();
+[e ( _motor_off ..  ]
+"653
+[; ;lm629.c: 653:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"654
+[; ;lm629.c: 654:     check_busy();
+[e ( _check_busy ..  ]
+"655
+[; ;lm629.c: 655:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"656
+[; ;lm629.c: 656:     check_busy();
+[e ( _check_busy ..  ]
+"658
+[; ;lm629.c: 658:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"659
+[; ;lm629.c: 659:     check_busy();
 [e ( _check_busy ..  ]
 "660
-[; ;lm629.c: 660: chip_select(3);
-[e ( _chip_select (1 -> -> 3 `i `uc ]
+[; ;lm629.c: 660:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
 "661
-[; ;lm629.c: 661: check_busy();
+[; ;lm629.c: 661:     check_busy();
 [e ( _check_busy ..  ]
-"662
-[; ;lm629.c: 662: motor_off();
-[e ( _motor_off ..  ]
 "663
-[; ;lm629.c: 663: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
+[; ;lm629.c: 663:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "664
-[; ;lm629.c: 664: check_busy();
+[; ;lm629.c: 664:     check_busy();
 [e ( _check_busy ..  ]
 "665
-[; ;lm629.c: 665: write_data(0x08,0x28);
-[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
-"666
-[; ;lm629.c: 666: check_busy();
-[e ( _check_busy ..  ]
-"668
-[; ;lm629.c: 668: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"669
-[; ;lm629.c: 669: check_busy();
-[e ( _check_busy ..  ]
-"670
-[; ;lm629.c: 670: write_data(0x00,0x48);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
-"671
-[; ;lm629.c: 671: check_busy();
-[e ( _check_busy ..  ]
-"673
-[; ;lm629.c: 673: write_data(0x00,0x01);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"674
-[; ;lm629.c: 674: check_busy();
-[e ( _check_busy ..  ]
-"675
-[; ;lm629.c: 675: write_data(0xFA,0xD0);
+[; ;lm629.c: 665:     write_data(0xFA,0xD0);
 [e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"676
-[; ;lm629.c: 676: check_busy();
+"666
+[; ;lm629.c: 666:     check_busy();
+[e ( _check_busy ..  ]
+"669
+[; ;lm629.c: 669:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"670
+[; ;lm629.c: 670:     check_busy();
+[e ( _check_busy ..  ]
+"671
+[; ;lm629.c: 671:     motor_off();
+[e ( _motor_off ..  ]
+"672
+[; ;lm629.c: 672:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"673
+[; ;lm629.c: 673:     check_busy();
+[e ( _check_busy ..  ]
+"674
+[; ;lm629.c: 674:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"675
+[; ;lm629.c: 675:     check_busy();
+[e ( _check_busy ..  ]
+"677
+[; ;lm629.c: 677:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"678
+[; ;lm629.c: 678:     check_busy();
 [e ( _check_busy ..  ]
 "679
-[; ;lm629.c: 679: chip_select(0);
-[e ( _chip_select (1 -> -> 0 `i `uc ]
+[; ;lm629.c: 679:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
 "680
-[; ;lm629.c: 680: write_command(0x01);
-[e ( _write_command (1 -> -> 1 `i `uc ]
-"681
-[; ;lm629.c: 681: check_busy();
+[; ;lm629.c: 680:     check_busy();
 [e ( _check_busy ..  ]
+"682
+[; ;lm629.c: 682:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "683
-[; ;lm629.c: 683: chip_select(2);
-[e ( _chip_select (1 -> -> 2 `i `uc ]
+[; ;lm629.c: 683:     check_busy();
+[e ( _check_busy ..  ]
 "684
-[; ;lm629.c: 684: write_command(0x01);
-[e ( _write_command (1 -> -> 1 `i `uc ]
+[; ;lm629.c: 684:     write_data(0xFA,0xD0);
+[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
 "685
-[; ;lm629.c: 685: check_busy();
+[; ;lm629.c: 685:     check_busy();
 [e ( _check_busy ..  ]
-"687
-[; ;lm629.c: 687: chip_select(1);
-[e ( _chip_select (1 -> -> 1 `i `uc ]
 "688
-[; ;lm629.c: 688: write_command(0x01);
-[e ( _write_command (1 -> -> 1 `i `uc ]
+[; ;lm629.c: 688:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
 "689
-[; ;lm629.c: 689: check_busy();
-[e ( _check_busy ..  ]
-"691
-[; ;lm629.c: 691: chip_select(3);
-[e ( _chip_select (1 -> -> 3 `i `uc ]
-"692
-[; ;lm629.c: 692: write_command(0x01);
+[; ;lm629.c: 689:     write_command(0x01);
 [e ( _write_command (1 -> -> 1 `i `uc ]
-"693
-[; ;lm629.c: 693: check_busy();
+"690
+[; ;lm629.c: 690:     check_busy();
 [e ( _check_busy ..  ]
+"692
+[; ;lm629.c: 692:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"693
+[; ;lm629.c: 693:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
 "694
-[; ;lm629.c: 694: }
+[; ;lm629.c: 694:     check_busy();
+[e ( _check_busy ..  ]
+"696
+[; ;lm629.c: 696:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"697
+[; ;lm629.c: 697:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"698
+[; ;lm629.c: 698:     check_busy();
+[e ( _check_busy ..  ]
+"700
+[; ;lm629.c: 700:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"701
+[; ;lm629.c: 701:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"702
+[; ;lm629.c: 702:     check_busy();
+[e ( _check_busy ..  ]
+"703
+[; ;lm629.c: 703: }
 [e :UE 902 ]
 }
-"696
-[; ;lm629.c: 696: void left()
+"705
+[; ;lm629.c: 705: void left()
 [v _left `(v ~T0 @X0 1 ef ]
-"697
-[; ;lm629.c: 697: {
+"706
+[; ;lm629.c: 706: {
 {
 [e :U _left ]
 [f ]
-"698
-[; ;lm629.c: 698: chip_select(0);
-[e ( _chip_select (1 -> -> 0 `i `uc ]
-"699
-[; ;lm629.c: 699: check_busy();
-[e ( _check_busy ..  ]
-"700
-[; ;lm629.c: 700: motor_off();
-[e ( _motor_off ..  ]
-"701
-[; ;lm629.c: 701: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
-"702
-[; ;lm629.c: 702: check_busy();
-[e ( _check_busy ..  ]
-"703
-[; ;lm629.c: 703: write_data(0x18,0x28);
-[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
-"704
-[; ;lm629.c: 704: check_busy();
-[e ( _check_busy ..  ]
-"706
-[; ;lm629.c: 706: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
 "707
-[; ;lm629.c: 707: check_busy();
-[e ( _check_busy ..  ]
+[; ;lm629.c: 707:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
 "708
-[; ;lm629.c: 708: write_data(0x00,0x48);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+[; ;lm629.c: 708:     check_busy();
+[e ( _check_busy ..  ]
 "709
-[; ;lm629.c: 709: check_busy();
-[e ( _check_busy ..  ]
-"711
-[; ;lm629.c: 711: write_data(0x00,0x01);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"712
-[; ;lm629.c: 712: check_busy();
-[e ( _check_busy ..  ]
-"713
-[; ;lm629.c: 713: write_data(0xFA,0xD0);
-[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"714
-[; ;lm629.c: 714: check_busy();
-[e ( _check_busy ..  ]
-"716
-[; ;lm629.c: 716: chip_select(1);
-[e ( _chip_select (1 -> -> 1 `i `uc ]
-"717
-[; ;lm629.c: 717: check_busy();
-[e ( _check_busy ..  ]
-"718
-[; ;lm629.c: 718: motor_off();
+[; ;lm629.c: 709:     motor_off();
 [e ( _motor_off ..  ]
-"719
-[; ;lm629.c: 719: write_command(0x1F);
+"710
+[; ;lm629.c: 710:     write_command(0x1F);
 [e ( _write_command (1 -> -> 31 `i `uc ]
-"720
-[; ;lm629.c: 720: check_busy();
+"711
+[; ;lm629.c: 711:     check_busy();
 [e ( _check_busy ..  ]
-"721
-[; ;lm629.c: 721: write_data(0x18,0x28);
+"712
+[; ;lm629.c: 712:     write_data(0x18,0x28);
 [e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
-"722
-[; ;lm629.c: 722: check_busy();
+"713
+[; ;lm629.c: 713:     check_busy();
 [e ( _check_busy ..  ]
-"724
-[; ;lm629.c: 724: write_data(0x00,0x00);
+"715
+[; ;lm629.c: 715:     write_data(0x00,0x00);
 [e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"725
-[; ;lm629.c: 725: check_busy();
+"716
+[; ;lm629.c: 716:     check_busy();
 [e ( _check_busy ..  ]
-"726
-[; ;lm629.c: 726: write_data(0x00,0x48);
+"717
+[; ;lm629.c: 717:     write_data(0x00,0x48);
 [e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
-"727
-[; ;lm629.c: 727: check_busy();
+"718
+[; ;lm629.c: 718:     check_busy();
 [e ( _check_busy ..  ]
-"729
-[; ;lm629.c: 729: write_data(0x00,0x01);
+"720
+[; ;lm629.c: 720:     write_data(0x00,0x01);
 [e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"730
-[; ;lm629.c: 730: check_busy();
+"721
+[; ;lm629.c: 721:     check_busy();
 [e ( _check_busy ..  ]
-"731
-[; ;lm629.c: 731: write_data(0xFA,0xD0);
+"722
+[; ;lm629.c: 722:     write_data(0xFA,0xD0);
 [e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"732
-[; ;lm629.c: 732: check_busy();
+"723
+[; ;lm629.c: 723:     check_busy();
+[e ( _check_busy ..  ]
+"725
+[; ;lm629.c: 725:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"726
+[; ;lm629.c: 726:     check_busy();
+[e ( _check_busy ..  ]
+"727
+[; ;lm629.c: 727:     motor_off();
+[e ( _motor_off ..  ]
+"728
+[; ;lm629.c: 728:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"729
+[; ;lm629.c: 729:     check_busy();
+[e ( _check_busy ..  ]
+"730
+[; ;lm629.c: 730:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
+"731
+[; ;lm629.c: 731:     check_busy();
+[e ( _check_busy ..  ]
+"733
+[; ;lm629.c: 733:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"734
+[; ;lm629.c: 734:     check_busy();
 [e ( _check_busy ..  ]
 "735
-[; ;lm629.c: 735: chip_select(2);
-[e ( _chip_select (1 -> -> 2 `i `uc ]
+[; ;lm629.c: 735:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
 "736
-[; ;lm629.c: 736: check_busy();
+[; ;lm629.c: 736:     check_busy();
 [e ( _check_busy ..  ]
-"737
-[; ;lm629.c: 737: motor_off();
-[e ( _motor_off ..  ]
 "738
-[; ;lm629.c: 738: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
+[; ;lm629.c: 738:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "739
-[; ;lm629.c: 739: check_busy();
+[; ;lm629.c: 739:     check_busy();
 [e ( _check_busy ..  ]
 "740
-[; ;lm629.c: 740: write_data(0x18,0x28);
-[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
-"741
-[; ;lm629.c: 741: check_busy();
-[e ( _check_busy ..  ]
-"743
-[; ;lm629.c: 743: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"744
-[; ;lm629.c: 744: check_busy();
-[e ( _check_busy ..  ]
-"745
-[; ;lm629.c: 745: write_data(0x00,0x48);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
-"746
-[; ;lm629.c: 746: check_busy();
-[e ( _check_busy ..  ]
-"748
-[; ;lm629.c: 748: write_data(0x00,0x01);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"749
-[; ;lm629.c: 749: check_busy();
-[e ( _check_busy ..  ]
-"750
-[; ;lm629.c: 750: write_data(0xFA,0xD0);
+[; ;lm629.c: 740:     write_data(0xFA,0xD0);
 [e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"751
-[; ;lm629.c: 751: check_busy();
+"741
+[; ;lm629.c: 741:     check_busy();
+[e ( _check_busy ..  ]
+"744
+[; ;lm629.c: 744:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"745
+[; ;lm629.c: 745:     check_busy();
+[e ( _check_busy ..  ]
+"746
+[; ;lm629.c: 746:     motor_off();
+[e ( _motor_off ..  ]
+"747
+[; ;lm629.c: 747:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"748
+[; ;lm629.c: 748:     check_busy();
+[e ( _check_busy ..  ]
+"749
+[; ;lm629.c: 749:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
+"750
+[; ;lm629.c: 750:     check_busy();
+[e ( _check_busy ..  ]
+"752
+[; ;lm629.c: 752:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"753
+[; ;lm629.c: 753:     check_busy();
 [e ( _check_busy ..  ]
 "754
-[; ;lm629.c: 754: chip_select(3);
-[e ( _chip_select (1 -> -> 3 `i `uc ]
+[; ;lm629.c: 754:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
 "755
-[; ;lm629.c: 755: check_busy();
+[; ;lm629.c: 755:     check_busy();
 [e ( _check_busy ..  ]
-"756
-[; ;lm629.c: 756: motor_off();
-[e ( _motor_off ..  ]
 "757
-[; ;lm629.c: 757: write_command(0x1F);
-[e ( _write_command (1 -> -> 31 `i `uc ]
+[; ;lm629.c: 757:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "758
-[; ;lm629.c: 758: check_busy();
+[; ;lm629.c: 758:     check_busy();
 [e ( _check_busy ..  ]
 "759
-[; ;lm629.c: 759: write_data(0x18,0x28);
-[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
-"760
-[; ;lm629.c: 760: check_busy();
-[e ( _check_busy ..  ]
-"762
-[; ;lm629.c: 762: write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"763
-[; ;lm629.c: 763: check_busy();
-[e ( _check_busy ..  ]
-"764
-[; ;lm629.c: 764: write_data(0x00,0x48);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
-"765
-[; ;lm629.c: 765: check_busy();
-[e ( _check_busy ..  ]
-"767
-[; ;lm629.c: 767: write_data(0x00,0x01);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"768
-[; ;lm629.c: 768: check_busy();
-[e ( _check_busy ..  ]
-"769
-[; ;lm629.c: 769: write_data(0xFA,0xD0);
+[; ;lm629.c: 759:     write_data(0xFA,0xD0);
 [e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
-"770
-[; ;lm629.c: 770: check_busy();
+"760
+[; ;lm629.c: 760:     check_busy();
+[e ( _check_busy ..  ]
+"763
+[; ;lm629.c: 763:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"764
+[; ;lm629.c: 764:     check_busy();
+[e ( _check_busy ..  ]
+"765
+[; ;lm629.c: 765:     motor_off();
+[e ( _motor_off ..  ]
+"766
+[; ;lm629.c: 766:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"767
+[; ;lm629.c: 767:     check_busy();
+[e ( _check_busy ..  ]
+"768
+[; ;lm629.c: 768:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
+"769
+[; ;lm629.c: 769:     check_busy();
+[e ( _check_busy ..  ]
+"771
+[; ;lm629.c: 771:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"772
+[; ;lm629.c: 772:     check_busy();
 [e ( _check_busy ..  ]
 "773
-[; ;lm629.c: 773: chip_select(0);
-[e ( _chip_select (1 -> -> 0 `i `uc ]
+[; ;lm629.c: 773:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
 "774
-[; ;lm629.c: 774: write_command(0x01);
-[e ( _write_command (1 -> -> 1 `i `uc ]
-"775
-[; ;lm629.c: 775: check_busy();
+[; ;lm629.c: 774:     check_busy();
 [e ( _check_busy ..  ]
+"776
+[; ;lm629.c: 776:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "777
-[; ;lm629.c: 777: chip_select(2);
-[e ( _chip_select (1 -> -> 2 `i `uc ]
+[; ;lm629.c: 777:     check_busy();
+[e ( _check_busy ..  ]
 "778
-[; ;lm629.c: 778: write_command(0x01);
-[e ( _write_command (1 -> -> 1 `i `uc ]
+[; ;lm629.c: 778:     write_data(0xFA,0xD0);
+[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
 "779
-[; ;lm629.c: 779: check_busy();
+[; ;lm629.c: 779:     check_busy();
 [e ( _check_busy ..  ]
-"781
-[; ;lm629.c: 781: chip_select(1);
-[e ( _chip_select (1 -> -> 1 `i `uc ]
 "782
-[; ;lm629.c: 782: write_command(0x01);
-[e ( _write_command (1 -> -> 1 `i `uc ]
+[; ;lm629.c: 782:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
 "783
-[; ;lm629.c: 783: check_busy();
-[e ( _check_busy ..  ]
-"785
-[; ;lm629.c: 785: chip_select(3);
-[e ( _chip_select (1 -> -> 3 `i `uc ]
-"786
-[; ;lm629.c: 786: write_command(0x01);
+[; ;lm629.c: 783:     write_command(0x01);
 [e ( _write_command (1 -> -> 1 `i `uc ]
-"787
-[; ;lm629.c: 787: check_busy();
+"784
+[; ;lm629.c: 784:     check_busy();
 [e ( _check_busy ..  ]
+"786
+[; ;lm629.c: 786:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"787
+[; ;lm629.c: 787:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
 "788
-[; ;lm629.c: 788: }
+[; ;lm629.c: 788:     check_busy();
+[e ( _check_busy ..  ]
+"790
+[; ;lm629.c: 790:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"791
+[; ;lm629.c: 791:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"792
+[; ;lm629.c: 792:     check_busy();
+[e ( _check_busy ..  ]
+"794
+[; ;lm629.c: 794:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"795
+[; ;lm629.c: 795:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"796
+[; ;lm629.c: 796:     check_busy();
+[e ( _check_busy ..  ]
+"797
+[; ;lm629.c: 797: }
 [e :UE 903 ]
+}
+"799
+[; ;lm629.c: 799: void forward_left()
+[v _forward_left `(v ~T0 @X0 1 ef ]
+"800
+[; ;lm629.c: 800: {
+{
+[e :U _forward_left ]
+[f ]
+"801
+[; ;lm629.c: 801:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
+"802
+[; ;lm629.c: 802:     check_busy();
+[e ( _check_busy ..  ]
+"803
+[; ;lm629.c: 803:     motor_off();
+[e ( _motor_off ..  ]
+"804
+[; ;lm629.c: 804:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"805
+[; ;lm629.c: 805:     check_busy();
+[e ( _check_busy ..  ]
+"806
+[; ;lm629.c: 806:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
+"807
+[; ;lm629.c: 807:     check_busy();
+[e ( _check_busy ..  ]
+"809
+[; ;lm629.c: 809:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"810
+[; ;lm629.c: 810:     check_busy();
+[e ( _check_busy ..  ]
+"811
+[; ;lm629.c: 811:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"812
+[; ;lm629.c: 812:     check_busy();
+[e ( _check_busy ..  ]
+"814
+[; ;lm629.c: 814:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+"815
+[; ;lm629.c: 815:     check_busy();
+[e ( _check_busy ..  ]
+"816
+[; ;lm629.c: 816:     write_data(0xFA,0xD0);
+[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
+"817
+[; ;lm629.c: 817:     check_busy();
+[e ( _check_busy ..  ]
+"820
+[; ;lm629.c: 820:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"821
+[; ;lm629.c: 821:     check_busy();
+[e ( _check_busy ..  ]
+"822
+[; ;lm629.c: 822:     motor_off();
+[e ( _motor_off ..  ]
+"823
+[; ;lm629.c: 823:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"824
+[; ;lm629.c: 824:     check_busy();
+[e ( _check_busy ..  ]
+"825
+[; ;lm629.c: 825:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"826
+[; ;lm629.c: 826:     check_busy();
+[e ( _check_busy ..  ]
+"828
+[; ;lm629.c: 828:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"829
+[; ;lm629.c: 829:     check_busy();
+[e ( _check_busy ..  ]
+"830
+[; ;lm629.c: 830:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"831
+[; ;lm629.c: 831:     check_busy();
+[e ( _check_busy ..  ]
+"833
+[; ;lm629.c: 833:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"834
+[; ;lm629.c: 834:     check_busy();
+[e ( _check_busy ..  ]
+"835
+[; ;lm629.c: 835:     write_data(0xFD,0x68);
+[e ( _write_data (2 , -> -> 253 `i `uc -> -> 104 `i `uc ]
+"836
+[; ;lm629.c: 836:     check_busy();
+[e ( _check_busy ..  ]
+"839
+[; ;lm629.c: 839:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"840
+[; ;lm629.c: 840:     check_busy();
+[e ( _check_busy ..  ]
+"841
+[; ;lm629.c: 841:     motor_off();
+[e ( _motor_off ..  ]
+"842
+[; ;lm629.c: 842:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"843
+[; ;lm629.c: 843:     check_busy();
+[e ( _check_busy ..  ]
+"844
+[; ;lm629.c: 844:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"845
+[; ;lm629.c: 845:     check_busy();
+[e ( _check_busy ..  ]
+"847
+[; ;lm629.c: 847:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"848
+[; ;lm629.c: 848:     check_busy();
+[e ( _check_busy ..  ]
+"849
+[; ;lm629.c: 849:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"850
+[; ;lm629.c: 850:     check_busy();
+[e ( _check_busy ..  ]
+"852
+[; ;lm629.c: 852:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"853
+[; ;lm629.c: 853:     check_busy();
+[e ( _check_busy ..  ]
+"854
+[; ;lm629.c: 854:     write_data(0xFD,0x68);
+[e ( _write_data (2 , -> -> 253 `i `uc -> -> 104 `i `uc ]
+"855
+[; ;lm629.c: 855:     check_busy();
+[e ( _check_busy ..  ]
+"858
+[; ;lm629.c: 858:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"859
+[; ;lm629.c: 859:     check_busy();
+[e ( _check_busy ..  ]
+"860
+[; ;lm629.c: 860:     motor_off();
+[e ( _motor_off ..  ]
+"861
+[; ;lm629.c: 861:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"862
+[; ;lm629.c: 862:     check_busy();
+[e ( _check_busy ..  ]
+"863
+[; ;lm629.c: 863:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
+"864
+[; ;lm629.c: 864:     check_busy();
+[e ( _check_busy ..  ]
+"866
+[; ;lm629.c: 866:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"867
+[; ;lm629.c: 867:     check_busy();
+[e ( _check_busy ..  ]
+"868
+[; ;lm629.c: 868:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"869
+[; ;lm629.c: 869:     check_busy();
+[e ( _check_busy ..  ]
+"871
+[; ;lm629.c: 871:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+"872
+[; ;lm629.c: 872:     check_busy();
+[e ( _check_busy ..  ]
+"873
+[; ;lm629.c: 873:     write_data(0xFA,0xD0);
+[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
+"874
+[; ;lm629.c: 874:     check_busy();
+[e ( _check_busy ..  ]
+"877
+[; ;lm629.c: 877:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
+"878
+[; ;lm629.c: 878:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"879
+[; ;lm629.c: 879:     check_busy();
+[e ( _check_busy ..  ]
+"881
+[; ;lm629.c: 881:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"882
+[; ;lm629.c: 882:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"883
+[; ;lm629.c: 883:     check_busy();
+[e ( _check_busy ..  ]
+"885
+[; ;lm629.c: 885:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"886
+[; ;lm629.c: 886:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"887
+[; ;lm629.c: 887:     check_busy();
+[e ( _check_busy ..  ]
+"889
+[; ;lm629.c: 889:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"890
+[; ;lm629.c: 890:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"891
+[; ;lm629.c: 891:     check_busy();
+[e ( _check_busy ..  ]
+"892
+[; ;lm629.c: 892:     }
+[e :UE 904 ]
+}
+"894
+[; ;lm629.c: 894:     void forward_right()
+[v _forward_right `(v ~T0 @X0 1 ef ]
+"895
+[; ;lm629.c: 895:     {
+{
+[e :U _forward_right ]
+[f ]
+"896
+[; ;lm629.c: 896:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
+"897
+[; ;lm629.c: 897:     check_busy();
+[e ( _check_busy ..  ]
+"898
+[; ;lm629.c: 898:     motor_off();
+[e ( _motor_off ..  ]
+"899
+[; ;lm629.c: 899:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"900
+[; ;lm629.c: 900:     check_busy();
+[e ( _check_busy ..  ]
+"901
+[; ;lm629.c: 901:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
+"902
+[; ;lm629.c: 902:     check_busy();
+[e ( _check_busy ..  ]
+"904
+[; ;lm629.c: 904:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"905
+[; ;lm629.c: 905:     check_busy();
+[e ( _check_busy ..  ]
+"906
+[; ;lm629.c: 906:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"907
+[; ;lm629.c: 907:     check_busy();
+[e ( _check_busy ..  ]
+"909
+[; ;lm629.c: 909:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"910
+[; ;lm629.c: 910:     check_busy();
+[e ( _check_busy ..  ]
+"911
+[; ;lm629.c: 911:     write_data(0xFD,0x68);
+[e ( _write_data (2 , -> -> 253 `i `uc -> -> 104 `i `uc ]
+"912
+[; ;lm629.c: 912:     check_busy();
+[e ( _check_busy ..  ]
+"915
+[; ;lm629.c: 915:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"916
+[; ;lm629.c: 916:     check_busy();
+[e ( _check_busy ..  ]
+"917
+[; ;lm629.c: 917:     motor_off();
+[e ( _motor_off ..  ]
+"918
+[; ;lm629.c: 918:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"919
+[; ;lm629.c: 919:     check_busy();
+[e ( _check_busy ..  ]
+"920
+[; ;lm629.c: 920:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"921
+[; ;lm629.c: 921:     check_busy();
+[e ( _check_busy ..  ]
+"923
+[; ;lm629.c: 923:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"924
+[; ;lm629.c: 924:     check_busy();
+[e ( _check_busy ..  ]
+"925
+[; ;lm629.c: 925:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"926
+[; ;lm629.c: 926:     check_busy();
+[e ( _check_busy ..  ]
+"928
+[; ;lm629.c: 928:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+"929
+[; ;lm629.c: 929:     check_busy();
+[e ( _check_busy ..  ]
+"930
+[; ;lm629.c: 930:     write_data(0xFA,0xD0);
+[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
+"931
+[; ;lm629.c: 931:     check_busy();
+[e ( _check_busy ..  ]
+"934
+[; ;lm629.c: 934:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"935
+[; ;lm629.c: 935:     check_busy();
+[e ( _check_busy ..  ]
+"936
+[; ;lm629.c: 936:     motor_off();
+[e ( _motor_off ..  ]
+"937
+[; ;lm629.c: 937:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"938
+[; ;lm629.c: 938:     check_busy();
+[e ( _check_busy ..  ]
+"939
+[; ;lm629.c: 939:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"940
+[; ;lm629.c: 940:     check_busy();
+[e ( _check_busy ..  ]
+"942
+[; ;lm629.c: 942:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"943
+[; ;lm629.c: 943:     check_busy();
+[e ( _check_busy ..  ]
+"944
+[; ;lm629.c: 944:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"945
+[; ;lm629.c: 945:     check_busy();
+[e ( _check_busy ..  ]
+"947
+[; ;lm629.c: 947:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+"948
+[; ;lm629.c: 948:     check_busy();
+[e ( _check_busy ..  ]
+"949
+[; ;lm629.c: 949:     write_data(0xFA,0xD0);
+[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
+"950
+[; ;lm629.c: 950:     check_busy();
+[e ( _check_busy ..  ]
+"953
+[; ;lm629.c: 953:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"954
+[; ;lm629.c: 954:     check_busy();
+[e ( _check_busy ..  ]
+"955
+[; ;lm629.c: 955:     motor_off();
+[e ( _motor_off ..  ]
+"956
+[; ;lm629.c: 956:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"957
+[; ;lm629.c: 957:     check_busy();
+[e ( _check_busy ..  ]
+"958
+[; ;lm629.c: 958:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
+"959
+[; ;lm629.c: 959:     check_busy();
+[e ( _check_busy ..  ]
+"961
+[; ;lm629.c: 961:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"962
+[; ;lm629.c: 962:     check_busy();
+[e ( _check_busy ..  ]
+"963
+[; ;lm629.c: 963:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"964
+[; ;lm629.c: 964:     check_busy();
+[e ( _check_busy ..  ]
+"966
+[; ;lm629.c: 966:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"967
+[; ;lm629.c: 967:     check_busy();
+[e ( _check_busy ..  ]
+"968
+[; ;lm629.c: 968:     write_data(0xFD,0x68);
+[e ( _write_data (2 , -> -> 253 `i `uc -> -> 104 `i `uc ]
+"969
+[; ;lm629.c: 969:     check_busy();
+[e ( _check_busy ..  ]
+"972
+[; ;lm629.c: 972:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
+"973
+[; ;lm629.c: 973:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"974
+[; ;lm629.c: 974:     check_busy();
+[e ( _check_busy ..  ]
+"976
+[; ;lm629.c: 976:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"977
+[; ;lm629.c: 977:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"978
+[; ;lm629.c: 978:     check_busy();
+[e ( _check_busy ..  ]
+"980
+[; ;lm629.c: 980:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"981
+[; ;lm629.c: 981:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"982
+[; ;lm629.c: 982:     check_busy();
+[e ( _check_busy ..  ]
+"984
+[; ;lm629.c: 984:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"985
+[; ;lm629.c: 985:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"986
+[; ;lm629.c: 986:     check_busy();
+[e ( _check_busy ..  ]
+"987
+[; ;lm629.c: 987:     }
+[e :UE 905 ]
+}
+"989
+[; ;lm629.c: 989:     void reverse_left()
+[v _reverse_left `(v ~T0 @X0 1 ef ]
+"990
+[; ;lm629.c: 990:     {
+{
+[e :U _reverse_left ]
+[f ]
+"991
+[; ;lm629.c: 991:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"992
+[; ;lm629.c: 992:     check_busy();
+[e ( _check_busy ..  ]
+"993
+[; ;lm629.c: 993:     motor_off();
+[e ( _motor_off ..  ]
+"994
+[; ;lm629.c: 994:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"995
+[; ;lm629.c: 995:     check_busy();
+[e ( _check_busy ..  ]
+"996
+[; ;lm629.c: 996:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
+"997
+[; ;lm629.c: 997:     check_busy();
+[e ( _check_busy ..  ]
+"999
+[; ;lm629.c: 999:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"1000
+[; ;lm629.c: 1000:     check_busy();
+[e ( _check_busy ..  ]
+"1001
+[; ;lm629.c: 1001:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"1002
+[; ;lm629.c: 1002:     check_busy();
+[e ( _check_busy ..  ]
+"1004
+[; ;lm629.c: 1004:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+"1005
+[; ;lm629.c: 1005:     check_busy();
+[e ( _check_busy ..  ]
+"1006
+[; ;lm629.c: 1006:     write_data(0xFA,0xD0);
+[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
+"1007
+[; ;lm629.c: 1007:     check_busy();
+[e ( _check_busy ..  ]
+"1010
+[; ;lm629.c: 1010:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
+"1011
+[; ;lm629.c: 1011:     check_busy();
+[e ( _check_busy ..  ]
+"1012
+[; ;lm629.c: 1012:     motor_off();
+[e ( _motor_off ..  ]
+"1013
+[; ;lm629.c: 1013:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"1014
+[; ;lm629.c: 1014:     check_busy();
+[e ( _check_busy ..  ]
+"1015
+[; ;lm629.c: 1015:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"1016
+[; ;lm629.c: 1016:     check_busy();
+[e ( _check_busy ..  ]
+"1018
+[; ;lm629.c: 1018:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"1019
+[; ;lm629.c: 1019:     check_busy();
+[e ( _check_busy ..  ]
+"1020
+[; ;lm629.c: 1020:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"1021
+[; ;lm629.c: 1021:     check_busy();
+[e ( _check_busy ..  ]
+"1023
+[; ;lm629.c: 1023:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"1024
+[; ;lm629.c: 1024:     check_busy();
+[e ( _check_busy ..  ]
+"1025
+[; ;lm629.c: 1025:     write_data(0xFD,0x68);
+[e ( _write_data (2 , -> -> 253 `i `uc -> -> 104 `i `uc ]
+"1026
+[; ;lm629.c: 1026:     check_busy();
+[e ( _check_busy ..  ]
+"1030
+[; ;lm629.c: 1030:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"1031
+[; ;lm629.c: 1031:     check_busy();
+[e ( _check_busy ..  ]
+"1032
+[; ;lm629.c: 1032:     motor_off();
+[e ( _motor_off ..  ]
+"1033
+[; ;lm629.c: 1033:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"1034
+[; ;lm629.c: 1034:     check_busy();
+[e ( _check_busy ..  ]
+"1035
+[; ;lm629.c: 1035:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"1036
+[; ;lm629.c: 1036:     check_busy();
+[e ( _check_busy ..  ]
+"1038
+[; ;lm629.c: 1038:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"1039
+[; ;lm629.c: 1039:     check_busy();
+[e ( _check_busy ..  ]
+"1040
+[; ;lm629.c: 1040:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"1041
+[; ;lm629.c: 1041:     check_busy();
+[e ( _check_busy ..  ]
+"1043
+[; ;lm629.c: 1043:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"1044
+[; ;lm629.c: 1044:     check_busy();
+[e ( _check_busy ..  ]
+"1045
+[; ;lm629.c: 1045:     write_data(0xFD,0x68);
+[e ( _write_data (2 , -> -> 253 `i `uc -> -> 104 `i `uc ]
+"1046
+[; ;lm629.c: 1046:     check_busy();
+[e ( _check_busy ..  ]
+"1048
+[; ;lm629.c: 1048:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"1049
+[; ;lm629.c: 1049:     check_busy();
+[e ( _check_busy ..  ]
+"1050
+[; ;lm629.c: 1050:     motor_off();
+[e ( _motor_off ..  ]
+"1051
+[; ;lm629.c: 1051:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"1052
+[; ;lm629.c: 1052:     check_busy();
+[e ( _check_busy ..  ]
+"1053
+[; ;lm629.c: 1053:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
+"1054
+[; ;lm629.c: 1054:     check_busy();
+[e ( _check_busy ..  ]
+"1056
+[; ;lm629.c: 1056:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"1057
+[; ;lm629.c: 1057:     check_busy();
+[e ( _check_busy ..  ]
+"1058
+[; ;lm629.c: 1058:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"1059
+[; ;lm629.c: 1059:     check_busy();
+[e ( _check_busy ..  ]
+"1061
+[; ;lm629.c: 1061:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+"1062
+[; ;lm629.c: 1062:     check_busy();
+[e ( _check_busy ..  ]
+"1063
+[; ;lm629.c: 1063:     write_data(0xFA,0xD0);
+[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
+"1064
+[; ;lm629.c: 1064:     check_busy();
+[e ( _check_busy ..  ]
+"1067
+[; ;lm629.c: 1067:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
+"1068
+[; ;lm629.c: 1068:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"1069
+[; ;lm629.c: 1069:     check_busy();
+[e ( _check_busy ..  ]
+"1071
+[; ;lm629.c: 1071:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"1072
+[; ;lm629.c: 1072:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"1073
+[; ;lm629.c: 1073:     check_busy();
+[e ( _check_busy ..  ]
+"1075
+[; ;lm629.c: 1075:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"1076
+[; ;lm629.c: 1076:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"1077
+[; ;lm629.c: 1077:     check_busy();
+[e ( _check_busy ..  ]
+"1079
+[; ;lm629.c: 1079:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"1080
+[; ;lm629.c: 1080:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"1081
+[; ;lm629.c: 1081:     check_busy();
+[e ( _check_busy ..  ]
+"1082
+[; ;lm629.c: 1082: }
+[e :UE 906 ]
+}
+"1084
+[; ;lm629.c: 1084: void reverse_right()
+[v _reverse_right `(v ~T0 @X0 1 ef ]
+"1085
+[; ;lm629.c: 1085: {
+{
+[e :U _reverse_right ]
+[f ]
+"1086
+[; ;lm629.c: 1086:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"1087
+[; ;lm629.c: 1087:     check_busy();
+[e ( _check_busy ..  ]
+"1088
+[; ;lm629.c: 1088:     motor_off();
+[e ( _motor_off ..  ]
+"1089
+[; ;lm629.c: 1089:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"1090
+[; ;lm629.c: 1090:     check_busy();
+[e ( _check_busy ..  ]
+"1091
+[; ;lm629.c: 1091:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
+"1092
+[; ;lm629.c: 1092:     check_busy();
+[e ( _check_busy ..  ]
+"1094
+[; ;lm629.c: 1094:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"1095
+[; ;lm629.c: 1095:     check_busy();
+[e ( _check_busy ..  ]
+"1096
+[; ;lm629.c: 1096:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"1097
+[; ;lm629.c: 1097:     check_busy();
+[e ( _check_busy ..  ]
+"1099
+[; ;lm629.c: 1099:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"1100
+[; ;lm629.c: 1100:     check_busy();
+[e ( _check_busy ..  ]
+"1101
+[; ;lm629.c: 1101:     write_data(0xFD,0x68);
+[e ( _write_data (2 , -> -> 253 `i `uc -> -> 104 `i `uc ]
+"1102
+[; ;lm629.c: 1102:     check_busy();
+[e ( _check_busy ..  ]
+"1105
+[; ;lm629.c: 1105:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
+"1106
+[; ;lm629.c: 1106:     check_busy();
+[e ( _check_busy ..  ]
+"1107
+[; ;lm629.c: 1107:     motor_off();
+[e ( _motor_off ..  ]
+"1108
+[; ;lm629.c: 1108:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"1109
+[; ;lm629.c: 1109:     check_busy();
+[e ( _check_busy ..  ]
+"1110
+[; ;lm629.c: 1110:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"1111
+[; ;lm629.c: 1111:     check_busy();
+[e ( _check_busy ..  ]
+"1113
+[; ;lm629.c: 1113:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"1114
+[; ;lm629.c: 1114:     check_busy();
+[e ( _check_busy ..  ]
+"1115
+[; ;lm629.c: 1115:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"1116
+[; ;lm629.c: 1116:     check_busy();
+[e ( _check_busy ..  ]
+"1118
+[; ;lm629.c: 1118:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+"1119
+[; ;lm629.c: 1119:     check_busy();
+[e ( _check_busy ..  ]
+"1120
+[; ;lm629.c: 1120:     write_data(0xFA,0xD0);
+[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
+"1121
+[; ;lm629.c: 1121:     check_busy();
+[e ( _check_busy ..  ]
+"1125
+[; ;lm629.c: 1125:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"1126
+[; ;lm629.c: 1126:     check_busy();
+[e ( _check_busy ..  ]
+"1127
+[; ;lm629.c: 1127:     motor_off();
+[e ( _motor_off ..  ]
+"1128
+[; ;lm629.c: 1128:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"1129
+[; ;lm629.c: 1129:     check_busy();
+[e ( _check_busy ..  ]
+"1130
+[; ;lm629.c: 1130:     write_data(0x08,0x28);
+[e ( _write_data (2 , -> -> 8 `i `uc -> -> 40 `i `uc ]
+"1131
+[; ;lm629.c: 1131:     check_busy();
+[e ( _check_busy ..  ]
+"1133
+[; ;lm629.c: 1133:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"1134
+[; ;lm629.c: 1134:     check_busy();
+[e ( _check_busy ..  ]
+"1135
+[; ;lm629.c: 1135:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"1136
+[; ;lm629.c: 1136:     check_busy();
+[e ( _check_busy ..  ]
+"1138
+[; ;lm629.c: 1138:     write_data(0x00,0x01);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+"1139
+[; ;lm629.c: 1139:     check_busy();
+[e ( _check_busy ..  ]
+"1140
+[; ;lm629.c: 1140:     write_data(0xFA,0xD0);
+[e ( _write_data (2 , -> -> 250 `i `uc -> -> 208 `i `uc ]
+"1141
+[; ;lm629.c: 1141:     check_busy();
+[e ( _check_busy ..  ]
+"1143
+[; ;lm629.c: 1143:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"1144
+[; ;lm629.c: 1144:     check_busy();
+[e ( _check_busy ..  ]
+"1145
+[; ;lm629.c: 1145:     motor_off();
+[e ( _motor_off ..  ]
+"1146
+[; ;lm629.c: 1146:     write_command(0x1F);
+[e ( _write_command (1 -> -> 31 `i `uc ]
+"1147
+[; ;lm629.c: 1147:     check_busy();
+[e ( _check_busy ..  ]
+"1148
+[; ;lm629.c: 1148:     write_data(0x18,0x28);
+[e ( _write_data (2 , -> -> 24 `i `uc -> -> 40 `i `uc ]
+"1149
+[; ;lm629.c: 1149:     check_busy();
+[e ( _check_busy ..  ]
+"1151
+[; ;lm629.c: 1151:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"1152
+[; ;lm629.c: 1152:     check_busy();
+[e ( _check_busy ..  ]
+"1153
+[; ;lm629.c: 1153:     write_data(0x00,0x48);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 72 `i `uc ]
+"1154
+[; ;lm629.c: 1154:     check_busy();
+[e ( _check_busy ..  ]
+"1156
+[; ;lm629.c: 1156:     write_data(0x00,0x00);
+[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"1157
+[; ;lm629.c: 1157:     check_busy();
+[e ( _check_busy ..  ]
+"1158
+[; ;lm629.c: 1158:     write_data(0xFD,0x68);
+[e ( _write_data (2 , -> -> 253 `i `uc -> -> 104 `i `uc ]
+"1159
+[; ;lm629.c: 1159:     check_busy();
+[e ( _check_busy ..  ]
+"1162
+[; ;lm629.c: 1162:     chip_select(0);
+[e ( _chip_select (1 -> -> 0 `i `uc ]
+"1163
+[; ;lm629.c: 1163:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"1164
+[; ;lm629.c: 1164:     check_busy();
+[e ( _check_busy ..  ]
+"1166
+[; ;lm629.c: 1166:     chip_select(2);
+[e ( _chip_select (1 -> -> 2 `i `uc ]
+"1167
+[; ;lm629.c: 1167:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"1168
+[; ;lm629.c: 1168:     check_busy();
+[e ( _check_busy ..  ]
+"1170
+[; ;lm629.c: 1170:     chip_select(1);
+[e ( _chip_select (1 -> -> 1 `i `uc ]
+"1171
+[; ;lm629.c: 1171:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"1172
+[; ;lm629.c: 1172:     check_busy();
+[e ( _check_busy ..  ]
+"1174
+[; ;lm629.c: 1174:     chip_select(3);
+[e ( _chip_select (1 -> -> 3 `i `uc ]
+"1175
+[; ;lm629.c: 1175:     write_command(0x01);
+[e ( _write_command (1 -> -> 1 `i `uc ]
+"1176
+[; ;lm629.c: 1176:     check_busy();
+[e ( _check_busy ..  ]
+"1177
+[; ;lm629.c: 1177: }
+[e :UE 907 ]
 }

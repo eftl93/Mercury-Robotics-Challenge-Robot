@@ -13,8 +13,6 @@
 
 
 
-
-
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9649,42 +9647,43 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 2 3
-# 9 "spi.c" 2
+# 7 "spi.c" 2
 
 # 1 "./spi.h" 1
 # 34 "./spi.h"
 void spi_slave_init(void);
 void spi_data(unsigned char tx_data);
 volatile unsigned char spi_read_data;
-# 10 "spi.c" 2
+# 8 "spi.c" 2
+
 
 void spi_slave_init()
 {
-SSP1IE=1;
-PEIE=1;
-GIE=1;
-SSPSTAT=0x00;
-SSPCON1=0b00100100;
-SSP1CON3=0b00010000;
-ADCON0=0x00;
-ADCON1=0x00;
-TRISAbits.RA5 =1;
-TRISCbits.RC3=1;
-TRISCbits.RC5=0;
-TRISCbits.RC4=1;
+    SSPSTAT = 0x00;
+    SSPCON1 = 0b00100100;
+    SSP1CON3 = 0b00010000;
+    ADCON0 = 0x00;
+    ADCON1 = 0x00;
+    TRISAbits.RA5 = 1;
+    TRISCbits.RC3 = 1;
+    TRISCbits.RC5 = 0;
+    TRISCbits.RC4 = 1;
+    SSP1IE=1;
+    PEIE=1;
+    GIE=1;
 }
 
 void spi_data(unsigned char tx_data)
 {
-SSP1BUF=tx_data;
+    SSP1BUF=tx_data;
 }
 
-void __attribute__((picinterrupt(("")))) SPI()
+void __attribute__((picinterrupt(("")))) SPI_ISR(void)
 {
-    if(PIR1bits.SSP1IF&&PIE1bits.SSP1IE)
+    if(SSPIF)
     {
-
-        spi_read_data=SSP1BUF;
         SSP1IF=0;
+        spi_read_data=SSP1BUF;
+        SSP1BUF = 0x55;
     }
 }
