@@ -25,10 +25,10 @@
 #define _XTAL_FREQ 64000000
 
 
-extern volatile unsigned char y;
-extern volatile unsigned int z;
-extern volatile unsigned char a;
-extern volatile unsigned char b;
+extern volatile unsigned char current_command;
+extern volatile unsigned int glitch_watchdog_counter;
+extern volatile unsigned char previous_command;
+extern volatile unsigned char nglitch_flag;
 
 
 void main()
@@ -36,9 +36,9 @@ void main()
     unsigned char dummy_spi_tx;
     
     CM1CON0bits.C1ON=0; //disable comparator1 module
-    CM2CON0bits.C2ON=0; //diasble comparator2 module
-    spi_master_init();  //initialize spi in master mode
-    uart_init();        //initialize both uart1 and uart2 module, only interrupt on rx1;
+    CM2CON0bits.C2ON=0; //disable comparator2 module
+    spi_master_init();  //initialize SPI in master mode
+    uart_init();        //initialize both UART1 and UART2 module, only interrupt on RX1;
     TRISA=0;  //output for onboard LED indicators and debugging
     TRISD=0;  //output to control the relay for the beam lights
     LATA=0;   //Turn off the onboard diagnostic LEDs 
@@ -56,50 +56,51 @@ void main()
 
         //if same character has been received back to back, forward custom signal
         //to both TX2 and SPI3
-        while(b==0)
+        //glitch detection loop
+        while(nglitch_flag==0) //if the command received is the same as the last one, enter the while loop
         {
-            z++;
-            if(z==65530)
+            glitch_watchdog_counter++;    //and increase the global z counter
+            if(glitch_watchdog_counter==65530) //after many cycles, assume glitch and turn off the motors and servos
             {
-                y=0x6F;
-                z=0;
-                b=1;
-                a=0;
+                current_command=0x6F;       //this is the command to turn off motors and servos
+                glitch_watchdog_counter=0;  //reset counter
+                nglitch_flag=1;             //exit loop
+                previous_command=0;         //clear previous received command
             }
         }
         
-        //forward data received @2400Baud on RX1 to SPI device 3
-        //and to TX2 at 9600Baud  
-        dummy_spi_tx=spi_data(3,y); 
-        tx2(y);
+        //forward data received @2400Baud on RX1 to SPI_device_3 @ FOSC/64
+        //and to TX2 @ 9600Baud  
+        dummy_spi_tx=spi_data(3,current_command); 
+        tx2(current_command);
         
         //Interpret the commands and turn on the LEDs in a pattern depending on 
         //the data received
-        if(y==0x61) //'a'
+        if(current_command==0x61) //'a'
         {
             LATA=0b00000001;
         }
 
-        else if(y==0x64)//'d'
+        else if(current_command==0x64)//'d'
         {
             LATA=0b00000010;
         }
 
-        else if(y==0x77) //'w'
+        else if(current_command==0x77) //'w'
         {
             LATA=0b00000100;
         }
         
-        else if(y==0x6F) //'o'
+        else if(current_command==0x6F) //'o'
         {
             LATA=0b00000111;
         }
         
-        //'q' and 'e' are to set or reset a "2 coil latching relay"
+        //'e' and 'q' are to set or reset a "2 coil latching relay"
         //'e' will energize the "set" coil
         //'q' will energize the "reset" coil
         //therefore, these two characters will turn on and off the head beams. 
-        else if(y==0x71) //'q'
+        else if(current_command==0x71) //'q'
         {
             LATD=0b00000001; //reset relay to turn off the lights
             __delay_ms(10);
@@ -107,7 +108,7 @@ void main()
             LATD=0;
         }
 
-        else if(y==0x65) //'e'
+        else if(current_command==0x65) //'e'
         {
             LATD=0b00000010; //set relay to turn on the lights
             __delay_ms(10);
@@ -121,11 +122,11 @@ void main()
         //it means that there is no UART1 reception and the motor controller
         //and servo controller must stop the motors and servos
         //z will be incremented every cycle inside the while(1) loop.
-        z++;
-        if(z==35530)
+        glitch_watchdog_counter++;
+        if(glitch_watchdog_counter==35530)
         {
-            y=0x6F; //'o'
-            z=0;
+            current_command=0x6F; //'o'
+            glitch_watchdog_counter=0;
         }
 
     }

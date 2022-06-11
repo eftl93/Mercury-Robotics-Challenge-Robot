@@ -152,17 +152,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./spi.h: 25: unsigned char spi_data(unsigned char device, unsigned char tx_data);
 [v _spi_data `(uc ~T0 @X0 0 ef2`uc`uc ]
 "29 main.c
-[; ;main.c: 29: extern volatile unsigned int z;
-[v _z `Vui ~T0 @X0 0 e ]
+[; ;main.c: 29: extern volatile unsigned int glitch_watchdog_counter;
+[v _glitch_watchdog_counter `Vui ~T0 @X0 0 e ]
 "28
-[; ;main.c: 28: extern volatile unsigned char y;
-[v _y `Vuc ~T0 @X0 0 e ]
+[; ;main.c: 28: extern volatile unsigned char current_command;
+[v _current_command `Vuc ~T0 @X0 0 e ]
 "31
-[; ;main.c: 31: extern volatile unsigned char b;
-[v _b `Vuc ~T0 @X0 0 e ]
+[; ;main.c: 31: extern volatile unsigned char nglitch_flag;
+[v _nglitch_flag `Vuc ~T0 @X0 0 e ]
 "30
-[; ;main.c: 30: extern volatile unsigned char a;
-[v _a `Vuc ~T0 @X0 0 e ]
+[; ;main.c: 30: extern volatile unsigned char previous_command;
+[v _previous_command `Vuc ~T0 @X0 0 e ]
 "23 ./uart.h
 [; ;./uart.h: 23: void tx2(char data2);
 [v _tx2 `(v ~T0 @X0 0 ef1`uc ]
@@ -1027,151 +1027,151 @@ Version 4.0 HI-TECH Software Intermediate Code
 "55
 [; ;main.c: 55:     {
 {
-"59
-[; ;main.c: 59:         while(b==0)
+"60
+[; ;main.c: 60:         while(nglitch_flag==0)
 [e $U 861  ]
 [e :U 862 ]
-"60
-[; ;main.c: 60:         {
-{
 "61
-[; ;main.c: 61:             z++;
-[e ++ _z -> -> 1 `i `Vui ]
-"62
-[; ;main.c: 62:             if(z==65530)
-[e $ ! == -> _z `l -> 65530 `l 864  ]
-"63
-[; ;main.c: 63:             {
+[; ;main.c: 61:         {
 {
+"62
+[; ;main.c: 62:             glitch_watchdog_counter++;
+[e ++ _glitch_watchdog_counter -> -> 1 `i `Vui ]
+"63
+[; ;main.c: 63:             if(glitch_watchdog_counter==65530)
+[e $ ! == -> _glitch_watchdog_counter `l -> 65530 `l 864  ]
 "64
-[; ;main.c: 64:                 y=0x6F;
-[e = _y -> -> 111 `i `uc ]
+[; ;main.c: 64:             {
+{
 "65
-[; ;main.c: 65:                 z=0;
-[e = _z -> -> 0 `i `ui ]
+[; ;main.c: 65:                 current_command=0x6F;
+[e = _current_command -> -> 111 `i `uc ]
 "66
-[; ;main.c: 66:                 b=1;
-[e = _b -> -> 1 `i `uc ]
+[; ;main.c: 66:                 glitch_watchdog_counter=0;
+[e = _glitch_watchdog_counter -> -> 0 `i `ui ]
 "67
-[; ;main.c: 67:                 a=0;
-[e = _a -> -> 0 `i `uc ]
+[; ;main.c: 67:                 nglitch_flag=1;
+[e = _nglitch_flag -> -> 1 `i `uc ]
 "68
-[; ;main.c: 68:             }
+[; ;main.c: 68:                 previous_command=0;
+[e = _previous_command -> -> 0 `i `uc ]
+"69
+[; ;main.c: 69:             }
 }
 [e :U 864 ]
-"69
-[; ;main.c: 69:         }
+"70
+[; ;main.c: 70:         }
 }
 [e :U 861 ]
-"59
-[; ;main.c: 59:         while(b==0)
-[e $ == -> _b `i -> 0 `i 862  ]
+"60
+[; ;main.c: 60:         while(nglitch_flag==0)
+[e $ == -> _nglitch_flag `i -> 0 `i 862  ]
 [e :U 863 ]
-"73
-[; ;main.c: 73:         dummy_spi_tx=spi_data(3,y);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc _y ]
 "74
-[; ;main.c: 74:         tx2(y);
-[e ( _tx2 (1 -> _y `uc ]
-"78
-[; ;main.c: 78:         if(y==0x61)
-[e $ ! == -> _y `i -> 97 `i 865  ]
+[; ;main.c: 74:         dummy_spi_tx=spi_data(3,current_command);
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc _current_command ]
+"75
+[; ;main.c: 75:         tx2(current_command);
+[e ( _tx2 (1 -> _current_command `uc ]
 "79
-[; ;main.c: 79:         {
-{
+[; ;main.c: 79:         if(current_command==0x61)
+[e $ ! == -> _current_command `i -> 97 `i 865  ]
 "80
-[; ;main.c: 80:             LATA=0b00000001;
-[e = _LATA -> -> 1 `i `uc ]
+[; ;main.c: 80:         {
+{
 "81
-[; ;main.c: 81:         }
+[; ;main.c: 81:             LATA=0b00000001;
+[e = _LATA -> -> 1 `i `uc ]
+"82
+[; ;main.c: 82:         }
 }
 [e $U 866  ]
-"83
-[; ;main.c: 83:         else if(y==0x64)
-[e :U 865 ]
-[e $ ! == -> _y `i -> 100 `i 867  ]
 "84
-[; ;main.c: 84:         {
-{
+[; ;main.c: 84:         else if(current_command==0x64)
+[e :U 865 ]
+[e $ ! == -> _current_command `i -> 100 `i 867  ]
 "85
-[; ;main.c: 85:             LATA=0b00000010;
-[e = _LATA -> -> 2 `i `uc ]
+[; ;main.c: 85:         {
+{
 "86
-[; ;main.c: 86:         }
+[; ;main.c: 86:             LATA=0b00000010;
+[e = _LATA -> -> 2 `i `uc ]
+"87
+[; ;main.c: 87:         }
 }
 [e $U 868  ]
-"88
-[; ;main.c: 88:         else if(y==0x77)
-[e :U 867 ]
-[e $ ! == -> _y `i -> 119 `i 869  ]
 "89
-[; ;main.c: 89:         {
-{
+[; ;main.c: 89:         else if(current_command==0x77)
+[e :U 867 ]
+[e $ ! == -> _current_command `i -> 119 `i 869  ]
 "90
-[; ;main.c: 90:             LATA=0b00000100;
-[e = _LATA -> -> 4 `i `uc ]
+[; ;main.c: 90:         {
+{
 "91
-[; ;main.c: 91:         }
+[; ;main.c: 91:             LATA=0b00000100;
+[e = _LATA -> -> 4 `i `uc ]
+"92
+[; ;main.c: 92:         }
 }
 [e $U 870  ]
-"93
-[; ;main.c: 93:         else if(y==0x6F)
-[e :U 869 ]
-[e $ ! == -> _y `i -> 111 `i 871  ]
 "94
-[; ;main.c: 94:         {
-{
+[; ;main.c: 94:         else if(current_command==0x6F)
+[e :U 869 ]
+[e $ ! == -> _current_command `i -> 111 `i 871  ]
 "95
-[; ;main.c: 95:             LATA=0b00000111;
-[e = _LATA -> -> 7 `i `uc ]
+[; ;main.c: 95:         {
+{
 "96
-[; ;main.c: 96:         }
+[; ;main.c: 96:             LATA=0b00000111;
+[e = _LATA -> -> 7 `i `uc ]
+"97
+[; ;main.c: 97:         }
 }
 [e $U 872  ]
-"102
-[; ;main.c: 102:         else if(y==0x71)
-[e :U 871 ]
-[e $ ! == -> _y `i -> 113 `i 873  ]
 "103
-[; ;main.c: 103:         {
-{
+[; ;main.c: 103:         else if(current_command==0x71)
+[e :U 871 ]
+[e $ ! == -> _current_command `i -> 113 `i 873  ]
 "104
-[; ;main.c: 104:             LATD=0b00000001;
-[e = _LATD -> -> 1 `i `uc ]
+[; ;main.c: 104:         {
+{
 "105
-[; ;main.c: 105:             _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 105:             LATD=0b00000001;
+[e = _LATD -> -> 1 `i `uc ]
 "106
-[; ;main.c: 106:             _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 106:             _delay((unsigned long)((10)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "107
-[; ;main.c: 107:             LATD=0;
-[e = _LATD -> -> 0 `i `uc ]
+[; ;main.c: 107:             _delay((unsigned long)((5)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "108
-[; ;main.c: 108:         }
+[; ;main.c: 108:             LATD=0;
+[e = _LATD -> -> 0 `i `uc ]
+"109
+[; ;main.c: 109:         }
 }
 [e $U 874  ]
-"110
-[; ;main.c: 110:         else if(y==0x65)
-[e :U 873 ]
-[e $ ! == -> _y `i -> 101 `i 875  ]
 "111
-[; ;main.c: 111:         {
-{
+[; ;main.c: 111:         else if(current_command==0x65)
+[e :U 873 ]
+[e $ ! == -> _current_command `i -> 101 `i 875  ]
 "112
-[; ;main.c: 112:             LATD=0b00000010;
-[e = _LATD -> -> 2 `i `uc ]
+[; ;main.c: 112:         {
+{
 "113
-[; ;main.c: 113:             _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 113:             LATD=0b00000010;
+[e = _LATD -> -> 2 `i `uc ]
 "114
-[; ;main.c: 114:             _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 114:             _delay((unsigned long)((10)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "115
-[; ;main.c: 115:             LATD=0;
-[e = _LATD -> -> 0 `i `uc ]
+[; ;main.c: 115:             _delay((unsigned long)((5)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "116
-[; ;main.c: 116:         }
+[; ;main.c: 116:             LATD=0;
+[e = _LATD -> -> 0 `i `uc ]
+"117
+[; ;main.c: 117:         }
 }
 [e :U 875 ]
 [e :U 874 ]
@@ -1179,32 +1179,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 870 ]
 [e :U 868 ]
 [e :U 866 ]
-"124
-[; ;main.c: 124:         z++;
-[e ++ _z -> -> 1 `i `Vui ]
 "125
-[; ;main.c: 125:         if(z==35530)
-[e $ ! == -> _z `l -> 35530 `l 876  ]
+[; ;main.c: 125:         glitch_watchdog_counter++;
+[e ++ _glitch_watchdog_counter -> -> 1 `i `Vui ]
 "126
-[; ;main.c: 126:         {
-{
+[; ;main.c: 126:         if(glitch_watchdog_counter==35530)
+[e $ ! == -> _glitch_watchdog_counter `l -> 35530 `l 876  ]
 "127
-[; ;main.c: 127:             y=0x6F;
-[e = _y -> -> 111 `i `uc ]
+[; ;main.c: 127:         {
+{
 "128
-[; ;main.c: 128:             z=0;
-[e = _z -> -> 0 `i `ui ]
+[; ;main.c: 128:             current_command=0x6F;
+[e = _current_command -> -> 111 `i `uc ]
 "129
-[; ;main.c: 129:         }
+[; ;main.c: 129:             glitch_watchdog_counter=0;
+[e = _glitch_watchdog_counter -> -> 0 `i `ui ]
+"130
+[; ;main.c: 130:         }
 }
 [e :U 876 ]
-"131
-[; ;main.c: 131:     }
+"132
+[; ;main.c: 132:     }
 }
 [e :U 858 ]
 [e $U 859  ]
 [e :U 860 ]
-"132
-[; ;main.c: 132: }
+"133
+[; ;main.c: 133: }
 [e :UE 857 ]
 }

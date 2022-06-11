@@ -7,10 +7,10 @@
 #include <xc.h>
 #include "uart.h"
 
-volatile unsigned char y;
-volatile unsigned int z;
-volatile unsigned char a;
-volatile unsigned char b;
+volatile unsigned char current_command;
+volatile unsigned int glitch_watchdog_counter;
+volatile unsigned char previous_command;
+volatile unsigned char nglitch_flag;
 
 void uart_init()
 {
@@ -46,11 +46,15 @@ void uart_init()
     
 }
 
+//function to transmit to Beaglebone, it was not used for SR. Design 2
+//but it was to be used to send sensor information back to the driver of
+//the robot
 void tx1(char data1)
 {
     TXREG1=data1;
 }
 
+//function used to transmit commands to the servo controller
 void tx2(char data2)
 {
     TXREG2=data2;
@@ -70,16 +74,16 @@ void __interrupt() UART_ISR(void)
 {
     if(RC1IF)
     {
-        y=RCREG1;
-        z=0;
-        if(y==a)
+        current_command=RCREG1; //save content into global variable
+        glitch_watchdog_counter=0;      //clear the global glitch_watchdog_counter
+        if(current_command==previous_command)  //check if received command is the same as last
         {
-            b=0;
+            nglitch_flag=0;  //if it is, clear global variable b
         }
         else
         {
-            a=y;
-            b=1;
+            previous_command=current_command;  //record previous command received
+            nglitch_flag=1;  //set flag to not enter glitch detection loop
         }
 
     }

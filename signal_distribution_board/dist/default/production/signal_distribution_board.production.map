@@ -5,10 +5,10 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.36\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\signal_distribution_board.production.sym \
   --cmf=dist/default/production\signal_distribution_board.production.cmf -z \
-  -Q18F46K22 -oC:\Users\eder0\AppData\Local\Temp\xcAsgsg.4 \
+  -Q18F46K22 -oC:\Users\eder0\AppData\Local\Temp\xcAs8do.4 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/signal_distribution_board.production.map \
-  --md=C:\Users\eder0\AppData\Local\Temp\xcAsgsg.dat -E1 -ver=XC8 Compiler \
+  --md=C:\Users\eder0\AppData\Local\Temp\xcAs8do.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh \
   -ASMALLCONST=01000h-010FFhx240 -AMEDIUMCONST=01000h-0FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0F37h -ABIGRAM=01h-0F37h \
@@ -28,7 +28,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\eder0\AppData\Local\Temp\xcAsgsg.o \
+  C:\Users\eder0\AppData\Local\Temp\xcAs8do.o \
   dist/default/production\signal_distribution_board.production.o 
 
 Object code version is 3.11
@@ -38,7 +38,7 @@ Machine type is 18F46K22
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\eder0\AppData\Local\Temp\xcAsgsg.o
+C:\Users\eder0\AppData\Local\Temp\xcAs8do.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                 4C       4C        4        4       0
@@ -49,13 +49,13 @@ dist/default/production\signal_distribution_board.production.o
                 config                           300000   300000        E        0       4
                 temp                                  A        A        1        1       1
                 text4                               1D8      1D8       C2        4       0
-                text3                               2EA      2EA       28        4       0
-                text2                               326      326        8        4       0
+                text3                               2EA      2EA       24        4       0
+                text2                               322      322        8        4       0
                 text1                               29A      29A       50        4       0
                 text0                                50       50      188        4       0
                 cstackCOMRAM                          6        6        4        1       1
                 bssCOMRAM                             1        1        5        1       1
-                cinit                               312      312       14        4       0
+                cinit                               30E      30E       14        4       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
@@ -63,11 +63,11 @@ TOTAL           Name                               Link     Load   Length     Sp
                 init                                 4C       4C        4         0
                 reset_vec                             0        0        4         0
                 text4                               1D8      1D8       C2         0
-                text3                               2EA      2EA       28         0
-                text2                               326      326        8         0
+                text3                               2EA      2EA       24         0
+                text2                               322      322        8         0
                 text1                               29A      29A       50         0
                 text0                                50       50      188         0
-                cinit                               312      312       14         0
+                cinit                               30E      30E       14         0
 
         CLASS   CONST          
 
@@ -142,7 +142,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 bssCOMRAM                      000001  00000A  00000B         1       1  COMRAM  
-                intcode                        000008  000326  00032E         4       0  CODE    
+                intcode                        000008  000322  00032A         4       0  CODE    
 
 
 UNUSED ADDRESS RANGES
@@ -167,10 +167,10 @@ UNUSED ADDRESS RANGES
         BIGRAM           00000B-000F37              F2D
         BIGSFR           000F38-000FFF               C8
         CODE             000004-000007                4
-                         00032E-00FFFF             FCD2
+                         00032A-00FFFF             FCD6
         COMRAM           00000B-00005F               55
         CONST            000004-000007                4
-                         00032E-00FFFF             FCD2
+                         00032A-00FFFF             FCD6
         EEDATA           F00000-F003FF              400
         MEDIUMCONST      001000-00FFFF             F000
         RAM              000060-000F37              100
@@ -180,7 +180,6 @@ UNUSED ADDRESS RANGES
                                   Symbol Table
 
 _ADCON0                  (abs)        000FC2
-_ADCON1                  (abs)        000FC1
 _ANSELA                  (abs)        000F38
 _ANSELB                  (abs)        000F39
 _ANSELC                  (abs)        000F3A
@@ -368,7 +367,7 @@ __Ltext1                 text1        000000
 __Ltext2                 text2        000000
 __Ltext3                 text3        000000
 __Ltext4                 text4        000000
-__S0                     (abs)        00032E
+__S0                     (abs)        00032A
 __S1                     (abs)        00000B
 __S4                     (abs)        000000
 __S5                     (abs)        000000
@@ -382,36 +381,36 @@ ___sp                    stack        000000
 __accesstop              (abs)        000060
 __activetblptr           (abs)        000000
 __end_of_UART_ISR        intcode      00004C
-__end_of__initialization cinit        00031C
+__end_of__initialization cinit        000318
 __end_of_main            text0        0001D8
 __end_of_spi_data        text4        00029A
-__end_of_spi_master_init text3        000312
-__end_of_tx2             text2        00032E
+__end_of_spi_master_init text3        00030E
+__end_of_tx2             text2        00032A
 __end_of_uart_init       text1        0002EA
-__initialization         cinit        000312
+__initialization         cinit        00030E
 __mediumconst            mediumconst  000000
 __pbssCOMRAM             bssCOMRAM    000001
-__pcinit                 cinit        000312
+__pcinit                 cinit        00030E
 __pcstackCOMRAM          cstackCOMRAM 000006
 __pintcode               intcode      000008
 __ptext0                 text0        000050
 __ptext1                 text1        00029A
-__ptext2                 text2        000326
+__ptext2                 text2        000322
 __ptext3                 text3        0002EA
 __ptext4                 text4        0001D8
 __ramtop                 ramtop       001000
 __smallconst             smallconst   000000
-_a                       bssCOMRAM    000003
-_b                       bssCOMRAM    000004
+_current_command         bssCOMRAM    000005
+_glitch_watchdog_counter bssCOMRAM    000001
 _main                    text0        000050
+_nglitch_flag            bssCOMRAM    000004
+_previous_command        bssCOMRAM    000003
 _spi_data                text4        0001D8
 _spi_master_init         text3        0002EA
-_tx2                     text2        000326
+_tx2                     text2        000322
 _uart_init               text1        00029A
-_y                       bssCOMRAM    000005
-_z                       bssCOMRAM    000001
 btemp                    temp         00000A
-end_of_initialization    cinit        00031C
+end_of_initialization    cinit        000318
 int$flags                temp         00000A
 intlevel0                text         000000
 intlevel1                text         000000
@@ -425,7 +424,7 @@ spi_data@tx_data         cstackCOMRAM 000006
 stackhi                  (abs)        000000
 stacklo                  (abs)        000000
 start                    init         00004C
-start_initialization     cinit        000312
+start_initialization     cinit        00030E
 ttemp5                   temp         00000B
 ttemp6                   temp         00000E
 ttemp7                   temp         000012
@@ -437,20 +436,20 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 uart.c
-		_tx2           		CODE           	0326	0000	8
+		_tx2           		CODE           	0322	0000	8
 		_uart_init     		CODE           	029A	0000	80
 		_UART_ISR      		CODE           	0008	0000	68
 
 uart.c estimated size: 156
 
 spi_master.c
-		_spi_master_init		CODE           	02EA	0000	40
+		_spi_master_init		CODE           	02EA	0000	36
 		_spi_data      		CODE           	01D8	0000	194
 
-spi_master.c estimated size: 234
+spi_master.c estimated size: 230
 
 shared
-		__initialization		CODE           	0312	0000	10
+		__initialization		CODE           	030E	0000	10
 
 shared estimated size: 10
 

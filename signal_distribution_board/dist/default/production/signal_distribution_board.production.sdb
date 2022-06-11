@@ -29,15 +29,15 @@
 [v ___omul __omul `(uo  1 e 8 0 ]
 "34 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
 [v _main main `(v  1 e 1 0 ]
-"12 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+"16 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
 [v _spi_master_init spi_master_init `(v  1 e 1 0 ]
-"31
+"40
 [v _spi_data spi_data `(uc  1 e 1 0 ]
 "15 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
 [v _uart_init uart_init `(v  1 e 1 0 ]
-"54
+"58
 [v _tx2 tx2 `(v  1 e 1 0 ]
-"69
+"73
 [v _UART_ISR UART_ISR `IIH(v  1 e 1 0 ]
 "53 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
@@ -239,7 +239,7 @@
 [v _CM1CON0bits CM1CON0bits `VES81  1 e 1 @3961 ]
 "7561
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
-[s S903 . 1 `uc 1 LATB0 1 0 :1:0 
+[s S902 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -249,7 +249,7 @@
 `uc 1 LATB7 1 0 :1:7 
 ]
 "7700
-[s S912 . 1 `uc 1 LB0 1 0 :1:0 
+[s S911 . 1 `uc 1 LB0 1 0 :1:0 
 `uc 1 LB1 1 0 :1:1 
 `uc 1 LB2 1 0 :1:2 
 `uc 1 LB3 1 0 :1:3 
@@ -258,13 +258,13 @@
 `uc 1 LB6 1 0 :1:6 
 `uc 1 LB7 1 0 :1:7 
 ]
-[u S921 . 1 `S903 1 . 1 0 `S912 1 . 1 0 ]
-[v _LATBbits LATBbits `VES921  1 e 1 @3978 ]
+[u S920 . 1 `S902 1 . 1 0 `S911 1 . 1 0 ]
+[v _LATBbits LATBbits `VES920  1 e 1 @3978 ]
 "7897
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
 "8061
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
-[s S841 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S840 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -274,7 +274,7 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "8315
-[s S850 . 1 `uc 1 RB0 1 0 :1:0 
+[s S849 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -283,8 +283,8 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S859 . 1 `S841 1 . 1 0 `S850 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES859  1 e 1 @3987 ]
+[u S858 . 1 `S840 1 . 1 0 `S849 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES858  1 e 1 @3987 ]
 [s S539 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
@@ -403,22 +403,20 @@
 ]
 [u S382 . 1 `S345 1 . 1 0 `S354 1 . 1 0 `S357 1 . 1 0 `S366 1 . 1 0 `S371 1 . 1 0 `S376 1 . 1 0 `S379 1 . 1 0 ]
 [v _BAUDCON1bits BAUDCON1bits `VES382  1 e 1 @4024 ]
-"13544
-[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "13612
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
 "14138
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @4038 ]
 "14376
 [v _SSP1STAT SSP1STAT `VEuc  1 e 1 @4039 ]
-[s S944 . 1 `uc 1 . 1 0 :2:0 
+[s S943 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "14482
-[s S947 . 1 `uc 1 . 1 0 :5:0 
+[s S946 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S950 . 1 `uc 1 BF 1 0 :1:0 
+[s S949 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -427,38 +425,38 @@
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S959 . 1 `uc 1 . 1 0 :2:0 
+[s S958 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S964 . 1 `uc 1 . 1 0 :2:0 
+[s S963 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 A 1 0 :1:5 
 ]
-[s S969 . 1 `uc 1 . 1 0 :2:0 
+[s S968 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S974 . 1 `uc 1 . 1 0 :2:0 
+[s S973 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S979 . 1 `uc 1 . 1 0 :2:0 
+[s S978 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S982 . 1 `uc 1 . 1 0 :5:0 
+[s S981 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S985 . 1 `uc 1 . 1 0 :2:0 
+[s S984 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S990 . 1 `uc 1 BF1 1 0 :1:0 
+[s S989 . 1 `uc 1 BF1 1 0 :1:0 
 `uc 1 UA1 1 0 :1:1 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
@@ -467,31 +465,31 @@
 `uc 1 CKE1 1 0 :1:6 
 `uc 1 SMP1 1 0 :1:7 
 ]
-[s S999 . 1 `uc 1 . 1 0 :2:0 
+[s S998 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 START 1 0 :1:3 
 `uc 1 STOP 1 0 :1:4 
 `uc 1 DA1 1 0 :1:5 
 ]
-[s S1005 . 1 `uc 1 . 1 0 :2:0 
+[s S1004 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 `uc 1 START1 1 0 :1:3 
 `uc 1 STOP1 1 0 :1:4 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S1011 . 1 `uc 1 . 1 0 :2:0 
+[s S1010 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S1016 . 1 `uc 1 . 1 0 :2:0 
+[s S1015 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W 1 0 :1:2 
 ]
-[s S1019 . 1 `uc 1 . 1 0 :5:0 
+[s S1018 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_A 1 0 :1:5 
 ]
-[u S1022 . 1 `S944 1 . 1 0 `S947 1 . 1 0 `S950 1 . 1 0 `S959 1 . 1 0 `S964 1 . 1 0 `S969 1 . 1 0 `S974 1 . 1 0 `S979 1 . 1 0 `S982 1 . 1 0 `S985 1 . 1 0 `S990 1 . 1 0 `S999 1 . 1 0 `S1005 1 . 1 0 `S1011 1 . 1 0 `S1016 1 . 1 0 `S1019 1 . 1 0 ]
-[v _SSP1STATbits SSP1STATbits `VES1022  1 e 1 @4039 ]
+[u S1021 . 1 `S943 1 . 1 0 `S946 1 . 1 0 `S949 1 . 1 0 `S958 1 . 1 0 `S963 1 . 1 0 `S968 1 . 1 0 `S973 1 . 1 0 `S978 1 . 1 0 `S981 1 . 1 0 `S984 1 . 1 0 `S989 1 . 1 0 `S998 1 . 1 0 `S1004 1 . 1 0 `S1010 1 . 1 0 `S1015 1 . 1 0 `S1018 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES1021  1 e 1 @4039 ]
 "15260
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @4041 ]
 "16927
@@ -503,52 +501,52 @@
 "19462
 [v _RC1IF RC1IF `VEb  1 e 0 @31989 ]
 "10 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-[v _y y `VEuc  1 e 1 0 ]
+[v _current_command current_command `VEuc  1 e 1 0 ]
 "11
-[v _z z `VEui  1 e 2 0 ]
+[v _glitch_watchdog_counter glitch_watchdog_counter `VEui  1 e 2 0 ]
 "12
-[v _a a `VEuc  1 e 1 0 ]
+[v _previous_command previous_command `VEuc  1 e 1 0 ]
 "13
-[v _b b `VEuc  1 e 1 0 ]
+[v _nglitch_flag nglitch_flag `VEuc  1 e 1 0 ]
 "34 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"132
+"133
 } 0
 "15 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
 [v _uart_init uart_init `(v  1 e 1 0 ]
 {
 "47
 } 0
-"54
+"58
 [v _tx2 tx2 `(v  1 e 1 0 ]
 {
 [v tx2@data2 data2 `uc  1 a 1 wreg ]
 [v tx2@data2 data2 `uc  1 a 1 wreg ]
-"56
+"60
 [v tx2@data2 data2 `uc  1 a 1 0 ]
-"57
+"61
 } 0
-"12 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+"16 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
 [v _spi_master_init spi_master_init `(v  1 e 1 0 ]
 {
-"29
+"32
 } 0
-"31
+"40
 [v _spi_data spi_data `(uc  1 e 1 0 ]
 {
 [v spi_data@device device `uc  1 a 1 wreg ]
-"33
+"42
 [v spi_data@data_read data_read `uc  1 a 1 1 ]
-"31
+"40
 [v spi_data@device device `uc  1 a 1 wreg ]
 [v spi_data@tx_data tx_data `uc  1 p 1 0 ]
-"34
+"43
 [v spi_data@device device `uc  1 a 1 2 ]
-"71
+"80
 } 0
-"69 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+"73 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
 [v _UART_ISR UART_ISR `IIH(v  1 e 1 0 ]
 {
-"87
+"91
 } 0

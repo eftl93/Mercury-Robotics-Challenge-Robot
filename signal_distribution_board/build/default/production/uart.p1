@@ -993,17 +993,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 17407: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "10 uart.c
-[; ;uart.c: 10: volatile unsigned char y;
-[v _y `Vuc ~T0 @X0 1 e ]
+[; ;uart.c: 10: volatile unsigned char current_command;
+[v _current_command `Vuc ~T0 @X0 1 e ]
 "11
-[; ;uart.c: 11: volatile unsigned int z;
-[v _z `Vui ~T0 @X0 1 e ]
+[; ;uart.c: 11: volatile unsigned int glitch_watchdog_counter;
+[v _glitch_watchdog_counter `Vui ~T0 @X0 1 e ]
 "12
-[; ;uart.c: 12: volatile unsigned char a;
-[v _a `Vuc ~T0 @X0 1 e ]
+[; ;uart.c: 12: volatile unsigned char previous_command;
+[v _previous_command `Vuc ~T0 @X0 1 e ]
 "13
-[; ;uart.c: 13: volatile unsigned char b;
-[v _b `Vuc ~T0 @X0 1 e ]
+[; ;uart.c: 13: volatile unsigned char nglitch_flag;
+[v _nglitch_flag `Vuc ~T0 @X0 1 e ]
 "15
 [; ;uart.c: 15: void uart_init()
 [v _uart_init `(v ~T0 @X0 1 ef ]
@@ -1100,104 +1100,104 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;uart.c: 47: }
 [e :UE 857 ]
 }
-"49
-[; ;uart.c: 49: void tx1(char data1)
+"52
+[; ;uart.c: 52: void tx1(char data1)
 [v _tx1 `(v ~T0 @X0 1 ef1`uc ]
-"50
-[; ;uart.c: 50: {
+"53
+[; ;uart.c: 53: {
 {
 [e :U _tx1 ]
-"49
-[; ;uart.c: 49: void tx1(char data1)
-[v _data1 `uc ~T0 @X0 1 r1 ]
-"50
-[; ;uart.c: 50: {
-[f ]
-"51
-[; ;uart.c: 51:     TXREG1=data1;
-[e = _TXREG1 -> _data1 `uc ]
 "52
-[; ;uart.c: 52: }
+[; ;uart.c: 52: void tx1(char data1)
+[v _data1 `uc ~T0 @X0 1 r1 ]
+"53
+[; ;uart.c: 53: {
+[f ]
+"54
+[; ;uart.c: 54:     TXREG1=data1;
+[e = _TXREG1 -> _data1 `uc ]
+"55
+[; ;uart.c: 55: }
 [e :UE 858 ]
 }
-"54
-[; ;uart.c: 54: void tx2(char data2)
+"58
+[; ;uart.c: 58: void tx2(char data2)
 [v _tx2 `(v ~T0 @X0 1 ef1`uc ]
-"55
-[; ;uart.c: 55: {
+"59
+[; ;uart.c: 59: {
 {
 [e :U _tx2 ]
-"54
-[; ;uart.c: 54: void tx2(char data2)
+"58
+[; ;uart.c: 58: void tx2(char data2)
 [v _data2 `uc ~T0 @X0 1 r1 ]
-"55
-[; ;uart.c: 55: {
+"59
+[; ;uart.c: 59: {
 [f ]
-"56
-[; ;uart.c: 56:     TXREG2=data2;
+"60
+[; ;uart.c: 60:     TXREG2=data2;
 [e = _TXREG2 -> _data2 `uc ]
-"57
-[; ;uart.c: 57: }
+"61
+[; ;uart.c: 61: }
 [e :UE 859 ]
 }
 [v $root$_UART_ISR `(v ~T0 @X0 0 e ]
-"69
-[; ;uart.c: 69: void __attribute__((picinterrupt(("")))) UART_ISR(void)
+"73
+[; ;uart.c: 73: void __attribute__((picinterrupt(("")))) UART_ISR(void)
 [v _UART_ISR `(v ~T1 @X0 1 ef ]
-"70
-[; ;uart.c: 70: {
+"74
+[; ;uart.c: 74: {
 {
 [e :U _UART_ISR ]
 [f ]
-"71
-[; ;uart.c: 71:     if(RC1IF)
-[e $ ! _RC1IF 861  ]
-"72
-[; ;uart.c: 72:     {
-{
-"73
-[; ;uart.c: 73:         y=RCREG1;
-[e = _y _RCREG1 ]
-"74
-[; ;uart.c: 74:         z=0;
-[e = _z -> -> 0 `i `ui ]
 "75
-[; ;uart.c: 75:         if(y==a)
-[e $ ! == -> _y `i -> _a `i 862  ]
+[; ;uart.c: 75:     if(RC1IF)
+[e $ ! _RC1IF 861  ]
 "76
-[; ;uart.c: 76:         {
+[; ;uart.c: 76:     {
 {
 "77
-[; ;uart.c: 77:             b=0;
-[e = _b -> -> 0 `i `uc ]
+[; ;uart.c: 77:         current_command=RCREG1;
+[e = _current_command _RCREG1 ]
 "78
-[; ;uart.c: 78:         }
-}
-[e $U 863  ]
+[; ;uart.c: 78:         glitch_watchdog_counter=0;
+[e = _glitch_watchdog_counter -> -> 0 `i `ui ]
 "79
-[; ;uart.c: 79:         else
-[e :U 862 ]
+[; ;uart.c: 79:         if(current_command==previous_command)
+[e $ ! == -> _current_command `i -> _previous_command `i 862  ]
 "80
 [; ;uart.c: 80:         {
 {
 "81
-[; ;uart.c: 81:             a=y;
-[e = _a _y ]
+[; ;uart.c: 81:             nglitch_flag=0;
+[e = _nglitch_flag -> -> 0 `i `uc ]
 "82
-[; ;uart.c: 82:             b=1;
-[e = _b -> -> 1 `i `uc ]
+[; ;uart.c: 82:         }
+}
+[e $U 863  ]
 "83
-[; ;uart.c: 83:         }
+[; ;uart.c: 83:         else
+[e :U 862 ]
+"84
+[; ;uart.c: 84:         {
+{
+"85
+[; ;uart.c: 85:             previous_command=current_command;
+[e = _previous_command _current_command ]
+"86
+[; ;uart.c: 86:             nglitch_flag=1;
+[e = _nglitch_flag -> -> 1 `i `uc ]
+"87
+[; ;uart.c: 87:         }
 }
 [e :U 863 ]
-"85
-[; ;uart.c: 85:     }
+"89
+[; ;uart.c: 89:     }
 }
 [e :U 861 ]
-"86
-[; ;uart.c: 86:     RC1IF=0;
+"90
+[; ;uart.c: 90:     RC1IF=0;
 [e = _RC1IF -> -> 0 `i `b ]
-"87
-[; ;uart.c: 87: }
+"91
+[; ;uart.c: 91: }
 [e :UE 860 ]
 }

@@ -9907,10 +9907,10 @@ void tx2(char data2);
 
 
 
-extern volatile unsigned char y;
-extern volatile unsigned int z;
-extern volatile unsigned char a;
-extern volatile unsigned char b;
+extern volatile unsigned char current_command;
+extern volatile unsigned int glitch_watchdog_counter;
+extern volatile unsigned char previous_command;
+extern volatile unsigned char nglitch_flag;
 
 
 void main()
@@ -9938,41 +9938,42 @@ void main()
 
 
 
-        while(b==0)
+
+        while(nglitch_flag==0)
         {
-            z++;
-            if(z==65530)
+            glitch_watchdog_counter++;
+            if(glitch_watchdog_counter==65530)
             {
-                y=0x6F;
-                z=0;
-                b=1;
-                a=0;
+                current_command=0x6F;
+                glitch_watchdog_counter=0;
+                nglitch_flag=1;
+                previous_command=0;
             }
         }
 
 
 
-        dummy_spi_tx=spi_data(3,y);
-        tx2(y);
+        dummy_spi_tx=spi_data(3,current_command);
+        tx2(current_command);
 
 
 
-        if(y==0x61)
+        if(current_command==0x61)
         {
             LATA=0b00000001;
         }
 
-        else if(y==0x64)
+        else if(current_command==0x64)
         {
             LATA=0b00000010;
         }
 
-        else if(y==0x77)
+        else if(current_command==0x77)
         {
             LATA=0b00000100;
         }
 
-        else if(y==0x6F)
+        else if(current_command==0x6F)
         {
             LATA=0b00000111;
         }
@@ -9981,7 +9982,7 @@ void main()
 
 
 
-        else if(y==0x71)
+        else if(current_command==0x71)
         {
             LATD=0b00000001;
             _delay((unsigned long)((10)*(64000000/4000.0)));
@@ -9989,7 +9990,7 @@ void main()
             LATD=0;
         }
 
-        else if(y==0x65)
+        else if(current_command==0x65)
         {
             LATD=0b00000010;
             _delay((unsigned long)((10)*(64000000/4000.0)));
@@ -10003,11 +10004,11 @@ void main()
 
 
 
-        z++;
-        if(z==35530)
+        glitch_watchdog_counter++;
+        if(glitch_watchdog_counter==35530)
         {
-            y=0x6F;
-            z=0;
+            current_command=0x6F;
+            glitch_watchdog_counter=0;
         }
 
     }

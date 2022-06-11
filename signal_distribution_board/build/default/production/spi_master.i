@@ -7,14 +7,7 @@
 # 1 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "spi_master.c" 2
-
-
-
-
-
-
-
-
+# 13 "spi_master.c"
 # 1 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9649,7 +9642,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 2 3
-# 9 "spi_master.c" 2
+# 13 "spi_master.c" 2
 
 # 1 "./spi.h" 1
 
@@ -9860,7 +9853,7 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 24 "./spi.h"
 void spi_master_init(void);
 unsigned char spi_data(unsigned char device, unsigned char tx_data);
-# 10 "spi_master.c" 2
+# 14 "spi_master.c" 2
 
 
 void spi_master_init(void)
@@ -9868,7 +9861,6 @@ void spi_master_init(void)
     SSP1STAT=0x00;
     SSP1CON1=0b00100010;
     ADCON0=0x00;
-    ADCON1=0x0F;
     TRISBbits.RB2=0;
     TRISBbits.RB3=0;
     TRISBbits.RB4=0;
@@ -9881,6 +9873,12 @@ void spi_master_init(void)
     LATBbits.LATB4=1;
     LATBbits.LATB5=1;
 }
+
+
+
+
+
+
 
 unsigned char spi_data(unsigned char device, unsigned char tx_data)
 {
