@@ -9865,61 +9865,61 @@ unsigned char spi_data(unsigned char device, unsigned char tx_data);
 
 void spi_master_init(void)
 {
-SSP1STAT=0x00;
-SSP1CON1=0b00100010;
-ADCON0=0x00;
-ADCON1=0x0F;
-TRISBbits.RB2=0;
-TRISBbits.RB3=0;
-TRISBbits.RB4=0;
-TRISBbits.RB5=0;
-TRISCbits.RC3=0;
-TRISCbits.RC4=1;
-TRISCbits.RC5=0;
-LATBbits.LATB2=1;
-PORTBbits.RB3=1;
-PORTBbits.RB4=1;
-LATBbits.LATB5=1;
+    SSP1STAT=0x00;
+    SSP1CON1=0b00100010;
+    ADCON0=0x00;
+    ADCON1=0x0F;
+    TRISBbits.RB2=0;
+    TRISBbits.RB3=0;
+    TRISBbits.RB4=0;
+    TRISBbits.RB5=0;
+    TRISCbits.RC3=0;
+    TRISCbits.RC4=1;
+    TRISCbits.RC5=0;
+    LATBbits.LATB2=1;
+    LATBbits.LATB3=1;
+    LATBbits.LATB4=1;
+    LATBbits.LATB5=1;
 }
 
 unsigned char spi_data(unsigned char device, unsigned char tx_data)
 {
-char data_read;
-if(device==0)
-{
-LATBbits.LATB2=0;
-SSP1BUF=tx_data;
-while(!SSP1STATbits.BF);
-LATBbits.LATB2=1;
-data_read=SSP1BUF;
-}
+    char data_read;
+    if(device==0)
+    {
+        LATBbits.LATB2=0;
+        SSP1BUF=tx_data;
+        while(!SSP1STATbits.BF);
+        LATBbits.LATB2=1;
+        data_read=SSP1BUF;
+    }
 
-else if(device==1)
-{
-PORTBbits.RB3=0;
-SSP1BUF=tx_data;
-while(!SSP1STATbits.BF);
-PORTBbits.RB3=1;
-data_read=SSP1BUF;
-}
+    else if(device==1)
+    {
+        LATBbits.LATB3=0;
+        SSP1BUF=tx_data;
+        while(!SSP1STATbits.BF);
+        LATBbits.LATB3=1;
+        data_read=SSP1BUF;
+    }
 
-else if(device==2)
-{
-PORTBbits.RB4=0;
-SSP1BUF=tx_data;
-while(!SSP1STATbits.BF);
-PORTBbits.RB4=1;
-data_read=SSP1BUF;
-}
+    else if(device==2)
+    {
+        LATBbits.LATB4=0;
+        SSP1BUF=tx_data;
+        while(!SSP1STATbits.BF);
+        LATBbits.LATB4=1;
+        data_read=SSP1BUF;
+    }
 
-else if(device==3)
-{
-LATBbits.LATB5=0;
-SSP1BUF=tx_data;
-while(!SSP1STATbits.BF);
-LATBbits.LATB5=1;
-data_read=SSP1BUF;
-}
+    else if(device==3)
+    {
+        LATBbits.LATB5=0;
+        SSP1BUF=tx_data;
+        while(!SSP1STATbits.BF);
+        LATBbits.LATB5=1;
+        data_read=SSP1BUF;
+    }
 
-return data_read;
+    return data_read;
 }

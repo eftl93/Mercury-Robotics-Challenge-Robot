@@ -1045,131 +1045,128 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27
 [; ;uart.c: 27:     SPBRGH1=0x1A;
 [e = _SPBRGH1 -> -> 26 `i `uc ]
-"31
-[; ;uart.c: 31:     SPBRG2=0x82;
+"28
+[; ;uart.c: 28:     SPBRG2=0x82;
 [e = _SPBRG2 -> -> 130 `i `uc ]
-"32
-[; ;uart.c: 32:     SPBRGH2=0x06;
+"29
+[; ;uart.c: 29:     SPBRGH2=0x06;
 [e = _SPBRGH2 -> -> 6 `i `uc ]
-"33
-[; ;uart.c: 33:     TRISCbits.RC6=1;
+"30
+[; ;uart.c: 30:     TRISCbits.RC6=1;
 [e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
-"34
-[; ;uart.c: 34:     TRISCbits.RC7=1;
+"31
+[; ;uart.c: 31:     TRISCbits.RC7=1;
 [e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
-"35
-[; ;uart.c: 35:     TRISDbits.RD6=1;
+"32
+[; ;uart.c: 32:     TRISDbits.RD6=1;
 [e = . . _TRISDbits 1 6 -> -> 1 `i `uc ]
-"36
-[; ;uart.c: 36:     TRISDbits.RD7=1;
+"33
+[; ;uart.c: 33:     TRISDbits.RD7=1;
 [e = . . _TRISDbits 1 7 -> -> 1 `i `uc ]
-"37
-[; ;uart.c: 37:     TXSTA1bits.SYNC=0;
+"34
+[; ;uart.c: 34:     TXSTA1bits.SYNC=0;
 [e = . . _TXSTA1bits 0 4 -> -> 0 `i `uc ]
-"38
-[; ;uart.c: 38:     TXSTA2bits.SYNC=0;
+"35
+[; ;uart.c: 35:     TXSTA2bits.SYNC=0;
 [e = . . _TXSTA2bits 0 4 -> -> 0 `i `uc ]
-"39
-[; ;uart.c: 39:     RCSTA1bits.SPEN=1;
+"36
+[; ;uart.c: 36:     RCSTA1bits.SPEN=1;
 [e = . . _RCSTA1bits 0 7 -> -> 1 `i `uc ]
-"40
-[; ;uart.c: 40:     RCSTA2bits.SPEN=1;
+"37
+[; ;uart.c: 37:     RCSTA2bits.SPEN=1;
 [e = . . _RCSTA2bits 0 7 -> -> 1 `i `uc ]
-"41
-[; ;uart.c: 41:     TXSTA1bits.TXEN=1;
+"38
+[; ;uart.c: 38:     TXSTA1bits.TXEN=1;
 [e = . . _TXSTA1bits 0 5 -> -> 1 `i `uc ]
-"42
-[; ;uart.c: 42:     TXSTA2bits.TXEN=1;
+"39
+[; ;uart.c: 39:     TXSTA2bits.TXEN=1;
 [e = . . _TXSTA2bits 0 5 -> -> 1 `i `uc ]
-"43
-[; ;uart.c: 43:     IPEN=0;
+"40
+[; ;uart.c: 40:     IPEN=0;
 [e = _IPEN -> -> 0 `i `b ]
-"44
-[; ;uart.c: 44:     RC1IE=1;
+"41
+[; ;uart.c: 41:     RC1IE=1;
 [e = _RC1IE -> -> 1 `i `b ]
-"45
-[; ;uart.c: 45:     INTCON|=0b11000000;
+"42
+[; ;uart.c: 42:     INTCON|=0b11000000;
 [e =| _INTCON -> -> 192 `i `Vuc ]
-"46
-[; ;uart.c: 46:     RCSTA1bits.CREN=1;
+"43
+[; ;uart.c: 43:     RCSTA1bits.CREN=1;
 [e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
-"47
-[; ;uart.c: 47:     RCSTA2bits.CREN=1;
+"44
+[; ;uart.c: 44:     RCSTA2bits.CREN=1;
 [e = . . _RCSTA2bits 0 4 -> -> 1 `i `uc ]
-"48
-[; ;uart.c: 48: }
+"47
+[; ;uart.c: 47: }
 [e :UE 857 ]
 }
-"50
-[; ;uart.c: 50: void tx1(char data1)
+"49
+[; ;uart.c: 49: void tx1(char data1)
 [v _tx1 `(v ~T0 @X0 1 ef1`uc ]
-"51
-[; ;uart.c: 51: {
+"50
+[; ;uart.c: 50: {
 {
 [e :U _tx1 ]
-"50
-[; ;uart.c: 50: void tx1(char data1)
+"49
+[; ;uart.c: 49: void tx1(char data1)
 [v _data1 `uc ~T0 @X0 1 r1 ]
-"51
-[; ;uart.c: 51: {
+"50
+[; ;uart.c: 50: {
 [f ]
-"52
-[; ;uart.c: 52:     TXREG1=data1;
+"51
+[; ;uart.c: 51:     TXREG1=data1;
 [e = _TXREG1 -> _data1 `uc ]
-"53
-[; ;uart.c: 53: }
+"52
+[; ;uart.c: 52: }
 [e :UE 858 ]
 }
-"55
-[; ;uart.c: 55: void tx2(char data2)
+"54
+[; ;uart.c: 54: void tx2(char data2)
 [v _tx2 `(v ~T0 @X0 1 ef1`uc ]
-"56
-[; ;uart.c: 56: {
+"55
+[; ;uart.c: 55: {
 {
 [e :U _tx2 ]
-"55
-[; ;uart.c: 55: void tx2(char data2)
+"54
+[; ;uart.c: 54: void tx2(char data2)
 [v _data2 `uc ~T0 @X0 1 r1 ]
-"56
-[; ;uart.c: 56: {
+"55
+[; ;uart.c: 55: {
 [f ]
-"57
-[; ;uart.c: 57:     TXREG2=data2;
+"56
+[; ;uart.c: 56:     TXREG2=data2;
 [e = _TXREG2 -> _data2 `uc ]
-"58
-[; ;uart.c: 58: }
+"57
+[; ;uart.c: 57: }
 [e :UE 859 ]
 }
 [v $root$_UART_ISR `(v ~T0 @X0 0 e ]
-"68
-[; ;uart.c: 68: void __attribute__((picinterrupt(("")))) UART_ISR(void)
-[v _UART_ISR `(v ~T1 @X0 1 ef ]
 "69
-[; ;uart.c: 69: {
+[; ;uart.c: 69: void __attribute__((picinterrupt(("")))) UART_ISR(void)
+[v _UART_ISR `(v ~T1 @X0 1 ef ]
+"70
+[; ;uart.c: 70: {
 {
 [e :U _UART_ISR ]
 [f ]
-"70
-[; ;uart.c: 70:     if(RC1IF)
-[e $ ! _RC1IF 861  ]
 "71
-[; ;uart.c: 71:     {
-{
+[; ;uart.c: 71:     if(RC1IF)
+[e $ ! _RC1IF 861  ]
 "72
-[; ;uart.c: 72:         y=RCREG1;
-[e = _y _RCREG1 ]
-"73
-[; ;uart.c: 73:         z=0;
-[e = _z -> -> 0 `i `ui ]
-"74
-[; ;uart.c: 74:         if(y==a)
-[e $ ! == -> _y `i -> _a `i 862  ]
-"75
-[; ;uart.c: 75:         {
+[; ;uart.c: 72:     {
 {
+"73
+[; ;uart.c: 73:         y=RCREG1;
+[e = _y _RCREG1 ]
+"74
+[; ;uart.c: 74:         z=0;
+[e = _z -> -> 0 `i `ui ]
+"75
+[; ;uart.c: 75:         if(y==a)
+[e $ ! == -> _y `i -> _a `i 862  ]
 "76
-[; ;uart.c: 76:             tx1(0);
-[e ( _tx1 (1 -> -> 0 `i `uc ]
+[; ;uart.c: 76:         {
+{
 "77
 [; ;uart.c: 77:             b=0;
 [e = _b -> -> 0 `i `uc ]

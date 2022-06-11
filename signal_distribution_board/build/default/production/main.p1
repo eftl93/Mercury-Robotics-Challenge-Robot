@@ -138,12 +138,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8727
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 8727: extern volatile unsigned char TRISD __attribute__((address(0xF95)));
 [v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
-"6281
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 6281: extern volatile unsigned char PORTA __attribute__((address(0xF80)));
-[v _PORTA `Vuc ~T0 @X0 0 e@3968 ]
-"7143
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7143: extern volatile unsigned char PORTD __attribute__((address(0xF83)));
-[v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
+"7561
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7561: extern volatile unsigned char LATA __attribute__((address(0xF89)));
+[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
+"7897
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7897: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
+[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
@@ -151,17 +151,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "25 ./spi.h
 [; ;./spi.h: 25: unsigned char spi_data(unsigned char device, unsigned char tx_data);
 [v _spi_data `(uc ~T0 @X0 0 ef2`uc`uc ]
-"12 main.c
-[; ;main.c: 12: extern volatile unsigned int z;
+"29 main.c
+[; ;main.c: 29: extern volatile unsigned int z;
 [v _z `Vui ~T0 @X0 0 e ]
-"11
-[; ;main.c: 11: extern volatile unsigned char y;
+"28
+[; ;main.c: 28: extern volatile unsigned char y;
 [v _y `Vuc ~T0 @X0 0 e ]
-"14
-[; ;main.c: 14: extern volatile unsigned char b;
+"31
+[; ;main.c: 31: extern volatile unsigned char b;
 [v _b `Vuc ~T0 @X0 0 e ]
-"13
-[; ;main.c: 13: extern volatile unsigned char a;
+"30
+[; ;main.c: 30: extern volatile unsigned char a;
 [v _a `Vuc ~T0 @X0 0 e ]
 "23 ./uart.h
 [; ;./uart.h: 23: void tx2(char data2);
@@ -973,205 +973,205 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR0  =  OFF   EBTR1  =  OFF   EBTR2  =  OFF   EBTR3  =  OFF ]
 "54
 [p x EBTRB  =  OFF ]
-"16 main.c
-[; ;main.c: 16: unsigned char x;
-[v _x `uc ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"18
-[; ;main.c: 18: void main()
+"34 main.c
+[; ;main.c: 34: void main()
 [v _main `(v ~T0 @X0 1 ef ]
-"19
-[; ;main.c: 19: {
+"35
+[; ;main.c: 35: {
 {
 [e :U _main ]
 [f ]
-"20
-[; ;main.c: 20:     CM1CON0bits.C1ON=0;
+"36
+[; ;main.c: 36:     unsigned char dummy_spi_tx;
+[v _dummy_spi_tx `uc ~T0 @X0 1 a ]
+"38
+[; ;main.c: 38:     CM1CON0bits.C1ON=0;
 [e = . . _CM1CON0bits 0 6 -> -> 0 `i `uc ]
-"21
-[; ;main.c: 21:     CM2CON0bits.C2ON=0;
+"39
+[; ;main.c: 39:     CM2CON0bits.C2ON=0;
 [e = . . _CM2CON0bits 0 6 -> -> 0 `i `uc ]
-"22
-[; ;main.c: 22:     spi_master_init();
+"40
+[; ;main.c: 40:     spi_master_init();
 [e ( _spi_master_init ..  ]
-"23
-[; ;main.c: 23:     uart_init();
+"41
+[; ;main.c: 41:     uart_init();
 [e ( _uart_init ..  ]
-"24
-[; ;main.c: 24:     TRISA=0;
+"42
+[; ;main.c: 42:     TRISA=0;
 [e = _TRISA -> -> 0 `i `uc ]
-"25
-[; ;main.c: 25:     TRISD=0;
+"43
+[; ;main.c: 43:     TRISD=0;
 [e = _TRISD -> -> 0 `i `uc ]
-"26
-[; ;main.c: 26:     PORTA=0;
-[e = _PORTA -> -> 0 `i `uc ]
-"27
-[; ;main.c: 27:     PORTD=0b00000001;
-[e = _PORTD -> -> 1 `i `uc ]
-"28
-[; ;main.c: 28:     _delay((unsigned long)((10)*(64000000/4000.0)));
+"44
+[; ;main.c: 44:     LATA=0;
+[e = _LATA -> -> 0 `i `uc ]
+"46
+[; ;main.c: 46:     LATD = 0b00000001;
+[e = _LATD -> -> 1 `i `uc ]
+"47
+[; ;main.c: 47:     _delay((unsigned long)((10)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"29
-[; ;main.c: 29:     _delay((unsigned long)((5)*(64000000/4000.0)));
+"48
+[; ;main.c: 48:     _delay((unsigned long)((5)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"30
-[; ;main.c: 30:     PORTD=0;
-[e = _PORTD -> -> 0 `i `uc ]
-"31
-[; ;main.c: 31:     x=spi_data(3,0x6F);
-[e = _x ( _spi_data (2 , -> -> 3 `i `uc -> -> 111 `i `uc ]
-"33
-[; ;main.c: 33:     while(1)
+"49
+[; ;main.c: 49:     LATD=0;
+[e = _LATD -> -> 0 `i `uc ]
+"51
+[; ;main.c: 51:     dummy_spi_tx=spi_data(3,0x6F);
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc -> -> 111 `i `uc ]
+"54
+[; ;main.c: 54:     while(1)
 [e :U 859 ]
-"34
-[; ;main.c: 34:     {
+"55
+[; ;main.c: 55:     {
 {
-"35
-[; ;main.c: 35:         while(b==0)
+"59
+[; ;main.c: 59:         while(b==0)
 [e $U 861  ]
 [e :U 862 ]
-"36
-[; ;main.c: 36:         {
+"60
+[; ;main.c: 60:         {
 {
-"37
-[; ;main.c: 37:             z++;
+"61
+[; ;main.c: 61:             z++;
 [e ++ _z -> -> 1 `i `Vui ]
-"38
-[; ;main.c: 38:             if(z==65530)
+"62
+[; ;main.c: 62:             if(z==65530)
 [e $ ! == -> _z `l -> 65530 `l 864  ]
-"39
-[; ;main.c: 39:             {
+"63
+[; ;main.c: 63:             {
 {
-"40
-[; ;main.c: 40:                 y=0x6F;
+"64
+[; ;main.c: 64:                 y=0x6F;
 [e = _y -> -> 111 `i `uc ]
-"41
-[; ;main.c: 41:                 z=0;
+"65
+[; ;main.c: 65:                 z=0;
 [e = _z -> -> 0 `i `ui ]
-"42
-[; ;main.c: 42:                 b=1;
+"66
+[; ;main.c: 66:                 b=1;
 [e = _b -> -> 1 `i `uc ]
-"43
-[; ;main.c: 43:                 a=0;
+"67
+[; ;main.c: 67:                 a=0;
 [e = _a -> -> 0 `i `uc ]
-"44
-[; ;main.c: 44:             }
+"68
+[; ;main.c: 68:             }
 }
 [e :U 864 ]
-"45
-[; ;main.c: 45:         }
+"69
+[; ;main.c: 69:         }
 }
 [e :U 861 ]
-"35
-[; ;main.c: 35:         while(b==0)
+"59
+[; ;main.c: 59:         while(b==0)
 [e $ == -> _b `i -> 0 `i 862  ]
 [e :U 863 ]
-"47
-[; ;main.c: 47:         x=spi_data(3,y);
-[e = _x ( _spi_data (2 , -> -> 3 `i `uc _y ]
-"48
-[; ;main.c: 48:         tx2(y);
+"73
+[; ;main.c: 73:         dummy_spi_tx=spi_data(3,y);
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc _y ]
+"74
+[; ;main.c: 74:         tx2(y);
 [e ( _tx2 (1 -> _y `uc ]
-"50
-[; ;main.c: 50:         if(y==0x61)
+"78
+[; ;main.c: 78:         if(y==0x61)
 [e $ ! == -> _y `i -> 97 `i 865  ]
-"51
-[; ;main.c: 51:         {
+"79
+[; ;main.c: 79:         {
 {
-"52
-[; ;main.c: 52:             PORTA=0b00000001;
-[e = _PORTA -> -> 1 `i `uc ]
-"53
-[; ;main.c: 53:         }
+"80
+[; ;main.c: 80:             LATA=0b00000001;
+[e = _LATA -> -> 1 `i `uc ]
+"81
+[; ;main.c: 81:         }
 }
 [e $U 866  ]
-"55
-[; ;main.c: 55:         else if(y==0x64)
+"83
+[; ;main.c: 83:         else if(y==0x64)
 [e :U 865 ]
 [e $ ! == -> _y `i -> 100 `i 867  ]
-"56
-[; ;main.c: 56:         {
+"84
+[; ;main.c: 84:         {
 {
-"57
-[; ;main.c: 57:             PORTA=0b00000010;
-[e = _PORTA -> -> 2 `i `uc ]
-"58
-[; ;main.c: 58:         }
+"85
+[; ;main.c: 85:             LATA=0b00000010;
+[e = _LATA -> -> 2 `i `uc ]
+"86
+[; ;main.c: 86:         }
 }
 [e $U 868  ]
-"60
-[; ;main.c: 60:         else if(y==0x77)
+"88
+[; ;main.c: 88:         else if(y==0x77)
 [e :U 867 ]
 [e $ ! == -> _y `i -> 119 `i 869  ]
-"61
-[; ;main.c: 61:         {
+"89
+[; ;main.c: 89:         {
 {
-"62
-[; ;main.c: 62:             PORTA=0b00000100;
-[e = _PORTA -> -> 4 `i `uc ]
-"63
-[; ;main.c: 63:         }
+"90
+[; ;main.c: 90:             LATA=0b00000100;
+[e = _LATA -> -> 4 `i `uc ]
+"91
+[; ;main.c: 91:         }
 }
 [e $U 870  ]
-"65
-[; ;main.c: 65:         else if(y==0x71)
+"93
+[; ;main.c: 93:         else if(y==0x6F)
 [e :U 869 ]
-[e $ ! == -> _y `i -> 113 `i 871  ]
-"66
-[; ;main.c: 66:         {
+[e $ ! == -> _y `i -> 111 `i 871  ]
+"94
+[; ;main.c: 94:         {
 {
-"67
-[; ;main.c: 67:             PORTD=0b00000001;
-[e = _PORTD -> -> 1 `i `uc ]
-"68
-[; ;main.c: 68:             _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"69
-[; ;main.c: 69:             _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"70
-[; ;main.c: 70:             PORTD=0;
-[e = _PORTD -> -> 0 `i `uc ]
-"71
-[; ;main.c: 71:         }
+"95
+[; ;main.c: 95:             LATA=0b00000111;
+[e = _LATA -> -> 7 `i `uc ]
+"96
+[; ;main.c: 96:         }
 }
 [e $U 872  ]
-"73
-[; ;main.c: 73:         else if(y==0x65)
+"102
+[; ;main.c: 102:         else if(y==0x71)
 [e :U 871 ]
-[e $ ! == -> _y `i -> 101 `i 873  ]
-"74
-[; ;main.c: 74:         {
+[e $ ! == -> _y `i -> 113 `i 873  ]
+"103
+[; ;main.c: 103:         {
 {
-"75
-[; ;main.c: 75:             PORTD=0b00000010;
-[e = _PORTD -> -> 2 `i `uc ]
-"76
-[; ;main.c: 76:             _delay((unsigned long)((10)*(64000000/4000.0)));
+"104
+[; ;main.c: 104:             LATD=0b00000001;
+[e = _LATD -> -> 1 `i `uc ]
+"105
+[; ;main.c: 105:             _delay((unsigned long)((10)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"77
-[; ;main.c: 77:             _delay((unsigned long)((5)*(64000000/4000.0)));
+"106
+[; ;main.c: 106:             _delay((unsigned long)((5)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"78
-[; ;main.c: 78:             PORTD=0;
-[e = _PORTD -> -> 0 `i `uc ]
-"79
-[; ;main.c: 79:         }
+"107
+[; ;main.c: 107:             LATD=0;
+[e = _LATD -> -> 0 `i `uc ]
+"108
+[; ;main.c: 108:         }
 }
 [e $U 874  ]
-"81
-[; ;main.c: 81:         else if(y==0x6F)
+"110
+[; ;main.c: 110:         else if(y==0x65)
 [e :U 873 ]
-[e $ ! == -> _y `i -> 111 `i 875  ]
-"82
-[; ;main.c: 82:         {
+[e $ ! == -> _y `i -> 101 `i 875  ]
+"111
+[; ;main.c: 111:         {
 {
-"83
-[; ;main.c: 83:             PORTA=0b00000111;
-[e = _PORTA -> -> 7 `i `uc ]
-"84
-[; ;main.c: 84:         }
+"112
+[; ;main.c: 112:             LATD=0b00000010;
+[e = _LATD -> -> 2 `i `uc ]
+"113
+[; ;main.c: 113:             _delay((unsigned long)((10)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"114
+[; ;main.c: 114:             _delay((unsigned long)((5)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"115
+[; ;main.c: 115:             LATD=0;
+[e = _LATD -> -> 0 `i `uc ]
+"116
+[; ;main.c: 116:         }
 }
 [e :U 875 ]
 [e :U 874 ]
@@ -1179,32 +1179,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 870 ]
 [e :U 868 ]
 [e :U 866 ]
-"86
-[; ;main.c: 86:         z++;
+"124
+[; ;main.c: 124:         z++;
 [e ++ _z -> -> 1 `i `Vui ]
-"87
-[; ;main.c: 87:         if(z==35530)
+"125
+[; ;main.c: 125:         if(z==35530)
 [e $ ! == -> _z `l -> 35530 `l 876  ]
-"88
-[; ;main.c: 88:         {
+"126
+[; ;main.c: 126:         {
 {
-"89
-[; ;main.c: 89:             y=0x6F;
+"127
+[; ;main.c: 127:             y=0x6F;
 [e = _y -> -> 111 `i `uc ]
-"90
-[; ;main.c: 90:             z=0;
+"128
+[; ;main.c: 128:             z=0;
 [e = _z -> -> 0 `i `ui ]
-"91
-[; ;main.c: 91:         }
+"129
+[; ;main.c: 129:         }
 }
 [e :U 876 ]
-"93
-[; ;main.c: 93:     }
+"131
+[; ;main.c: 131:     }
 }
 [e :U 858 ]
 [e $U 859  ]
 [e :U 860 ]
-"94
-[; ;main.c: 94: }
+"132
+[; ;main.c: 132: }
 [e :UE 857 ]
 }

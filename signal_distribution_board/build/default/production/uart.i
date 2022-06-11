@@ -9861,7 +9861,6 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 void uart_init(void);
 void tx1(char data1);
 void tx2(char data2);
-unsigned char rx1(void);
 # 8 "uart.c" 2
 
 
@@ -9883,9 +9882,6 @@ void uart_init()
     BAUDCON2bits.BRG16=1;
     SPBRG1=0x0A;
     SPBRGH1=0x1A;
-
-
-
     SPBRG2=0x82;
     SPBRGH2=0x06;
     TRISCbits.RC6=1;
@@ -9903,6 +9899,8 @@ void uart_init()
     INTCON|=0b11000000;
     RCSTA1bits.CREN=1;
     RCSTA2bits.CREN=1;
+
+
 }
 
 void tx1(char data1)
@@ -9914,7 +9912,7 @@ void tx2(char data2)
 {
     TXREG2=data2;
 }
-# 68 "uart.c"
+# 69 "uart.c"
 void __attribute__((picinterrupt(("")))) UART_ISR(void)
 {
     if(RC1IF)
@@ -9923,7 +9921,6 @@ void __attribute__((picinterrupt(("")))) UART_ISR(void)
         z=0;
         if(y==a)
         {
-            tx1(0);
             b=0;
         }
         else

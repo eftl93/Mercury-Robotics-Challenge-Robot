@@ -7,6 +7,7 @@
 # 1 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
+# 18 "main.c"
 # 1 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9641,7 +9642,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 2 3
-# 1 "main.c" 2
+# 18 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
@@ -9787,7 +9788,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 2 "main.c" 2
+# 19 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
@@ -9844,21 +9845,20 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 3 "main.c" 2
+# 20 "main.c" 2
 
 # 1 "./spi.h" 1
 # 24 "./spi.h"
 void spi_master_init(void);
 unsigned char spi_data(unsigned char device, unsigned char tx_data);
-# 4 "main.c" 2
+# 21 "main.c" 2
 
 # 1 "./uart.h" 1
 # 21 "./uart.h"
 void uart_init(void);
 void tx1(char data1);
 void tx2(char data2);
-unsigned char rx1(void);
-# 5 "main.c" 2
+# 22 "main.c" 2
 
 # 1 "./main.h" 1
 # 16 "./main.h"
@@ -9901,7 +9901,7 @@ unsigned char rx1(void);
 #pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
 
 #pragma config EBTRB = OFF
-# 6 "main.c" 2
+# 23 "main.c" 2
 
 
 
@@ -9912,25 +9912,32 @@ extern volatile unsigned int z;
 extern volatile unsigned char a;
 extern volatile unsigned char b;
 
-unsigned char x;
 
 void main()
 {
+    unsigned char dummy_spi_tx;
+
     CM1CON0bits.C1ON=0;
     CM2CON0bits.C2ON=0;
     spi_master_init();
     uart_init();
     TRISA=0;
     TRISD=0;
-    PORTA=0;
-    PORTD=0b00000001;
+    LATA=0;
+
+    LATD = 0b00000001;
     _delay((unsigned long)((10)*(64000000/4000.0)));
     _delay((unsigned long)((5)*(64000000/4000.0)));
-    PORTD=0;
-    x=spi_data(3,0x6F);
+    LATD=0;
+
+    dummy_spi_tx=spi_data(3,0x6F);
+
 
     while(1)
     {
+
+
+
         while(b==0)
         {
             z++;
@@ -9943,44 +9950,58 @@ void main()
             }
         }
 
-        x=spi_data(3,y);
+
+
+        dummy_spi_tx=spi_data(3,y);
         tx2(y);
+
+
 
         if(y==0x61)
         {
-            PORTA=0b00000001;
+            LATA=0b00000001;
         }
 
         else if(y==0x64)
         {
-            PORTA=0b00000010;
+            LATA=0b00000010;
         }
 
         else if(y==0x77)
         {
-            PORTA=0b00000100;
-        }
-
-        else if(y==0x71)
-        {
-            PORTD=0b00000001;
-            _delay((unsigned long)((10)*(64000000/4000.0)));
-            _delay((unsigned long)((5)*(64000000/4000.0)));
-            PORTD=0;
-        }
-
-        else if(y==0x65)
-        {
-            PORTD=0b00000010;
-            _delay((unsigned long)((10)*(64000000/4000.0)));
-            _delay((unsigned long)((5)*(64000000/4000.0)));
-            PORTD=0;
+            LATA=0b00000100;
         }
 
         else if(y==0x6F)
         {
-            PORTA=0b00000111;
+            LATA=0b00000111;
         }
+
+
+
+
+
+        else if(y==0x71)
+        {
+            LATD=0b00000001;
+            _delay((unsigned long)((10)*(64000000/4000.0)));
+            _delay((unsigned long)((5)*(64000000/4000.0)));
+            LATD=0;
+        }
+
+        else if(y==0x65)
+        {
+            LATD=0b00000010;
+            _delay((unsigned long)((10)*(64000000/4000.0)));
+            _delay((unsigned long)((5)*(64000000/4000.0)));
+            LATD=0;
+        }
+
+
+
+
+
+
 
         z++;
         if(z==35530)

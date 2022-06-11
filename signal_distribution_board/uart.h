@@ -21,7 +21,7 @@
 void uart_init(void);
 void tx1(char data1);
 void tx2(char data2);
-unsigned char rx1(void);
+//unsigned char rx1(void); This function is taken care by the ISR
 
 
 

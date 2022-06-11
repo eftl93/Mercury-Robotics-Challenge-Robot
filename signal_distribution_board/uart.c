@@ -14,37 +14,36 @@ volatile unsigned char b;
 
 void uart_init()
 {
-    ANSELA=0;
-    ANSELB=0;
-    ANSELC=0;
-    ANSELD=0;
-    ANSELE=0;
-    TXSTA1bits.BRGH=1;
-    BAUDCON1bits.BRG16=1;
-    TXSTA2bits.BRGH=1;
-    BAUDCON2bits.BRG16=1;
-    SPBRG1=0x0A;
-    SPBRGH1=0x1A;
-    //SPBRG1=0x82;
-    //SPBRGH1=0x06;
-
-    SPBRG2=0x82;
-    SPBRGH2=0x06;
-    RX1_DIR=1;
-    TX1_DIR=1;
-    RX2_DIR=1;
-    TX2_DIR=1;
-    TXSTA1bits.SYNC=0;
-    TXSTA2bits.SYNC=0;
-    RCSTA1bits.SPEN=1;
-    RCSTA2bits.SPEN=1;
-    TXSTA1bits.TXEN=1;
-    TXSTA2bits.TXEN=1;
+    ANSELA=0;               //disable analog
+    ANSELB=0;               //disable analog
+    ANSELC=0;               //disable analog
+    ANSELD=0;               //disable analog
+    ANSELE=0;               //disable analog
+    TXSTA1bits.BRGH=1;      //for ASYNC: Highs baud rate selected
+    BAUDCON1bits.BRG16=1;   //16 bit baud rate generator is used (because of the HS clock)
+    TXSTA2bits.BRGH=1;      //for ASYNC: Highs baud rate selected
+    BAUDCON2bits.BRG16=1;   //16 bit baud rate generator is used (because of the HS clock)
+    SPBRG1=0x0A;            //Set the baud rate to 2400 (spbrgh1:spbrg1 = 6666)
+    SPBRGH1=0x1A;           //Set the baud rate to 2400 (spbrgh1:spbrg1 = 6666)
+    SPBRG2=0x82;            //Set the baud rate to 9600 (spbrgh1:spbrg1 = 1666)
+    SPBRGH2=0x06;           //Set the baud rate to 9600 (spbrgh1:spbrg1 = 1666)
+    RX1_DIR=1;              //RX must be set as an input for uart
+    TX1_DIR=1;              //TX must be set as an input for uart
+    RX2_DIR=1;              //RX must be set as an input for uart
+    TX2_DIR=1;              //TX must be set as an input for uart
+    TXSTA1bits.SYNC=0;      //Async mode
+    TXSTA2bits.SYNC=0;      //Async mode
+    RCSTA1bits.SPEN=1;      //Serial port enabled
+    RCSTA2bits.SPEN=1;      //Serial port enabled
+    TXSTA1bits.TXEN=1;      //Transmit enabled
+    TXSTA2bits.TXEN=1;      //Transmit enabled
     IPEN=0;
     RC1IE=1;
     INTCON|=0b11000000;
-    RCSTA1bits.CREN=1;
-    RCSTA2bits.CREN=1;
+    RCSTA1bits.CREN=1;      //Receiver enabled
+    RCSTA2bits.CREN=1;      //Receiver enabled
+    
+    
 }
 
 void tx1(char data1)
@@ -57,6 +56,7 @@ void tx2(char data2)
     TXREG2=data2;
 }
 
+//This function is being taken care by the ISR
 //char rx1()
 //{
 //char x;
@@ -65,6 +65,7 @@ void tx2(char data2)
 //return x;
 //}
 
+//This ISR takes care of RX1, this signal comes from the SBC (Beaglebone Black in this case)
 void __interrupt() UART_ISR(void)
 {
     if(RC1IF)
@@ -73,7 +74,6 @@ void __interrupt() UART_ISR(void)
         z=0;
         if(y==a)
         {
-            tx1(0);
             b=0;
         }
         else

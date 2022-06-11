@@ -6,8 +6,8 @@
 #include <xc.h>
 
 #define SS0 LATBbits.LATB2
-#define SS1 PORTBbits.RB3
-#define SS2 PORTBbits.RB4
+#define SS1 LATBbits.LATB3
+#define SS2 LATBbits.LATB4
 #define SS3 LATBbits.LATB5
 #define SCK1 PORTCbits.RC3
 #define SDI1 PORTCbits.RC4
