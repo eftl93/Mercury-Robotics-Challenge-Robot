@@ -1,15 +1,16 @@
 # TI INNOVATION ROBOT
 
-- This project contains a description and some recovered source files from 2014 Sr. Design project for ELEE at UTPA
-- Due to corruption of storage device and only partially had backed up the project on the cloud not all source code is included, in this repository I will either try to recreate the source files to complete the project again or explain the approach taken originally. 
-- The Sr. Design name is: TI Innovation Challenge since it was originally intended to enter the TI competition that year. 
-- At the end the project was only able to compete in the Mercury Robotic Challenge hosted in the University of Oklahoma
-- It received the Judge's Award since most circuits were designed from scratch and not based on of the shelf solutions. The only development board used was the BeagleBone Black. Also the Buck converters circuits were bought. 
+## Overall Project
+This is the code for a mobile robot. The robot has wheels, a robotic arm, and a camera pan/tilt mount. The robot is controlled via wi-fi through the network. \
+![image](https://user-images.githubusercontent.com/86902176/173216921-7c5da259-d563-4348-b6c3-b946c5602904.png)
+
+### Level 0 Design
+![image](https://user-images.githubusercontent.com/86902176/173215552-35811b5b-aa1e-457b-8b57-7f098b86d92b.png)
 
 ## Goals
 The goal of the project was to design and build a mobile robot that could be controlled from at least 50 miles away it was to be dimensionaly constrained since it had to be able to fit inside a narrow tunnel. 
 
-The robot was supposed to be controlled through an arbitrary maze, pick up a load in a "pickup location" and drop it off in a later portion of the maze in a "drop off" location. Points were awarded for avoiding obstacles and time of completion.
+The robot will be controlled through an arbitrary maze, pick up a load in a "pickup location" and drop it off in a later portion of the maze in a "drop off" location. Points were awarded for avoiding obstacles and time of completion.
 
 ## Process
 The motor controller was designed using the PIC18F46K22 from Microchip. The MCU control four precision motor controllers which are the LM629 from TI.  The PWM output signal from the LM629 and the PWM inputs from the LMD18200Ts (H-Bridge from TI) are interfaced using an ISO7220 (Digital Isolator from TI). 
