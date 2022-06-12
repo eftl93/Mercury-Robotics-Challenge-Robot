@@ -62,7 +62,7 @@ void loop() {
       }
       break;
 
-      //lower the arm to the in angle
+      //lower the arm to the min angle
     case 'k':
       for(arm_degree=max_arm; arm_degree>=min_arm; arm_degree--)
       {
