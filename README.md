@@ -5,7 +5,14 @@ This is the code for a mobile robot. The robot has wheels, a robotic arm, and a 
 ![image](https://user-images.githubusercontent.com/86902176/173216921-7c5da259-d563-4348-b6c3-b946c5602904.png)
 
 ### Level 0 Design
-![image](https://user-images.githubusercontent.com/86902176/173215552-35811b5b-aa1e-457b-8b57-7f098b86d92b.png)
+![image](https://user-images.githubusercontent.com/86902176/174416714-85278c90-681c-4610-a848-9d21f5e81b58.png)
+
+
+###Level 1 Design
+![image](https://user-images.githubusercontent.com/86902176/174416674-cc60901d-9219-4426-ac0f-3b5184c8a9f3.png)
+
+### Level 2 Design
+![image](https://user-images.githubusercontent.com/86902176/174446758-db5e3fb6-9d6c-4597-a5c5-6b0e32ab003f.png)
 
 ## Goals
 The goal of the project was to design and build a mobile robot that could be controlled from at least 50 miles away it was to be dimensionaly constrained since it had to be able to fit inside a narrow tunnel. 
@@ -28,4 +35,3 @@ In order to make the design robust, it was taken into account that having many b
 
 Since Lithium Polymer batteries were used, competition required that the robot included an undercharge protection circuit. A simple comparator circuit powered with a 9V battery was used with a relay in order to disconnect the lithium batteries from the circuit in case they would reach a threshold voltage of 3.4V. This was not part of the Sr. Desing but I'm planning on designing an elegant (and modern) power management solution after all other files have been updated and tested. 
 
-![image](https://user-images.githubusercontent.com/86902176/165432875-5e5c86cd-96c4-4a19-b4c6-c7a826541480.png)
