@@ -2,6 +2,7 @@
 
 ## Overall Project
 This is the code, schematics, and other materials for a mobile robot. The robot has wheels, a robotic arm, and a camera pan/tilt mount. The robot is controlled via wi-fi through the network.
+
 ![image](https://user-images.githubusercontent.com/86902176/173216921-7c5da259-d563-4348-b6c3-b946c5602904.png)
 
 ## Level 0 Design
