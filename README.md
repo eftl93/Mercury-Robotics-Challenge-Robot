@@ -4,15 +4,26 @@
 This is the code for a mobile robot. The robot has wheels, a robotic arm, and a camera pan/tilt mount. The robot is controlled via wi-fi through the network. \
 ![image](https://user-images.githubusercontent.com/86902176/173216921-7c5da259-d563-4348-b6c3-b946c5602904.png)
 
-### Level 0 Design
+## Level 0 Design
 ![image](https://user-images.githubusercontent.com/86902176/174416714-85278c90-681c-4610-a848-9d21f5e81b58.png)
 
 
-###Level 1 Design
+## Level 1 Design
+### 1. Block layout showing data flow direction
 ![image](https://user-images.githubusercontent.com/86902176/174416674-cc60901d-9219-4426-ac0f-3b5184c8a9f3.png)
+### 2. Boards and main components interconnected with an overview of the power sources
+![image](https://user-images.githubusercontent.com/86902176/174632935-cef2efe2-cfb8-4333-b616-4f848ba05241.png)
 
-### Level 2 Design
+
+## Level 2 Design
+### 1. Block layout showing data flow and broken down in smaller modules with a more detailed description of each block actions
 ![image](https://user-images.githubusercontent.com/86902176/174446758-db5e3fb6-9d6c-4597-a5c5-6b0e32ab003f.png)
+### 2. More detail description on how the motor controller boards and servo controller boards are designed and interconnected and major contents
+![image](https://user-images.githubusercontent.com/86902176/174633484-6e45d11e-2d77-4a2a-971e-131381582f39.png)
+### 3. More detail description on how the signal distribution board and Beaglebone boards are designed and interconnected and major contents
+![image](https://user-images.githubusercontent.com/86902176/174633784-b99495cb-5e77-45e7-bfd6-55dcb09a5f9e.png)
+
+
 
 ## Goals
 The goal of the project was to design and build a mobile robot that could be controlled from at least 50 miles away it was to be dimensionaly constrained since it had to be able to fit inside a narrow tunnel. 
