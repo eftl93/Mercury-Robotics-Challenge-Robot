@@ -24,6 +24,13 @@ This is the code, schematics, and other materials for a mobile robot. The robot 
 ### 3. More detail description on how the signal distribution board and Beaglebone boards are designed and interconnected and major contents
 ![image](https://user-images.githubusercontent.com/86902176/174633784-b99495cb-5e77-45e7-bfd6-55dcb09a5f9e.png)
 
+## Level 3 Design
+### 1. Schematic for signal distribution board
+### 2. Schematic for Motor Controller board 1: Microcontroller and LM629
+### 3. Schematic for Motor Controller board 2: H-Bridges and Digital Isolators
+![image](https://user-images.githubusercontent.com/86902176/174715582-542cd244-dcf4-4c64-b069-e2e6f9961d11.png)
+### 4. Schematic for Servo Controller
+
 
 
 ## Goals
