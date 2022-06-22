@@ -30,7 +30,7 @@ This is the code, schematics, and other materials for a mobile robot. The robot 
 ### 3. Schematic for Motor Controller board 2: H-Bridges and Digital Isolators
 ![image](https://user-images.githubusercontent.com/86902176/174715582-542cd244-dcf4-4c64-b069-e2e6f9961d11.png)
 ### 4. Schematic for Servo Controller
-![image](https://user-images.githubusercontent.com/86902176/174715897-c060f4d5-5439-4289-920d-14f0b25d0d86.png)
+![image](https://user-images.githubusercontent.com/86902176/174934736-737fa402-96cc-45e1-9538-3f4c4714205a.png)
 
 
 
