@@ -8,6 +8,9 @@
 #ifndef MSP430_SERVO_H_
 #define MSP430_SERVO_H_
 
+//#define N0_OPTOCOUPLERS_USE 1
+#define OPTOCOUPLERS_USE 1
+
 void servo_init(void);
 void servo0_set(void);
 void servo0_clear(void);
