@@ -78,22 +78,22 @@ void main()
         //the data received
         if(current_command==0x61) //'a'
         {
-            LATA=0b00000001;
+            LATA=0b00000001; //red_led
         }
 
         else if(current_command==0x64)//'d'
         {
-            LATA=0b00000010;
+            LATA=0b00000010; //green_led
         }
 
         else if(current_command==0x77) //'w'
         {
-            LATA=0b00000100;
+            LATA=0b00000100; //yellow_led
         }
         
         else if(current_command==0x6F) //'o'
         {
-            LATA=0b00000111;
+            LATA=0b00000111; //all leds
         }
         
         //'e' and 'q' are to set or reset a "2 coil latching relay"
