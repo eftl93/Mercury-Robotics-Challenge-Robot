@@ -26,7 +26,7 @@ This is the code, schematics, and other materials for a mobile robot. The robot 
 
 ## Level 3 Design
 ### 1. Schematic for signal distribution board
-![image](https://user-images.githubusercontent.com/86902176/175465794-7e089b79-fa36-4ba6-af6b-566be8e9df42.png)
+![image](https://user-images.githubusercontent.com/86902176/176084972-1773b4e3-cb35-4c02-b73e-a2e0e7342a48.png)
 ### 2. Schematic for Motor Controller board 1: Microcontroller and LM629
 ![image](https://user-images.githubusercontent.com/86902176/175754177-43bd4ab5-e6de-454a-9188-096bce0e8f37.png)
 ### 3. Schematic for Motor Controller board 2: H-Bridges and Digital Isolators
