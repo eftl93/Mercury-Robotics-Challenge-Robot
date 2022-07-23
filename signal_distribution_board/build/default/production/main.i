@@ -9848,7 +9848,7 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 20 "main.c" 2
 
 # 1 "./spi.h" 1
-# 24 "./spi.h"
+# 25 "./spi.h"
 void spi_master_init(void);
 unsigned char spi_data(unsigned char device, unsigned char tx_data);
 # 21 "main.c" 2

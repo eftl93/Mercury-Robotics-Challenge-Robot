@@ -13,6 +13,8 @@
 
 
 
+
+
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9647,14 +9649,14 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 2 3
-# 7 "spi.c" 2
+# 9 "spi.c" 2
 
 # 1 "./spi.h" 1
 # 34 "./spi.h"
 void spi_slave_init(void);
 void spi_data(unsigned char tx_data);
 volatile unsigned char spi_read_data;
-# 8 "spi.c" 2
+# 10 "spi.c" 2
 
 
 void spi_slave_init()

@@ -10,12 +10,12 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 3h		(dist/default/production\Motor_controller_board.production.hex)
-  8h - 1495h		(dist/default/production\Motor_controller_board.production.hex)
+  8h - 1489h		(dist/default/production\Motor_controller_board.production.hex)
   200000h - 200007h		(dist/default/production\Motor_controller_board.production.hex)
   300000h - 30000Dh		(dist/default/production\Motor_controller_board.production.hex)
  Unused ranges:
   4h - 7h
-  1496h - 1FFFFFh
+  148Ah - 1FFFFFh
   200008h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -353,8 +353,7 @@
 00001450 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001460 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001470 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001480 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001490 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
+00001480 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------

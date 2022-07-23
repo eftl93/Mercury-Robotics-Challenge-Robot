@@ -9850,7 +9850,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 5 "./spi.h" 2
-# 24 "./spi.h"
+# 25 "./spi.h"
 void spi_master_init(void);
 unsigned char spi_data(unsigned char device, unsigned char tx_data);
 # 14 "spi_master.c" 2

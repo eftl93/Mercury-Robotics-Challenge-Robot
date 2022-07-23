@@ -9733,9 +9733,10 @@ volatile unsigned char spi_read_data;
 
 
 extern volatile unsigned char spi_read_data;
+
 void main(void)
 {
-    IPEN=0;
+    RCON &= 0x7F;
     INTCON=0;
     ANSELA=0;
     ANSELB=0;
@@ -9746,16 +9747,16 @@ void main(void)
     SSP2CON1=0x00;
     CM1CON0=0b00000000;
     CM2CON0=0b00000000;
-    PORTB=0x00;
-    TRISA=0x00;
-    TRISD=0x00;
-    TRISB=0x00;
-    TRISC=0x00;
+    TRISA=0xFF;
+    TRISD=0xFF;
+    TRISB=0xFF;
+    TRISC=0xFF;
     CTMUCONH=0x00;
     SRCON0=0x00;
     VREFCON0=0x00;
     VREFCON1=0x00;
     HLVDCON=0x00;
+
     LM629_init();
     spi_slave_init();
     unsigned char received_data;
@@ -9763,6 +9764,11 @@ void main(void)
     received_data = 0x00;
     dummy_data = 0x55;
     spi_data(dummy_data);
+
+
+
+
+
 
     while(1)
     {

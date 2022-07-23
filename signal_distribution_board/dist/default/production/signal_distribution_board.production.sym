@@ -256,7 +256,7 @@ bssCOMRAM 1 A COMRAM 1 1
 %locals
 dist/default/production\signal_distribution_board.production.o
 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
-C:\Users\eder0\AppData\Local\Temp\xcAs8do.s
+C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
 1759 30E 0 CODE 0
 1761 30E 0 CODE 0
 1764 30E 0 CODE 0
@@ -403,7 +403,7 @@ spi_master.c
 77 296 0 CODE 0
 79 296 0 CODE 0
 80 298 0 CODE 0
-C:\Users\eder0\AppData\Local\Temp\xcAs8do.s
+C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
 3162 8 0 CODE 0
 uart.c
 73 8 0 CODE 0
