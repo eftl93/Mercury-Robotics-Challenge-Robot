@@ -9848,20 +9848,21 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 20 "main.c" 2
 
 # 1 "./spi.h" 1
-# 24 "./spi.h"
+# 25 "./spi.h"
 void spi_master_init(void);
 unsigned char spi_data(unsigned char device, unsigned char tx_data);
 # 21 "main.c" 2
 
 # 1 "./uart.h" 1
-# 21 "./uart.h"
-void uart_init(void);
-void tx1(char data1);
-void tx2(char data2);
-# 22 "main.c" 2
+
+
+
+
+
+
 
 # 1 "./main.h" 1
-# 16 "./main.h"
+# 17 "./main.h"
 #pragma config FOSC = HSHP
 #pragma config PLLCFG = ON
 #pragma config PRICLKEN = ON
@@ -9901,7 +9902,30 @@ void tx2(char data2);
 #pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
 
 #pragma config EBTRB = OFF
-# 23 "main.c" 2
+# 8 "./uart.h" 2
+# 22 "./uart.h"
+void uart_init(void);
+void tx1(char data1);
+void tx2(char data2);
+
+
+uint8_t rx1(void);
+# 22 "main.c" 2
+
+
+# 1 "./timer1.h" 1
+# 17 "./timer1.h"
+void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler);
+# 24 "main.c" 2
+
+# 1 "./gpio.h" 1
+# 20 "./gpio.h"
+void gpio_init(void);
+void high_beams_on(void);
+void high_beams_off(void);
+void debug_leds_on(void);
+void debug_leds_off(void);
+# 25 "main.c" 2
 
 
 
@@ -9915,20 +9939,12 @@ extern volatile unsigned char nglitch_flag;
 
 void main()
 {
-    unsigned char dummy_spi_tx;
-
-    CM1CON0bits.C1ON=0;
-    CM2CON0bits.C2ON=0;
+    uint8_t dummy_spi_tx;
+    gpio_init();
     spi_master_init();
     uart_init();
-    TRISA=0;
-    TRISD=0;
-    LATA=0;
+    timer1_init(2000,8);
 
-    LATD = 0b00000001;
-    _delay((unsigned long)((10)*(64000000/4000.0)));
-    _delay((unsigned long)((5)*(64000000/4000.0)));
-    LATD=0;
 
     dummy_spi_tx=spi_data(3,0x6F);
 

@@ -1,4 +1,4 @@
-# 1 "spi_master.c"
+# 1 "timer1.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "spi_master.c" 2
-# 13 "spi_master.c"
+# 1 "timer1.c" 2
+# 14 "timer1.c"
 # 1 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9642,7 +9642,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 2 3
-# 13 "spi_master.c" 2
+# 14 "timer1.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
@@ -9788,73 +9788,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 14 "spi_master.c" 2
-
-# 1 "./spi.h" 1
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 1 3
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 411 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct __locale_struct * locale_t;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 2 3
-
-
-void *memcpy (void *restrict, const void *restrict, size_t);
-void *memmove (void *, const void *, size_t);
-void *memset (void *, int, size_t);
-int memcmp (const void *, const void *, size_t);
-void *memchr (const void *, int, size_t);
-
-char *strcpy (char *restrict, const char *restrict);
-char *strncpy (char *restrict, const char *restrict, size_t);
-
-char *strcat (char *restrict, const char *restrict);
-char *strncat (char *restrict, const char *restrict, size_t);
-
-int strcmp (const char *, const char *);
-int strncmp (const char *, const char *, size_t);
-
-int strcoll (const char *, const char *);
-size_t strxfrm (char *restrict, const char *restrict, size_t);
-
-char *strchr (const char *, int);
-char *strrchr (const char *, int);
-
-size_t strcspn (const char *, const char *);
-size_t strspn (const char *, const char *);
-char *strpbrk (const char *, const char *);
-char *strstr (const char *, const char *);
-char *strtok (char *restrict, const char *restrict);
-
-size_t strlen (const char *);
-
-char *strerror (int);
-# 65 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
-char *strtok_r (char *restrict, const char *restrict, char **restrict);
-int strerror_r (int, char *, size_t);
-char *stpcpy(char *restrict, const char *restrict);
-char *stpncpy(char *restrict, const char *restrict, size_t);
-size_t strnlen (const char *, size_t);
-char *strdup (const char *);
-char *strndup (const char *, size_t);
-char *strsignal(int);
-char *strerror_l (int, locale_t);
-int strcoll_l (const char *, const char *, locale_t);
-size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
-
-
-
-
-void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 5 "./spi.h" 2
-# 25 "./spi.h"
-void spi_master_init(void);
-unsigned char spi_data(unsigned char device, unsigned char tx_data);
-# 15 "spi_master.c" 2
+# 15 "timer1.c" 2
 
 # 1 "./main.h" 1
 # 17 "./main.h"
@@ -9897,71 +9831,54 @@ unsigned char spi_data(unsigned char device, unsigned char tx_data);
 #pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
 
 #pragma config EBTRB = OFF
-# 16 "spi_master.c" 2
+# 16 "timer1.c" 2
+
+# 1 "./timer1.h" 1
+# 17 "./timer1.h"
+void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler);
+# 17 "timer1.c" 2
 
 
-void spi_master_init(void)
+void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler)
 {
-    SSP1STAT=0x00;
-    SSP1CON1=0b00100010;
-    ADCON0=0x00;
-    TRISBbits.RB2=0;
-    TRISBbits.RB3=0;
-    TRISBbits.RB4=0;
-    TRISBbits.RB5=0;
-    TRISCbits.RC3=0;
-    TRISCbits.RC4=1;
-    TRISCbits.RC5=0;
-    LATBbits.LATB2=1;
-    LATBbits.LATB3=1;
-    LATBbits.LATB4=1;
-    LATBbits.LATB5=1;
-}
-
-
-
-
-
-
-
-unsigned char spi_data(unsigned char device, unsigned char tx_data)
-{
-    char data_read;
-    if(device==0)
+    uint16_t timer1_reg = 0;
+    uint8_t timer1_reg_h = 0;
+    uint8_t timer1_reg_l = 0;
+    timer1_reg = 65535 - cnts_to_overflow;
+    timer1_reg_h = ((timer1_reg & 0xFF00) >> 8);
+    timer1_reg_l = (timer1_reg & 0x00FF);
+    T1CONbits.TMR1ON = 0;
+    PIE1bits.TMR1IE = 0;
+    T1CONbits.TMR1CS = 0b00;
+    T1CONbits.T1SYNC = 1;
+    switch(prescaler)
     {
-        LATBbits.LATB2=0;
-        SSP1BUF=tx_data;
-        while(!SSP1STATbits.BF);
-        LATBbits.LATB2=1;
-        data_read=SSP1BUF;
+        case(1) :
+            T1CONbits.T1CKPS = 0b00;
+            break;
+        case(2):
+            T1CONbits.T1CKPS = 0b01;
+            break;
+        case(4):
+            T1CONbits.T1CKPS = 0b10;
+            break;
+        case(8):
+            T1CONbits.T1CKPS = 0b11;
+            break;
+        default:
+            T1CONbits.T1CKPS = 0b00;
     }
+    TMR1H = timer1_reg_h;
+    TMR1L = timer1_reg_l;
 
-    else if(device==1)
-    {
-        LATBbits.LATB3=0;
-        SSP1BUF=tx_data;
-        while(!SSP1STATbits.BF);
-        LATBbits.LATB3=1;
-        data_read=SSP1BUF;
-    }
 
-    else if(device==2)
-    {
-        LATBbits.LATB4=0;
-        SSP1BUF=tx_data;
-        while(!SSP1STATbits.BF);
-        LATBbits.LATB4=1;
-        data_read=SSP1BUF;
-    }
 
-    else if(device==3)
-    {
-        LATBbits.LATB5=0;
-        SSP1BUF=tx_data;
-        while(!SSP1STATbits.BF);
-        LATBbits.LATB5=1;
-        data_read=SSP1BUF;
-    }
 
-    return data_read;
+
+
+    while(TMR1L < (timer1_reg_l + 0x02));
+    __asm("nop");
+    __asm("nop");
+    PIR1bits.TMR1IF = 0;
+    PIE1bits.TMR1IE = 1;
 }

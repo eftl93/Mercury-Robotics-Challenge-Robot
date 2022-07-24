@@ -886,204 +886,252 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17407
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 17407: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"16 spi_master.c
-[; ;spi_master.c: 16: void spi_master_init(void)
+"17 ./main.h
+[p x FOSC  =  HSHP       ]
+"18
+[p x PLLCFG  =  ON       ]
+"19
+[p x PRICLKEN  =  ON     ]
+"20
+[p x FCMEN  =  OFF       ]
+"21
+[p x IESO  =  OFF        ]
+"24
+[p x PWRTEN  =  OFF      ]
+"25
+[p x BOREN  =  OFF       ]
+"28
+[p x WDTEN  =  OFF       ]
+"31
+[p x CCP2MX  =  PORTC1   ]
+"32
+[p x PBADEN  =  OFF      ]
+"33
+[p x CCP3MX  =  PORTE0   ]
+"34
+[p x HFOFST  =  OFF      ]
+"35
+[p x T3CMX    =  PORTC0   ]
+"36
+[p x P2BMX    =  PORTC0   ]
+"37
+[p x MCLRE    =  EXTMCLR  ]
+"40
+[p x STVREN  =  ON       ]
+"41
+[p x LVP        =  OFF      ]
+"42
+[p x DEBUG    =  OFF      ]
+"45
+[p x CP0  =  OFF   CP1  =  OFF   CP2  =  OFF   CP3  =  OFF ]
+"47
+[p x CPB  =  OFF   CPD  =  OFF ]
+"49
+[p x WRT0  =  OFF   WRT1  =  OFF   WRT2  =  OFF   WRT3  =  OFF ]
+"51
+[p x WRTC  =  OFF   WRTB  =  OFF   WRTD  =  OFF ]
+"53
+[p x EBTR0  =  OFF   EBTR1  =  OFF   EBTR2  =  OFF   EBTR3  =  OFF ]
+"55
+[p x EBTRB  =  OFF ]
+"18 spi_master.c
+[; ;spi_master.c: 18: void spi_master_init(void)
 [v _spi_master_init `(v ~T0 @X0 1 ef ]
-"17
-[; ;spi_master.c: 17: {
+"19
+[; ;spi_master.c: 19: {
 {
 [e :U _spi_master_init ]
 [f ]
-"18
-[; ;spi_master.c: 18:     SSP1STAT=0x00;
-[e = _SSP1STAT -> -> 0 `i `uc ]
-"19
-[; ;spi_master.c: 19:     SSP1CON1=0b00100010;
-[e = _SSP1CON1 -> -> 34 `i `uc ]
 "20
-[; ;spi_master.c: 20:     ADCON0=0x00;
-[e = _ADCON0 -> -> 0 `i `uc ]
+[; ;spi_master.c: 20:     SSP1STAT=0x00;
+[e = _SSP1STAT -> -> 0 `i `uc ]
 "21
-[; ;spi_master.c: 21:     TRISBbits.RB2=0;
-[e = . . _TRISBbits 1 2 -> -> 0 `i `uc ]
+[; ;spi_master.c: 21:     SSP1CON1=0b00100010;
+[e = _SSP1CON1 -> -> 34 `i `uc ]
 "22
-[; ;spi_master.c: 22:     TRISBbits.RB3=0;
-[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
+[; ;spi_master.c: 22:     ADCON0=0x00;
+[e = _ADCON0 -> -> 0 `i `uc ]
 "23
-[; ;spi_master.c: 23:     TRISBbits.RB4=0;
-[e = . . _TRISBbits 1 4 -> -> 0 `i `uc ]
+[; ;spi_master.c: 23:     TRISBbits.RB2=0;
+[e = . . _TRISBbits 1 2 -> -> 0 `i `uc ]
 "24
-[; ;spi_master.c: 24:     TRISBbits.RB5=0;
-[e = . . _TRISBbits 1 5 -> -> 0 `i `uc ]
+[; ;spi_master.c: 24:     TRISBbits.RB3=0;
+[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
 "25
-[; ;spi_master.c: 25:     TRISCbits.RC3=0;
-[e = . . _TRISCbits 1 3 -> -> 0 `i `uc ]
+[; ;spi_master.c: 25:     TRISBbits.RB4=0;
+[e = . . _TRISBbits 1 4 -> -> 0 `i `uc ]
 "26
-[; ;spi_master.c: 26:     TRISCbits.RC4=1;
-[e = . . _TRISCbits 1 4 -> -> 1 `i `uc ]
+[; ;spi_master.c: 26:     TRISBbits.RB5=0;
+[e = . . _TRISBbits 1 5 -> -> 0 `i `uc ]
 "27
-[; ;spi_master.c: 27:     TRISCbits.RC5=0;
-[e = . . _TRISCbits 1 5 -> -> 0 `i `uc ]
+[; ;spi_master.c: 27:     TRISCbits.RC3=0;
+[e = . . _TRISCbits 1 3 -> -> 0 `i `uc ]
 "28
-[; ;spi_master.c: 28:     LATBbits.LATB2=1;
-[e = . . _LATBbits 0 2 -> -> 1 `i `uc ]
+[; ;spi_master.c: 28:     TRISCbits.RC4=1;
+[e = . . _TRISCbits 1 4 -> -> 1 `i `uc ]
 "29
-[; ;spi_master.c: 29:     LATBbits.LATB3=1;
-[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
+[; ;spi_master.c: 29:     TRISCbits.RC5=0;
+[e = . . _TRISCbits 1 5 -> -> 0 `i `uc ]
 "30
-[; ;spi_master.c: 30:     LATBbits.LATB4=1;
-[e = . . _LATBbits 0 4 -> -> 1 `i `uc ]
+[; ;spi_master.c: 30:     LATBbits.LATB2=1;
+[e = . . _LATBbits 0 2 -> -> 1 `i `uc ]
 "31
-[; ;spi_master.c: 31:     LATBbits.LATB5=1;
-[e = . . _LATBbits 0 5 -> -> 1 `i `uc ]
+[; ;spi_master.c: 31:     LATBbits.LATB3=1;
+[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
 "32
-[; ;spi_master.c: 32: }
+[; ;spi_master.c: 32:     LATBbits.LATB4=1;
+[e = . . _LATBbits 0 4 -> -> 1 `i `uc ]
+"33
+[; ;spi_master.c: 33:     LATBbits.LATB5=1;
+[e = . . _LATBbits 0 5 -> -> 1 `i `uc ]
+"34
+[; ;spi_master.c: 34: }
 [e :UE 857 ]
 }
-"40
-[; ;spi_master.c: 40: unsigned char spi_data(unsigned char device, unsigned char tx_data)
+"42
+[; ;spi_master.c: 42: unsigned char spi_data(unsigned char device, unsigned char tx_data)
 [v _spi_data `(uc ~T0 @X0 1 ef2`uc`uc ]
-"41
-[; ;spi_master.c: 41: {
+"43
+[; ;spi_master.c: 43: {
 {
 [e :U _spi_data ]
-"40
-[; ;spi_master.c: 40: unsigned char spi_data(unsigned char device, unsigned char tx_data)
+"42
+[; ;spi_master.c: 42: unsigned char spi_data(unsigned char device, unsigned char tx_data)
 [v _device `uc ~T0 @X0 1 r1 ]
 [v _tx_data `uc ~T0 @X0 1 r2 ]
-"41
-[; ;spi_master.c: 41: {
-[f ]
-"42
-[; ;spi_master.c: 42:     char data_read;
-[v _data_read `uc ~T0 @X0 1 a ]
 "43
-[; ;spi_master.c: 43:     if(device==0)
-[e $ ! == -> _device `i -> 0 `i 859  ]
+[; ;spi_master.c: 43: {
+[f ]
 "44
-[; ;spi_master.c: 44:     {
-{
+[; ;spi_master.c: 44:     char data_read;
+[v _data_read `uc ~T0 @X0 1 a ]
 "45
-[; ;spi_master.c: 45:         LATBbits.LATB2=0;
-[e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
+[; ;spi_master.c: 45:     if(device==0)
+[e $ ! == -> _device `i -> 0 `i 859  ]
 "46
-[; ;spi_master.c: 46:         SSP1BUF=tx_data;
-[e = _SSP1BUF _tx_data ]
+[; ;spi_master.c: 46:     {
+{
 "47
-[; ;spi_master.c: 47:         while(!SSP1STATbits.BF);
+[; ;spi_master.c: 47:         LATBbits.LATB2=0;
+[e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
+"48
+[; ;spi_master.c: 48:         SSP1BUF=tx_data;
+[e = _SSP1BUF _tx_data ]
+"49
+[; ;spi_master.c: 49:         while(!SSP1STATbits.BF);
 [e $U 860  ]
 [e :U 861 ]
 [e :U 860 ]
 [e $ ! != -> . . _SSP1STATbits 2 0 `i -> 0 `i 861  ]
 [e :U 862 ]
-"48
-[; ;spi_master.c: 48:         LATBbits.LATB2=1;
-[e = . . _LATBbits 0 2 -> -> 1 `i `uc ]
-"49
-[; ;spi_master.c: 49:         data_read=SSP1BUF;
-[e = _data_read -> _SSP1BUF `uc ]
 "50
-[; ;spi_master.c: 50:     }
+[; ;spi_master.c: 50:         LATBbits.LATB2=1;
+[e = . . _LATBbits 0 2 -> -> 1 `i `uc ]
+"51
+[; ;spi_master.c: 51:         data_read=SSP1BUF;
+[e = _data_read -> _SSP1BUF `uc ]
+"52
+[; ;spi_master.c: 52:     }
 }
 [e $U 863  ]
-"52
-[; ;spi_master.c: 52:     else if(device==1)
+"54
+[; ;spi_master.c: 54:     else if(device==1)
 [e :U 859 ]
 [e $ ! == -> _device `i -> 1 `i 864  ]
-"53
-[; ;spi_master.c: 53:     {
-{
-"54
-[; ;spi_master.c: 54:         LATBbits.LATB3=0;
-[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
 "55
-[; ;spi_master.c: 55:         SSP1BUF=tx_data;
-[e = _SSP1BUF _tx_data ]
+[; ;spi_master.c: 55:     {
+{
 "56
-[; ;spi_master.c: 56:         while(!SSP1STATbits.BF);
+[; ;spi_master.c: 56:         LATBbits.LATB3=0;
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+"57
+[; ;spi_master.c: 57:         SSP1BUF=tx_data;
+[e = _SSP1BUF _tx_data ]
+"58
+[; ;spi_master.c: 58:         while(!SSP1STATbits.BF);
 [e $U 865  ]
 [e :U 866 ]
 [e :U 865 ]
 [e $ ! != -> . . _SSP1STATbits 2 0 `i -> 0 `i 866  ]
 [e :U 867 ]
-"57
-[; ;spi_master.c: 57:         LATBbits.LATB3=1;
-[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-"58
-[; ;spi_master.c: 58:         data_read=SSP1BUF;
-[e = _data_read -> _SSP1BUF `uc ]
 "59
-[; ;spi_master.c: 59:     }
+[; ;spi_master.c: 59:         LATBbits.LATB3=1;
+[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
+"60
+[; ;spi_master.c: 60:         data_read=SSP1BUF;
+[e = _data_read -> _SSP1BUF `uc ]
+"61
+[; ;spi_master.c: 61:     }
 }
 [e $U 868  ]
-"61
-[; ;spi_master.c: 61:     else if(device==2)
+"63
+[; ;spi_master.c: 63:     else if(device==2)
 [e :U 864 ]
 [e $ ! == -> _device `i -> 2 `i 869  ]
-"62
-[; ;spi_master.c: 62:     {
-{
-"63
-[; ;spi_master.c: 63:         LATBbits.LATB4=0;
-[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
 "64
-[; ;spi_master.c: 64:         SSP1BUF=tx_data;
-[e = _SSP1BUF _tx_data ]
+[; ;spi_master.c: 64:     {
+{
 "65
-[; ;spi_master.c: 65:         while(!SSP1STATbits.BF);
+[; ;spi_master.c: 65:         LATBbits.LATB4=0;
+[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
+"66
+[; ;spi_master.c: 66:         SSP1BUF=tx_data;
+[e = _SSP1BUF _tx_data ]
+"67
+[; ;spi_master.c: 67:         while(!SSP1STATbits.BF);
 [e $U 870  ]
 [e :U 871 ]
 [e :U 870 ]
 [e $ ! != -> . . _SSP1STATbits 2 0 `i -> 0 `i 871  ]
 [e :U 872 ]
-"66
-[; ;spi_master.c: 66:         LATBbits.LATB4=1;
-[e = . . _LATBbits 0 4 -> -> 1 `i `uc ]
-"67
-[; ;spi_master.c: 67:         data_read=SSP1BUF;
-[e = _data_read -> _SSP1BUF `uc ]
 "68
-[; ;spi_master.c: 68:     }
+[; ;spi_master.c: 68:         LATBbits.LATB4=1;
+[e = . . _LATBbits 0 4 -> -> 1 `i `uc ]
+"69
+[; ;spi_master.c: 69:         data_read=SSP1BUF;
+[e = _data_read -> _SSP1BUF `uc ]
+"70
+[; ;spi_master.c: 70:     }
 }
 [e $U 873  ]
-"70
-[; ;spi_master.c: 70:     else if(device==3)
+"72
+[; ;spi_master.c: 72:     else if(device==3)
 [e :U 869 ]
 [e $ ! == -> _device `i -> 3 `i 874  ]
-"71
-[; ;spi_master.c: 71:     {
-{
-"72
-[; ;spi_master.c: 72:         LATBbits.LATB5=0;
-[e = . . _LATBbits 0 5 -> -> 0 `i `uc ]
 "73
-[; ;spi_master.c: 73:         SSP1BUF=tx_data;
-[e = _SSP1BUF _tx_data ]
+[; ;spi_master.c: 73:     {
+{
 "74
-[; ;spi_master.c: 74:         while(!SSP1STATbits.BF);
+[; ;spi_master.c: 74:         LATBbits.LATB5=0;
+[e = . . _LATBbits 0 5 -> -> 0 `i `uc ]
+"75
+[; ;spi_master.c: 75:         SSP1BUF=tx_data;
+[e = _SSP1BUF _tx_data ]
+"76
+[; ;spi_master.c: 76:         while(!SSP1STATbits.BF);
 [e $U 875  ]
 [e :U 876 ]
 [e :U 875 ]
 [e $ ! != -> . . _SSP1STATbits 2 0 `i -> 0 `i 876  ]
 [e :U 877 ]
-"75
-[; ;spi_master.c: 75:         LATBbits.LATB5=1;
-[e = . . _LATBbits 0 5 -> -> 1 `i `uc ]
-"76
-[; ;spi_master.c: 76:         data_read=SSP1BUF;
-[e = _data_read -> _SSP1BUF `uc ]
 "77
-[; ;spi_master.c: 77:     }
+[; ;spi_master.c: 77:         LATBbits.LATB5=1;
+[e = . . _LATBbits 0 5 -> -> 1 `i `uc ]
+"78
+[; ;spi_master.c: 78:         data_read=SSP1BUF;
+[e = _data_read -> _SSP1BUF `uc ]
+"79
+[; ;spi_master.c: 79:     }
 }
 [e :U 874 ]
 [e :U 873 ]
 [e :U 868 ]
 [e :U 863 ]
-"79
-[; ;spi_master.c: 79:     return data_read;
+"81
+[; ;spi_master.c: 81:     return data_read;
 [e ) -> _data_read `uc ]
 [e $UE 858  ]
-"80
-[; ;spi_master.c: 80: }
+"82
+[; ;spi_master.c: 82: }
 [e :UE 858 ]
 }

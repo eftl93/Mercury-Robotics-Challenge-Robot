@@ -10,7 +10,8 @@
 #ifndef MAIN_H
 #define	MAIN_H
 
-#include <xc.h> // include processor files   
+#include <xc.h> // include processor files 
+#include <stdio.h>
 
 //Register: CONFIG1H @0x300001
 #pragma config FOSC = HSHP      //High Speed Oscillator, High Power
@@ -52,6 +53,18 @@
 #pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
 //Register: CONFIG7H @0x30000D
 #pragma config EBTRB = OFF
+
+#define RED_LED_DIR     TRISAbits.TRISA0
+#define RED_LED         LATAbits.LATA0
+#define GREEN_LED_DIR   TRISAbits.TRISA1
+#define GREEN_LED       LATAbits.LATA1
+#define YELLOW_LED_DIR  TRISAbits.TRISA2
+#define YELLOW_LED      LATAbits.LATA2
+
+//#define UART1_INTERRUPT 1
+//#define UART2_INTERRUPT 1
+//#define SSP1_INTERRUPT 1
+#define TIMER1_INTERRUPT 1
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

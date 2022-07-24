@@ -1,45 +1,161 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"20 ./gpio.h
-[; ;./gpio.h: 20: void gpio_init(void);
-[v _gpio_init `(v ~T0 @X0 0 ef ]
-"25 ./spi.h
-[; ;./spi.h: 25: void spi_master_init(void);
-[v _spi_master_init `(v ~T0 @X0 0 ef ]
-"22 ./uart.h
-[; ;./uart.h: 22: void uart_init(void);
-[v _uart_init `(v ~T0 @X0 0 ef ]
-"17 ./timer1.h
-[; ;./timer1.h: 17: void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler);
-[v _timer1_init `(v ~T0 @X0 0 ef2`us`uc ]
-"26 ./spi.h
-[; ;./spi.h: 26: unsigned char spi_data(unsigned char device, unsigned char tx_data);
-[v _spi_data `(uc ~T0 @X0 0 ef2`uc`uc ]
-"31 main.c
-[; ;main.c: 31: extern volatile unsigned int glitch_watchdog_counter;
-[v _glitch_watchdog_counter `Vui ~T0 @X0 0 e ]
-"30
-[; ;main.c: 30: extern volatile unsigned char current_command;
-[v _current_command `Vuc ~T0 @X0 0 e ]
-"33
-[; ;main.c: 33: extern volatile unsigned char nglitch_flag;
-[v _nglitch_flag `Vuc ~T0 @X0 0 e ]
-"32
-[; ;main.c: 32: extern volatile unsigned char previous_command;
-[v _previous_command `Vuc ~T0 @X0 0 e ]
-"24 ./uart.h
-[; ;./uart.h: 24: void tx2(char data2);
-[v _tx2 `(v ~T0 @X0 0 ef1`uc ]
-"7561 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7561: extern volatile unsigned char LATA __attribute__((address(0xF89)));
-[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
-"7897
+"5656 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5656:     struct {
+[s S280 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S280 . C1CH C1R C1SP C1POL C1OE C1OUT C1ON ]
+"5665
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5665:     struct {
+[s S281 :1 `uc 1 :1 `uc 1 ]
+[n S281 . C1CH0 C1CH1 ]
+"5669
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5669:     struct {
+[s S282 :1 `uc 1 ]
+[n S282 . CCH0 ]
+"5672
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5672:     struct {
+[s S283 :1 `uc 1 ]
+[n S283 . CCH01 ]
+"5675
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5675:     struct {
+[s S284 :1 `uc 1 :1 `uc 1 ]
+[n S284 . . CCH1 ]
+"5679
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5679:     struct {
+[s S285 :1 `uc 1 :1 `uc 1 ]
+[n S285 . . CCH11 ]
+"5683
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5683:     struct {
+[s S286 :6 `uc 1 :1 `uc 1 ]
+[n S286 . . COE ]
+"5687
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5687:     struct {
+[s S287 :6 `uc 1 :1 `uc 1 ]
+[n S287 . . COE1 ]
+"5691
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5691:     struct {
+[s S288 :7 `uc 1 :1 `uc 1 ]
+[n S288 . . CON ]
+"5695
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5695:     struct {
+[s S289 :7 `uc 1 :1 `uc 1 ]
+[n S289 . . CON1 ]
+"5699
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5699:     struct {
+[s S290 :5 `uc 1 :1 `uc 1 ]
+[n S290 . . CPOL ]
+"5703
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5703:     struct {
+[s S291 :5 `uc 1 :1 `uc 1 ]
+[n S291 . . CPOL1 ]
+"5707
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5707:     struct {
+[s S292 :2 `uc 1 :1 `uc 1 ]
+[n S292 . . CREF ]
+"5711
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5711:     struct {
+[s S293 :2 `uc 1 :1 `uc 1 ]
+[n S293 . . CREF1 ]
+"5715
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5715:     struct {
+[s S294 :3 `uc 1 :1 `uc 1 ]
+[n S294 . . EVPOL0 ]
+"5719
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5719:     struct {
+[s S295 :3 `uc 1 :1 `uc 1 ]
+[n S295 . . EVPOL01 ]
+"5723
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5723:     struct {
+[s S296 :4 `uc 1 :1 `uc 1 ]
+[n S296 . . EVPOL1 ]
+"5727
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5727:     struct {
+[s S297 :4 `uc 1 :1 `uc 1 ]
+[n S297 . . EVPOL11 ]
+"5655
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5655: typedef union {
+[u S279 `S280 1 `S281 1 `S282 1 `S283 1 `S284 1 `S285 1 `S286 1 `S287 1 `S288 1 `S289 1 `S290 1 `S291 1 `S292 1 `S293 1 `S294 1 `S295 1 `S296 1 `S297 1 ]
+[n S279 . . . . . . . . . . . . . . . . . . . ]
+"5732
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5732: extern volatile CM1CON0bits_t CM1CON0bits __attribute__((address(0xF79)));
+[v _CM1CON0bits `VS279 ~T0 @X0 0 e@3961 ]
+"5376
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5376:     struct {
+[s S258 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S258 . C2CH C2R C2SP C2POL C2OE C2OUT C2ON ]
+"5385
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5385:     struct {
+[s S259 :1 `uc 1 :1 `uc 1 ]
+[n S259 . C2CH0 C2CH1 ]
+"5389
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5389:     struct {
+[s S260 :1 `uc 1 ]
+[n S260 . CCH02 ]
+"5392
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5392:     struct {
+[s S261 :1 `uc 1 :1 `uc 1 ]
+[n S261 . . CCH12 ]
+"5396
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5396:     struct {
+[s S262 :6 `uc 1 :1 `uc 1 ]
+[n S262 . . COE2 ]
+"5400
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5400:     struct {
+[s S263 :7 `uc 1 :1 `uc 1 ]
+[n S263 . . CON2 ]
+"5404
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5404:     struct {
+[s S264 :5 `uc 1 :1 `uc 1 ]
+[n S264 . . CPOL2 ]
+"5408
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5408:     struct {
+[s S265 :2 `uc 1 :1 `uc 1 ]
+[n S265 . . CREF2 ]
+"5412
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5412:     struct {
+[s S266 :3 `uc 1 :1 `uc 1 ]
+[n S266 . . EVPOL02 ]
+"5416
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5416:     struct {
+[s S267 :4 `uc 1 :1 `uc 1 ]
+[n S267 . . EVPOL12 ]
+"5375
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5375: typedef union {
+[u S257 `S258 1 `S259 1 `S260 1 `S261 1 `S262 1 `S263 1 `S264 1 `S265 1 `S266 1 `S267 1 ]
+[n S257 . . . . . . . . . . . ]
+"5421
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5421: extern volatile CM2CON0bits_t CM2CON0bits __attribute__((address(0xF78)));
+[v _CM2CON0bits `VS257 ~T0 @X0 0 e@3960 ]
+"8072
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 8072:     struct {
+[s S395 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S395 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"8082
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 8082:     struct {
+[s S396 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S396 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"8071
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 8071: typedef union {
+[u S394 `S395 1 `S396 1 ]
+[n S394 . . . ]
+"8093
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 8093: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF92)));
+[v _TRISAbits `VS394 ~T0 @X0 0 e@3986 ]
+"8727
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 8727: extern volatile unsigned char TRISD __attribute__((address(0xF95)));
+[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
+"24 ./gpio.h
+[; ;./gpio.h: 24: void debug_leds_off(void);
+[v _debug_leds_off `(v ~T0 @X0 0 ef ]
+"7897 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7897: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
 [v _LATD `Vuc ~T0 @X0 0 e@3980 ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
+"7561 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7561: extern volatile unsigned char LATA __attribute__((address(0xF89)));
+[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
 "55 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 55: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -847,217 +963,102 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR0  =  OFF   EBTR1  =  OFF   EBTR2  =  OFF   EBTR3  =  OFF ]
 "55
 [p x EBTRB  =  OFF ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"36 main.c
-[; ;main.c: 36: void main()
-[v _main `(v ~T0 @X0 1 ef ]
-"37
-[; ;main.c: 37: {
+"12 gpio.c
+[; ;gpio.c: 12: void gpio_init(void)
+[v _gpio_init `(v ~T0 @X0 1 ef ]
+"13
+[; ;gpio.c: 13: {
 {
-[e :U _main ]
+[e :U _gpio_init ]
 [f ]
-"38
-[; ;main.c: 38:     uint8_t dummy_spi_tx;
-[v _dummy_spi_tx `uc ~T0 @X0 1 a ]
-"39
-[; ;main.c: 39:     gpio_init();
-[e ( _gpio_init ..  ]
-"40
-[; ;main.c: 40:     spi_master_init();
-[e ( _spi_master_init ..  ]
-"41
-[; ;main.c: 41:     uart_init();
-[e ( _uart_init ..  ]
-"42
-[; ;main.c: 42:     timer1_init(2000,8);
-[e ( _timer1_init (2 , -> -> 2000 `i `us -> -> 8 `i `uc ]
-"45
-[; ;main.c: 45:     dummy_spi_tx=spi_data(3,0x6F);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc -> -> 111 `i `uc ]
-"48
-[; ;main.c: 48:     while(1)
-[e :U 859 ]
-"49
-[; ;main.c: 49:     {
-{
-"54
-[; ;main.c: 54:         while(nglitch_flag==0)
-[e $U 861  ]
-[e :U 862 ]
-"55
-[; ;main.c: 55:         {
-{
-"56
-[; ;main.c: 56:             glitch_watchdog_counter++;
-[e ++ _glitch_watchdog_counter -> -> 1 `i `Vui ]
-"57
-[; ;main.c: 57:             if(glitch_watchdog_counter==65530)
-[e $ ! == -> _glitch_watchdog_counter `l -> 65530 `l 864  ]
-"58
-[; ;main.c: 58:             {
-{
-"59
-[; ;main.c: 59:                 current_command=0x6F;
-[e = _current_command -> -> 111 `i `uc ]
-"60
-[; ;main.c: 60:                 glitch_watchdog_counter=0;
-[e = _glitch_watchdog_counter -> -> 0 `i `ui ]
-"61
-[; ;main.c: 61:                 nglitch_flag=1;
-[e = _nglitch_flag -> -> 1 `i `uc ]
-"62
-[; ;main.c: 62:                 previous_command=0;
-[e = _previous_command -> -> 0 `i `uc ]
-"63
-[; ;main.c: 63:             }
+"14
+[; ;gpio.c: 14:    CM1CON0bits.C1ON=0;
+[e = . . _CM1CON0bits 0 6 -> -> 0 `i `uc ]
+"15
+[; ;gpio.c: 15:    CM2CON0bits.C2ON=0;
+[e = . . _CM2CON0bits 0 6 -> -> 0 `i `uc ]
+"16
+[; ;gpio.c: 16:    TRISAbits.TRISA0 = 0;
+[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
+"17
+[; ;gpio.c: 17:    TRISAbits.TRISA1 = 0;
+[e = . . _TRISAbits 0 1 -> -> 0 `i `uc ]
+"18
+[; ;gpio.c: 18:    TRISAbits.TRISA2 = 0;
+[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
+"19
+[; ;gpio.c: 19:    TRISD |= 0x03;
+[e =| _TRISD -> -> 3 `i `Vuc ]
+"20
+[; ;gpio.c: 20:    debug_leds_off();
+[e ( _debug_leds_off ..  ]
+"23
+[; ;gpio.c: 23: }
+[e :UE 856 ]
 }
-[e :U 864 ]
-"64
-[; ;main.c: 64:         }
-}
-[e :U 861 ]
-"54
-[; ;main.c: 54:         while(nglitch_flag==0)
-[e $ == -> _nglitch_flag `i -> 0 `i 862  ]
-[e :U 863 ]
-"68
-[; ;main.c: 68:         dummy_spi_tx=spi_data(3,current_command);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc _current_command ]
-"69
-[; ;main.c: 69:         tx2(current_command);
-[e ( _tx2 (1 -> _current_command `uc ]
-"73
-[; ;main.c: 73:         if(current_command==0x61)
-[e $ ! == -> _current_command `i -> 97 `i 865  ]
-"74
-[; ;main.c: 74:         {
+"25
+[; ;gpio.c: 25: void high_beams_on(void)
+[v _high_beams_on `(v ~T0 @X0 1 ef ]
+"26
+[; ;gpio.c: 26: {
 {
-"75
-[; ;main.c: 75:             LATA=0b00000001;
-[e = _LATA -> -> 1 `i `uc ]
-"76
-[; ;main.c: 76:         }
-}
-[e $U 866  ]
-"78
-[; ;main.c: 78:         else if(current_command==0x64)
-[e :U 865 ]
-[e $ ! == -> _current_command `i -> 100 `i 867  ]
-"79
-[; ;main.c: 79:         {
-{
-"80
-[; ;main.c: 80:             LATA=0b00000010;
-[e = _LATA -> -> 2 `i `uc ]
-"81
-[; ;main.c: 81:         }
-}
-[e $U 868  ]
-"83
-[; ;main.c: 83:         else if(current_command==0x77)
-[e :U 867 ]
-[e $ ! == -> _current_command `i -> 119 `i 869  ]
-"84
-[; ;main.c: 84:         {
-{
-"85
-[; ;main.c: 85:             LATA=0b00000100;
-[e = _LATA -> -> 4 `i `uc ]
-"86
-[; ;main.c: 86:         }
-}
-[e $U 870  ]
-"88
-[; ;main.c: 88:         else if(current_command==0x6F)
-[e :U 869 ]
-[e $ ! == -> _current_command `i -> 111 `i 871  ]
-"89
-[; ;main.c: 89:         {
-{
-"90
-[; ;main.c: 90:             LATA=0b00000111;
-[e = _LATA -> -> 7 `i `uc ]
-"91
-[; ;main.c: 91:         }
-}
-[e $U 872  ]
-"97
-[; ;main.c: 97:         else if(current_command==0x71)
-[e :U 871 ]
-[e $ ! == -> _current_command `i -> 113 `i 873  ]
-"98
-[; ;main.c: 98:         {
-{
-"99
-[; ;main.c: 99:             LATD=0b00000001;
-[e = _LATD -> -> 1 `i `uc ]
-"100
-[; ;main.c: 100:             _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"101
-[; ;main.c: 101:             _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"102
-[; ;main.c: 102:             LATD=0;
-[e = _LATD -> -> 0 `i `uc ]
-"103
-[; ;main.c: 103:         }
-}
-[e $U 874  ]
-"105
-[; ;main.c: 105:         else if(current_command==0x65)
-[e :U 873 ]
-[e $ ! == -> _current_command `i -> 101 `i 875  ]
-"106
-[; ;main.c: 106:         {
-{
-"107
-[; ;main.c: 107:             LATD=0b00000010;
-[e = _LATD -> -> 2 `i `uc ]
-"108
-[; ;main.c: 108:             _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"109
-[; ;main.c: 109:             _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"110
-[; ;main.c: 110:             LATD=0;
-[e = _LATD -> -> 0 `i `uc ]
-"111
-[; ;main.c: 111:         }
-}
-[e :U 875 ]
-[e :U 874 ]
-[e :U 872 ]
-[e :U 870 ]
-[e :U 868 ]
-[e :U 866 ]
-"119
-[; ;main.c: 119:         glitch_watchdog_counter++;
-[e ++ _glitch_watchdog_counter -> -> 1 `i `Vui ]
-"120
-[; ;main.c: 120:         if(glitch_watchdog_counter==35530)
-[e $ ! == -> _glitch_watchdog_counter `l -> 35530 `l 876  ]
-"121
-[; ;main.c: 121:         {
-{
-"122
-[; ;main.c: 122:             current_command=0x6F;
-[e = _current_command -> -> 111 `i `uc ]
-"123
-[; ;main.c: 123:             glitch_watchdog_counter=0;
-[e = _glitch_watchdog_counter -> -> 0 `i `ui ]
-"124
-[; ;main.c: 124:         }
-}
-[e :U 876 ]
-"126
-[; ;main.c: 126:     }
-}
-[e :U 858 ]
-[e $U 859  ]
-[e :U 860 ]
-"127
-[; ;main.c: 127: }
+[e :U _high_beams_on ]
+[f ]
+"28
+[; ;gpio.c: 28: }
 [e :UE 857 ]
+}
+"30
+[; ;gpio.c: 30: void high_beams_off(void)
+[v _high_beams_off `(v ~T0 @X0 1 ef ]
+"31
+[; ;gpio.c: 31: {
+{
+[e :U _high_beams_off ]
+[f ]
+"32
+[; ;gpio.c: 32:     LATD = 0b00000001;
+[e = _LATD -> -> 1 `i `uc ]
+"33
+[; ;gpio.c: 33:     _delay((unsigned long)((10)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"34
+[; ;gpio.c: 34:     _delay((unsigned long)((5)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"35
+[; ;gpio.c: 35:     LATD=0;
+[e = _LATD -> -> 0 `i `uc ]
+"36
+[; ;gpio.c: 36: }
+[e :UE 858 ]
+}
+"38
+[; ;gpio.c: 38: void debug_leds_on(void)
+[v _debug_leds_on `(v ~T0 @X0 1 ef ]
+"39
+[; ;gpio.c: 39: {
+{
+[e :U _debug_leds_on ]
+[f ]
+"40
+[; ;gpio.c: 40:     LATA |= 0x07;
+[e =| _LATA -> -> 7 `i `Vuc ]
+"41
+[; ;gpio.c: 41: }
+[e :UE 859 ]
+}
+"43
+[; ;gpio.c: 43: void debug_leds_off(void)
+[v _debug_leds_off `(v ~T0 @X0 1 ef ]
+"44
+[; ;gpio.c: 44: {
+{
+[e :U _debug_leds_off ]
+[f ]
+"45
+[; ;gpio.c: 45:    LATA &= 0xF8;
+[e =& _LATA -> -> 248 `i `Vuc ]
+"46
+[; ;gpio.c: 46: }
+[e :UE 860 ]
 }

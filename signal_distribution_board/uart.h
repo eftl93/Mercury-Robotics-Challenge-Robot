@@ -5,6 +5,7 @@
 #include <xc.h>
 #include <stdio.h>
 #include <string.h>
+#include "main.h"
 
 #define _XTAL_FREQ 64000000
 #define RX1 PORTCbits.RC6
@@ -21,8 +22,10 @@
 void uart_init(void);
 void tx1(char data1);
 void tx2(char data2);
-//unsigned char rx1(void); This function is taken care by the ISR
 
+#ifndef UART1_INTERRUPT
+uint8_t rx1(void);
+#endif
 
 
 

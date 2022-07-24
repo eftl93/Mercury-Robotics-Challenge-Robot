@@ -21,6 +21,8 @@
 #include "spi.h"
 #include "uart.h"
 #include "main.h"
+#include "timer1.h"
+#include "gpio.h"
 
 #define _XTAL_FREQ 64000000
 
@@ -33,20 +35,12 @@ extern volatile unsigned char nglitch_flag;
 
 void main()
 {
-    unsigned char dummy_spi_tx;
-    
-    CM1CON0bits.C1ON=0; //disable comparator1 module
-    CM2CON0bits.C2ON=0; //disable comparator2 module
+    uint8_t dummy_spi_tx;
+    gpio_init();
     spi_master_init();  //initialize SPI in master mode
     uart_init();        //initialize both UART1 and UART2 module, only interrupt on RX1;
-    TRISA=0;  //output for onboard LED indicators and debugging
-    TRISD=0;  //output to control the relay for the beam lights
-    LATA=0;   //Turn off the onboard diagnostic LEDs 
-    
-    LATD = 0b00000001; //reset the relay to turn on off the lights
-    __delay_ms(10);
-    __delay_ms(5);
-    LATD=0; 
+    timer1_init(2000,8);
+ 
     
     dummy_spi_tx=spi_data(3,0x6F); //send an 'o' to the motor controller board to turn off the motors
 

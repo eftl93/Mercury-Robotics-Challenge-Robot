@@ -11,7 +11,9 @@
 
 
 #include <xc.h>
+#include <stdio.h>
 #include "spi.h"
+#include "main.h"
 
 void spi_master_init(void)
 {

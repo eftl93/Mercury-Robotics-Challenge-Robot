@@ -225,8 +225,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5091
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5091: extern volatile unsigned char TXREG2 __attribute__((address(0xF73)));
 [v _TXREG2 `Vuc ~T0 @X0 0 e@3955 ]
-[t ~ __interrupt . k ]
-[t T1 __interrupt ]
 "19462
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 19462: extern volatile __bit RC1IF __attribute__((address(0x7CF5)));
 [v _RC1IF `Vb ~T0 @X0 0 e@31989 ]
@@ -992,109 +990,157 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17407
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 17407: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"10 uart.c
-[; ;uart.c: 10: volatile unsigned char current_command;
+"17 ./main.h
+[p x FOSC  =  HSHP       ]
+"18
+[p x PLLCFG  =  ON       ]
+"19
+[p x PRICLKEN  =  ON     ]
+"20
+[p x FCMEN  =  OFF       ]
+"21
+[p x IESO  =  OFF        ]
+"24
+[p x PWRTEN  =  OFF      ]
+"25
+[p x BOREN  =  OFF       ]
+"28
+[p x WDTEN  =  OFF       ]
+"31
+[p x CCP2MX  =  PORTC1   ]
+"32
+[p x PBADEN  =  OFF      ]
+"33
+[p x CCP3MX  =  PORTE0   ]
+"34
+[p x HFOFST  =  OFF      ]
+"35
+[p x T3CMX    =  PORTC0   ]
+"36
+[p x P2BMX    =  PORTC0   ]
+"37
+[p x MCLRE    =  EXTMCLR  ]
+"40
+[p x STVREN  =  ON       ]
+"41
+[p x LVP        =  OFF      ]
+"42
+[p x DEBUG    =  OFF      ]
+"45
+[p x CP0  =  OFF   CP1  =  OFF   CP2  =  OFF   CP3  =  OFF ]
+"47
+[p x CPB  =  OFF   CPD  =  OFF ]
+"49
+[p x WRT0  =  OFF   WRT1  =  OFF   WRT2  =  OFF   WRT3  =  OFF ]
+"51
+[p x WRTC  =  OFF   WRTB  =  OFF   WRTD  =  OFF ]
+"53
+[p x EBTR0  =  OFF   EBTR1  =  OFF   EBTR2  =  OFF   EBTR3  =  OFF ]
+"55
+[p x EBTRB  =  OFF ]
+"12 uart.c
+[; ;uart.c: 12: volatile unsigned char current_command;
 [v _current_command `Vuc ~T0 @X0 1 e ]
-"11
-[; ;uart.c: 11: volatile unsigned int glitch_watchdog_counter;
-[v _glitch_watchdog_counter `Vui ~T0 @X0 1 e ]
-"12
-[; ;uart.c: 12: volatile unsigned char previous_command;
-[v _previous_command `Vuc ~T0 @X0 1 e ]
 "13
-[; ;uart.c: 13: volatile unsigned char nglitch_flag;
-[v _nglitch_flag `Vuc ~T0 @X0 1 e ]
+[; ;uart.c: 13: volatile unsigned int glitch_watchdog_counter;
+[v _glitch_watchdog_counter `Vui ~T0 @X0 1 e ]
+"14
+[; ;uart.c: 14: volatile unsigned char previous_command;
+[v _previous_command `Vuc ~T0 @X0 1 e ]
 "15
-[; ;uart.c: 15: void uart_init()
+[; ;uart.c: 15: volatile unsigned char nglitch_flag;
+[v _nglitch_flag `Vuc ~T0 @X0 1 e ]
+"17
+[; ;uart.c: 17: void uart_init()
 [v _uart_init `(v ~T0 @X0 1 ef ]
-"16
-[; ;uart.c: 16: {
+"18
+[; ;uart.c: 18: {
 {
 [e :U _uart_init ]
 [f ]
-"17
-[; ;uart.c: 17:     ANSELA=0;
-[e = _ANSELA -> -> 0 `i `uc ]
-"18
-[; ;uart.c: 18:     ANSELB=0;
-[e = _ANSELB -> -> 0 `i `uc ]
 "19
-[; ;uart.c: 19:     ANSELC=0;
-[e = _ANSELC -> -> 0 `i `uc ]
+[; ;uart.c: 19:     ANSELA=0;
+[e = _ANSELA -> -> 0 `i `uc ]
 "20
-[; ;uart.c: 20:     ANSELD=0;
-[e = _ANSELD -> -> 0 `i `uc ]
+[; ;uart.c: 20:     ANSELB=0;
+[e = _ANSELB -> -> 0 `i `uc ]
 "21
-[; ;uart.c: 21:     ANSELE=0;
-[e = _ANSELE -> -> 0 `i `uc ]
+[; ;uart.c: 21:     ANSELC=0;
+[e = _ANSELC -> -> 0 `i `uc ]
 "22
-[; ;uart.c: 22:     TXSTA1bits.BRGH=1;
-[e = . . _TXSTA1bits 0 2 -> -> 1 `i `uc ]
+[; ;uart.c: 22:     ANSELD=0;
+[e = _ANSELD -> -> 0 `i `uc ]
 "23
-[; ;uart.c: 23:     BAUDCON1bits.BRG16=1;
-[e = . . _BAUDCON1bits 0 3 -> -> 1 `i `uc ]
+[; ;uart.c: 23:     ANSELE=0;
+[e = _ANSELE -> -> 0 `i `uc ]
 "24
-[; ;uart.c: 24:     TXSTA2bits.BRGH=1;
-[e = . . _TXSTA2bits 0 2 -> -> 1 `i `uc ]
+[; ;uart.c: 24:     TXSTA1bits.BRGH=1;
+[e = . . _TXSTA1bits 0 2 -> -> 1 `i `uc ]
 "25
-[; ;uart.c: 25:     BAUDCON2bits.BRG16=1;
-[e = . . _BAUDCON2bits 0 3 -> -> 1 `i `uc ]
+[; ;uart.c: 25:     BAUDCON1bits.BRG16=1;
+[e = . . _BAUDCON1bits 0 3 -> -> 1 `i `uc ]
 "26
-[; ;uart.c: 26:     SPBRG1=0x0A;
-[e = _SPBRG1 -> -> 10 `i `uc ]
+[; ;uart.c: 26:     TXSTA2bits.BRGH=1;
+[e = . . _TXSTA2bits 0 2 -> -> 1 `i `uc ]
 "27
-[; ;uart.c: 27:     SPBRGH1=0x1A;
-[e = _SPBRGH1 -> -> 26 `i `uc ]
+[; ;uart.c: 27:     BAUDCON2bits.BRG16=1;
+[e = . . _BAUDCON2bits 0 3 -> -> 1 `i `uc ]
 "28
-[; ;uart.c: 28:     SPBRG2=0x82;
-[e = _SPBRG2 -> -> 130 `i `uc ]
+[; ;uart.c: 28:     SPBRG1=0x0A;
+[e = _SPBRG1 -> -> 10 `i `uc ]
 "29
-[; ;uart.c: 29:     SPBRGH2=0x06;
-[e = _SPBRGH2 -> -> 6 `i `uc ]
+[; ;uart.c: 29:     SPBRGH1=0x1A;
+[e = _SPBRGH1 -> -> 26 `i `uc ]
 "30
-[; ;uart.c: 30:     TRISCbits.RC6=1;
-[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
+[; ;uart.c: 30:     SPBRG2=0x82;
+[e = _SPBRG2 -> -> 130 `i `uc ]
 "31
-[; ;uart.c: 31:     TRISCbits.RC7=1;
-[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
+[; ;uart.c: 31:     SPBRGH2=0x06;
+[e = _SPBRGH2 -> -> 6 `i `uc ]
 "32
-[; ;uart.c: 32:     TRISDbits.RD6=1;
-[e = . . _TRISDbits 1 6 -> -> 1 `i `uc ]
+[; ;uart.c: 32:     TRISCbits.RC6=1;
+[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
 "33
-[; ;uart.c: 33:     TRISDbits.RD7=1;
-[e = . . _TRISDbits 1 7 -> -> 1 `i `uc ]
+[; ;uart.c: 33:     TRISCbits.RC7=1;
+[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
 "34
-[; ;uart.c: 34:     TXSTA1bits.SYNC=0;
-[e = . . _TXSTA1bits 0 4 -> -> 0 `i `uc ]
+[; ;uart.c: 34:     TRISDbits.RD6=1;
+[e = . . _TRISDbits 1 6 -> -> 1 `i `uc ]
 "35
-[; ;uart.c: 35:     TXSTA2bits.SYNC=0;
-[e = . . _TXSTA2bits 0 4 -> -> 0 `i `uc ]
+[; ;uart.c: 35:     TRISDbits.RD7=1;
+[e = . . _TRISDbits 1 7 -> -> 1 `i `uc ]
 "36
-[; ;uart.c: 36:     RCSTA1bits.SPEN=1;
-[e = . . _RCSTA1bits 0 7 -> -> 1 `i `uc ]
+[; ;uart.c: 36:     TXSTA1bits.SYNC=0;
+[e = . . _TXSTA1bits 0 4 -> -> 0 `i `uc ]
 "37
-[; ;uart.c: 37:     RCSTA2bits.SPEN=1;
-[e = . . _RCSTA2bits 0 7 -> -> 1 `i `uc ]
+[; ;uart.c: 37:     TXSTA2bits.SYNC=0;
+[e = . . _TXSTA2bits 0 4 -> -> 0 `i `uc ]
 "38
-[; ;uart.c: 38:     TXSTA1bits.TXEN=1;
-[e = . . _TXSTA1bits 0 5 -> -> 1 `i `uc ]
+[; ;uart.c: 38:     RCSTA1bits.SPEN=1;
+[e = . . _RCSTA1bits 0 7 -> -> 1 `i `uc ]
 "39
-[; ;uart.c: 39:     TXSTA2bits.TXEN=1;
-[e = . . _TXSTA2bits 0 5 -> -> 1 `i `uc ]
+[; ;uart.c: 39:     RCSTA2bits.SPEN=1;
+[e = . . _RCSTA2bits 0 7 -> -> 1 `i `uc ]
 "40
-[; ;uart.c: 40:     IPEN=0;
-[e = _IPEN -> -> 0 `i `b ]
+[; ;uart.c: 40:     TXSTA1bits.TXEN=1;
+[e = . . _TXSTA1bits 0 5 -> -> 1 `i `uc ]
 "41
-[; ;uart.c: 41:     RC1IE=1;
-[e = _RC1IE -> -> 1 `i `b ]
+[; ;uart.c: 41:     TXSTA2bits.TXEN=1;
+[e = . . _TXSTA2bits 0 5 -> -> 1 `i `uc ]
 "42
-[; ;uart.c: 42:     INTCON|=0b11000000;
-[e =| _INTCON -> -> 192 `i `Vuc ]
+[; ;uart.c: 42:     IPEN=0;
+[e = _IPEN -> -> 0 `i `b ]
 "43
-[; ;uart.c: 43:     RCSTA1bits.CREN=1;
-[e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
+[; ;uart.c: 43:     RC1IE=1;
+[e = _RC1IE -> -> 1 `i `b ]
 "44
-[; ;uart.c: 44:     RCSTA2bits.CREN=1;
+[; ;uart.c: 44:     INTCON|=0b11000000;
+[e =| _INTCON -> -> 192 `i `Vuc ]
+"45
+[; ;uart.c: 45:     RCSTA1bits.CREN=1;
+[e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
+"46
+[; ;uart.c: 46:     RCSTA2bits.CREN=1;
 [e = . . _RCSTA2bits 0 4 -> -> 1 `i `uc ]
 "47
 [; ;uart.c: 47: }
@@ -1140,64 +1186,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;uart.c: 61: }
 [e :UE 859 ]
 }
-[v $root$_UART_ISR `(v ~T0 @X0 0 e ]
-"73
-[; ;uart.c: 73: void __attribute__((picinterrupt(("")))) UART_ISR(void)
-[v _UART_ISR `(v ~T1 @X0 1 ef ]
-"74
-[; ;uart.c: 74: {
+"65
+[; ;uart.c: 65: uint8_t rx1()
+[v _rx1 `(uc ~T0 @X0 1 ef ]
+"66
+[; ;uart.c: 66: {
 {
-[e :U _UART_ISR ]
+[e :U _rx1 ]
 [f ]
-"75
-[; ;uart.c: 75:     if(RC1IF)
-[e $ ! _RC1IF 861  ]
-"76
-[; ;uart.c: 76:     {
-{
-"77
-[; ;uart.c: 77:         current_command=RCREG1;
-[e = _current_command _RCREG1 ]
-"78
-[; ;uart.c: 78:         glitch_watchdog_counter=0;
-[e = _glitch_watchdog_counter -> -> 0 `i `ui ]
-"79
-[; ;uart.c: 79:         if(current_command==previous_command)
-[e $ ! == -> _current_command `i -> _previous_command `i 862  ]
-"80
-[; ;uart.c: 80:         {
-{
-"81
-[; ;uart.c: 81:             nglitch_flag=0;
-[e = _nglitch_flag -> -> 0 `i `uc ]
-"82
-[; ;uart.c: 82:         }
-}
-[e $U 863  ]
-"83
-[; ;uart.c: 83:         else
+"67
+[; ;uart.c: 67:     uint8_t x;
+[v _x `uc ~T0 @X0 1 a ]
+"68
+[; ;uart.c: 68:     while(~RC1IF);
+[e $U 861  ]
 [e :U 862 ]
-"84
-[; ;uart.c: 84:         {
-{
-"85
-[; ;uart.c: 85:             previous_command=current_command;
-[e = _previous_command _current_command ]
-"86
-[; ;uart.c: 86:             nglitch_flag=1;
-[e = _nglitch_flag -> -> 1 `i `uc ]
-"87
-[; ;uart.c: 87:         }
-}
-[e :U 863 ]
-"89
-[; ;uart.c: 89:     }
-}
 [e :U 861 ]
-"90
-[; ;uart.c: 90:     RC1IF=0;
-[e = _RC1IF -> -> 0 `i `b ]
-"91
-[; ;uart.c: 91: }
+[e $ ~ -> _RC1IF `ui 862  ]
+[e :U 863 ]
+"69
+[; ;uart.c: 69:     x=RCREG1;
+[e = _x _RCREG1 ]
+"70
+[; ;uart.c: 70:     return x;
+[e ) _x ]
+[e $UE 860  ]
+"71
+[; ;uart.c: 71: }
 [e :UE 860 ]
 }

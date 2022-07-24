@@ -1,45 +1,63 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"20 ./gpio.h
-[; ;./gpio.h: 20: void gpio_init(void);
-[v _gpio_init `(v ~T0 @X0 0 ef ]
-"25 ./spi.h
-[; ;./spi.h: 25: void spi_master_init(void);
-[v _spi_master_init `(v ~T0 @X0 0 ef ]
-"22 ./uart.h
-[; ;./uart.h: 22: void uart_init(void);
-[v _uart_init `(v ~T0 @X0 0 ef ]
-"17 ./timer1.h
-[; ;./timer1.h: 17: void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler);
-[v _timer1_init `(v ~T0 @X0 0 ef2`us`uc ]
-"26 ./spi.h
-[; ;./spi.h: 26: unsigned char spi_data(unsigned char device, unsigned char tx_data);
-[v _spi_data `(uc ~T0 @X0 0 ef2`uc`uc ]
-"31 main.c
-[; ;main.c: 31: extern volatile unsigned int glitch_watchdog_counter;
-[v _glitch_watchdog_counter `Vui ~T0 @X0 0 e ]
-"30
-[; ;main.c: 30: extern volatile unsigned char current_command;
-[v _current_command `Vuc ~T0 @X0 0 e ]
-"33
-[; ;main.c: 33: extern volatile unsigned char nglitch_flag;
-[v _nglitch_flag `Vuc ~T0 @X0 0 e ]
-"32
-[; ;main.c: 32: extern volatile unsigned char previous_command;
-[v _previous_command `Vuc ~T0 @X0 0 e ]
-"24 ./uart.h
-[; ;./uart.h: 24: void tx2(char data2);
-[v _tx2 `(v ~T0 @X0 0 ef1`uc ]
-"7561 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7561: extern volatile unsigned char LATA __attribute__((address(0xF89)));
-[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
-"7897
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7897: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
-[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
+"15675 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 15675:     struct {
+[s S744 :2 `uc 1 :1 `uc 1 ]
+[n S744 . . NOT_T1SYNC ]
+"15679
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 15679:     struct {
+[s S745 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S745 . TMR1ON T1RD16 nT1SYNC T1SOSCEN T1CKPS TMR1CS ]
+"15687
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 15687:     struct {
+[s S746 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S746 . . RD16 T1SYNC T1OSCEN T1CKPS0 T1CKPS1 TMR1CS0 TMR1CS1 ]
+"15697
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 15697:     struct {
+[s S747 :3 `uc 1 :1 `uc 1 ]
+[n S747 . . SOSCEN ]
+"15674
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 15674: typedef union {
+[u S743 `S744 1 `S745 1 `S746 1 `S747 1 ]
+[n S743 . . . . . ]
+"15702
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 15702: extern volatile T1CONbits_t T1CONbits __attribute__((address(0xFCD)));
+[v _T1CONbits `VS743 ~T0 @X0 0 e@4045 ]
+"9421
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 9421:     struct {
+[s S438 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S438 . TMR1IE TMR2IE CCP1IE SSP1IE TX1IE RC1IE ADIE ]
+"9430
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 9430:     struct {
+[s S439 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S439 . . SSPIE TXIE RCIE ]
+"9420
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 9420: typedef union {
+[u S437 `S438 1 `S439 1 ]
+[n S437 . . . ]
+"9437
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 9437: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
+[v _PIE1bits `VS437 ~T0 @X0 0 e@3997 ]
+"15809
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 15809: extern volatile unsigned char TMR1H __attribute__((address(0xFCF)));
+[v _TMR1H `Vuc ~T0 @X0 0 e@4047 ]
+"15789
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 15789: extern volatile unsigned char TMR1L __attribute__((address(0xFCE)));
+[v _TMR1L `Vuc ~T0 @X0 0 e@4046 ]
+"9498
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 9498:     struct {
+[s S441 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S441 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF ]
+"9507
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 9507:     struct {
+[s S442 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S442 . . SSPIF TXIF RCIF ]
+"9497
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 9497: typedef union {
+[u S440 `S441 1 `S442 1 ]
+[n S440 . . . ]
+"9514
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 9514: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
+[v _PIR1bits `VS440 ~T0 @X0 0 e@3998 ]
 "55 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 55: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -847,217 +865,138 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR0  =  OFF   EBTR1  =  OFF   EBTR2  =  OFF   EBTR3  =  OFF ]
 "55
 [p x EBTRB  =  OFF ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"36 main.c
-[; ;main.c: 36: void main()
-[v _main `(v ~T0 @X0 1 ef ]
-"37
-[; ;main.c: 37: {
+"19 timer1.c
+[; ;timer1.c: 19: void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler)
+[v _timer1_init `(v ~T0 @X0 1 ef2`us`uc ]
+"20
+[; ;timer1.c: 20: {
 {
-[e :U _main ]
+[e :U _timer1_init ]
+"19
+[; ;timer1.c: 19: void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler)
+[v _cnts_to_overflow `us ~T0 @X0 1 r1 ]
+[v _prescaler `uc ~T0 @X0 1 r2 ]
+"20
+[; ;timer1.c: 20: {
 [f ]
-"38
-[; ;main.c: 38:     uint8_t dummy_spi_tx;
-[v _dummy_spi_tx `uc ~T0 @X0 1 a ]
-"39
-[; ;main.c: 39:     gpio_init();
-[e ( _gpio_init ..  ]
-"40
-[; ;main.c: 40:     spi_master_init();
-[e ( _spi_master_init ..  ]
-"41
-[; ;main.c: 41:     uart_init();
-[e ( _uart_init ..  ]
-"42
-[; ;main.c: 42:     timer1_init(2000,8);
-[e ( _timer1_init (2 , -> -> 2000 `i `us -> -> 8 `i `uc ]
-"45
-[; ;main.c: 45:     dummy_spi_tx=spi_data(3,0x6F);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc -> -> 111 `i `uc ]
-"48
-[; ;main.c: 48:     while(1)
+"21
+[; ;timer1.c: 21:     uint16_t timer1_reg = 0;
+[v _timer1_reg `us ~T0 @X0 1 a ]
+[e = _timer1_reg -> -> 0 `i `us ]
+"22
+[; ;timer1.c: 22:     uint8_t timer1_reg_h = 0;
+[v _timer1_reg_h `uc ~T0 @X0 1 a ]
+[e = _timer1_reg_h -> -> 0 `i `uc ]
+"23
+[; ;timer1.c: 23:     uint8_t timer1_reg_l = 0;
+[v _timer1_reg_l `uc ~T0 @X0 1 a ]
+[e = _timer1_reg_l -> -> 0 `i `uc ]
+"24
+[; ;timer1.c: 24:     timer1_reg = 65535 - cnts_to_overflow;
+[e = _timer1_reg -> - -> 65535 `l -> _cnts_to_overflow `l `us ]
+"25
+[; ;timer1.c: 25:     timer1_reg_h = ((timer1_reg & 0xFF00) >> 8);
+[e = _timer1_reg_h -> >> & -> _timer1_reg `ui -> 65280 `ui -> 8 `i `uc ]
+"26
+[; ;timer1.c: 26:     timer1_reg_l = (timer1_reg & 0x00FF);
+[e = _timer1_reg_l -> & -> _timer1_reg `ui -> -> 255 `i `ui `uc ]
+"27
+[; ;timer1.c: 27:     T1CONbits.TMR1ON = 0;
+[e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
+"28
+[; ;timer1.c: 28:     PIE1bits.TMR1IE = 0;
+[e = . . _PIE1bits 0 0 -> -> 0 `i `uc ]
+"29
+[; ;timer1.c: 29:     T1CONbits.TMR1CS = 0b00;
+[e = . . _T1CONbits 1 5 -> -> 0 `i `uc ]
+"30
+[; ;timer1.c: 30:     T1CONbits.T1SYNC = 1;
+[e = . . _T1CONbits 2 2 -> -> 1 `i `uc ]
+"31
+[; ;timer1.c: 31:     switch(prescaler)
+[e $U 858  ]
+"32
+[; ;timer1.c: 32:     {
+{
+"33
+[; ;timer1.c: 33:         case(1) :
 [e :U 859 ]
-"49
-[; ;main.c: 49:     {
-{
-"54
-[; ;main.c: 54:         while(nglitch_flag==0)
-[e $U 861  ]
-[e :U 862 ]
-"55
-[; ;main.c: 55:         {
-{
-"56
-[; ;main.c: 56:             glitch_watchdog_counter++;
-[e ++ _glitch_watchdog_counter -> -> 1 `i `Vui ]
-"57
-[; ;main.c: 57:             if(glitch_watchdog_counter==65530)
-[e $ ! == -> _glitch_watchdog_counter `l -> 65530 `l 864  ]
-"58
-[; ;main.c: 58:             {
-{
-"59
-[; ;main.c: 59:                 current_command=0x6F;
-[e = _current_command -> -> 111 `i `uc ]
-"60
-[; ;main.c: 60:                 glitch_watchdog_counter=0;
-[e = _glitch_watchdog_counter -> -> 0 `i `ui ]
-"61
-[; ;main.c: 61:                 nglitch_flag=1;
-[e = _nglitch_flag -> -> 1 `i `uc ]
-"62
-[; ;main.c: 62:                 previous_command=0;
-[e = _previous_command -> -> 0 `i `uc ]
-"63
-[; ;main.c: 63:             }
-}
-[e :U 864 ]
-"64
-[; ;main.c: 64:         }
-}
-[e :U 861 ]
-"54
-[; ;main.c: 54:         while(nglitch_flag==0)
-[e $ == -> _nglitch_flag `i -> 0 `i 862  ]
-[e :U 863 ]
-"68
-[; ;main.c: 68:         dummy_spi_tx=spi_data(3,current_command);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc _current_command ]
-"69
-[; ;main.c: 69:         tx2(current_command);
-[e ( _tx2 (1 -> _current_command `uc ]
-"73
-[; ;main.c: 73:         if(current_command==0x61)
-[e $ ! == -> _current_command `i -> 97 `i 865  ]
-"74
-[; ;main.c: 74:         {
-{
-"75
-[; ;main.c: 75:             LATA=0b00000001;
-[e = _LATA -> -> 1 `i `uc ]
-"76
-[; ;main.c: 76:         }
-}
-[e $U 866  ]
-"78
-[; ;main.c: 78:         else if(current_command==0x64)
-[e :U 865 ]
-[e $ ! == -> _current_command `i -> 100 `i 867  ]
-"79
-[; ;main.c: 79:         {
-{
-"80
-[; ;main.c: 80:             LATA=0b00000010;
-[e = _LATA -> -> 2 `i `uc ]
-"81
-[; ;main.c: 81:         }
-}
-[e $U 868  ]
-"83
-[; ;main.c: 83:         else if(current_command==0x77)
-[e :U 867 ]
-[e $ ! == -> _current_command `i -> 119 `i 869  ]
-"84
-[; ;main.c: 84:         {
-{
-"85
-[; ;main.c: 85:             LATA=0b00000100;
-[e = _LATA -> -> 4 `i `uc ]
-"86
-[; ;main.c: 86:         }
-}
-[e $U 870  ]
-"88
-[; ;main.c: 88:         else if(current_command==0x6F)
-[e :U 869 ]
-[e $ ! == -> _current_command `i -> 111 `i 871  ]
-"89
-[; ;main.c: 89:         {
-{
-"90
-[; ;main.c: 90:             LATA=0b00000111;
-[e = _LATA -> -> 7 `i `uc ]
-"91
-[; ;main.c: 91:         }
-}
-[e $U 872  ]
-"97
-[; ;main.c: 97:         else if(current_command==0x71)
-[e :U 871 ]
-[e $ ! == -> _current_command `i -> 113 `i 873  ]
-"98
-[; ;main.c: 98:         {
-{
-"99
-[; ;main.c: 99:             LATD=0b00000001;
-[e = _LATD -> -> 1 `i `uc ]
-"100
-[; ;main.c: 100:             _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"101
-[; ;main.c: 101:             _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"102
-[; ;main.c: 102:             LATD=0;
-[e = _LATD -> -> 0 `i `uc ]
-"103
-[; ;main.c: 103:         }
-}
-[e $U 874  ]
-"105
-[; ;main.c: 105:         else if(current_command==0x65)
-[e :U 873 ]
-[e $ ! == -> _current_command `i -> 101 `i 875  ]
-"106
-[; ;main.c: 106:         {
-{
-"107
-[; ;main.c: 107:             LATD=0b00000010;
-[e = _LATD -> -> 2 `i `uc ]
-"108
-[; ;main.c: 108:             _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"109
-[; ;main.c: 109:             _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"110
-[; ;main.c: 110:             LATD=0;
-[e = _LATD -> -> 0 `i `uc ]
-"111
-[; ;main.c: 111:         }
-}
-[e :U 875 ]
-[e :U 874 ]
-[e :U 872 ]
-[e :U 870 ]
-[e :U 868 ]
-[e :U 866 ]
-"119
-[; ;main.c: 119:         glitch_watchdog_counter++;
-[e ++ _glitch_watchdog_counter -> -> 1 `i `Vui ]
-"120
-[; ;main.c: 120:         if(glitch_watchdog_counter==35530)
-[e $ ! == -> _glitch_watchdog_counter `l -> 35530 `l 876  ]
-"121
-[; ;main.c: 121:         {
-{
-"122
-[; ;main.c: 122:             current_command=0x6F;
-[e = _current_command -> -> 111 `i `uc ]
-"123
-[; ;main.c: 123:             glitch_watchdog_counter=0;
-[e = _glitch_watchdog_counter -> -> 0 `i `ui ]
-"124
-[; ;main.c: 124:         }
-}
-[e :U 876 ]
-"126
-[; ;main.c: 126:     }
-}
-[e :U 858 ]
-[e $U 859  ]
+"34
+[; ;timer1.c: 34:             T1CONbits.T1CKPS = 0b00;
+[e = . . _T1CONbits 1 4 -> -> 0 `i `uc ]
+"35
+[; ;timer1.c: 35:             break;
+[e $U 857  ]
+"36
+[; ;timer1.c: 36:         case(2):
 [e :U 860 ]
-"127
-[; ;main.c: 127: }
-[e :UE 857 ]
+"37
+[; ;timer1.c: 37:             T1CONbits.T1CKPS = 0b01;
+[e = . . _T1CONbits 1 4 -> -> 1 `i `uc ]
+"38
+[; ;timer1.c: 38:             break;
+[e $U 857  ]
+"39
+[; ;timer1.c: 39:         case(4):
+[e :U 861 ]
+"40
+[; ;timer1.c: 40:             T1CONbits.T1CKPS = 0b10;
+[e = . . _T1CONbits 1 4 -> -> 2 `i `uc ]
+"41
+[; ;timer1.c: 41:             break;
+[e $U 857  ]
+"42
+[; ;timer1.c: 42:         case(8):
+[e :U 862 ]
+"43
+[; ;timer1.c: 43:             T1CONbits.T1CKPS = 0b11;
+[e = . . _T1CONbits 1 4 -> -> 3 `i `uc ]
+"44
+[; ;timer1.c: 44:             break;
+[e $U 857  ]
+"45
+[; ;timer1.c: 45:         default:
+[e :U 863 ]
+"46
+[; ;timer1.c: 46:             T1CONbits.T1CKPS = 0b00;
+[e = . . _T1CONbits 1 4 -> -> 0 `i `uc ]
+"47
+[; ;timer1.c: 47:     }
+}
+[e $U 857  ]
+[e :U 858 ]
+[e [\ -> _prescaler `i , $ -> 1 `i 859
+ , $ -> 2 `i 860
+ , $ -> 4 `i 861
+ , $ -> 8 `i 862
+ 863 ]
+[e :U 857 ]
+"48
+[; ;timer1.c: 48:     TMR1H = timer1_reg_h;
+[e = _TMR1H _timer1_reg_h ]
+"49
+[; ;timer1.c: 49:     TMR1L = timer1_reg_l;
+[e = _TMR1L _timer1_reg_l ]
+"56
+[; ;timer1.c: 56:     while(TMR1L < (timer1_reg_l + 0x02));
+[e $U 864  ]
+[e :U 865 ]
+[e :U 864 ]
+[e $ < -> _TMR1L `i + -> _timer1_reg_l `i -> 2 `i 865  ]
+[e :U 866 ]
+"57
+[; ;timer1.c: 57:     __asm("nop");
+[; <" nop ;# ">
+"58
+[; ;timer1.c: 58:     __asm("nop");
+[; <" nop ;# ">
+"59
+[; ;timer1.c: 59:     PIR1bits.TMR1IF = 0;
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"60
+[; ;timer1.c: 60:     PIE1bits.TMR1IE = 1;
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+"61
+[; ;timer1.c: 61: }
+[e :UE 856 ]
 }

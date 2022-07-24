@@ -6,6 +6,8 @@
  */
 #include <xc.h>
 #include "uart.h"
+#include "main.h"
+#include <stdio.h>
 
 volatile unsigned char current_command;
 volatile unsigned int glitch_watchdog_counter;
@@ -42,8 +44,6 @@ void uart_init()
     INTCON|=0b11000000;
     RCSTA1bits.CREN=1;      //Receiver enabled
     RCSTA2bits.CREN=1;      //Receiver enabled
-    
-    
 }
 
 //function to transmit to Beaglebone, it was not used for SR. Design 2
@@ -60,16 +60,19 @@ void tx2(char data2)
     TXREG2=data2;
 }
 
-//This function is being taken care by the ISR
-//char rx1()
-//{
-//char x;
-//while(~RC1IF);
-//x=RCREG1;
-//return x;
-//}
+#ifndef UART1_INTERRUPT
+//This is the polling method, it will run if UART1_POLLING is defined
+uint8_t rx1()
+{
+    uint8_t x;
+    while(~RC1IF);
+    x=RCREG1;
+    return x;
+}
+#endif
 
 //This ISR takes care of RX1, this signal comes from the SBC (Beaglebone Black in this case)
+#ifdef UART1_INTERRUPT
 void __interrupt() UART_ISR(void)
 {
     if(RC1IF)
@@ -85,7 +88,7 @@ void __interrupt() UART_ISR(void)
             previous_command=current_command;  //record previous command received
             nglitch_flag=1;  //set flag to not enter glitch detection loop
         }
-
     }
     RC1IF=0;
 }
+#endif
