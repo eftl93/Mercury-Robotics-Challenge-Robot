@@ -9915,15 +9915,9 @@ uint8_t rx1(void);
 volatile unsigned char current_command;
 volatile unsigned int glitch_watchdog_counter;
 volatile unsigned char previous_command;
-volatile unsigned char nglitch_flag;
 
 void uart_init()
 {
-    ANSELA=0;
-    ANSELB=0;
-    ANSELC=0;
-    ANSELD=0;
-    ANSELE=0;
     TXSTA1bits.BRGH=1;
     BAUDCON1bits.BRG16=1;
     TXSTA2bits.BRGH=1;
@@ -9943,7 +9937,12 @@ void uart_init()
     TXSTA1bits.TXEN=1;
     TXSTA2bits.TXEN=1;
     IPEN=0;
-    RC1IE=1;
+
+    PIE1bits.RC1IE=0;
+
+
+
+
     INTCON|=0b11000000;
     RCSTA1bits.CREN=1;
     RCSTA2bits.CREN=1;
@@ -9954,12 +9953,14 @@ void uart_init()
 
 void tx1(char data1)
 {
+    while(!PIR1bits.TX1IF);
     TXREG1=data1;
 }
 
 
 void tx2(char data2)
 {
+    while(!PIR3bits.TX2IF);
     TXREG2=data2;
 }
 
@@ -9968,7 +9969,8 @@ void tx2(char data2)
 uint8_t rx1()
 {
     uint8_t x;
-    while(~RC1IF);
+    while(!PIR1bits.RC1IF);
     x=RCREG1;
+    PIR1bits.RCIF = 0;
     return x;
 }

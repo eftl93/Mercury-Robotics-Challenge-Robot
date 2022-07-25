@@ -12,15 +12,9 @@
 volatile unsigned char current_command;
 volatile unsigned int glitch_watchdog_counter;
 volatile unsigned char previous_command;
-volatile unsigned char nglitch_flag;
 
 void uart_init()
 {
-    ANSELA=0;               //disable analog
-    ANSELB=0;               //disable analog
-    ANSELC=0;               //disable analog
-    ANSELD=0;               //disable analog
-    ANSELE=0;               //disable analog
     TXSTA1bits.BRGH=1;      //for ASYNC: Highs baud rate selected
     BAUDCON1bits.BRG16=1;   //16 bit baud rate generator is used (because of the HS clock)
     TXSTA2bits.BRGH=1;      //for ASYNC: Highs baud rate selected
@@ -40,7 +34,12 @@ void uart_init()
     TXSTA1bits.TXEN=1;      //Transmit enabled
     TXSTA2bits.TXEN=1;      //Transmit enabled
     IPEN=0;
-    RC1IE=1;
+#ifndef UART1_INTERRUPT     //if interrupt macro is not defined, disable uart1_rx interrupt
+    PIE1bits.RC1IE=0;
+#endif
+#ifdef UART1_INTERRUPT      //if interrupt macro is defined, enable uart1_rx interrupt
+    PIE1bits.RC1IE=1;
+#endif
     INTCON|=0b11000000;
     RCSTA1bits.CREN=1;      //Receiver enabled
     RCSTA2bits.CREN=1;      //Receiver enabled
@@ -51,22 +50,25 @@ void uart_init()
 //the robot
 void tx1(char data1)
 {
+    while(!PIR1bits.TX1IF); //keep checking until the txbuffer is empty
     TXREG1=data1;
 }
 
 //function used to transmit commands to the servo controller
 void tx2(char data2)
 {
+    while(!PIR3bits.TX2IF); //wait until the tx is not full
     TXREG2=data2;
 }
 
 #ifndef UART1_INTERRUPT
-//This is the polling method, it will run if UART1_POLLING is defined
+//This is the polling method, it will run if UART1_INTERRUPT is not defined
 uint8_t rx1()
 {
     uint8_t x;
-    while(~RC1IF);
+    while(!PIR1bits.RC1IF); //keep checking until the rcbuffer is full
     x=RCREG1;
+    PIR1bits.RCIF = 0;
     return x;
 }
 #endif
@@ -78,16 +80,6 @@ void __interrupt() UART_ISR(void)
     if(RC1IF)
     {
         current_command=RCREG1; //save content into global variable
-        glitch_watchdog_counter=0;      //clear the global glitch_watchdog_counter
-        if(current_command==previous_command)  //check if received command is the same as last
-        {
-            nglitch_flag=0;  //if it is, clear global variable b
-        }
-        else
-        {
-            previous_command=current_command;  //record previous command received
-            nglitch_flag=1;  //set flag to not enter glitch detection loop
-        }
     }
     RC1IF=0;
 }

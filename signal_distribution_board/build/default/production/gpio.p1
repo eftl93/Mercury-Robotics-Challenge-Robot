@@ -1,5 +1,20 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"5656 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
+"53 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 53: extern volatile unsigned char ANSELA __attribute__((address(0xF38)));
+[v _ANSELA `Vuc ~T0 @X0 0 e@3896 ]
+"98
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 98: extern volatile unsigned char ANSELB __attribute__((address(0xF39)));
+[v _ANSELB `Vuc ~T0 @X0 0 e@3897 ]
+"148
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 148: extern volatile unsigned char ANSELC __attribute__((address(0xF3A)));
+[v _ANSELC `Vuc ~T0 @X0 0 e@3898 ]
+"199
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 199: extern volatile unsigned char ANSELD __attribute__((address(0xF3B)));
+[v _ANSELD `Vuc ~T0 @X0 0 e@3899 ]
+"261
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 261: extern volatile unsigned char ANSELE __attribute__((address(0xF3C)));
+[v _ANSELE `Vuc ~T0 @X0 0 e@3900 ]
+"5656
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5656:     struct {
 [s S280 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S280 . C1CH C1R C1SP C1POL C1OE C1OUT C1ON ]
@@ -975,68 +990,59 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _gpio_init ]
 [f ]
 "14
-[; ;gpio.c: 14:    CM1CON0bits.C1ON=0;
-[e = . . _CM1CON0bits 0 6 -> -> 0 `i `uc ]
+[; ;gpio.c: 14:     ANSELA=0;
+[e = _ANSELA -> -> 0 `i `uc ]
 "15
-[; ;gpio.c: 15:    CM2CON0bits.C2ON=0;
-[e = . . _CM2CON0bits 0 6 -> -> 0 `i `uc ]
+[; ;gpio.c: 15:     ANSELB=0;
+[e = _ANSELB -> -> 0 `i `uc ]
 "16
-[; ;gpio.c: 16:    TRISAbits.TRISA0 = 0;
-[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
+[; ;gpio.c: 16:     ANSELC=0;
+[e = _ANSELC -> -> 0 `i `uc ]
 "17
-[; ;gpio.c: 17:    TRISAbits.TRISA1 = 0;
-[e = . . _TRISAbits 0 1 -> -> 0 `i `uc ]
+[; ;gpio.c: 17:     ANSELD=0;
+[e = _ANSELD -> -> 0 `i `uc ]
 "18
-[; ;gpio.c: 18:    TRISAbits.TRISA2 = 0;
-[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
+[; ;gpio.c: 18:     ANSELE=0;
+[e = _ANSELE -> -> 0 `i `uc ]
 "19
-[; ;gpio.c: 19:    TRISD |= 0x03;
-[e =| _TRISD -> -> 3 `i `Vuc ]
+[; ;gpio.c: 19:    CM1CON0bits.C1ON=0;
+[e = . . _CM1CON0bits 0 6 -> -> 0 `i `uc ]
 "20
-[; ;gpio.c: 20:    debug_leds_off();
-[e ( _debug_leds_off ..  ]
+[; ;gpio.c: 20:    CM2CON0bits.C2ON=0;
+[e = . . _CM2CON0bits 0 6 -> -> 0 `i `uc ]
 "21
-[; ;gpio.c: 21:    high_beams_off();
-[e ( _high_beams_off ..  ]
+[; ;gpio.c: 21:    TRISAbits.TRISA0 = 0;
+[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
 "22
-[; ;gpio.c: 22: }
+[; ;gpio.c: 22:    TRISAbits.TRISA1 = 0;
+[e = . . _TRISAbits 0 1 -> -> 0 `i `uc ]
+"23
+[; ;gpio.c: 23:    TRISAbits.TRISA2 = 0;
+[e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
+"24
+[; ;gpio.c: 24:    TRISD |= 0x03;
+[e =| _TRISD -> -> 3 `i `Vuc ]
+"25
+[; ;gpio.c: 25:    debug_leds_off();
+[e ( _debug_leds_off ..  ]
+"26
+[; ;gpio.c: 26:    high_beams_off();
+[e ( _high_beams_off ..  ]
+"27
+[; ;gpio.c: 27: }
 [e :UE 856 ]
 }
-"24
-[; ;gpio.c: 24: void high_beams_on(void)
-[v _high_beams_on `(v ~T0 @X0 1 ef ]
-"25
-[; ;gpio.c: 25: {
-{
-[e :U _high_beams_on ]
-[f ]
-"26
-[; ;gpio.c: 26:     LATD=0b00000010;
-[e = _LATD -> -> 2 `i `uc ]
-"27
-[; ;gpio.c: 27:     _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"28
-[; ;gpio.c: 28:     _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"29
-[; ;gpio.c: 29:     LATD=0;
-[e = _LATD -> -> 0 `i `uc ]
-"30
-[; ;gpio.c: 30: }
-[e :UE 857 ]
-}
 "32
-[; ;gpio.c: 32: void high_beams_off(void)
-[v _high_beams_off `(v ~T0 @X0 1 ef ]
+[; ;gpio.c: 32: void high_beams_on(void)
+[v _high_beams_on `(v ~T0 @X0 1 ef ]
 "33
 [; ;gpio.c: 33: {
 {
-[e :U _high_beams_off ]
+[e :U _high_beams_on ]
 [f ]
 "34
-[; ;gpio.c: 34:     LATD = 0b00000001;
-[e = _LATD -> -> 1 `i `uc ]
+[; ;gpio.c: 34:     LATD=0b00000010;
+[e = _LATD -> -> 2 `i `uc ]
 "35
 [; ;gpio.c: 35:     _delay((unsigned long)((10)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
@@ -1048,35 +1054,59 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _LATD -> -> 0 `i `uc ]
 "38
 [; ;gpio.c: 38: }
+[e :UE 857 ]
+}
+"39
+[; ;gpio.c: 39: void high_beams_off(void)
+[v _high_beams_off `(v ~T0 @X0 1 ef ]
+"40
+[; ;gpio.c: 40: {
+{
+[e :U _high_beams_off ]
+[f ]
+"41
+[; ;gpio.c: 41:     LATD = 0b00000001;
+[e = _LATD -> -> 1 `i `uc ]
+"42
+[; ;gpio.c: 42:     _delay((unsigned long)((10)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"43
+[; ;gpio.c: 43:     _delay((unsigned long)((5)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"44
+[; ;gpio.c: 44:     LATD=0;
+[e = _LATD -> -> 0 `i `uc ]
+"45
+[; ;gpio.c: 45: }
 [e :UE 858 ]
 }
-"40
-[; ;gpio.c: 40: void debug_leds_on(void)
+"47
+[; ;gpio.c: 47: void debug_leds_on(void)
 [v _debug_leds_on `(v ~T0 @X0 1 ef ]
-"41
-[; ;gpio.c: 41: {
+"48
+[; ;gpio.c: 48: {
 {
 [e :U _debug_leds_on ]
 [f ]
-"42
-[; ;gpio.c: 42:     LATA |= 0x07;
+"49
+[; ;gpio.c: 49:     LATA |= 0x07;
 [e =| _LATA -> -> 7 `i `Vuc ]
-"43
-[; ;gpio.c: 43: }
+"50
+[; ;gpio.c: 50: }
 [e :UE 859 ]
 }
-"45
-[; ;gpio.c: 45: void debug_leds_off(void)
+"52
+[; ;gpio.c: 52: void debug_leds_off(void)
 [v _debug_leds_off `(v ~T0 @X0 1 ef ]
-"46
-[; ;gpio.c: 46: {
+"53
+[; ;gpio.c: 53: {
 {
 [e :U _debug_leds_off ]
 [f ]
-"47
-[; ;gpio.c: 47:    LATA &= 0xF8;
+"54
+[; ;gpio.c: 54:    LATA &= 0xF8;
 [e =& _LATA -> -> 248 `i `Vuc ]
-"48
-[; ;gpio.c: 48: }
+"55
+[; ;gpio.c: 55: }
 [e :UE 860 ]
 }

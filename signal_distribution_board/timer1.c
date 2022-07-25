@@ -16,6 +16,9 @@
 #include "main.h"
 #include "timer1.h"
 
+volatile uint16_t tick_counter = 0;
+volatile uint16_t ticks_per_frame = 1000;
+volatile uint8_t new_frame = 0;
 void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler) 
 {
     uint16_t timer1_reg = 0;
@@ -47,7 +50,7 @@ void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler)
     }
     TMR1H = timer1_reg_h;               //load timer variable (upper byte)
     TMR1L = timer1_reg_l;               //load timer variable (lower byte)
-    
+    T1CONbits.TMR1ON = 1;               //turn timer1 on
     //timer1 with async clock source generates random interrupts when writing
     //to the timer registers TMR1H:TMR1L or change modes, this only has a window
     //of occurance two T1CKI periods, so the timer interrupt must be off until then
@@ -60,3 +63,14 @@ void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler)
     PIE1bits.TMR1IE = 1; //enable interrupt vectoring for timer 1
 }
 
+void __interrupt() TIMER1_ISR(void)
+{
+    if(tick_counter == ticks_per_frame)
+    {
+        tick_counter = 0;
+        new_frame = 1;
+    }
+ 
+   tick_counter++;             
+    
+}

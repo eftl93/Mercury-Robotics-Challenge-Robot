@@ -9852,6 +9852,11 @@ void debug_leds_off(void);
 
 void gpio_init(void)
 {
+    ANSELA=0;
+    ANSELB=0;
+    ANSELC=0;
+    ANSELD=0;
+    ANSELE=0;
    CM1CON0bits.C1ON=0;
    CM2CON0bits.C2ON=0;
    TRISAbits.TRISA0 = 0;
@@ -9862,6 +9867,9 @@ void gpio_init(void)
    high_beams_off();
 }
 
+
+
+
 void high_beams_on(void)
 {
     LATD=0b00000010;
@@ -9869,7 +9877,6 @@ void high_beams_on(void)
     _delay((unsigned long)((5)*(64000000/4000.0)));
     LATD=0;
 }
-
 void high_beams_off(void)
 {
     LATD = 0b00000001;

@@ -9839,6 +9839,9 @@ void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler);
 # 17 "timer1.c" 2
 
 
+volatile uint16_t tick_counter = 0;
+volatile uint16_t ticks_per_frame = 1000;
+volatile uint8_t new_frame = 0;
 void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler)
 {
     uint16_t timer1_reg = 0;
@@ -9870,7 +9873,7 @@ void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler)
     }
     TMR1H = timer1_reg_h;
     TMR1L = timer1_reg_l;
-
+    T1CONbits.TMR1ON = 1;
 
 
 
@@ -9881,4 +9884,16 @@ void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler)
     __asm("nop");
     PIR1bits.TMR1IF = 0;
     PIE1bits.TMR1IE = 1;
+}
+
+void __attribute__((picinterrupt(("")))) TIMER1_ISR(void)
+{
+    if(tick_counter == ticks_per_frame)
+    {
+        tick_counter = 0;
+        new_frame = 1;
+    }
+
+   tick_counter++;
+
 }

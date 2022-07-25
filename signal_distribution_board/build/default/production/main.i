@@ -9934,93 +9934,95 @@ void debug_leds_off(void);
 extern volatile unsigned char current_command;
 extern volatile unsigned int glitch_watchdog_counter;
 extern volatile unsigned char previous_command;
-extern volatile unsigned char nglitch_flag;
+extern volatile uint16_t tick_counter;
+extern volatile uint16_t ticks_per_frame;
+extern volatile uint8_t new_frame;
+
+uint8_t text1[] = "Hello, Welcome!";
+uint8_t instructions1[] = "Press 'w' and 's' to move robot forward and backwards";
+uint8_t instructions2[] = "Press 'a' and 'd' to spin robot left and right";
+uint8_t instructions3[] = "Press 'q' and 'e' to turn light beam off and on";
+
 
 
 void main()
 {
     uint8_t dummy_spi_tx;
+    uint8_t forwarded_command;
+
     gpio_init();
     spi_master_init();
     uart_init();
     timer1_init(2000,8);
     dummy_spi_tx=spi_data(3,0x6F);
 
+    current_command = 0x00;
+    previous_command = 0x00;
+    forwarded_command = 'o';
 
     while(1)
     {
-
-
-
-
-        while(nglitch_flag==0)
+        while(new_frame)
         {
-            glitch_watchdog_counter++;
-            if(glitch_watchdog_counter==65530)
+            current_command = rx1();
+            if(current_command == previous_command)
             {
-                current_command=0x6F;
-                glitch_watchdog_counter=0;
-                nglitch_flag=1;
-                previous_command=0;
+                glitch_watchdog_counter++;
+                if(glitch_watchdog_counter == 120)
+                {
+                    forwarded_command = 'o';
+                }
+                else
+                {
+                    forwarded_command = current_command;
+                }
             }
+
+            else if(current_command != previous_command)
+            {
+                forwarded_command = current_command;
+            }
+
+            previous_command = current_command;
+
+
+
+
+            dummy_spi_tx=spi_data(3,forwarded_command);
+            tx2(forwarded_command);
+
+
+
+            switch(current_command)
+            {
+                case('a') :
+                    debug_leds_off();
+                    LATAbits.LATA0 = 1;
+                    break;
+                case('d'):
+                    debug_leds_off();
+                    LATAbits.LATA1 = 1;
+                    break;
+                case('w'):
+                    debug_leds_off();
+                    LATAbits.LATA2 = 1;
+                    break;
+                case('o'):
+                    debug_leds_off();
+                    break;
+                case('q'):
+                    high_beams_off();
+                    break;
+                case('e'):
+                    high_beams_on();
+                    break;
+                default:
+                    debug_leds_on();
+                    break;
+            }
+            new_frame = 0;
         }
-
-
-
-        dummy_spi_tx=spi_data(3,current_command);
-        tx2(current_command);
-
-
-
-        if(current_command==0x61)
-        {
-            LATA=0b00000001;
-        }
-
-        else if(current_command==0x64)
-        {
-            LATA=0b00000010;
-        }
-
-        else if(current_command==0x77)
-        {
-            LATA=0b00000100;
-        }
-
-        else if(current_command==0x6F)
-        {
-            LATA=0b00000111;
-        }
-
-
-
-
-
-        else if(current_command==0x71)
-        {
-            LATD=0b00000001;
-            _delay((unsigned long)((10)*(64000000/4000.0)));
-            _delay((unsigned long)((5)*(64000000/4000.0)));
-            LATD=0;
-        }
-
-        else if(current_command==0x65)
-        {
-
-        }
-
-
-
-
-
-
-
-        glitch_watchdog_counter++;
-        if(glitch_watchdog_counter==35530)
-        {
-            current_command=0x6F;
-            glitch_watchdog_counter=0;
-        }
+        __asm("sleep");
 
     }
 }
