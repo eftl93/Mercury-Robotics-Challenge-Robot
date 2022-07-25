@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.36 build 20220127204148 
-                                                                                               Sun Jul 24 22:04:36 2022
+                                                                                               Mon Jul 25 08:36:47 2022
 
 Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1 
      1                           	processor	18F46K22
@@ -273,11 +273,11 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    254  00FEDA  EF86  F07F         	goto	l32
    255  00FEDE                     l1258:
    256                           
-   257                           ;main.c: 55:         {;main.c: 56:             glitch_watchdog_counter++;
+   257                           ;main.c: 53:         {;main.c: 54:             glitch_watchdog_counter++;
    258  00FEDE  4A0E               	infsnz	_glitch_watchdog_counter^0,f,c	;volatile
    259  00FEE0  2A0F               	incf	(_glitch_watchdog_counter+1)^0,f,c	;volatile
    260  00FEE2                     
-   261                           ;main.c: 57:             if(glitch_watchdog_counter==65530)
+   261                           ;main.c: 55:             if(glitch_watchdog_counter==65530)
    262  00FEE2  0EFA               	movlw	250
    263  00FEE4  180E               	xorwf	_glitch_watchdog_counter^0,w,c	;volatile
    264  00FEE6  E106               	bnz	u271
@@ -289,26 +289,26 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    270  00FEF4  EF86  F07F         	goto	l32
    271  00FEF8                     u270:
    272  00FEF8                     
-   273                           ;main.c: 58:             {;main.c: 59:                 current_command=0x6F;
+   273                           ;main.c: 56:             {;main.c: 57:                 current_command=0x6F;
    274  00FEF8  0E6F               	movlw	111
    275  00FEFA  6E12               	movwf	_current_command^0,c	;volatile
    276                           
-   277                           ;main.c: 60:                 glitch_watchdog_counter=0;
+   277                           ;main.c: 58:                 glitch_watchdog_counter=0;
    278  00FEFC  0E00               	movlw	0
    279  00FEFE  6E0F               	movwf	(_glitch_watchdog_counter+1)^0,c	;volatile
    280  00FF00  0E00               	movlw	0
    281  00FF02  6E0E               	movwf	_glitch_watchdog_counter^0,c	;volatile
    282                           
-   283                           ;main.c: 61:                 nglitch_flag=1;
+   283                           ;main.c: 59:                 nglitch_flag=1;
    284  00FF04  0E01               	movlw	1
    285  00FF06  6E11               	movwf	_nglitch_flag^0,c	;volatile
    286                           
-   287                           ;main.c: 62:                 previous_command=0;
+   287                           ;main.c: 60:                 previous_command=0;
    288  00FF08  0E00               	movlw	0
    289  00FF0A  6E10               	movwf	_previous_command^0,c	;volatile
    290  00FF0C                     l32:
    291                           
-   292                           ;main.c: 54:         while(nglitch_flag==0)
+   292                           ;main.c: 52:         while(nglitch_flag==0)
    293  00FF0C  5011               	movf	_nglitch_flag^0,w,c	;volatile
    294  00FF0E  B4D8               	btfsc	status,2,c
    295  00FF10  EF8C  F07F         	goto	u281
@@ -320,11 +320,11 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    301  00FF20  0E03               	movlw	3
    302  00FF22  EC8F  F07E         	call	_spi_data
    303  00FF26                     
-   304                           ;main.c: 69:         tx2(current_command);
+   304                           ;main.c: 67:         tx2(current_command);
    305  00FF26  5012               	movf	_current_command^0,w,c	;volatile
    306  00FF28  EC27  F07E         	call	_tx2
    307  00FF2C                     
-   308                           ;main.c: 73:         if(current_command==0x61)
+   308                           ;main.c: 71:         if(current_command==0x61)
    309  00FF2C  0E61               	movlw	97
    310  00FF2E  1812               	xorwf	_current_command^0,w,c	;volatile
    311  00FF30  A4D8               	btfss	status,2,c
@@ -334,11 +334,11 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    315  00FF3A  EFA3  F07F         	goto	l1272
    316  00FF3E                     u290:
    317  00FF3E                     
-   318                           ;main.c: 74:         {;main.c: 75:             LATA=0b00000001;
+   318                           ;main.c: 72:         {;main.c: 73:             LATA=0b00000001;
    319  00FF3E  0E01               	movlw	1
    320  00FF40  6E89               	movwf	137,c	;volatile
    321                           
-   322                           ;main.c: 76:         }
+   322                           ;main.c: 74:         }
    323  00FF42  EFE8  F07F         	goto	l1294
    324  00FF46                     l1272:
    325  00FF46  0E64               	movlw	100
@@ -350,11 +350,11 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    331  00FF54  EFB0  F07F         	goto	l1276
    332  00FF58                     u300:
    333  00FF58                     
-   334                           ;main.c: 79:         {;main.c: 80:             LATA=0b00000010;
+   334                           ;main.c: 77:         {;main.c: 78:             LATA=0b00000010;
    335  00FF58  0E02               	movlw	2
    336  00FF5A  6E89               	movwf	137,c	;volatile
    337                           
-   338                           ;main.c: 81:         }
+   338                           ;main.c: 79:         }
    339  00FF5C  EFE8  F07F         	goto	l1294
    340  00FF60                     l1276:
    341  00FF60  0E77               	movlw	119
@@ -366,11 +366,11 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    347  00FF6E  EFBD  F07F         	goto	l1280
    348  00FF72                     u310:
    349  00FF72                     
-   350                           ;main.c: 84:         {;main.c: 85:             LATA=0b00000100;
+   350                           ;main.c: 82:         {;main.c: 83:             LATA=0b00000100;
    351  00FF72  0E04               	movlw	4
    352  00FF74  6E89               	movwf	137,c	;volatile
    353                           
-   354                           ;main.c: 86:         }
+   354                           ;main.c: 84:         }
    355  00FF76  EFE8  F07F         	goto	l1294
    356  00FF7A                     l1280:
    357  00FF7A  0E6F               	movlw	111
@@ -382,11 +382,11 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    363  00FF88  EFCA  F07F         	goto	l1284
    364  00FF8C                     u320:
    365  00FF8C                     
-   366                           ;main.c: 89:         {;main.c: 90:             LATA=0b00000111;
+   366                           ;main.c: 87:         {;main.c: 88:             LATA=0b00000111;
    367  00FF8C  0E07               	movlw	7
    368  00FF8E  6E89               	movwf	137,c	;volatile
    369                           
-   370                           ;main.c: 91:         }
+   370                           ;main.c: 89:         }
    371  00FF90  EFE8  F07F         	goto	l1294
    372  00FF94                     l1284:
    373  00FF94  0E71               	movlw	113
@@ -398,11 +398,11 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    379  00FFA2  EFE8  F07F         	goto	l45
    380  00FFA6                     u330:
    381  00FFA6                     
-   382                           ;main.c: 98:         {;main.c: 99:             LATD=0b00000001;
+   382                           ;main.c: 96:         {;main.c: 97:             LATD=0b00000001;
    383  00FFA6  0E01               	movlw	1
    384  00FFA8  6E8C               	movwf	140,c	;volatile
    385  00FFAA                     
-   386                           ;main.c: 100:             _delay((unsigned long)((10)*(64000000/4000.0)));
+   386                           ;main.c: 98:             _delay((unsigned long)((10)*(64000000/4000.0)));
    387  00FFAA  0ED0               	movlw	208
    388  00FFAC  6E0D               	movwf	??_main^0,c
    389  00FFAE  0ECA               	movlw	202
@@ -412,7 +412,7 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    393  00FFB4  2E0D               	decfsz	??_main^0,f,c
    394  00FFB6  D7FC               	bra	u357
    395  00FFB8                     
-   396                           ;main.c: 101:             _delay((unsigned long)((5)*(64000000/4000.0)));
+   396                           ;main.c: 99:             _delay((unsigned long)((5)*(64000000/4000.0)));
    397  00FFB8  0E68               	movlw	104
    398  00FFBA  6E0D               	movwf	??_main^0,c
    399  00FFBC  0EE4               	movlw	228
@@ -423,20 +423,20 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    404  00FFC4  D7FC               	bra	u367
    405  00FFC6  D000               	nop2	
    406                           
-   407                           ;main.c: 102:             LATD=0;
+   407                           ;main.c: 100:             LATD=0;
    408  00FFC8  0E00               	movlw	0
    409  00FFCA  6E8C               	movwf	140,c	;volatile
    410                           
-   411                           ;main.c: 103:         }
+   411                           ;main.c: 101:         }
    412  00FFCC  EFE8  F07F         	goto	l1294
    413  00FFD0                     l45:
    414  00FFD0                     l1294:
    415                           
-   416                           ;main.c: 116:         glitch_watchdog_counter++;
+   416                           ;main.c: 114:         glitch_watchdog_counter++;
    417  00FFD0  4A0E               	infsnz	_glitch_watchdog_counter^0,f,c	;volatile
    418  00FFD2  2A0F               	incf	(_glitch_watchdog_counter+1)^0,f,c	;volatile
    419  00FFD4                     
-   420                           ;main.c: 117:         if(glitch_watchdog_counter==35530)
+   420                           ;main.c: 115:         if(glitch_watchdog_counter==35530)
    421  00FFD4  0ECA               	movlw	202
    422  00FFD6  180E               	xorwf	_glitch_watchdog_counter^0,w,c	;volatile
    423  00FFD8  E107               	bnz	u341
@@ -449,11 +449,11 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    430  00FFE8  EF86  F07F         	goto	l32
    431  00FFEC                     u340:
    432  00FFEC                     
-   433                           ;main.c: 118:         {;main.c: 119:             current_command=0x6F;
+   433                           ;main.c: 116:         {;main.c: 117:             current_command=0x6F;
    434  00FFEC  0E6F               	movlw	111
    435  00FFEE  6E12               	movwf	_current_command^0,c	;volatile
    436                           
-   437                           ;main.c: 120:             glitch_watchdog_counter=0;
+   437                           ;main.c: 118:             glitch_watchdog_counter=0;
    438  00FFF0  0E00               	movlw	0
    439  00FFF2  6E0F               	movwf	(_glitch_watchdog_counter+1)^0,c	;volatile
    440  00FFF4  0E00               	movlw	0
@@ -1775,7 +1775,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.36 build 20220127204148 
-Symbol Table                                                                                   Sun Jul 24 22:04:36 2022
+Symbol Table                                                                                   Mon Jul 25 08:36:47 2022
 
                          l32 FF0C                           l45 FFD0                          l115 FC54  
                         l212 FCCC                          l140 FCA4                          l109 FD1C  

@@ -9944,8 +9944,6 @@ void main()
     spi_master_init();
     uart_init();
     timer1_init(2000,8);
-
-
     dummy_spi_tx=spi_data(3,0x6F);
 
 
