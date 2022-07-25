@@ -27,19 +27,21 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"12 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+"12 C:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
 [v _gpio_init gpio_init `(v  1 e 1 0 ]
-"43
+"32
+[v _high_beams_off high_beams_off `(v  1 e 1 0 ]
+"45
 [v _debug_leds_off debug_leds_off `(v  1 e 1 0 ]
-"36 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+"36 C:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
 [v _main main `(v  1 e 1 0 ]
-"18 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+"18 C:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
 [v _spi_master_init spi_master_init `(v  1 e 1 0 ]
 "42
 [v _spi_data spi_data `(uc  1 e 1 0 ]
-"19 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+"19 C:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
 [v _timer1_init timer1_init `(v  1 e 1 0 ]
-"17 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+"17 C:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
 [v _uart_init uart_init `(v  1 e 1 0 ]
 "58
 [v _tx2 tx2 `(v  1 e 1 0 ]
@@ -584,7 +586,7 @@
 [v _RC1IE RC1IE `VEb  1 e 0 @31981 ]
 "19462
 [v _RC1IF RC1IF `VEb  1 e 0 @31989 ]
-"12 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+"12 C:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
 [v _current_command current_command `VEuc  1 e 1 0 ]
 "13
 [v _glitch_watchdog_counter glitch_watchdog_counter `VEui  1 e 2 0 ]
@@ -592,12 +594,12 @@
 [v _previous_command previous_command `VEuc  1 e 1 0 ]
 "15
 [v _nglitch_flag nglitch_flag `VEuc  1 e 1 0 ]
-"36 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+"36 C:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"127
+"124
 } 0
-"17 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+"17 C:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
 [v _uart_init uart_init `(v  1 e 1 0 ]
 {
 "47
@@ -611,7 +613,7 @@
 [v tx2@data2 data2 `uc  1 a 1 0 ]
 "61
 } 0
-"19 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+"19 C:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
 [v _timer1_init timer1_init `(v  1 e 1 0 ]
 {
 "21
@@ -625,7 +627,7 @@
 [v timer1_init@prescaler prescaler `uc  1 p 1 2 ]
 "61
 } 0
-"18 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+"18 C:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
 [v _spi_master_init spi_master_init `(v  1 e 1 0 ]
 {
 "34
@@ -643,13 +645,18 @@
 [v spi_data@device device `uc  1 a 1 2 ]
 "82
 } 0
-"12 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+"12 C:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
 [v _gpio_init gpio_init `(v  1 e 1 0 ]
 {
-"23
+"22
 } 0
-"43
+"32
+[v _high_beams_off high_beams_off `(v  1 e 1 0 ]
+{
+"38
+} 0
+"45
 [v _debug_leds_off debug_leds_off `(v  1 e 1 0 ]
 {
-"46
+"48
 } 0

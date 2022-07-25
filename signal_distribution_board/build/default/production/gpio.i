@@ -9859,13 +9859,15 @@ void gpio_init(void)
    TRISAbits.TRISA2 = 0;
    TRISD |= 0x03;
    debug_leds_off();
-
-
+   high_beams_off();
 }
 
 void high_beams_on(void)
 {
-
+    LATD=0b00000010;
+    _delay((unsigned long)((10)*(64000000/4000.0)));
+    _delay((unsigned long)((5)*(64000000/4000.0)));
+    LATD=0;
 }
 
 void high_beams_off(void)

@@ -146,6 +146,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24 ./gpio.h
 [; ;./gpio.h: 24: void debug_leds_off(void);
 [v _debug_leds_off `(v ~T0 @X0 0 ef ]
+"22
+[; ;./gpio.h: 22: void high_beams_off(void);
+[v _high_beams_off `(v ~T0 @X0 0 ef ]
 "7897 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7897: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
 [v _LATD `Vuc ~T0 @X0 0 e@3980 ]
@@ -992,73 +995,88 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20
 [; ;gpio.c: 20:    debug_leds_off();
 [e ( _debug_leds_off ..  ]
-"23
-[; ;gpio.c: 23: }
+"21
+[; ;gpio.c: 21:    high_beams_off();
+[e ( _high_beams_off ..  ]
+"22
+[; ;gpio.c: 22: }
 [e :UE 856 ]
 }
-"25
-[; ;gpio.c: 25: void high_beams_on(void)
+"24
+[; ;gpio.c: 24: void high_beams_on(void)
 [v _high_beams_on `(v ~T0 @X0 1 ef ]
-"26
-[; ;gpio.c: 26: {
+"25
+[; ;gpio.c: 25: {
 {
 [e :U _high_beams_on ]
 [f ]
+"26
+[; ;gpio.c: 26:     LATD=0b00000010;
+[e = _LATD -> -> 2 `i `uc ]
+"27
+[; ;gpio.c: 27:     _delay((unsigned long)((10)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "28
-[; ;gpio.c: 28: }
+[; ;gpio.c: 28:     _delay((unsigned long)((5)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"29
+[; ;gpio.c: 29:     LATD=0;
+[e = _LATD -> -> 0 `i `uc ]
+"30
+[; ;gpio.c: 30: }
 [e :UE 857 ]
 }
-"30
-[; ;gpio.c: 30: void high_beams_off(void)
+"32
+[; ;gpio.c: 32: void high_beams_off(void)
 [v _high_beams_off `(v ~T0 @X0 1 ef ]
-"31
-[; ;gpio.c: 31: {
+"33
+[; ;gpio.c: 33: {
 {
 [e :U _high_beams_off ]
 [f ]
-"32
-[; ;gpio.c: 32:     LATD = 0b00000001;
-[e = _LATD -> -> 1 `i `uc ]
-"33
-[; ;gpio.c: 33:     _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "34
-[; ;gpio.c: 34:     _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;gpio.c: 34:     LATD = 0b00000001;
+[e = _LATD -> -> 1 `i `uc ]
 "35
-[; ;gpio.c: 35:     LATD=0;
-[e = _LATD -> -> 0 `i `uc ]
+[; ;gpio.c: 35:     _delay((unsigned long)((10)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "36
-[; ;gpio.c: 36: }
+[; ;gpio.c: 36:     _delay((unsigned long)((5)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"37
+[; ;gpio.c: 37:     LATD=0;
+[e = _LATD -> -> 0 `i `uc ]
+"38
+[; ;gpio.c: 38: }
 [e :UE 858 ]
 }
-"38
-[; ;gpio.c: 38: void debug_leds_on(void)
+"40
+[; ;gpio.c: 40: void debug_leds_on(void)
 [v _debug_leds_on `(v ~T0 @X0 1 ef ]
-"39
-[; ;gpio.c: 39: {
+"41
+[; ;gpio.c: 41: {
 {
 [e :U _debug_leds_on ]
 [f ]
-"40
-[; ;gpio.c: 40:     LATA |= 0x07;
+"42
+[; ;gpio.c: 42:     LATA |= 0x07;
 [e =| _LATA -> -> 7 `i `Vuc ]
-"41
-[; ;gpio.c: 41: }
+"43
+[; ;gpio.c: 43: }
 [e :UE 859 ]
 }
-"43
-[; ;gpio.c: 43: void debug_leds_off(void)
+"45
+[; ;gpio.c: 45: void debug_leds_off(void)
 [v _debug_leds_off `(v ~T0 @X0 1 ef ]
-"44
-[; ;gpio.c: 44: {
+"46
+[; ;gpio.c: 46: {
 {
 [e :U _debug_leds_off ]
 [f ]
-"45
-[; ;gpio.c: 45:    LATA &= 0xF8;
+"47
+[; ;gpio.c: 47:    LATA &= 0xF8;
 [e =& _LATA -> -> 248 `i `Vuc ]
-"46
-[; ;gpio.c: 46: }
+"48
+[; ;gpio.c: 48: }
 [e :UE 860 ]
 }

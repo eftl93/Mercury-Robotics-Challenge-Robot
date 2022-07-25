@@ -10,11 +10,11 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 3h		(dist/default/production\signal_distribution_board.production.hex)
-  FC5Ah - FFFFh		(dist/default/production\signal_distribution_board.production.hex)
+  FC48h - FFFFh		(dist/default/production\signal_distribution_board.production.hex)
   200000h - 200007h		(dist/default/production\signal_distribution_board.production.hex)
   300000h - 30000Dh		(dist/default/production\signal_distribution_board.production.hex)
  Unused ranges:
-  4h - FC59h
+  4h - FC47h
   10000h - 1FFFFFh
   200008h - 2FFFFFh
 
@@ -27,7 +27,8 @@
 ----------------------------------------------------------
 00000000 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-0000FC50 | -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1
+0000FC40 | -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
+0000FC50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0000FC60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0000FC70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0000FC80 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

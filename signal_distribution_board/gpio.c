@@ -18,13 +18,15 @@ void gpio_init(void)
    YELLOW_LED_DIR = 0;  //set output for debugging led
    TRISD    |= 0x03;  //output to control the relay for the beam lights
    debug_leds_off();
-   
-
+   high_beams_off();
 }
 
 void high_beams_on(void)
 {
-    
+    LATD=0b00000010; //set relay to turn on the lights
+    __delay_ms(10);
+    __delay_ms(5);
+    LATD=0; 
 }
 
 void high_beams_off(void)

@@ -36,12 +36,10 @@ extern volatile unsigned char nglitch_flag;
 void main()
 {
     uint8_t dummy_spi_tx;
-    gpio_init();
-    spi_master_init();  //initialize SPI in master mode
-    uart_init();        //initialize both UART1 and UART2 module, only interrupt on RX1;
-    timer1_init(2000,8);
- 
-    
+    gpio_init();            //initialize GPIOs, set leds and relay controller as output. Turn off all the lights
+    spi_master_init();      //initialize SPI in master mode
+    uart_init();            //initialize both UART1 and UART2 module, only interrupt on RX1;
+    timer1_init(2000,8);    //initialize timer1 to every 2000 timer1 cycles. Asynchrounous, source clk is fosc/4. Pre-scaler is 1/8
     dummy_spi_tx=spi_data(3,0x6F); //send an 'o' to the motor controller board to turn off the motors
 
     
@@ -104,10 +102,7 @@ void main()
 
         else if(current_command==0x65) //'e'
         {
-            LATD=0b00000010; //set relay to turn on the lights
-            __delay_ms(10);
-            __delay_ms(5);
-            LATD=0;
+
         }
         
         //This loop is to check lack of communication between Beaglebone and

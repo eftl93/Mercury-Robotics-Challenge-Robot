@@ -1011,20 +1011,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "106
 [; ;main.c: 106:         {
 {
-"107
-[; ;main.c: 107:             LATD=0b00000010;
-[e = _LATD -> -> 2 `i `uc ]
 "108
-[; ;main.c: 108:             _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"109
-[; ;main.c: 109:             _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"110
-[; ;main.c: 110:             LATD=0;
-[e = _LATD -> -> 0 `i `uc ]
-"111
-[; ;main.c: 111:         }
+[; ;main.c: 108:         }
 }
 [e :U 875 ]
 [e :U 874 ]
@@ -1032,32 +1020,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 870 ]
 [e :U 868 ]
 [e :U 866 ]
-"119
-[; ;main.c: 119:         glitch_watchdog_counter++;
+"116
+[; ;main.c: 116:         glitch_watchdog_counter++;
 [e ++ _glitch_watchdog_counter -> -> 1 `i `Vui ]
-"120
-[; ;main.c: 120:         if(glitch_watchdog_counter==35530)
+"117
+[; ;main.c: 117:         if(glitch_watchdog_counter==35530)
 [e $ ! == -> _glitch_watchdog_counter `l -> 35530 `l 876  ]
-"121
-[; ;main.c: 121:         {
+"118
+[; ;main.c: 118:         {
 {
-"122
-[; ;main.c: 122:             current_command=0x6F;
+"119
+[; ;main.c: 119:             current_command=0x6F;
 [e = _current_command -> -> 111 `i `uc ]
-"123
-[; ;main.c: 123:             glitch_watchdog_counter=0;
+"120
+[; ;main.c: 120:             glitch_watchdog_counter=0;
 [e = _glitch_watchdog_counter -> -> 0 `i `ui ]
-"124
-[; ;main.c: 124:         }
+"121
+[; ;main.c: 121:         }
 }
 [e :U 876 ]
-"126
-[; ;main.c: 126:     }
+"123
+[; ;main.c: 123:     }
 }
 [e :U 858 ]
 [e $U 859  ]
 [e :U 860 ]
-"127
-[; ;main.c: 127: }
+"124
+[; ;main.c: 124: }
 [e :UE 857 ]
 }

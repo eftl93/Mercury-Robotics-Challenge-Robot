@@ -10008,10 +10008,7 @@ void main()
 
         else if(current_command==0x65)
         {
-            LATD=0b00000010;
-            _delay((unsigned long)((10)*(64000000/4000.0)));
-            _delay((unsigned long)((5)*(64000000/4000.0)));
-            LATD=0;
+
         }
 
 
