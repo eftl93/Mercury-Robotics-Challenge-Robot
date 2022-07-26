@@ -9836,17 +9836,18 @@ char *tempnam(const char *, const char *);
 # 1 "./timer1.h" 1
 # 17 "./timer1.h"
 void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler);
+void load_timer1(void);
 # 17 "timer1.c" 2
 
 
 volatile uint16_t tick_counter = 0;
 volatile uint16_t ticks_per_frame = 1000;
-volatile uint8_t new_frame = 0;
+volatile uint8_t new_frame = 1;
+volatile uint16_t timer1_reg = 0;
+volatile uint8_t timer1_reg_h = 0;
+volatile uint8_t timer1_reg_l = 0;
 void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler)
 {
-    uint16_t timer1_reg = 0;
-    uint8_t timer1_reg_h = 0;
-    uint8_t timer1_reg_l = 0;
     timer1_reg = 65535 - cnts_to_overflow;
     timer1_reg_h = ((timer1_reg & 0xFF00) >> 8);
     timer1_reg_l = (timer1_reg & 0x00FF);
@@ -9871,6 +9872,12 @@ void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler)
         default:
             T1CONbits.T1CKPS = 0b00;
     }
+}
+
+void load_timer1(void)
+{
+    T1CONbits.TMR1ON = 0;
+    PIE1bits.TMR1IE = 0;
     TMR1H = timer1_reg_h;
     TMR1L = timer1_reg_l;
     T1CONbits.TMR1ON = 1;
@@ -9888,12 +9895,13 @@ void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler)
 
 void __attribute__((picinterrupt(("")))) TIMER1_ISR(void)
 {
+    PIE1bits.TMR1IE = 0;
+    PIR1bits.TMR1IF = 0;
     if(tick_counter == ticks_per_frame)
     {
         tick_counter = 0;
         new_frame = 1;
     }
-
+    LATAbits.LATA2 ^= 1;
    tick_counter++;
-
 }

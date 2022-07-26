@@ -9907,6 +9907,7 @@ unsigned char spi_data(unsigned char device, unsigned char tx_data);
 void uart_init(void);
 void tx1(char data1);
 void tx2(char data2);
+void uart_wr_str(uint8_t port, uint8_t *str);
 
 
 uint8_t rx1(void);
@@ -9916,6 +9917,7 @@ uint8_t rx1(void);
 # 1 "./timer1.h" 1
 # 17 "./timer1.h"
 void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler);
+void load_timer1(void);
 # 24 "main.c" 2
 
 # 1 "./gpio.h" 1
@@ -9932,7 +9934,7 @@ void debug_leds_off(void);
 
 
 extern volatile unsigned char current_command;
-extern volatile unsigned int glitch_watchdog_counter;
+unsigned int glitch_watchdog_counter = 0 ;
 extern volatile unsigned char previous_command;
 extern volatile uint16_t tick_counter;
 extern volatile uint16_t ticks_per_frame;
@@ -9949,42 +9951,57 @@ void main()
 {
     uint8_t dummy_spi_tx;
     uint8_t forwarded_command;
-
+    IPEN=0;
+    INTCON=0b00000000;
     gpio_init();
     spi_master_init();
     uart_init();
-    timer1_init(2000,8);
+    timer1_init(60000,8);
     dummy_spi_tx=spi_data(3,0x6F);
-
+    uart_wr_str(1, text1);
+    uart_wr_str(1, instructions1);
+    uart_wr_str(1, instructions2);
+    uart_wr_str(1, instructions3);
     current_command = 0x00;
     previous_command = 0x00;
     forwarded_command = 'o';
+
 
     while(1)
     {
         while(new_frame)
         {
             current_command = rx1();
-            if(current_command == previous_command)
+            if(current_command != 0xFF)
             {
-                glitch_watchdog_counter++;
-                if(glitch_watchdog_counter == 120)
+                if(current_command == previous_command)
                 {
-                    forwarded_command = 'o';
+                    glitch_watchdog_counter++;
+                    if(glitch_watchdog_counter >= 200)
+                    {
+                        forwarded_command = 'o';
+                        high_beams_on();
+                    }
+                    else
+                    {
+                        forwarded_command = current_command;
+                    }
                 }
-                else
+
+                else if(current_command != previous_command)
                 {
                     forwarded_command = current_command;
+                    glitch_watchdog_counter = 0;
+                    high_beams_off();
                 }
+
+                previous_command = current_command;
             }
 
-            else if(current_command != previous_command)
+            else
             {
-                forwarded_command = current_command;
+                forwarded_command = 'o';
             }
-
-            previous_command = current_command;
-
 
 
 
@@ -9993,7 +10010,7 @@ void main()
 
 
 
-            switch(current_command)
+            switch(forwarded_command)
             {
                 case('a') :
                     debug_leds_off();
@@ -10020,9 +10037,10 @@ void main()
                     debug_leds_on();
                     break;
             }
-            new_frame = 0;
-        }
-        __asm("sleep");
 
+        }
+
+
+       _delay((unsigned long)((2)*(64000000/4000.0)));
     }
 }

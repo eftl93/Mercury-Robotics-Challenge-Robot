@@ -1020,8 +1020,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;gpio.c: 23:    TRISAbits.TRISA2 = 0;
 [e = . . _TRISAbits 0 2 -> -> 0 `i `uc ]
 "24
-[; ;gpio.c: 24:    TRISD |= 0x03;
-[e =| _TRISD -> -> 3 `i `Vuc ]
+[; ;gpio.c: 24:    TRISD &= 0xFC;
+[e =& _TRISD -> -> 252 `i `Vuc ]
 "25
 [; ;gpio.c: 25:    debug_leds_off();
 [e ( _debug_leds_off ..  ]

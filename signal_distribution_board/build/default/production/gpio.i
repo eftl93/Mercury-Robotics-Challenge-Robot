@@ -9862,7 +9862,7 @@ void gpio_init(void)
    TRISAbits.TRISA0 = 0;
    TRISAbits.TRISA1 = 0;
    TRISAbits.TRISA2 = 0;
-   TRISD |= 0x03;
+   TRISD &= 0xFC;
    debug_leds_off();
    high_beams_off();
 }

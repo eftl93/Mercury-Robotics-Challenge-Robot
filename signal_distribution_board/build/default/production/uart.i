@@ -9904,6 +9904,7 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 void uart_init(void);
 void tx1(char data1);
 void tx2(char data2);
+void uart_wr_str(uint8_t port, uint8_t *str);
 
 
 uint8_t rx1(void);
@@ -9913,7 +9914,6 @@ uint8_t rx1(void);
 
 
 volatile unsigned char current_command;
-volatile unsigned int glitch_watchdog_counter;
 volatile unsigned char previous_command;
 
 void uart_init()
@@ -9922,8 +9922,8 @@ void uart_init()
     BAUDCON1bits.BRG16=1;
     TXSTA2bits.BRGH=1;
     BAUDCON2bits.BRG16=1;
-    SPBRG1=0x0A;
-    SPBRGH1=0x1A;
+    SPBRG1=0x8A;
+    SPBRGH1=0x00;
     SPBRG2=0x82;
     SPBRGH2=0x06;
     TRISCbits.RC6=1;
@@ -9936,14 +9936,14 @@ void uart_init()
     RCSTA2bits.SPEN=1;
     TXSTA1bits.TXEN=1;
     TXSTA2bits.TXEN=1;
-    IPEN=0;
+
 
     PIE1bits.RC1IE=0;
 
 
 
 
-    INTCON|=0b11000000;
+
     RCSTA1bits.CREN=1;
     RCSTA2bits.CREN=1;
 }
@@ -9964,13 +9964,54 @@ void tx2(char data2)
     TXREG2=data2;
 }
 
+void uart_wr_str(uint8_t port, uint8_t *str)
+{
+    switch(port)
+    {
+        case(1):
+            while(*str != '\0')
+            {
+                tx1(*str++);
+            }
+            tx1('\0');
+            tx1('\n');
+            tx1('\r');
+            break;
+        case(2):
+            while(*str != '\0')
+            {
+                tx2(*str++);
+            }
+            tx2('\0');
+            tx2('\n');
+            tx2('\r');
+            break;
+        default:
+            while(*str != '\0')
+            {
+                tx1(*str++);
+            }
+            tx1('\0');
+            tx1('\n');
+            tx1('\r');
+            break;
+    }
+
+
+}
 
 
 uint8_t rx1()
 {
     uint8_t x;
-    while(!PIR1bits.RC1IF);
-    x=RCREG1;
-    PIR1bits.RCIF = 0;
+    if(PIR1bits.RC1IF)
+    {
+        x=RCREG1;
+        PIR1bits.RC1IF = 0;
+    }
+    else
+    {
+        x = 0xFF;
+    }
     return x;
 }

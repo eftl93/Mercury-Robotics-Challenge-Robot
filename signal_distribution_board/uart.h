@@ -22,6 +22,7 @@
 void uart_init(void);
 void tx1(char data1);
 void tx2(char data2);
+void uart_wr_str(uint8_t port, uint8_t *str);
 
 #ifndef UART1_INTERRUPT
 uint8_t rx1(void);

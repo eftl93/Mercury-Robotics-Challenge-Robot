@@ -15,6 +15,7 @@
 #include "main.h"
 
 void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler);
+void load_timer1(void); 
 
 
 #endif	

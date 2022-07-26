@@ -10,7 +10,6 @@
 #include <stdio.h>
 
 volatile unsigned char current_command;
-volatile unsigned int glitch_watchdog_counter;
 volatile unsigned char previous_command;
 
 void uart_init()
@@ -19,8 +18,8 @@ void uart_init()
     BAUDCON1bits.BRG16=1;   //16 bit baud rate generator is used (because of the HS clock)
     TXSTA2bits.BRGH=1;      //for ASYNC: Highs baud rate selected
     BAUDCON2bits.BRG16=1;   //16 bit baud rate generator is used (because of the HS clock)
-    SPBRG1=0x0A;            //Set the baud rate to 2400 (spbrgh1:spbrg1 = 6666)
-    SPBRGH1=0x1A;           //Set the baud rate to 2400 (spbrgh1:spbrg1 = 6666)
+    SPBRG1=0x8A;            //Set the baud rate to 115200 (spbrgh1:spbrg1 = 138)
+    SPBRGH1=0x00;           //Set the baud rate to 115200 (spbrgh1:spbrg1 = 138)
     SPBRG2=0x82;            //Set the baud rate to 9600 (spbrgh1:spbrg1 = 1666)
     SPBRGH2=0x06;           //Set the baud rate to 9600 (spbrgh1:spbrg1 = 1666)
     RX1_DIR=1;              //RX must be set as an input for uart
@@ -33,14 +32,14 @@ void uart_init()
     RCSTA2bits.SPEN=1;      //Serial port enabled
     TXSTA1bits.TXEN=1;      //Transmit enabled
     TXSTA2bits.TXEN=1;      //Transmit enabled
-    IPEN=0;
+    
 #ifndef UART1_INTERRUPT     //if interrupt macro is not defined, disable uart1_rx interrupt
     PIE1bits.RC1IE=0;
 #endif
 #ifdef UART1_INTERRUPT      //if interrupt macro is defined, enable uart1_rx interrupt
     PIE1bits.RC1IE=1;
 #endif
-    INTCON|=0b11000000;
+
     RCSTA1bits.CREN=1;      //Receiver enabled
     RCSTA2bits.CREN=1;      //Receiver enabled
 }
@@ -61,14 +60,55 @@ void tx2(char data2)
     TXREG2=data2;
 }
 
+void uart_wr_str(uint8_t port, uint8_t *str)
+{
+    switch(port)
+    {
+        case(1):
+            while(*str != '\0')
+            {
+                tx1(*str++);
+            }
+            tx1('\0');
+            tx1('\n');
+            tx1('\r');
+            break;
+        case(2):
+            while(*str != '\0')
+            {
+                tx2(*str++);
+            }
+            tx2('\0');
+            tx2('\n');
+            tx2('\r');
+            break;
+        default:
+            while(*str != '\0')
+            {
+                tx1(*str++);
+            }
+            tx1('\0');
+            tx1('\n');
+            tx1('\r');
+            break;
+    }
+            
+                
+}
 #ifndef UART1_INTERRUPT
 //This is the polling method, it will run if UART1_INTERRUPT is not defined
 uint8_t rx1()
 {
     uint8_t x;
-    while(!PIR1bits.RC1IF); //keep checking until the rcbuffer is full
-    x=RCREG1;
-    PIR1bits.RCIF = 0;
+    if(PIR1bits.RC1IF) //keep if rcbuffer is full
+    {
+        x=RCREG1;
+        PIR1bits.RC1IF = 0;
+    }
+    else
+    {
+        x = 0xFF;
+    }
     return x;
 }
 #endif

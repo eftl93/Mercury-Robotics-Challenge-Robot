@@ -195,9 +195,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4596
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 4596: extern volatile RCSTA2bits_t RCSTA2bits __attribute__((address(0xF71)));
 [v _RCSTA2bits `VS217 ~T0 @X0 0 e@3953 ]
-"18667
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 18667: extern volatile __bit IPEN __attribute__((address(0x7E87)));
-[v _IPEN `Vb ~T0 @X0 0 e@32391 ]
 "9421
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 9421:     struct {
 [s S438 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -213,9 +210,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9437
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 9437: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
 [v _PIE1bits `VS437 ~T0 @X0 0 e@3997 ]
-"16927
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 16927: extern volatile unsigned char INTCON __attribute__((address(0xFF2)));
-[v _INTCON `Vuc ~T0 @X0 0 e@4082 ]
 "9498
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 9498:     struct {
 [s S441 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -1066,175 +1060,314 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;uart.c: 12: volatile unsigned char current_command;
 [v _current_command `Vuc ~T0 @X0 1 e ]
 "13
-[; ;uart.c: 13: volatile unsigned int glitch_watchdog_counter;
-[v _glitch_watchdog_counter `Vui ~T0 @X0 1 e ]
-"14
-[; ;uart.c: 14: volatile unsigned char previous_command;
+[; ;uart.c: 13: volatile unsigned char previous_command;
 [v _previous_command `Vuc ~T0 @X0 1 e ]
-"16
-[; ;uart.c: 16: void uart_init()
+"15
+[; ;uart.c: 15: void uart_init()
 [v _uart_init `(v ~T0 @X0 1 ef ]
-"17
-[; ;uart.c: 17: {
+"16
+[; ;uart.c: 16: {
 {
 [e :U _uart_init ]
 [f ]
-"18
-[; ;uart.c: 18:     TXSTA1bits.BRGH=1;
+"17
+[; ;uart.c: 17:     TXSTA1bits.BRGH=1;
 [e = . . _TXSTA1bits 0 2 -> -> 1 `i `uc ]
-"19
-[; ;uart.c: 19:     BAUDCON1bits.BRG16=1;
+"18
+[; ;uart.c: 18:     BAUDCON1bits.BRG16=1;
 [e = . . _BAUDCON1bits 0 3 -> -> 1 `i `uc ]
-"20
-[; ;uart.c: 20:     TXSTA2bits.BRGH=1;
+"19
+[; ;uart.c: 19:     TXSTA2bits.BRGH=1;
 [e = . . _TXSTA2bits 0 2 -> -> 1 `i `uc ]
-"21
-[; ;uart.c: 21:     BAUDCON2bits.BRG16=1;
+"20
+[; ;uart.c: 20:     BAUDCON2bits.BRG16=1;
 [e = . . _BAUDCON2bits 0 3 -> -> 1 `i `uc ]
+"21
+[; ;uart.c: 21:     SPBRG1=0x8A;
+[e = _SPBRG1 -> -> 138 `i `uc ]
 "22
-[; ;uart.c: 22:     SPBRG1=0x0A;
-[e = _SPBRG1 -> -> 10 `i `uc ]
+[; ;uart.c: 22:     SPBRGH1=0x00;
+[e = _SPBRGH1 -> -> 0 `i `uc ]
 "23
-[; ;uart.c: 23:     SPBRGH1=0x1A;
-[e = _SPBRGH1 -> -> 26 `i `uc ]
-"24
-[; ;uart.c: 24:     SPBRG2=0x82;
+[; ;uart.c: 23:     SPBRG2=0x82;
 [e = _SPBRG2 -> -> 130 `i `uc ]
-"25
-[; ;uart.c: 25:     SPBRGH2=0x06;
+"24
+[; ;uart.c: 24:     SPBRGH2=0x06;
 [e = _SPBRGH2 -> -> 6 `i `uc ]
-"26
-[; ;uart.c: 26:     TRISCbits.RC6=1;
+"25
+[; ;uart.c: 25:     TRISCbits.RC6=1;
 [e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
-"27
-[; ;uart.c: 27:     TRISCbits.RC7=1;
+"26
+[; ;uart.c: 26:     TRISCbits.RC7=1;
 [e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
-"28
-[; ;uart.c: 28:     TRISDbits.RD6=1;
+"27
+[; ;uart.c: 27:     TRISDbits.RD6=1;
 [e = . . _TRISDbits 1 6 -> -> 1 `i `uc ]
-"29
-[; ;uart.c: 29:     TRISDbits.RD7=1;
+"28
+[; ;uart.c: 28:     TRISDbits.RD7=1;
 [e = . . _TRISDbits 1 7 -> -> 1 `i `uc ]
-"30
-[; ;uart.c: 30:     TXSTA1bits.SYNC=0;
+"29
+[; ;uart.c: 29:     TXSTA1bits.SYNC=0;
 [e = . . _TXSTA1bits 0 4 -> -> 0 `i `uc ]
-"31
-[; ;uart.c: 31:     TXSTA2bits.SYNC=0;
+"30
+[; ;uart.c: 30:     TXSTA2bits.SYNC=0;
 [e = . . _TXSTA2bits 0 4 -> -> 0 `i `uc ]
-"32
-[; ;uart.c: 32:     RCSTA1bits.SPEN=1;
+"31
+[; ;uart.c: 31:     RCSTA1bits.SPEN=1;
 [e = . . _RCSTA1bits 0 7 -> -> 1 `i `uc ]
-"33
-[; ;uart.c: 33:     RCSTA2bits.SPEN=1;
+"32
+[; ;uart.c: 32:     RCSTA2bits.SPEN=1;
 [e = . . _RCSTA2bits 0 7 -> -> 1 `i `uc ]
-"34
-[; ;uart.c: 34:     TXSTA1bits.TXEN=1;
+"33
+[; ;uart.c: 33:     TXSTA1bits.TXEN=1;
 [e = . . _TXSTA1bits 0 5 -> -> 1 `i `uc ]
-"35
-[; ;uart.c: 35:     TXSTA2bits.TXEN=1;
+"34
+[; ;uart.c: 34:     TXSTA2bits.TXEN=1;
 [e = . . _TXSTA2bits 0 5 -> -> 1 `i `uc ]
-"36
-[; ;uart.c: 36:     IPEN=0;
-[e = _IPEN -> -> 0 `i `b ]
-"38
-[; ;uart.c: 38:     PIE1bits.RC1IE=0;
+"37
+[; ;uart.c: 37:     PIE1bits.RC1IE=0;
 [e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
 "43
-[; ;uart.c: 43:     INTCON|=0b11000000;
-[e =| _INTCON -> -> 192 `i `Vuc ]
-"44
-[; ;uart.c: 44:     RCSTA1bits.CREN=1;
+[; ;uart.c: 43:     RCSTA1bits.CREN=1;
 [e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
-"45
-[; ;uart.c: 45:     RCSTA2bits.CREN=1;
+"44
+[; ;uart.c: 44:     RCSTA2bits.CREN=1;
 [e = . . _RCSTA2bits 0 4 -> -> 1 `i `uc ]
-"46
-[; ;uart.c: 46: }
+"45
+[; ;uart.c: 45: }
 [e :UE 857 ]
 }
-"51
-[; ;uart.c: 51: void tx1(char data1)
+"50
+[; ;uart.c: 50: void tx1(char data1)
 [v _tx1 `(v ~T0 @X0 1 ef1`uc ]
-"52
-[; ;uart.c: 52: {
+"51
+[; ;uart.c: 51: {
 {
 [e :U _tx1 ]
-"51
-[; ;uart.c: 51: void tx1(char data1)
+"50
+[; ;uart.c: 50: void tx1(char data1)
 [v _data1 `uc ~T0 @X0 1 r1 ]
-"52
-[; ;uart.c: 52: {
+"51
+[; ;uart.c: 51: {
 [f ]
-"53
-[; ;uart.c: 53:     while(!PIR1bits.TX1IF);
+"52
+[; ;uart.c: 52:     while(!PIR1bits.TX1IF);
 [e $U 859  ]
 [e :U 860 ]
 [e :U 859 ]
 [e $ ! != -> . . _PIR1bits 0 4 `i -> 0 `i 860  ]
 [e :U 861 ]
-"54
-[; ;uart.c: 54:     TXREG1=data1;
+"53
+[; ;uart.c: 53:     TXREG1=data1;
 [e = _TXREG1 -> _data1 `uc ]
-"55
-[; ;uart.c: 55: }
+"54
+[; ;uart.c: 54: }
 [e :UE 858 ]
 }
-"58
-[; ;uart.c: 58: void tx2(char data2)
+"57
+[; ;uart.c: 57: void tx2(char data2)
 [v _tx2 `(v ~T0 @X0 1 ef1`uc ]
-"59
-[; ;uart.c: 59: {
+"58
+[; ;uart.c: 58: {
 {
 [e :U _tx2 ]
-"58
-[; ;uart.c: 58: void tx2(char data2)
+"57
+[; ;uart.c: 57: void tx2(char data2)
 [v _data2 `uc ~T0 @X0 1 r1 ]
-"59
-[; ;uart.c: 59: {
+"58
+[; ;uart.c: 58: {
 [f ]
-"60
-[; ;uart.c: 60:     while(!PIR3bits.TX2IF);
+"59
+[; ;uart.c: 59:     while(!PIR3bits.TX2IF);
 [e $U 863  ]
 [e :U 864 ]
 [e :U 863 ]
 [e $ ! != -> . . _PIR3bits 0 4 `i -> 0 `i 864  ]
 [e :U 865 ]
-"61
-[; ;uart.c: 61:     TXREG2=data2;
+"60
+[; ;uart.c: 60:     TXREG2=data2;
 [e = _TXREG2 -> _data2 `uc ]
-"62
-[; ;uart.c: 62: }
+"61
+[; ;uart.c: 61: }
 [e :UE 862 ]
 }
+"63
+[; ;uart.c: 63: void uart_wr_str(uint8_t port, uint8_t *str)
+[v _uart_wr_str `(v ~T0 @X0 1 ef2`uc`*uc ]
+"64
+[; ;uart.c: 64: {
+{
+[e :U _uart_wr_str ]
+"63
+[; ;uart.c: 63: void uart_wr_str(uint8_t port, uint8_t *str)
+[v _port `uc ~T0 @X0 1 r1 ]
+[v _str `*uc ~T0 @X0 1 r2 ]
+"64
+[; ;uart.c: 64: {
+[f ]
+"65
+[; ;uart.c: 65:     switch(port)
+[e $U 868  ]
 "66
-[; ;uart.c: 66: uint8_t rx1()
-[v _rx1 `(uc ~T0 @X0 1 ef ]
+[; ;uart.c: 66:     {
+{
 "67
-[; ;uart.c: 67: {
+[; ;uart.c: 67:         case(1):
+[e :U 869 ]
+"68
+[; ;uart.c: 68:             while(*str != '\0')
+[e $U 870  ]
+[e :U 871 ]
+"69
+[; ;uart.c: 69:             {
+{
+"70
+[; ;uart.c: 70:                 tx1(*str++);
+[e ( _tx1 (1 -> *U ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x `uc ]
+"71
+[; ;uart.c: 71:             }
+}
+[e :U 870 ]
+"68
+[; ;uart.c: 68:             while(*str != '\0')
+[e $ != -> *U _str `ui -> 0 `ui 871  ]
+[e :U 872 ]
+"72
+[; ;uart.c: 72:             tx1('\0');
+[e ( _tx1 (1 -> -> 0 `ui `uc ]
+"73
+[; ;uart.c: 73:             tx1('\n');
+[e ( _tx1 (1 -> -> 10 `ui `uc ]
+"74
+[; ;uart.c: 74:             tx1('\r');
+[e ( _tx1 (1 -> -> 13 `ui `uc ]
+"75
+[; ;uart.c: 75:             break;
+[e $U 867  ]
+"76
+[; ;uart.c: 76:         case(2):
+[e :U 873 ]
+"77
+[; ;uart.c: 77:             while(*str != '\0')
+[e $U 874  ]
+[e :U 875 ]
+"78
+[; ;uart.c: 78:             {
+{
+"79
+[; ;uart.c: 79:                 tx2(*str++);
+[e ( _tx2 (1 -> *U ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x `uc ]
+"80
+[; ;uart.c: 80:             }
+}
+[e :U 874 ]
+"77
+[; ;uart.c: 77:             while(*str != '\0')
+[e $ != -> *U _str `ui -> 0 `ui 875  ]
+[e :U 876 ]
+"81
+[; ;uart.c: 81:             tx2('\0');
+[e ( _tx2 (1 -> -> 0 `ui `uc ]
+"82
+[; ;uart.c: 82:             tx2('\n');
+[e ( _tx2 (1 -> -> 10 `ui `uc ]
+"83
+[; ;uart.c: 83:             tx2('\r');
+[e ( _tx2 (1 -> -> 13 `ui `uc ]
+"84
+[; ;uart.c: 84:             break;
+[e $U 867  ]
+"85
+[; ;uart.c: 85:         default:
+[e :U 877 ]
+"86
+[; ;uart.c: 86:             while(*str != '\0')
+[e $U 878  ]
+[e :U 879 ]
+"87
+[; ;uart.c: 87:             {
+{
+"88
+[; ;uart.c: 88:                 tx1(*str++);
+[e ( _tx1 (1 -> *U ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x `uc ]
+"89
+[; ;uart.c: 89:             }
+}
+[e :U 878 ]
+"86
+[; ;uart.c: 86:             while(*str != '\0')
+[e $ != -> *U _str `ui -> 0 `ui 879  ]
+[e :U 880 ]
+"90
+[; ;uart.c: 90:             tx1('\0');
+[e ( _tx1 (1 -> -> 0 `ui `uc ]
+"91
+[; ;uart.c: 91:             tx1('\n');
+[e ( _tx1 (1 -> -> 10 `ui `uc ]
+"92
+[; ;uart.c: 92:             tx1('\r');
+[e ( _tx1 (1 -> -> 13 `ui `uc ]
+"93
+[; ;uart.c: 93:             break;
+[e $U 867  ]
+"94
+[; ;uart.c: 94:     }
+}
+[e $U 867  ]
+[e :U 868 ]
+[e [\ -> _port `i , $ -> 1 `i 869
+ , $ -> 2 `i 873
+ 877 ]
+[e :U 867 ]
+"97
+[; ;uart.c: 97: }
+[e :UE 866 ]
+}
+"100
+[; ;uart.c: 100: uint8_t rx1()
+[v _rx1 `(uc ~T0 @X0 1 ef ]
+"101
+[; ;uart.c: 101: {
 {
 [e :U _rx1 ]
 [f ]
-"68
-[; ;uart.c: 68:     uint8_t x;
+"102
+[; ;uart.c: 102:     uint8_t x;
 [v _x `uc ~T0 @X0 1 a ]
-"69
-[; ;uart.c: 69:     while(!PIR1bits.RC1IF);
-[e $U 867  ]
-[e :U 868 ]
-[e :U 867 ]
-[e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 868  ]
-[e :U 869 ]
-"70
-[; ;uart.c: 70:     x=RCREG1;
+"103
+[; ;uart.c: 103:     if(PIR1bits.RC1IF)
+[e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 882  ]
+"104
+[; ;uart.c: 104:     {
+{
+"105
+[; ;uart.c: 105:         x=RCREG1;
 [e = _x _RCREG1 ]
-"71
-[; ;uart.c: 71:     PIR1bits.RCIF = 0;
-[e = . . _PIR1bits 1 3 -> -> 0 `i `uc ]
-"72
-[; ;uart.c: 72:     return x;
+"106
+[; ;uart.c: 106:         PIR1bits.RC1IF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"107
+[; ;uart.c: 107:     }
+}
+[e $U 883  ]
+"108
+[; ;uart.c: 108:     else
+[e :U 882 ]
+"109
+[; ;uart.c: 109:     {
+{
+"110
+[; ;uart.c: 110:         x = 0xFF;
+[e = _x -> -> 255 `i `uc ]
+"111
+[; ;uart.c: 111:     }
+}
+[e :U 883 ]
+"112
+[; ;uart.c: 112:     return x;
 [e ) _x ]
-[e $UE 866  ]
-"73
-[; ;uart.c: 73: }
-[e :UE 866 ]
+[e $UE 881  ]
+"113
+[; ;uart.c: 113: }
+[e :UE 881 ]
 }

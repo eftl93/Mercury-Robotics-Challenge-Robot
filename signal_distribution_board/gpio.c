@@ -21,7 +21,7 @@ void gpio_init(void)
    RED_LED_DIR = 0;     //set output for debugging led
    GREEN_LED_DIR = 0;   //set output for debugging led
    YELLOW_LED_DIR = 0;  //set output for debugging led
-   TRISD    |= 0x03;  //output to control the relay for the beam lights
+   TRISD    &= 0xFC;  //output to control the relay for the beam lights
    debug_leds_off();
    high_beams_off();
 }
