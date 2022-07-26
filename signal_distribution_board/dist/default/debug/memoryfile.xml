@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\signal_distribution_board.production.hex">
+  <executable name="dist/default/debug\signal_distribution_board.debug.hex">
     <memory name="program">
       <units>bytes</units>
       <length>65536</length>
-      <used>1644</used>
-      <free>63892</free>
+      <used>1646</used>
+      <free>63890</free>
     </memory>
     <memory name="data">
       <units>bytes</units>

@@ -71,7 +71,7 @@ void main()
                 if(current_command == previous_command) //Check if the received command is the same as the previous received command
                 {
                     glitch_watchdog_counter++;          //if it is, start counting how many times
-                    if(glitch_watchdog_counter >= 200)  //once the received command is the same as the previous command a certain number of times, send a 'o' character to the servo controller and motor controller
+                    if(glitch_watchdog_counter >= 400)  //once the received command is the same as the previous command a certain number of times, send a 'o' character to the servo controller and motor controller
                     {
                         forwarded_command = 'o';
                         high_beams_on();
@@ -132,9 +132,10 @@ void main()
                     break;
             }
            //new_frame = 0;
+          __delay_ms(16);
         }
        //load_timer1();
        // __asm("sleep");
-       __delay_ms(2); 
+        
     }
 }

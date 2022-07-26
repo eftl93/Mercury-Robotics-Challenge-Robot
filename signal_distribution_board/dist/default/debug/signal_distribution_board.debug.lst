@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.36 build 20220127204148 
-                                                                                               Mon Jul 25 22:56:49 2022
+                                                                                               Mon Jul 25 22:46:31 2022
 
 Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1 
      1                           	processor	18F46K22
@@ -634,11 +634,11 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    612  0000DC  4A47               	infsnz	_glitch_watchdog_counter^0,f,c
    613  0000DE  2A48               	incf	(_glitch_watchdog_counter+1)^0,f,c
    614  0000E0                     
-   615                           ;main.c: 74:                     if(glitch_watchdog_counter >= 400)
-   616  0000E0  0E90               	movlw	144
-   617  0000E2  5C47               	subwf	_glitch_watchdog_counter^0,w,c
-   618  0000E4  0E01               	movlw	1
-   619  0000E6  5848               	subwfb	(_glitch_watchdog_counter+1)^0,w,c
+   615                           ;main.c: 74:                     if(glitch_watchdog_counter >= 200)
+   616  0000E0  5048               	movf	(_glitch_watchdog_counter+1)^0,w,c
+   617  0000E2  E109               	bnz	u380
+   618  0000E4  0EC8               	movlw	200
+   619  0000E6  5C47               	subwf	_glitch_watchdog_counter^0,w,c
    620  0000E8  A0D8               	btfss	status,0,c
    621  0000EA  EF79  F000         	goto	u381
    622  0000EE  EF7B  F000         	goto	u380
@@ -693,8 +693,8 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    668  000130  EF9C  F000         	goto	l1550
    669  000134                     l1548:
    670                           
-   671                           ;main.c: 96:             {;main.c: 97:                 forwarded_command = 'o';
-   672  000134  0E6F               	movlw	111
+   671                           ;main.c: 96:             {;main.c: 97:                 forwarded_command = 0xAA;
+   672  000134  0EAA               	movlw	170
    673  000136  6E55               	movwf	main@forwarded_command^0,c
    674  000138                     l1550:
    675  000138  C055  F04D         	movff	main@forwarded_command,spi_data@tx_data
@@ -813,12 +813,12 @@ Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1
    787  0001D0  EFC1  F000         	goto	l1572
    788  0001D4                     l1578:
    789                           
-   790                           ;main.c: 135:           _delay((unsigned long)((16)*(64000000/4000.0)));
+   790                           ;main.c: 135:            _delay((unsigned long)((20)*(64000000/4000.0)));
    791  0001D4  0E02               	movlw	2
    792  0001D6  6E54               	movwf	(??_main+1)^0,c
-   793  0001D8  0E4D               	movlw	77
+   793  0001D8  0EA0               	movlw	160
    794  0001DA  6E53               	movwf	??_main^0,c
-   795  0001DC  0E74               	movlw	116
+   795  0001DC  0E92               	movlw	146
    796  0001DE                     u427:
    797  0001DE  2EE8               	decfsz	wreg,f,c
    798  0001E0  D7FE               	bra	u427
@@ -2726,7 +2726,7 @@ BANK15              38      0       0      36        0.0%
 BITBIGSFRllll       33      0       0      52        0.0%
 BITBIGSFRhl         21      0       0      38        0.0%
 BITBIGSFRllhhh       F      0       0      49        0.0%
-BITBIGSFRhh          D      0       0      37        0.0%
+BITBIGSFRhh          A      0       0      37        0.0%
 BITBIGSFRlhhhll      9      0       0      42        0.0%
 BITBIGSFRlhlhl       7      0       0      46        0.0%
 BITBIGSFRlhhlh       7      0       0      43        0.0%
@@ -2752,7 +2752,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.36 build 20220127204148 
-Symbol Table                                                                                   Mon Jul 25 22:56:49 2022
+Symbol Table                                                                                   Mon Jul 25 22:46:31 2022
 
              uart_wr_str@str 004E              uart_wr_str@port 0052                           l58 0102  
                         l121 0650                          l130 064C                          l124 0662  

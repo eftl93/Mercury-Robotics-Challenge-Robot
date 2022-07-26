@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "uart.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,13 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 18 "main.c"
+# 1 "uart.c" 2
+
+
+
+
+
+
 # 1 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9642,7 +9647,13 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 2 3
-# 18 "main.c" 2
+# 7 "uart.c" 2
+
+# 1 "./uart.h" 1
+
+
+
+
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
@@ -9788,7 +9799,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 19 "main.c" 2
+# 6 "./uart.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
@@ -9845,21 +9856,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 20 "main.c" 2
-
-# 1 "./spi.h" 1
-# 25 "./spi.h"
-void spi_master_init(void);
-unsigned char spi_data(unsigned char device, unsigned char tx_data);
-# 21 "main.c" 2
-
-# 1 "./uart.h" 1
-
-
-
-
-
-
+# 7 "./uart.h" 2
 
 # 1 "./main.h" 1
 # 17 "./main.h"
@@ -9911,137 +9908,110 @@ void uart_wr_str(uint8_t port, uint8_t *str);
 
 
 uint8_t rx1(void);
-# 22 "main.c" 2
-
-
-# 1 "./timer1.h" 1
-# 17 "./timer1.h"
-void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler);
-void load_timer1(void);
-# 24 "main.c" 2
-
-# 1 "./gpio.h" 1
-# 20 "./gpio.h"
-void gpio_init(void);
-void high_beams_on(void);
-void high_beams_off(void);
-void debug_leds_on(void);
-void debug_leds_off(void);
-# 25 "main.c" 2
+# 8 "uart.c" 2
 
 
 
 
+volatile unsigned char current_command;
+volatile unsigned char previous_command;
 
-extern volatile unsigned char current_command;
-unsigned int glitch_watchdog_counter = 0 ;
-extern volatile unsigned char previous_command;
-extern volatile uint16_t tick_counter;
-extern volatile uint16_t ticks_per_frame;
-extern volatile uint8_t new_frame;
-
-uint8_t text1[] = "Hello, Welcome!";
-uint8_t instructions1[] = "Press 'w' and 's' to move robot forward and backwards";
-uint8_t instructions2[] = "Press 'a' and 'd' to spin robot left and right";
-uint8_t instructions3[] = "Press 'q' and 'e' to turn light beam off and on";
-
-
-
-void main()
+void uart_init()
 {
-    uint8_t dummy_spi_tx;
-    uint8_t forwarded_command;
-    IPEN=0;
-    INTCON=0b00000000;
-    gpio_init();
-    spi_master_init();
-    uart_init();
-    timer1_init(60000,8);
-    dummy_spi_tx=spi_data(3,0x6F);
-    uart_wr_str(1, text1);
-    uart_wr_str(1, instructions1);
-    uart_wr_str(1, instructions2);
-    uart_wr_str(1, instructions3);
-    current_command = 0x00;
-    previous_command = 0x00;
-    forwarded_command = 'o';
+    TXSTA1bits.BRGH=1;
+    BAUDCON1bits.BRG16=1;
+    TXSTA2bits.BRGH=1;
+    BAUDCON2bits.BRG16=1;
+    SPBRG1=0x8A;
+    SPBRGH1=0x00;
+    SPBRG2=0x82;
+    SPBRGH2=0x06;
+    TRISCbits.RC6=1;
+    TRISCbits.RC7=1;
+    TRISDbits.RD6=1;
+    TRISDbits.RD7=1;
+    TXSTA1bits.SYNC=0;
+    TXSTA2bits.SYNC=0;
+    RCSTA1bits.SPEN=1;
+    RCSTA2bits.SPEN=1;
+    TXSTA1bits.TXEN=1;
+    TXSTA2bits.TXEN=1;
 
 
-    while(1)
+    PIE1bits.RC1IE=0;
+
+
+
+
+
+    RCSTA1bits.CREN=1;
+    RCSTA2bits.CREN=1;
+}
+
+
+
+
+void tx1(char data1)
+{
+    while(!PIR1bits.TX1IF);
+    TXREG1=data1;
+}
+
+
+void tx2(char data2)
+{
+    while(!PIR3bits.TX2IF);
+    TXREG2=data2;
+}
+
+void uart_wr_str(uint8_t port, uint8_t *str)
+{
+    switch(port)
     {
-        while(new_frame)
-        {
-            current_command = rx1();
-            if(current_command != 0xFF)
+        case(1):
+            while(*str != '\0')
             {
-                if(current_command == previous_command)
-                {
-                    glitch_watchdog_counter++;
-                    if(glitch_watchdog_counter >= 400)
-                    {
-                        forwarded_command = 'o';
-                        high_beams_on();
-                    }
-                    else
-                    {
-                        forwarded_command = current_command;
-                    }
-                }
-
-                else if(current_command != previous_command)
-                {
-                    forwarded_command = current_command;
-                    glitch_watchdog_counter = 0;
-                    high_beams_off();
-                }
-
-                previous_command = current_command;
+                tx1(*str++);
             }
-
-            else
+            tx1('\0');
+            tx1('\n');
+            tx1('\r');
+            break;
+        case(2):
+            while(*str != '\0')
             {
-                forwarded_command = 'o';
+                tx2(*str++);
             }
-
-
-
-            dummy_spi_tx=spi_data(3,forwarded_command);
-            tx2(forwarded_command);
-
-
-
-            switch(forwarded_command)
+            tx2('\0');
+            tx2('\n');
+            tx2('\r');
+            break;
+        default:
+            while(*str != '\0')
             {
-                case('a') :
-                    debug_leds_off();
-                    LATAbits.LATA0 = 1;
-                    break;
-                case('d'):
-                    debug_leds_off();
-                    LATAbits.LATA1 = 1;
-                    break;
-                case('w'):
-                    debug_leds_off();
-                    LATAbits.LATA2 = 1;
-                    break;
-                case('o'):
-                    debug_leds_off();
-                    break;
-                case('q'):
-                    high_beams_off();
-                    break;
-                case('e'):
-                    high_beams_on();
-                    break;
-                default:
-                    debug_leds_on();
-                    break;
+                tx1(*str++);
             }
-
-          _delay((unsigned long)((16)*(64000000/4000.0)));
-        }
-
-
-
+            tx1('\0');
+            tx1('\n');
+            tx1('\r');
+            break;
     }
+
+
+}
+
+
+uint8_t rx1()
+{
+    uint8_t x;
+    if(PIR1bits.RC1IF)
+    {
+        x=RCREG1;
+        PIR1bits.RC1IF = 0;
+    }
+    else
+    {
+        x = 0xFF;
+    }
+    return x;
 }

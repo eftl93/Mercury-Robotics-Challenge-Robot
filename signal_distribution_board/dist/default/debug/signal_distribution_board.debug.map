@@ -3,12 +3,12 @@ Microchip MPLAB XC8 Compiler V2.36
 Linker command line:
 
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.36\pic\dat\en_msgs.txt -cn \
-  -h+dist/default/production\signal_distribution_board.production.sym \
-  --cmf=dist/default/production\signal_distribution_board.production.cmf -z \
-  -Q18F46K22 -oC:\Users\eder0\AppData\Local\Temp\xcAspks.4 \
+  -h+dist/default/debug\signal_distribution_board.debug.sym \
+  --cmf=dist/default/debug\signal_distribution_board.debug.cmf -z \
+  -Q18F46K22 -oC:\Users\eder0\AppData\Local\Temp\xcAsg3o.4 \
   --defsym=__MPLAB_BUILD=1 \
-  -Mdist/default/production/signal_distribution_board.production.map \
-  --md=C:\Users\eder0\AppData\Local\Temp\xcAspks.dat -E1 -ver=XC8 Compiler \
+  -Mdist/default/debug/signal_distribution_board.debug.map \
+  --md=C:\Users\eder0\AppData\Local\Temp\xcAsg3o.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh \
   -ASMALLCONST=01000h-010FFhx240 -AMEDIUMCONST=01000h-0FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0F37h -ABIGRAM=01h-0F37h \
@@ -18,7 +18,7 @@ Linker command line:
   -ABANK7=0700h-07FFh -ABANK8=0800h-08FFh -ABANK9=0900h-09FFh \
   -ABANK10=0A00h-0AFFh -ABANK11=0B00h-0BFFh -ABANK12=0C00h-0CFFh \
   -ABANK13=0D00h-0DFFh -ABANK14=0E00h-0EFFh -ABANK15=0F00h-0F37h \
-  -ASFR=0F38h-0F5Fh,0F60h-0FFFh -ABIGSFR=0F38h-0FFFh \
+  -ASFR=0F38h-0F5Fh,0F60h-0FFCh -ABIGSFR=0F38h-0FFCh \
   -ACONFIG=0300000h-030000Dh -AIDLOC=0200000h-0200007h \
   -AEEDATA=0F00000h-0F003FFh -peeprom_data=EEDATA \
   -preset_vec=00h,intcode=08h,intcodelo,powerup,init -pramtop=01000h \
@@ -28,8 +28,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\eder0\AppData\Local\Temp\xcAspks.o \
-  dist/default/production\signal_distribution_board.production.o 
+  C:\Users\eder0\AppData\Local\Temp\xcAsg3o.o \
+  dist/default/debug\signal_distribution_board.debug.o 
 
 Object code version is 3.11
 
@@ -38,12 +38,12 @@ Machine type is 18F46K22
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\eder0\AppData\Local\Temp\xcAspks.o
+C:\Users\eder0\AppData\Local\Temp\xcAsg3o.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                 3C       3C        4        4       0
-                reset_vec                             0        0        4        0       0
-dist/default/production\signal_distribution_board.production.o
+                reset_vec                             0        0        6        0       0
+dist/default/debug\signal_distribution_board.debug.o
                 intcode                               8        8       34        4       0
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
@@ -74,7 +74,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 intcode                               8        8       34         0
                 init                                 3C       3C        4         0
-                reset_vec                             0        0        4         0
+                reset_vec                             0        0        6         0
                 text13                              66A      66A        6         0
                 text12                              664      664        6         0
                 text11                              5CE      5CE       28         0
@@ -166,7 +166,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                reset_vec                      000000  000004  000004         0       0  CODE    
+                reset_vec                      000000  000006  000006         0       0  CODE    
                 dataCOMRAM                     000001  000056  000057         1       1  COMRAM  
                 intcode                        000008  000668  000670         4       0  CODE    
                 dataBANK0                      000060  000066  0000C6        60       1  BANK0   
@@ -193,16 +193,16 @@ UNUSED ADDRESS RANGES
         BANK9            000900-0009FF              100
         BIGRAM           000057-00005F                9
                          0000C6-000F37              E72
-        BIGSFR           000F38-000FFF               C8
-        CODE             000004-000007                4
+        BIGSFR           000F38-000FFC               C5
+        CODE             000006-000007                2
                          000670-00FFFF             F990
         COMRAM           000057-00005F                9
-        CONST            000004-000007                4
+        CONST            000006-000007                2
                          000670-00FFFF             F990
         EEDATA           F00000-F003FF              400
         MEDIUMCONST      001000-00FFFF             F000
         RAM              0000C6-000F37              100
-        SFR              000F38-000FFF               28
+        SFR              000F38-000FFC               28
         SMALLCONST       001000-00FFFF              100
 
                                   Symbol Table
@@ -312,7 +312,7 @@ __Hramtop                    ramtop       001000
 __Hrbit                      rbit         000000
 __Hrbss                      rbss         000000
 __Hrdata                     rdata        000000
-__Hreset_vec                 reset_vec    000004
+__Hreset_vec                 reset_vec    000006
 __Hrparam                    rparam       000000
 __Hsfr                       sfr          000000
 __Hsmallconst                smallconst   000000

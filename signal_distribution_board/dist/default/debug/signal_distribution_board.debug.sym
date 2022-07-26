@@ -299,7 +299,7 @@ __LidataCOMRAM 0 0 ABS 0
 __pidataCOMRAM 502 0 CODE 0
 __end_of_gpio_init 5A6 0 CODE 0
 __smallconst 0 0 SMALLCONST 0
-__Hreset_vec 4 0 CODE 0
+__Hreset_vec 6 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 __end_of_timer1_init 442 0 CODE 0
 tx1@data1 4D 0 COMRAM 1
@@ -328,14 +328,14 @@ __activetblptr 2 0 ABS 0
 __end_of_rx1 638 0 CODE 0
 __end_of_tx1 664 0 CODE 0
 %segments
-reset_vec 0 3 CODE 0 0
+reset_vec 0 5 CODE 0 0
 intcode 8 66F CODE 8 0
 dataCOMRAM 1 56 COMRAM 1 1
 dataBANK0 60 C5 BANK0 60 1
 %locals
-dist/default/production\signal_distribution_board.production.o
+dist/default/debug\signal_distribution_board.debug.o
 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
-C:\Users\eder0\AppData\Local\Temp\xcAspks.s
+C:\Users\eder0\AppData\Local\Temp\xcAsg3o.s
 2995 4A8 0 CODE 0
 2997 4A8 0 CODE 0
 3000 4A8 0 CODE 0
@@ -626,7 +626,7 @@ gpio.c
 47 66A 0 CODE 0
 49 66A 0 CODE 0
 50 66E 0 CODE 0
-C:\Users\eder0\AppData\Local\Temp\xcAspks.s
+C:\Users\eder0\AppData\Local\Temp\xcAsg3o.s
 5580 8 0 CODE 0
 timer1.c
 72 8 0 CODE 0

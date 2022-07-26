@@ -1165,8 +1165,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 73:                     glitch_watchdog_counter++;
 [e ++ _glitch_watchdog_counter -> -> 1 `i `ui ]
 "74
-[; ;main.c: 74:                     if(glitch_watchdog_counter >= 400)
-[e $ ! >= _glitch_watchdog_counter -> -> 400 `i `ui 866  ]
+[; ;main.c: 74:                     if(glitch_watchdog_counter >= 200)
+[e $ ! >= _glitch_watchdog_counter -> -> 200 `i `ui 866  ]
 "75
 [; ;main.c: 75:                     {
 {
@@ -1232,8 +1232,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 96:             {
 {
 "97
-[; ;main.c: 97:                 forwarded_command = 'o';
-[e = _forwarded_command -> -> 111 `ui `uc ]
+[; ;main.c: 97:                 forwarded_command = 0xAA;
+[e = _forwarded_command -> -> 170 `i `uc ]
 "98
 [; ;main.c: 98:             }
 }
@@ -1336,8 +1336,8 @@ Version 4.0 HI-TECH Software Intermediate Code
  879 ]
 [e :U 871 ]
 "135
-[; ;main.c: 135:           _delay((unsigned long)((16)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 16 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 135:            _delay((unsigned long)((20)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "136
 [; ;main.c: 136:         }
 }

@@ -9977,7 +9977,7 @@ void main()
                 if(current_command == previous_command)
                 {
                     glitch_watchdog_counter++;
-                    if(glitch_watchdog_counter >= 400)
+                    if(glitch_watchdog_counter >= 200)
                     {
                         forwarded_command = 'o';
                         high_beams_on();
@@ -10000,7 +10000,7 @@ void main()
 
             else
             {
-                forwarded_command = 'o';
+                forwarded_command = 0xAA;
             }
 
 
@@ -10038,7 +10038,7 @@ void main()
                     break;
             }
 
-          _delay((unsigned long)((16)*(64000000/4000.0)));
+           _delay((unsigned long)((20)*(64000000/4000.0)));
         }
 
 

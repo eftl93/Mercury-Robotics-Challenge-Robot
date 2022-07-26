@@ -1,31 +1,31 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- dist/default/production\signal_distribution_board.production.hex
- -Odist/default/production\signal_distribution_board.production.hex
- -logfile=dist/default/production\signal_distribution_board.production.hxl
+ dist/default/debug\signal_distribution_board.debug.hex
+ -Odist/default/debug\signal_distribution_board.debug.hex
+ -logfile=dist/default/debug\signal_distribution_board.debug.hxl
  -addressing=1
  -break=300000
 
 ### Memory Usage ###
  Intel Hex-file ranges:
-  0h - 3h		(dist/default/production\signal_distribution_board.production.hex)
-  8h - 66Fh		(dist/default/production\signal_distribution_board.production.hex)
-  200000h - 200007h		(dist/default/production\signal_distribution_board.production.hex)
-  300000h - 30000Dh		(dist/default/production\signal_distribution_board.production.hex)
+  0h - 5h		(dist/default/debug\signal_distribution_board.debug.hex)
+  8h - 66Fh		(dist/default/debug\signal_distribution_board.debug.hex)
+  200000h - 200007h		(dist/default/debug\signal_distribution_board.debug.hex)
+  300000h - 30000Dh		(dist/default/debug\signal_distribution_board.debug.hex)
  Unused ranges:
-  4h - 7h
+  6h - 7h
   670h - 1FFFFFh
   200008h - 2FFFFFh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Intel Hex-file         (dist/default/production\signal_distribution_board.production.hex)
+  H1 = Intel Hex-file         (dist/default/debug\signal_distribution_board.debug.hex)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
-00000000 | H1 H1 H1 H1 -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
+00000000 | H1 H1 H1 H1 H1 H1 -- -- H1 H1 H1 H1 H1 H1 H1 H1
 00000010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000030 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
