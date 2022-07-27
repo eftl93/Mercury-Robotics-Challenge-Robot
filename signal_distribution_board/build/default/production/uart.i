@@ -9905,6 +9905,7 @@ void uart_init(void);
 void tx1(char data1);
 void tx2(char data2);
 void uart_wr_str(uint8_t port, uint8_t *str);
+void rx1_overrun_detect_reset(void);
 
 
 uint8_t rx1(void);
@@ -9999,6 +10000,16 @@ void uart_wr_str(uint8_t port, uint8_t *str)
 
 
 }
+void rx1_overrun_detect_reset(void)
+{
+          if(RCSTA1bits.OERR)
+          {
+              RCSTA1bits.CREN = 0;
+              _delay((unsigned long)((4)*(64000000/4000000.0)));
+              RCSTA1bits.CREN = 1;
+          }
+}
+
 
 
 uint8_t rx1()

@@ -30,8 +30,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32
 [; ;main.c: 32: extern volatile unsigned char previous_command;
 [v _previous_command `Vuc ~T0 @X0 0 e ]
-"28 ./uart.h
-[; ;./uart.h: 28: uint8_t rx1(void);
+"29 ./uart.h
+[; ;./uart.h: 29: uint8_t rx1(void);
 [v _rx1 `(uc ~T0 @X0 0 ef ]
 "21 ./gpio.h
 [; ;./gpio.h: 21: void high_beams_on(void);
@@ -67,6 +67,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
+"26 ./uart.h
+[; ;./uart.h: 26: void rx1_overrun_detect_reset(void);
+[v _rx1_overrun_detect_reset `(v ~T0 @X0 0 ef ]
 "35 main.c
 [; ;main.c: 35: extern volatile uint8_t new_frame;
 [v _new_frame `Vuc ~T0 @X0 0 e ]
@@ -1339,20 +1342,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 135:           _delay((unsigned long)((16)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 16 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "136
-[; ;main.c: 136:         }
+[; ;main.c: 136:           rx1_overrun_detect_reset();
+[e ( _rx1_overrun_detect_reset ..  ]
+"137
+[; ;main.c: 137:         }
 }
 [e :U 861 ]
 "66
 [; ;main.c: 66:         while(new_frame)
 [e $ != -> _new_frame `i -> 0 `i 862  ]
 [e :U 863 ]
-"140
-[; ;main.c: 140:     }
+"141
+[; ;main.c: 141:     }
 }
 [e :U 858 ]
 [e $U 859  ]
 [e :U 860 ]
-"141
-[; ;main.c: 141: }
+"142
+[; ;main.c: 142: }
 [e :UE 857 ]
 }

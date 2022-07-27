@@ -95,6 +95,16 @@ void uart_wr_str(uint8_t port, uint8_t *str)
             
                 
 }
+void rx1_overrun_detect_reset(void)
+{
+          if(RCSTA1bits.OERR)
+          {
+              RCSTA1bits.CREN = 0;
+              __delay_us(4);
+              RCSTA1bits.CREN = 1;
+          }
+}
+
 #ifndef UART1_INTERRUPT
 //This is the polling method, it will run if UART1_INTERRUPT is not defined
 uint8_t rx1()

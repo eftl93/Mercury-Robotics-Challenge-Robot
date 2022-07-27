@@ -133,6 +133,7 @@ void main()
             }
            //new_frame = 0;
           __delay_ms(16);
+          rx1_overrun_detect_reset();
         }
        //load_timer1();
        // __asm("sleep");

@@ -246,7 +246,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5091
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5091: extern volatile unsigned char TXREG2 __attribute__((address(0xF73)));
 [v _TXREG2 `Vuc ~T0 @X0 0 e@3955 ]
-"11289
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\builtins.h
+[v __delay `JF192 ~T0 @X0 0 e ]
+[p i __delay ]
+"11289 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 11289: extern volatile unsigned char RCREG1 __attribute__((address(0xFAE)));
 [v _RCREG1 `Vuc ~T0 @X0 0 e@4014 ]
 "55 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
@@ -1323,51 +1327,82 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;uart.c: 97: }
 [e :UE 866 ]
 }
+"98
+[; ;uart.c: 98: void rx1_overrun_detect_reset(void)
+[v _rx1_overrun_detect_reset `(v ~T0 @X0 1 ef ]
+"99
+[; ;uart.c: 99: {
+{
+[e :U _rx1_overrun_detect_reset ]
+[f ]
 "100
-[; ;uart.c: 100: uint8_t rx1()
-[v _rx1 `(uc ~T0 @X0 1 ef ]
+[; ;uart.c: 100:           if(RCSTA1bits.OERR)
+[e $ ! != -> . . _RCSTA1bits 0 1 `i -> 0 `i 882  ]
 "101
-[; ;uart.c: 101: {
+[; ;uart.c: 101:           {
+{
+"102
+[; ;uart.c: 102:               RCSTA1bits.CREN = 0;
+[e = . . _RCSTA1bits 0 4 -> -> 0 `i `uc ]
+"103
+[; ;uart.c: 103:               _delay((unsigned long)((4)*(64000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
+"104
+[; ;uart.c: 104:               RCSTA1bits.CREN = 1;
+[e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
+"105
+[; ;uart.c: 105:           }
+}
+[e :U 882 ]
+"106
+[; ;uart.c: 106: }
+[e :UE 881 ]
+}
+"110
+[; ;uart.c: 110: uint8_t rx1()
+[v _rx1 `(uc ~T0 @X0 1 ef ]
+"111
+[; ;uart.c: 111: {
 {
 [e :U _rx1 ]
 [f ]
-"102
-[; ;uart.c: 102:     uint8_t x;
-[v _x `uc ~T0 @X0 1 a ]
-"103
-[; ;uart.c: 103:     if(PIR1bits.RC1IF)
-[e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 882  ]
-"104
-[; ;uart.c: 104:     {
-{
-"105
-[; ;uart.c: 105:         x=RCREG1;
-[e = _x _RCREG1 ]
-"106
-[; ;uart.c: 106:         PIR1bits.RC1IF = 0;
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"107
-[; ;uart.c: 107:     }
-}
-[e $U 883  ]
-"108
-[; ;uart.c: 108:     else
-[e :U 882 ]
-"109
-[; ;uart.c: 109:     {
-{
-"110
-[; ;uart.c: 110:         x = 0xFF;
-[e = _x -> -> 255 `i `uc ]
-"111
-[; ;uart.c: 111:     }
-}
-[e :U 883 ]
 "112
-[; ;uart.c: 112:     return x;
-[e ) _x ]
-[e $UE 881  ]
+[; ;uart.c: 112:     uint8_t x;
+[v _x `uc ~T0 @X0 1 a ]
 "113
-[; ;uart.c: 113: }
-[e :UE 881 ]
+[; ;uart.c: 113:     if(PIR1bits.RC1IF)
+[e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 884  ]
+"114
+[; ;uart.c: 114:     {
+{
+"115
+[; ;uart.c: 115:         x=RCREG1;
+[e = _x _RCREG1 ]
+"116
+[; ;uart.c: 116:         PIR1bits.RC1IF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"117
+[; ;uart.c: 117:     }
+}
+[e $U 885  ]
+"118
+[; ;uart.c: 118:     else
+[e :U 884 ]
+"119
+[; ;uart.c: 119:     {
+{
+"120
+[; ;uart.c: 120:         x = 0xFF;
+[e = _x -> -> 255 `i `uc ]
+"121
+[; ;uart.c: 121:     }
+}
+[e :U 885 ]
+"122
+[; ;uart.c: 122:     return x;
+[e ) _x ]
+[e $UE 883  ]
+"123
+[; ;uart.c: 123: }
+[e :UE 883 ]
 }
