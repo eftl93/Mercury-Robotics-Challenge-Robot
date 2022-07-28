@@ -1,171 +1,78 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"5656 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5656:     struct {
-[s S280 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S280 . C1CH C1R C1SP C1POL C1OE C1OUT C1ON ]
-"5665
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5665:     struct {
-[s S281 :1 `uc 1 :1 `uc 1 ]
-[n S281 . C1CH0 C1CH1 ]
-"5669
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5669:     struct {
-[s S282 :1 `uc 1 ]
-[n S282 . CCH0 ]
-"5672
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5672:     struct {
-[s S283 :1 `uc 1 ]
-[n S283 . CCH01 ]
-"5675
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5675:     struct {
-[s S284 :1 `uc 1 :1 `uc 1 ]
-[n S284 . . CCH1 ]
-"5679
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5679:     struct {
-[s S285 :1 `uc 1 :1 `uc 1 ]
-[n S285 . . CCH11 ]
-"5683
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5683:     struct {
-[s S286 :6 `uc 1 :1 `uc 1 ]
-[n S286 . . COE ]
-"5687
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5687:     struct {
-[s S287 :6 `uc 1 :1 `uc 1 ]
-[n S287 . . COE1 ]
-"5691
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5691:     struct {
-[s S288 :7 `uc 1 :1 `uc 1 ]
-[n S288 . . CON ]
-"5695
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5695:     struct {
-[s S289 :7 `uc 1 :1 `uc 1 ]
-[n S289 . . CON1 ]
-"5699
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5699:     struct {
-[s S290 :5 `uc 1 :1 `uc 1 ]
-[n S290 . . CPOL ]
-"5703
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5703:     struct {
-[s S291 :5 `uc 1 :1 `uc 1 ]
-[n S291 . . CPOL1 ]
-"5707
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5707:     struct {
-[s S292 :2 `uc 1 :1 `uc 1 ]
-[n S292 . . CREF ]
-"5711
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5711:     struct {
-[s S293 :2 `uc 1 :1 `uc 1 ]
-[n S293 . . CREF1 ]
-"5715
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5715:     struct {
-[s S294 :3 `uc 1 :1 `uc 1 ]
-[n S294 . . EVPOL0 ]
-"5719
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5719:     struct {
-[s S295 :3 `uc 1 :1 `uc 1 ]
-[n S295 . . EVPOL01 ]
-"5723
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5723:     struct {
-[s S296 :4 `uc 1 :1 `uc 1 ]
-[n S296 . . EVPOL1 ]
-"5727
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5727:     struct {
-[s S297 :4 `uc 1 :1 `uc 1 ]
-[n S297 . . EVPOL11 ]
-"5655
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5655: typedef union {
-[u S279 `S280 1 `S281 1 `S282 1 `S283 1 `S284 1 `S285 1 `S286 1 `S287 1 `S288 1 `S289 1 `S290 1 `S291 1 `S292 1 `S293 1 `S294 1 `S295 1 `S296 1 `S297 1 ]
-[n S279 . . . . . . . . . . . . . . . . . . . ]
-"5732
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5732: extern volatile CM1CON0bits_t CM1CON0bits __attribute__((address(0xF79)));
-[v _CM1CON0bits `VS279 ~T0 @X0 0 e@3961 ]
-"5376
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5376:     struct {
-[s S258 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S258 . C2CH C2R C2SP C2POL C2OE C2OUT C2ON ]
-"5385
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5385:     struct {
-[s S259 :1 `uc 1 :1 `uc 1 ]
-[n S259 . C2CH0 C2CH1 ]
-"5389
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5389:     struct {
-[s S260 :1 `uc 1 ]
-[n S260 . CCH02 ]
-"5392
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5392:     struct {
-[s S261 :1 `uc 1 :1 `uc 1 ]
-[n S261 . . CCH12 ]
-"5396
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5396:     struct {
-[s S262 :6 `uc 1 :1 `uc 1 ]
-[n S262 . . COE2 ]
-"5400
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5400:     struct {
-[s S263 :7 `uc 1 :1 `uc 1 ]
-[n S263 . . CON2 ]
-"5404
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5404:     struct {
-[s S264 :5 `uc 1 :1 `uc 1 ]
-[n S264 . . CPOL2 ]
-"5408
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5408:     struct {
-[s S265 :2 `uc 1 :1 `uc 1 ]
-[n S265 . . CREF2 ]
-"5412
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5412:     struct {
-[s S266 :3 `uc 1 :1 `uc 1 ]
-[n S266 . . EVPOL02 ]
-"5416
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5416:     struct {
-[s S267 :4 `uc 1 :1 `uc 1 ]
-[n S267 . . EVPOL12 ]
-"5375
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5375: typedef union {
-[u S257 `S258 1 `S259 1 `S260 1 `S261 1 `S262 1 `S263 1 `S264 1 `S265 1 `S266 1 `S267 1 ]
-[n S257 . . . . . . . . . . . ]
-"5421
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 5421: extern volatile CM2CON0bits_t CM2CON0bits __attribute__((address(0xF78)));
-[v _CM2CON0bits `VS257 ~T0 @X0 0 e@3960 ]
+"18667 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 18667: extern volatile __bit IPEN __attribute__((address(0x7E87)));
+[v _IPEN `Vb ~T0 @X0 0 e@32391 ]
+"16927
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 16927: extern volatile unsigned char INTCON __attribute__((address(0xFF2)));
+[v _INTCON `Vuc ~T0 @X0 0 e@4082 ]
+"20 ./gpio.h
+[; ;./gpio.h: 20: void gpio_init(void);
+[v _gpio_init `(v ~T0 @X0 0 ef ]
 "25 ./spi.h
 [; ;./spi.h: 25: void spi_master_init(void);
 [v _spi_master_init `(v ~T0 @X0 0 ef ]
-"21 ./uart.h
-[; ;./uart.h: 21: void uart_init(void);
+"22 ./uart.h
+[; ;./uart.h: 22: void uart_init(void);
 [v _uart_init `(v ~T0 @X0 0 ef ]
-"8061 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 8061: extern volatile unsigned char TRISA __attribute__((address(0xF92)));
-[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
-"8727
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 8727: extern volatile unsigned char TRISD __attribute__((address(0xF95)));
-[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
-"7561
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7561: extern volatile unsigned char LATA __attribute__((address(0xF89)));
-[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
-"7897
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7897: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
-[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
+"17 ./timer1.h
+[; ;./timer1.h: 17: void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler);
+[v _timer1_init `(v ~T0 @X0 0 ef2`us`uc ]
+"26 ./spi.h
+[; ;./spi.h: 26: unsigned char spi_data(unsigned char device, unsigned char tx_data);
+[v _spi_data `(uc ~T0 @X0 0 ef2`uc`uc ]
+"25 ./uart.h
+[; ;./uart.h: 25: void uart_wr_str(uint8_t port, uint8_t *str);
+[v _uart_wr_str `(v ~T0 @X0 0 ef2`uc`*uc ]
+"30 main.c
+[; ;main.c: 30: extern volatile unsigned char current_command;
+[v _current_command `Vuc ~T0 @X0 0 e ]
+"32
+[; ;main.c: 32: extern volatile unsigned char previous_command;
+[v _previous_command `Vuc ~T0 @X0 0 e ]
+"29 ./uart.h
+[; ;./uart.h: 29: uint8_t rx1(void);
+[v _rx1 `(uc ~T0 @X0 0 ef ]
+"21 ./gpio.h
+[; ;./gpio.h: 21: void high_beams_on(void);
+[v _high_beams_on `(v ~T0 @X0 0 ef ]
+"22
+[; ;./gpio.h: 22: void high_beams_off(void);
+[v _high_beams_off `(v ~T0 @X0 0 ef ]
+"24 ./uart.h
+[; ;./uart.h: 24: void tx2(char data2);
+[v _tx2 `(v ~T0 @X0 0 ef1`uc ]
+"24 ./gpio.h
+[; ;./gpio.h: 24: void debug_leds_off(void);
+[v _debug_leds_off `(v ~T0 @X0 0 ef ]
+"7567 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7567:     struct {
+[s S380 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S380 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"7577
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7577:     struct {
+[s S381 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S381 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
+"7566
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7566: typedef union {
+[u S379 `S380 1 `S381 1 ]
+[n S379 . . . ]
+"7588
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7588: extern volatile LATAbits_t LATAbits __attribute__((address(0xF89)));
+[v _LATAbits `VS379 ~T0 @X0 0 e@3977 ]
+"23 ./gpio.h
+[; ;./gpio.h: 23: void debug_leds_on(void);
+[v _debug_leds_on `(v ~T0 @X0 0 ef ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
-"26 ./spi.h
-[; ;./spi.h: 26: unsigned char spi_data(unsigned char device, unsigned char tx_data);
-[v _spi_data `(uc ~T0 @X0 0 ef2`uc`uc ]
-"29 main.c
-[; ;main.c: 29: extern volatile unsigned int glitch_watchdog_counter;
-[v _glitch_watchdog_counter `Vui ~T0 @X0 0 e ]
-"28
-[; ;main.c: 28: extern volatile unsigned char current_command;
-[v _current_command `Vuc ~T0 @X0 0 e ]
-"31
-[; ;main.c: 31: extern volatile unsigned char nglitch_flag;
-[v _nglitch_flag `Vuc ~T0 @X0 0 e ]
-"30
-[; ;main.c: 30: extern volatile unsigned char previous_command;
-[v _previous_command `Vuc ~T0 @X0 0 e ]
-"23 ./uart.h
-[; ;./uart.h: 23: void tx2(char data2);
-[v _tx2 `(v ~T0 @X0 0 ef1`uc ]
+"26 ./uart.h
+[; ;./uart.h: 26: void rx1_overrun_detect_reset(void);
+[v _rx1_overrun_detect_reset `(v ~T0 @X0 0 ef ]
+"35 main.c
+[; ;main.c: 35: extern volatile uint8_t new_frame;
+[v _new_frame `Vuc ~T0 @X0 0 e ]
 "55 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 55: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -925,286 +832,533 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17407
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 17407: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"16 ./main.h
+"17 ./main.h
 [p x FOSC  =  HSHP       ]
-"17
-[p x PLLCFG  =  ON       ]
 "18
-[p x PRICLKEN  =  ON     ]
+[p x PLLCFG  =  ON       ]
 "19
-[p x FCMEN  =  OFF       ]
+[p x PRICLKEN  =  ON     ]
 "20
+[p x FCMEN  =  OFF       ]
+"21
 [p x IESO  =  OFF        ]
-"23
-[p x PWRTEN  =  OFF      ]
 "24
+[p x PWRTEN  =  OFF      ]
+"25
 [p x BOREN  =  OFF       ]
-"27
+"28
 [p x WDTEN  =  OFF       ]
-"30
-[p x CCP2MX  =  PORTC1   ]
 "31
-[p x PBADEN  =  OFF      ]
+[p x CCP2MX  =  PORTC1   ]
 "32
-[p x CCP3MX  =  PORTE0   ]
+[p x PBADEN  =  OFF      ]
 "33
-[p x HFOFST  =  OFF      ]
+[p x CCP3MX  =  PORTE0   ]
 "34
+[p x HFOFST  =  OFF      ]
+"35
 [p x T3CMX    =  PORTC0   ]
-"35
-[p x P2BMX    =  PORTC0   ]
 "36
+[p x P2BMX    =  PORTC0   ]
+"37
 [p x MCLRE    =  EXTMCLR  ]
-"39
-[p x STVREN  =  ON       ]
 "40
-[p x LVP        =  OFF      ]
+[p x STVREN  =  ON       ]
 "41
+[p x LVP        =  OFF      ]
+"42
 [p x DEBUG    =  OFF      ]
-"44
+"45
 [p x CP0  =  OFF   CP1  =  OFF   CP2  =  OFF   CP3  =  OFF ]
-"46
+"47
 [p x CPB  =  OFF   CPD  =  OFF ]
-"48
+"49
 [p x WRT0  =  OFF   WRT1  =  OFF   WRT2  =  OFF   WRT3  =  OFF ]
-"50
+"51
 [p x WRTC  =  OFF   WRTB  =  OFF   WRTD  =  OFF ]
-"52
+"53
 [p x EBTR0  =  OFF   EBTR1  =  OFF   EBTR2  =  OFF   EBTR3  =  OFF ]
-"54
+"55
 [p x EBTRB  =  OFF ]
+"31 main.c
+[; ;main.c: 31: unsigned int glitch_watchdog_counter = 0 ;
+[v _glitch_watchdog_counter `ui ~T0 @X0 1 e ]
+[i _glitch_watchdog_counter
+-> -> 0 `i `ui
+]
+"37
+[; ;main.c: 37: uint8_t text1[] = "Hello, Welcome!";
+[v _text1 `uc ~T0 @X0 -> 16 `i e ]
+[i _text1
+:U ..
+-> 72 `c
+-> 101 `c
+-> 108 `c
+-> 108 `c
+-> 111 `c
+-> 44 `c
+-> 32 `c
+-> 87 `c
+-> 101 `c
+-> 108 `c
+-> 99 `c
+-> 111 `c
+-> 109 `c
+-> 101 `c
+-> 33 `c
+-> 0 `c
+..
+]
+"38
+[; ;main.c: 38: uint8_t instructions1[] = "Press 'w' and 's' to move robot forward and backwards";
+[v _instructions1 `uc ~T0 @X0 -> 54 `i e ]
+[i _instructions1
+:U ..
+-> 80 `c
+-> 114 `c
+-> 101 `c
+-> 115 `c
+-> 115 `c
+-> 32 `c
+-> 39 `c
+-> 119 `c
+-> 39 `c
+-> 32 `c
+-> 97 `c
+-> 110 `c
+-> 100 `c
+-> 32 `c
+-> 39 `c
+-> 115 `c
+-> 39 `c
+-> 32 `c
+-> 116 `c
+-> 111 `c
+-> 32 `c
+-> 109 `c
+-> 111 `c
+-> 118 `c
+-> 101 `c
+-> 32 `c
+-> 114 `c
+-> 111 `c
+-> 98 `c
+-> 111 `c
+-> 116 `c
+-> 32 `c
+-> 102 `c
+-> 111 `c
+-> 114 `c
+-> 119 `c
+-> 97 `c
+-> 114 `c
+-> 100 `c
+-> 32 `c
+-> 97 `c
+-> 110 `c
+-> 100 `c
+-> 32 `c
+-> 98 `c
+-> 97 `c
+-> 99 `c
+-> 107 `c
+-> 119 `c
+-> 97 `c
+-> 114 `c
+-> 100 `c
+-> 115 `c
+-> 0 `c
+..
+]
+"39
+[; ;main.c: 39: uint8_t instructions2[] = "Press 'a' and 'd' to spin robot left and right";
+[v _instructions2 `uc ~T0 @X0 -> 47 `i e ]
+[i _instructions2
+:U ..
+-> 80 `c
+-> 114 `c
+-> 101 `c
+-> 115 `c
+-> 115 `c
+-> 32 `c
+-> 39 `c
+-> 97 `c
+-> 39 `c
+-> 32 `c
+-> 97 `c
+-> 110 `c
+-> 100 `c
+-> 32 `c
+-> 39 `c
+-> 100 `c
+-> 39 `c
+-> 32 `c
+-> 116 `c
+-> 111 `c
+-> 32 `c
+-> 115 `c
+-> 112 `c
+-> 105 `c
+-> 110 `c
+-> 32 `c
+-> 114 `c
+-> 111 `c
+-> 98 `c
+-> 111 `c
+-> 116 `c
+-> 32 `c
+-> 108 `c
+-> 101 `c
+-> 102 `c
+-> 116 `c
+-> 32 `c
+-> 97 `c
+-> 110 `c
+-> 100 `c
+-> 32 `c
+-> 114 `c
+-> 105 `c
+-> 103 `c
+-> 104 `c
+-> 116 `c
+-> 0 `c
+..
+]
+"40
+[; ;main.c: 40: uint8_t instructions3[] = "Press 'q' and 'e' to turn light beam off and on";
+[v _instructions3 `uc ~T0 @X0 -> 48 `i e ]
+[i _instructions3
+:U ..
+-> 80 `c
+-> 114 `c
+-> 101 `c
+-> 115 `c
+-> 115 `c
+-> 32 `c
+-> 39 `c
+-> 113 `c
+-> 39 `c
+-> 32 `c
+-> 97 `c
+-> 110 `c
+-> 100 `c
+-> 32 `c
+-> 39 `c
+-> 101 `c
+-> 39 `c
+-> 32 `c
+-> 116 `c
+-> 111 `c
+-> 32 `c
+-> 116 `c
+-> 117 `c
+-> 114 `c
+-> 110 `c
+-> 32 `c
+-> 108 `c
+-> 105 `c
+-> 103 `c
+-> 104 `c
+-> 116 `c
+-> 32 `c
+-> 98 `c
+-> 101 `c
+-> 97 `c
+-> 109 `c
+-> 32 `c
+-> 111 `c
+-> 102 `c
+-> 102 `c
+-> 32 `c
+-> 97 `c
+-> 110 `c
+-> 100 `c
+-> 32 `c
+-> 111 `c
+-> 110 `c
+-> 0 `c
+..
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"34 main.c
-[; ;main.c: 34: void main()
+"44
+[; ;main.c: 44: void main()
 [v _main `(v ~T0 @X0 1 ef ]
-"35
-[; ;main.c: 35: {
+"45
+[; ;main.c: 45: {
 {
 [e :U _main ]
 [f ]
-"36
-[; ;main.c: 36:     unsigned char dummy_spi_tx;
-[v _dummy_spi_tx `uc ~T0 @X0 1 a ]
-"38
-[; ;main.c: 38:     CM1CON0bits.C1ON=0;
-[e = . . _CM1CON0bits 0 6 -> -> 0 `i `uc ]
-"39
-[; ;main.c: 39:     CM2CON0bits.C2ON=0;
-[e = . . _CM2CON0bits 0 6 -> -> 0 `i `uc ]
-"40
-[; ;main.c: 40:     spi_master_init();
-[e ( _spi_master_init ..  ]
-"41
-[; ;main.c: 41:     uart_init();
-[e ( _uart_init ..  ]
-"42
-[; ;main.c: 42:     TRISA=0;
-[e = _TRISA -> -> 0 `i `uc ]
-"43
-[; ;main.c: 43:     TRISD=0;
-[e = _TRISD -> -> 0 `i `uc ]
-"44
-[; ;main.c: 44:     LATA=0;
-[e = _LATA -> -> 0 `i `uc ]
 "46
-[; ;main.c: 46:     LATD = 0b00000001;
-[e = _LATD -> -> 1 `i `uc ]
+[; ;main.c: 46:     uint8_t dummy_spi_tx;
+[v _dummy_spi_tx `uc ~T0 @X0 1 a ]
 "47
-[; ;main.c: 47:     _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 47:     uint8_t forwarded_command;
+[v _forwarded_command `uc ~T0 @X0 1 a ]
 "48
-[; ;main.c: 48:     _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 48:     IPEN=0;
+[e = _IPEN -> -> 0 `i `b ]
 "49
-[; ;main.c: 49:     LATD=0;
-[e = _LATD -> -> 0 `i `uc ]
+[; ;main.c: 49:     INTCON=0b00000000;
+[e = _INTCON -> -> 0 `i `uc ]
+"50
+[; ;main.c: 50:     gpio_init();
+[e ( _gpio_init ..  ]
 "51
-[; ;main.c: 51:     dummy_spi_tx=spi_data(3,0x6F);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc -> -> 111 `i `uc ]
+[; ;main.c: 51:     spi_master_init();
+[e ( _spi_master_init ..  ]
+"52
+[; ;main.c: 52:     uart_init();
+[e ( _uart_init ..  ]
+"53
+[; ;main.c: 53:     timer1_init(60000,8);
+[e ( _timer1_init (2 , -> -> 60000 `l `us -> -> 8 `i `uc ]
 "54
-[; ;main.c: 54:     while(1)
-[e :U 859 ]
+[; ;main.c: 54:     dummy_spi_tx=spi_data(3,0x6F);
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc -> -> 111 `i `uc ]
 "55
-[; ;main.c: 55:     {
-{
+[; ;main.c: 55:     uart_wr_str(1, text1);
+[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _text1 ]
+"56
+[; ;main.c: 56:     uart_wr_str(1, instructions1);
+[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _instructions1 ]
+"57
+[; ;main.c: 57:     uart_wr_str(1, instructions2);
+[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _instructions2 ]
+"58
+[; ;main.c: 58:     uart_wr_str(1, instructions3);
+[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _instructions3 ]
+"59
+[; ;main.c: 59:     current_command = 0x00;
+[e = _current_command -> -> 0 `i `uc ]
 "60
-[; ;main.c: 60:         while(nglitch_flag==0)
+[; ;main.c: 60:     previous_command = 0x00;
+[e = _previous_command -> -> 0 `i `uc ]
+"61
+[; ;main.c: 61:     forwarded_command = 'o';
+[e = _forwarded_command -> -> 111 `ui `uc ]
+"64
+[; ;main.c: 64:     while(1)
+[e :U 859 ]
+"65
+[; ;main.c: 65:     {
+{
+"66
+[; ;main.c: 66:         while(new_frame)
 [e $U 861  ]
 [e :U 862 ]
-"61
-[; ;main.c: 61:         {
-{
-"62
-[; ;main.c: 62:             glitch_watchdog_counter++;
-[e ++ _glitch_watchdog_counter -> -> 1 `i `Vui ]
-"63
-[; ;main.c: 63:             if(glitch_watchdog_counter==65530)
-[e $ ! == -> _glitch_watchdog_counter `l -> 65530 `l 864  ]
-"64
-[; ;main.c: 64:             {
-{
-"65
-[; ;main.c: 65:                 current_command=0x6F;
-[e = _current_command -> -> 111 `i `uc ]
-"66
-[; ;main.c: 66:                 glitch_watchdog_counter=0;
-[e = _glitch_watchdog_counter -> -> 0 `i `ui ]
 "67
-[; ;main.c: 67:                 nglitch_flag=1;
-[e = _nglitch_flag -> -> 1 `i `uc ]
+[; ;main.c: 67:         {
+{
 "68
-[; ;main.c: 68:                 previous_command=0;
-[e = _previous_command -> -> 0 `i `uc ]
+[; ;main.c: 68:             current_command = rx1();
+[e = _current_command ( _rx1 ..  ]
 "69
-[; ;main.c: 69:             }
-}
-[e :U 864 ]
+[; ;main.c: 69:             if(current_command != 0xFF)
+[e $ ! != -> _current_command `i -> 255 `i 864  ]
 "70
-[; ;main.c: 70:         }
-}
-[e :U 861 ]
-"60
-[; ;main.c: 60:         while(nglitch_flag==0)
-[e $ == -> _nglitch_flag `i -> 0 `i 862  ]
-[e :U 863 ]
+[; ;main.c: 70:             {
+{
+"71
+[; ;main.c: 71:                 if(current_command == previous_command)
+[e $ ! == -> _current_command `i -> _previous_command `i 865  ]
+"72
+[; ;main.c: 72:                 {
+{
+"73
+[; ;main.c: 73:                     glitch_watchdog_counter++;
+[e ++ _glitch_watchdog_counter -> -> 1 `i `ui ]
 "74
-[; ;main.c: 74:         dummy_spi_tx=spi_data(3,current_command);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc _current_command ]
+[; ;main.c: 74:                     if(glitch_watchdog_counter >= 400)
+[e $ ! >= _glitch_watchdog_counter -> -> 400 `i `ui 866  ]
 "75
-[; ;main.c: 75:         tx2(current_command);
-[e ( _tx2 (1 -> _current_command `uc ]
+[; ;main.c: 75:                     {
+{
+"76
+[; ;main.c: 76:                         forwarded_command = 'o';
+[e = _forwarded_command -> -> 111 `ui `uc ]
+"77
+[; ;main.c: 77:                         high_beams_on();
+[e ( _high_beams_on ..  ]
+"78
+[; ;main.c: 78:                     }
+}
+[e $U 867  ]
 "79
-[; ;main.c: 79:         if(current_command==0x61)
-[e $ ! == -> _current_command `i -> 97 `i 865  ]
+[; ;main.c: 79:                     else
+[e :U 866 ]
 "80
-[; ;main.c: 80:         {
+[; ;main.c: 80:                     {
 {
 "81
-[; ;main.c: 81:             LATA=0b00000001;
-[e = _LATA -> -> 1 `i `uc ]
+[; ;main.c: 81:                         forwarded_command = current_command;
+[e = _forwarded_command _current_command ]
 "82
-[; ;main.c: 82:         }
+[; ;main.c: 82:                     }
 }
-[e $U 866  ]
-"84
-[; ;main.c: 84:         else if(current_command==0x64)
-[e :U 865 ]
-[e $ ! == -> _current_command `i -> 100 `i 867  ]
-"85
-[; ;main.c: 85:         {
-{
-"86
-[; ;main.c: 86:             LATA=0b00000010;
-[e = _LATA -> -> 2 `i `uc ]
-"87
-[; ;main.c: 87:         }
+[e :U 867 ]
+"83
+[; ;main.c: 83:                 }
 }
 [e $U 868  ]
-"89
-[; ;main.c: 89:         else if(current_command==0x77)
-[e :U 867 ]
-[e $ ! == -> _current_command `i -> 119 `i 869  ]
-"90
-[; ;main.c: 90:         {
+"85
+[; ;main.c: 85:                 else if(current_command != previous_command)
+[e :U 865 ]
+[e $ ! != -> _current_command `i -> _previous_command `i 869  ]
+"86
+[; ;main.c: 86:                 {
 {
-"91
-[; ;main.c: 91:             LATA=0b00000100;
-[e = _LATA -> -> 4 `i `uc ]
+"87
+[; ;main.c: 87:                     forwarded_command = current_command;
+[e = _forwarded_command _current_command ]
+"88
+[; ;main.c: 88:                     glitch_watchdog_counter = 0;
+[e = _glitch_watchdog_counter -> -> 0 `i `ui ]
+"89
+[; ;main.c: 89:                     high_beams_off();
+[e ( _high_beams_off ..  ]
+"90
+[; ;main.c: 90:                 }
+}
+[e :U 869 ]
+[e :U 868 ]
 "92
-[; ;main.c: 92:         }
+[; ;main.c: 92:                 previous_command = current_command;
+[e = _previous_command _current_command ]
+"93
+[; ;main.c: 93:             }
 }
 [e $U 870  ]
-"94
-[; ;main.c: 94:         else if(current_command==0x6F)
-[e :U 869 ]
-[e $ ! == -> _current_command `i -> 111 `i 871  ]
 "95
-[; ;main.c: 95:         {
-{
+[; ;main.c: 95:             else
+[e :U 864 ]
 "96
-[; ;main.c: 96:             LATA=0b00000111;
-[e = _LATA -> -> 7 `i `uc ]
+[; ;main.c: 96:             {
+{
 "97
-[; ;main.c: 97:         }
+[; ;main.c: 97:                 forwarded_command = 'o';
+[e = _forwarded_command -> -> 111 `ui `uc ]
+"98
+[; ;main.c: 98:             }
 }
-[e $U 872  ]
-"103
-[; ;main.c: 103:         else if(current_command==0x71)
-[e :U 871 ]
-[e $ ! == -> _current_command `i -> 113 `i 873  ]
-"104
-[; ;main.c: 104:         {
-{
-"105
-[; ;main.c: 105:             LATD=0b00000001;
-[e = _LATD -> -> 1 `i `uc ]
-"106
-[; ;main.c: 106:             _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"107
-[; ;main.c: 107:             _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"108
-[; ;main.c: 108:             LATD=0;
-[e = _LATD -> -> 0 `i `uc ]
-"109
-[; ;main.c: 109:         }
-}
-[e $U 874  ]
-"111
-[; ;main.c: 111:         else if(current_command==0x65)
-[e :U 873 ]
-[e $ ! == -> _current_command `i -> 101 `i 875  ]
-"112
-[; ;main.c: 112:         {
-{
-"113
-[; ;main.c: 113:             LATD=0b00000010;
-[e = _LATD -> -> 2 `i `uc ]
-"114
-[; ;main.c: 114:             _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"115
-[; ;main.c: 115:             _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"116
-[; ;main.c: 116:             LATD=0;
-[e = _LATD -> -> 0 `i `uc ]
-"117
-[; ;main.c: 117:         }
-}
-[e :U 875 ]
-[e :U 874 ]
-[e :U 872 ]
 [e :U 870 ]
-[e :U 868 ]
-[e :U 866 ]
-"125
-[; ;main.c: 125:         glitch_watchdog_counter++;
-[e ++ _glitch_watchdog_counter -> -> 1 `i `Vui ]
-"126
-[; ;main.c: 126:         if(glitch_watchdog_counter==35530)
-[e $ ! == -> _glitch_watchdog_counter `l -> 35530 `l 876  ]
-"127
-[; ;main.c: 127:         {
+"102
+[; ;main.c: 102:             dummy_spi_tx=spi_data(3,forwarded_command);
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc _forwarded_command ]
+"103
+[; ;main.c: 103:             tx2(forwarded_command);
+[e ( _tx2 (1 -> _forwarded_command `uc ]
+"107
+[; ;main.c: 107:             switch(forwarded_command)
+[e $U 872  ]
+"108
+[; ;main.c: 108:             {
 {
-"128
-[; ;main.c: 128:             current_command=0x6F;
-[e = _current_command -> -> 111 `i `uc ]
-"129
-[; ;main.c: 129:             glitch_watchdog_counter=0;
-[e = _glitch_watchdog_counter -> -> 0 `i `ui ]
-"130
-[; ;main.c: 130:         }
-}
+"109
+[; ;main.c: 109:                 case('a') :
+[e :U 873 ]
+"110
+[; ;main.c: 110:                     debug_leds_off();
+[e ( _debug_leds_off ..  ]
+"111
+[; ;main.c: 111:                     LATAbits.LATA0 = 1;
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
+"112
+[; ;main.c: 112:                     break;
+[e $U 871  ]
+"113
+[; ;main.c: 113:                 case('d'):
+[e :U 874 ]
+"114
+[; ;main.c: 114:                     debug_leds_off();
+[e ( _debug_leds_off ..  ]
+"115
+[; ;main.c: 115:                     LATAbits.LATA1 = 1;
+[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
+"116
+[; ;main.c: 116:                     break;
+[e $U 871  ]
+"117
+[; ;main.c: 117:                 case('w'):
+[e :U 875 ]
+"118
+[; ;main.c: 118:                     debug_leds_off();
+[e ( _debug_leds_off ..  ]
+"119
+[; ;main.c: 119:                     LATAbits.LATA2 = 1;
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+"120
+[; ;main.c: 120:                     break;
+[e $U 871  ]
+"121
+[; ;main.c: 121:                 case('o'):
 [e :U 876 ]
+"122
+[; ;main.c: 122:                     debug_leds_off();
+[e ( _debug_leds_off ..  ]
+"123
+[; ;main.c: 123:                     break;
+[e $U 871  ]
+"124
+[; ;main.c: 124:                 case('q'):
+[e :U 877 ]
+"125
+[; ;main.c: 125:                     high_beams_off();
+[e ( _high_beams_off ..  ]
+"126
+[; ;main.c: 126:                     break;
+[e $U 871  ]
+"127
+[; ;main.c: 127:                 case('e'):
+[e :U 878 ]
+"128
+[; ;main.c: 128:                     high_beams_on();
+[e ( _high_beams_on ..  ]
+"129
+[; ;main.c: 129:                     break;
+[e $U 871  ]
+"130
+[; ;main.c: 130:                 default:
+[e :U 879 ]
+"131
+[; ;main.c: 131:                     debug_leds_on();
+[e ( _debug_leds_on ..  ]
 "132
-[; ;main.c: 132:     }
+[; ;main.c: 132:                     break;
+[e $U 871  ]
+"133
+[; ;main.c: 133:             }
+}
+[e $U 871  ]
+[e :U 872 ]
+[e [\ -> _forwarded_command `i , $ -> -> 97 `ui `i 873
+ , $ -> -> 100 `ui `i 874
+ , $ -> -> 119 `ui `i 875
+ , $ -> -> 111 `ui `i 876
+ , $ -> -> 113 `ui `i 877
+ , $ -> -> 101 `ui `i 878
+ 879 ]
+[e :U 871 ]
+"135
+[; ;main.c: 135:           _delay((unsigned long)((16)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 16 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"136
+[; ;main.c: 136:           rx1_overrun_detect_reset();
+[e ( _rx1_overrun_detect_reset ..  ]
+"137
+[; ;main.c: 137:         }
+}
+[e :U 861 ]
+"66
+[; ;main.c: 66:         while(new_frame)
+[e $ != -> _new_frame `i -> 0 `i 862  ]
+[e :U 863 ]
+"141
+[; ;main.c: 141:     }
 }
 [e :U 858 ]
 [e $U 859  ]
 [e :U 860 ]
-"133
-[; ;main.c: 133: }
+"142
+[; ;main.c: 142: }
 [e :UE 857 ]
 }

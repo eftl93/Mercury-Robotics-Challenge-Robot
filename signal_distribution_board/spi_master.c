@@ -11,12 +11,17 @@
 
 
 #include <xc.h>
+#include <stdio.h>
 #include "spi.h"
+#include "main.h"
 
 void spi_master_init(void)
 {
-    SSP1STAT=0x00;      //TX occurs on transition from idle to active clock
-    SSP1CON1=0b00100010;//Enables the corresponding pin to SPI function & SPI master mode, clock = FOSC/64
+    SSP1ADD= 31; //Fclock = (Fosc)/((SSP1ADD + 1)(4)) @64MHz Fclock = .5MHz
+    SSP1STATbits.SMP = 0; //input data sampled at middle of data output time
+    SSP1STATbits.CKE = 1; // Trasnmit occurs on transition from active to Idle clock state
+    SSP1CON1bits.CKP = 0; //Idle state for clock is a low level
+    SSP1CON1bits.SSPM = 0x0A;//SPI master mode with Fclock = (Fosc)/((SSP1ADD + 1)(4))
     ADCON0=0x00;        //disables ADC
     SS0_DIR=0;          //slave_select0 is output
     SS1_DIR=0;          //slave_select1 is output
@@ -29,6 +34,7 @@ void spi_master_init(void)
     SS1=1;              //set slave_select1 pin (SS on slave is active low)
     SS2=1;              //set slave_select2 pin (SS on slave is active low)
     SS3=1;              //set slave_select3 pin (SS on slave is active low)
+    SSP1CON1bits.SSPEN = 1; //
 }
 
 //Argument "device" tells the function to which device the communication will 

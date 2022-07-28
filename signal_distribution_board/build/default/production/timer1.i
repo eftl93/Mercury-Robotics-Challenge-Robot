@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "timer1.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 18 "main.c"
+# 1 "timer1.c" 2
+# 14 "timer1.c"
 # 1 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9642,7 +9642,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 2 3
-# 18 "main.c" 2
+# 14 "timer1.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
@@ -9788,78 +9788,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 19 "main.c" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 1 3
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 411 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct __locale_struct * locale_t;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 2 3
-
-
-void *memcpy (void *restrict, const void *restrict, size_t);
-void *memmove (void *, const void *, size_t);
-void *memset (void *, int, size_t);
-int memcmp (const void *, const void *, size_t);
-void *memchr (const void *, int, size_t);
-
-char *strcpy (char *restrict, const char *restrict);
-char *strncpy (char *restrict, const char *restrict, size_t);
-
-char *strcat (char *restrict, const char *restrict);
-char *strncat (char *restrict, const char *restrict, size_t);
-
-int strcmp (const char *, const char *);
-int strncmp (const char *, const char *, size_t);
-
-int strcoll (const char *, const char *);
-size_t strxfrm (char *restrict, const char *restrict, size_t);
-
-char *strchr (const char *, int);
-char *strrchr (const char *, int);
-
-size_t strcspn (const char *, const char *);
-size_t strspn (const char *, const char *);
-char *strpbrk (const char *, const char *);
-char *strstr (const char *, const char *);
-char *strtok (char *restrict, const char *restrict);
-
-size_t strlen (const char *);
-
-char *strerror (int);
-# 65 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
-char *strtok_r (char *restrict, const char *restrict, char **restrict);
-int strerror_r (int, char *, size_t);
-char *stpcpy(char *restrict, const char *restrict);
-char *stpncpy(char *restrict, const char *restrict, size_t);
-size_t strnlen (const char *, size_t);
-char *strdup (const char *);
-char *strndup (const char *, size_t);
-char *strsignal(int);
-char *strerror_l (int, locale_t);
-int strcoll_l (const char *, const char *, locale_t);
-size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
-
-
-
-
-void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 20 "main.c" 2
-
-# 1 "./spi.h" 1
-# 25 "./spi.h"
-void spi_master_init(void);
-unsigned char spi_data(unsigned char device, unsigned char tx_data);
-# 21 "main.c" 2
-
-# 1 "./uart.h" 1
-
-
-
-
-
-
+# 15 "timer1.c" 2
 
 # 1 "./main.h" 1
 # 17 "./main.h"
@@ -9902,148 +9831,77 @@ unsigned char spi_data(unsigned char device, unsigned char tx_data);
 #pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
 
 #pragma config EBTRB = OFF
-# 8 "./uart.h" 2
-# 22 "./uart.h"
-void uart_init(void);
-void tx1(char data1);
-void tx2(char data2);
-void uart_wr_str(uint8_t port, uint8_t *str);
-void rx1_overrun_detect_reset(void);
-
-
-uint8_t rx1(void);
-# 22 "main.c" 2
-
+# 16 "timer1.c" 2
 
 # 1 "./timer1.h" 1
 # 17 "./timer1.h"
 void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler);
 void load_timer1(void);
-# 24 "main.c" 2
-
-# 1 "./gpio.h" 1
-# 20 "./gpio.h"
-void gpio_init(void);
-void high_beams_on(void);
-void high_beams_off(void);
-void debug_leds_on(void);
-void debug_leds_off(void);
-# 25 "main.c" 2
+# 17 "timer1.c" 2
 
 
-
-
-
-extern volatile unsigned char current_command;
-unsigned int glitch_watchdog_counter = 0 ;
-extern volatile unsigned char previous_command;
-extern volatile uint16_t tick_counter;
-extern volatile uint16_t ticks_per_frame;
-extern volatile uint8_t new_frame;
-
-uint8_t text1[] = "Hello, Welcome!";
-uint8_t instructions1[] = "Press 'w' and 's' to move robot forward and backwards";
-uint8_t instructions2[] = "Press 'a' and 'd' to spin robot left and right";
-uint8_t instructions3[] = "Press 'q' and 'e' to turn light beam off and on";
-
-
-
-void main()
+volatile uint16_t tick_counter = 0;
+volatile uint16_t ticks_per_frame = 1000;
+volatile uint8_t new_frame = 1;
+volatile uint16_t timer1_reg = 0;
+volatile uint8_t timer1_reg_h = 0;
+volatile uint8_t timer1_reg_l = 0;
+void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler)
 {
-    uint8_t dummy_spi_tx;
-    uint8_t forwarded_command;
-    IPEN=0;
-    INTCON=0b00000000;
-    gpio_init();
-    spi_master_init();
-    uart_init();
-    timer1_init(60000,8);
-    dummy_spi_tx=spi_data(3,0x6F);
-    uart_wr_str(1, text1);
-    uart_wr_str(1, instructions1);
-    uart_wr_str(1, instructions2);
-    uart_wr_str(1, instructions3);
-    current_command = 0x00;
-    previous_command = 0x00;
-    forwarded_command = 'o';
-
-
-    while(1)
+    timer1_reg = 65535 - cnts_to_overflow;
+    timer1_reg_h = ((timer1_reg & 0xFF00) >> 8);
+    timer1_reg_l = (timer1_reg & 0x00FF);
+    T1CONbits.TMR1ON = 0;
+    PIE1bits.TMR1IE = 0;
+    T1CONbits.TMR1CS = 0b00;
+    T1CONbits.T1SYNC = 1;
+    switch(prescaler)
     {
-        while(new_frame)
-        {
-            current_command = rx1();
-            if(current_command != 0xFF)
-            {
-                if(current_command == previous_command)
-                {
-                    glitch_watchdog_counter++;
-                    if(glitch_watchdog_counter >= 400)
-                    {
-                        forwarded_command = 'o';
-                        high_beams_on();
-                    }
-                    else
-                    {
-                        forwarded_command = current_command;
-                    }
-                }
-
-                else if(current_command != previous_command)
-                {
-                    forwarded_command = current_command;
-                    glitch_watchdog_counter = 0;
-                    high_beams_off();
-                }
-
-                previous_command = current_command;
-            }
-
-            else
-            {
-                forwarded_command = 'o';
-            }
-
-
-
-            dummy_spi_tx=spi_data(3,forwarded_command);
-            tx2(forwarded_command);
-
-
-
-            switch(forwarded_command)
-            {
-                case('a') :
-                    debug_leds_off();
-                    LATAbits.LATA0 = 1;
-                    break;
-                case('d'):
-                    debug_leds_off();
-                    LATAbits.LATA1 = 1;
-                    break;
-                case('w'):
-                    debug_leds_off();
-                    LATAbits.LATA2 = 1;
-                    break;
-                case('o'):
-                    debug_leds_off();
-                    break;
-                case('q'):
-                    high_beams_off();
-                    break;
-                case('e'):
-                    high_beams_on();
-                    break;
-                default:
-                    debug_leds_on();
-                    break;
-            }
-
-          _delay((unsigned long)((16)*(64000000/4000.0)));
-          rx1_overrun_detect_reset();
-        }
-
-
-
+        case(1) :
+            T1CONbits.T1CKPS = 0b00;
+            break;
+        case(2):
+            T1CONbits.T1CKPS = 0b01;
+            break;
+        case(4):
+            T1CONbits.T1CKPS = 0b10;
+            break;
+        case(8):
+            T1CONbits.T1CKPS = 0b11;
+            break;
+        default:
+            T1CONbits.T1CKPS = 0b00;
     }
+}
+
+void load_timer1(void)
+{
+    T1CONbits.TMR1ON = 0;
+    PIE1bits.TMR1IE = 0;
+    TMR1H = timer1_reg_h;
+    TMR1L = timer1_reg_l;
+    T1CONbits.TMR1ON = 1;
+
+
+
+
+
+    while(TMR1L < (timer1_reg_l + 0x02));
+    __asm("nop");
+    __asm("nop");
+    PIR1bits.TMR1IF = 0;
+    PIE1bits.TMR1IE = 1;
+}
+
+void __attribute__((picinterrupt(("")))) TIMER1_ISR(void)
+{
+    PIE1bits.TMR1IE = 0;
+    PIR1bits.TMR1IF = 0;
+    if(tick_counter == ticks_per_frame)
+    {
+        tick_counter = 0;
+        new_frame = 1;
+    }
+    LATAbits.LATA2 ^= 1;
+   tick_counter++;
 }

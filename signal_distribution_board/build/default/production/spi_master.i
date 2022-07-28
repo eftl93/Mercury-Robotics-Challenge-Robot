@@ -9644,10 +9644,6 @@ unsigned char __t3rd16on(void);
 # 34 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 2 3
 # 13 "spi_master.c" 2
 
-# 1 "./spi.h" 1
-
-
-
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -9792,7 +9788,12 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 4 "./spi.h" 2
+# 14 "spi_master.c" 2
+
+# 1 "./spi.h" 1
+
+
+
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
@@ -9853,13 +9854,59 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 25 "./spi.h"
 void spi_master_init(void);
 unsigned char spi_data(unsigned char device, unsigned char tx_data);
-# 14 "spi_master.c" 2
+# 15 "spi_master.c" 2
+
+# 1 "./main.h" 1
+# 17 "./main.h"
+#pragma config FOSC = HSHP
+#pragma config PLLCFG = ON
+#pragma config PRICLKEN = ON
+#pragma config FCMEN = OFF
+#pragma config IESO = OFF
+
+
+#pragma config PWRTEN = OFF
+#pragma config BOREN = OFF
+
+
+#pragma config WDTEN = OFF
+
+
+#pragma config CCP2MX = PORTC1
+#pragma config PBADEN = OFF
+#pragma config CCP3MX = PORTE0
+#pragma config HFOFST = OFF
+#pragma config T3CMX = PORTC0
+#pragma config P2BMX = PORTC0
+#pragma config MCLRE = EXTMCLR
+
+
+#pragma config STVREN = ON
+#pragma config LVP = OFF
+#pragma config DEBUG = OFF
+
+
+#pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF
+
+#pragma config CPB = OFF, CPD = OFF
+
+#pragma config WRT0 = OFF, WRT1 = OFF, WRT2 = OFF, WRT3 = OFF
+
+#pragma config WRTC = OFF, WRTB = OFF, WRTD = OFF
+
+#pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
+
+#pragma config EBTRB = OFF
+# 16 "spi_master.c" 2
 
 
 void spi_master_init(void)
 {
-    SSP1STAT=0x00;
-    SSP1CON1=0b00100010;
+    SSP1ADD= 31;
+    SSP1STATbits.SMP = 0;
+    SSP1STATbits.CKE = 1;
+    SSP1CON1bits.CKP = 0;
+    SSP1CON1bits.SSPM = 0x0A;
     ADCON0=0x00;
     TRISBbits.RB2=0;
     TRISBbits.RB3=0;
@@ -9872,6 +9919,7 @@ void spi_master_init(void)
     LATBbits.LATB3=1;
     LATBbits.LATB4=1;
     LATBbits.LATB5=1;
+    SSP1CON1bits.SSPEN = 1;
 }
 
 

@@ -1,3 +1,4 @@
 build/default/production/spi_master.p1:  \
 spi_master.c  \
-spi.h 
+spi.h  \
+main.h 

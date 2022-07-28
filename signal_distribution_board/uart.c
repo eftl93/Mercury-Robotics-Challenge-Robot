@@ -6,25 +6,20 @@
  */
 #include <xc.h>
 #include "uart.h"
+#include "main.h"
+#include <stdio.h>
 
 volatile unsigned char current_command;
-volatile unsigned int glitch_watchdog_counter;
 volatile unsigned char previous_command;
-volatile unsigned char nglitch_flag;
 
 void uart_init()
 {
-    ANSELA=0;               //disable analog
-    ANSELB=0;               //disable analog
-    ANSELC=0;               //disable analog
-    ANSELD=0;               //disable analog
-    ANSELE=0;               //disable analog
     TXSTA1bits.BRGH=1;      //for ASYNC: Highs baud rate selected
     BAUDCON1bits.BRG16=1;   //16 bit baud rate generator is used (because of the HS clock)
     TXSTA2bits.BRGH=1;      //for ASYNC: Highs baud rate selected
     BAUDCON2bits.BRG16=1;   //16 bit baud rate generator is used (because of the HS clock)
-    SPBRG1=0x0A;            //Set the baud rate to 2400 (spbrgh1:spbrg1 = 6666)
-    SPBRGH1=0x1A;           //Set the baud rate to 2400 (spbrgh1:spbrg1 = 6666)
+    SPBRG1=0x8A;            //Set the baud rate to 115200 (spbrgh1:spbrg1 = 138)
+    SPBRGH1=0x00;           //Set the baud rate to 115200 (spbrgh1:spbrg1 = 138)
     SPBRG2=0x82;            //Set the baud rate to 9600 (spbrgh1:spbrg1 = 1666)
     SPBRGH2=0x06;           //Set the baud rate to 9600 (spbrgh1:spbrg1 = 1666)
     RX1_DIR=1;              //RX must be set as an input for uart
@@ -37,13 +32,16 @@ void uart_init()
     RCSTA2bits.SPEN=1;      //Serial port enabled
     TXSTA1bits.TXEN=1;      //Transmit enabled
     TXSTA2bits.TXEN=1;      //Transmit enabled
-    IPEN=0;
-    RC1IE=1;
-    INTCON|=0b11000000;
+    
+#ifndef UART1_INTERRUPT     //if interrupt macro is not defined, disable uart1_rx interrupt
+    PIE1bits.RC1IE=0;
+#endif
+#ifdef UART1_INTERRUPT      //if interrupt macro is defined, enable uart1_rx interrupt
+    PIE1bits.RC1IE=1;
+#endif
+
     RCSTA1bits.CREN=1;      //Receiver enabled
     RCSTA2bits.CREN=1;      //Receiver enabled
-    
-    
 }
 
 //function to transmit to Beaglebone, it was not used for SR. Design 2
@@ -51,41 +49,88 @@ void uart_init()
 //the robot
 void tx1(char data1)
 {
+    while(!PIR1bits.TX1IF); //keep checking until the txbuffer is empty
     TXREG1=data1;
 }
 
 //function used to transmit commands to the servo controller
 void tx2(char data2)
 {
+    while(!PIR3bits.TX2IF); //wait until the tx is not full
     TXREG2=data2;
 }
 
-//This function is being taken care by the ISR
-//char rx1()
-//{
-//char x;
-//while(~RC1IF);
-//x=RCREG1;
-//return x;
-//}
+void uart_wr_str(uint8_t port, uint8_t *str)
+{
+    switch(port)
+    {
+        case(1):
+            while(*str != '\0')
+            {
+                tx1(*str++);
+            }
+            tx1('\0');
+            tx1('\n');
+            tx1('\r');
+            break;
+        case(2):
+            while(*str != '\0')
+            {
+                tx2(*str++);
+            }
+            tx2('\0');
+            tx2('\n');
+            tx2('\r');
+            break;
+        default:
+            while(*str != '\0')
+            {
+                tx1(*str++);
+            }
+            tx1('\0');
+            tx1('\n');
+            tx1('\r');
+            break;
+    }
+            
+                
+}
+void rx1_overrun_detect_reset(void)
+{
+          if(RCSTA1bits.OERR)
+          {
+              RCSTA1bits.CREN = 0;
+              __delay_us(4);
+              RCSTA1bits.CREN = 1;
+          }
+}
+
+#ifndef UART1_INTERRUPT
+//This is the polling method, it will run if UART1_INTERRUPT is not defined
+uint8_t rx1()
+{
+    uint8_t x;
+    if(PIR1bits.RC1IF) //keep if rcbuffer is full
+    {
+        x=RCREG1;
+        PIR1bits.RC1IF = 0;
+    }
+    else
+    {
+        x = 0xFF;
+    }
+    return x;
+}
+#endif
 
 //This ISR takes care of RX1, this signal comes from the SBC (Beaglebone Black in this case)
+#ifdef UART1_INTERRUPT
 void __interrupt() UART_ISR(void)
 {
     if(RC1IF)
     {
         current_command=RCREG1; //save content into global variable
-        glitch_watchdog_counter=0;      //clear the global glitch_watchdog_counter
-        if(current_command==previous_command)  //check if received command is the same as last
-        {
-            nglitch_flag=0;  //if it is, clear global variable b
-        }
-        else
-        {
-            previous_command=current_command;  //record previous command received
-            nglitch_flag=1;  //set flag to not enter glitch detection loop
-        }
-
     }
     RC1IF=0;
 }
+#endif

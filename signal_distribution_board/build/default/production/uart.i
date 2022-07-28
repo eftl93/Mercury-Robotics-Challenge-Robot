@@ -9857,31 +9857,74 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 7 "./uart.h" 2
-# 21 "./uart.h"
+
+# 1 "./main.h" 1
+# 17 "./main.h"
+#pragma config FOSC = HSHP
+#pragma config PLLCFG = ON
+#pragma config PRICLKEN = ON
+#pragma config FCMEN = OFF
+#pragma config IESO = OFF
+
+
+#pragma config PWRTEN = OFF
+#pragma config BOREN = OFF
+
+
+#pragma config WDTEN = OFF
+
+
+#pragma config CCP2MX = PORTC1
+#pragma config PBADEN = OFF
+#pragma config CCP3MX = PORTE0
+#pragma config HFOFST = OFF
+#pragma config T3CMX = PORTC0
+#pragma config P2BMX = PORTC0
+#pragma config MCLRE = EXTMCLR
+
+
+#pragma config STVREN = ON
+#pragma config LVP = OFF
+#pragma config DEBUG = OFF
+
+
+#pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF
+
+#pragma config CPB = OFF, CPD = OFF
+
+#pragma config WRT0 = OFF, WRT1 = OFF, WRT2 = OFF, WRT3 = OFF
+
+#pragma config WRTC = OFF, WRTB = OFF, WRTD = OFF
+
+#pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
+
+#pragma config EBTRB = OFF
+# 8 "./uart.h" 2
+# 22 "./uart.h"
 void uart_init(void);
 void tx1(char data1);
 void tx2(char data2);
+void uart_wr_str(uint8_t port, uint8_t *str);
+void rx1_overrun_detect_reset(void);
+
+
+uint8_t rx1(void);
 # 8 "uart.c" 2
 
 
+
+
 volatile unsigned char current_command;
-volatile unsigned int glitch_watchdog_counter;
 volatile unsigned char previous_command;
-volatile unsigned char nglitch_flag;
 
 void uart_init()
 {
-    ANSELA=0;
-    ANSELB=0;
-    ANSELC=0;
-    ANSELD=0;
-    ANSELE=0;
     TXSTA1bits.BRGH=1;
     BAUDCON1bits.BRG16=1;
     TXSTA2bits.BRGH=1;
     BAUDCON2bits.BRG16=1;
-    SPBRG1=0x0A;
-    SPBRGH1=0x1A;
+    SPBRG1=0x8A;
+    SPBRGH1=0x00;
     SPBRG2=0x82;
     SPBRGH2=0x06;
     TRISCbits.RC6=1;
@@ -9894,13 +9937,16 @@ void uart_init()
     RCSTA2bits.SPEN=1;
     TXSTA1bits.TXEN=1;
     TXSTA2bits.TXEN=1;
-    IPEN=0;
-    RC1IE=1;
-    INTCON|=0b11000000;
+
+
+    PIE1bits.RC1IE=0;
+
+
+
+
+
     RCSTA1bits.CREN=1;
     RCSTA2bits.CREN=1;
-
-
 }
 
 
@@ -9908,31 +9954,75 @@ void uart_init()
 
 void tx1(char data1)
 {
+    while(!PIR1bits.TX1IF);
     TXREG1=data1;
 }
 
 
 void tx2(char data2)
 {
+    while(!PIR3bits.TX2IF);
     TXREG2=data2;
 }
-# 73 "uart.c"
-void __attribute__((picinterrupt(("")))) UART_ISR(void)
-{
-    if(RC1IF)
-    {
-        current_command=RCREG1;
-        glitch_watchdog_counter=0;
-        if(current_command==previous_command)
-        {
-            nglitch_flag=0;
-        }
-        else
-        {
-            previous_command=current_command;
-            nglitch_flag=1;
-        }
 
+void uart_wr_str(uint8_t port, uint8_t *str)
+{
+    switch(port)
+    {
+        case(1):
+            while(*str != '\0')
+            {
+                tx1(*str++);
+            }
+            tx1('\0');
+            tx1('\n');
+            tx1('\r');
+            break;
+        case(2):
+            while(*str != '\0')
+            {
+                tx2(*str++);
+            }
+            tx2('\0');
+            tx2('\n');
+            tx2('\r');
+            break;
+        default:
+            while(*str != '\0')
+            {
+                tx1(*str++);
+            }
+            tx1('\0');
+            tx1('\n');
+            tx1('\r');
+            break;
     }
-    RC1IF=0;
+
+
+}
+void rx1_overrun_detect_reset(void)
+{
+          if(RCSTA1bits.OERR)
+          {
+              RCSTA1bits.CREN = 0;
+              _delay((unsigned long)((4)*(64000000/4000000.0)));
+              RCSTA1bits.CREN = 1;
+          }
+}
+
+
+
+uint8_t rx1()
+{
+    uint8_t x;
+    if(PIR1bits.RC1IF)
+    {
+        x=RCREG1;
+        PIR1bits.RC1IF = 0;
+    }
+    else
+    {
+        x = 0xFF;
+    }
+    return x;
 }

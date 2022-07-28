@@ -21,113 +21,122 @@
 #include "spi.h"
 #include "uart.h"
 #include "main.h"
+#include "timer1.h"
+#include "gpio.h"
 
 #define _XTAL_FREQ 64000000
 
 
 extern volatile unsigned char current_command;
-extern volatile unsigned int glitch_watchdog_counter;
+unsigned int glitch_watchdog_counter = 0 ;
 extern volatile unsigned char previous_command;
-extern volatile unsigned char nglitch_flag;
+extern volatile uint16_t tick_counter;
+extern volatile uint16_t ticks_per_frame;
+extern volatile uint8_t new_frame;
+
+uint8_t text1[] = "Hello, Welcome!";
+uint8_t instructions1[] = "Press 'w' and 's' to move robot forward and backwards";
+uint8_t instructions2[] = "Press 'a' and 'd' to spin robot left and right";
+uint8_t instructions3[] = "Press 'q' and 'e' to turn light beam off and on";
+
 
 
 void main()
 {
-    unsigned char dummy_spi_tx;
-    
-    CM1CON0bits.C1ON=0; //disable comparator1 module
-    CM2CON0bits.C2ON=0; //disable comparator2 module
-    spi_master_init();  //initialize SPI in master mode
-    uart_init();        //initialize both UART1 and UART2 module, only interrupt on RX1;
-    TRISA=0;  //output for onboard LED indicators and debugging
-    TRISD=0;  //output to control the relay for the beam lights
-    LATA=0;   //Turn off the onboard diagnostic LEDs 
-    
-    LATD = 0b00000001; //reset the relay to turn on off the lights
-    __delay_ms(10);
-    __delay_ms(5);
-    LATD=0; 
-    
+    uint8_t dummy_spi_tx;
+    uint8_t forwarded_command;
+    IPEN=0;
+    INTCON=0b00000000;
+    gpio_init();            //initialize GPIOs, set leds and relay controller as output. Turn off all the lights
+    spi_master_init();      //initialize SPI in master mode
+    uart_init();            //initialize both UART1 and UART2 module
+    timer1_init(60000,8);    //initialize timer1 to every 2000 timer1 cycles. Asynchrounous, source clk is fosc/4. Pre-scaler is 1/8
     dummy_spi_tx=spi_data(3,0x6F); //send an 'o' to the motor controller board to turn off the motors
-
+    uart_wr_str(1, text1);
+    uart_wr_str(1, instructions1);
+    uart_wr_str(1, instructions2);
+    uart_wr_str(1, instructions3);
+    current_command = 0x00;
+    previous_command = 0x00;
+    forwarded_command = 'o';
+    
     
     while(1)
     {
-
-        //if same character has been received back to back, forward custom signal
-        //to both TX2 and SPI3
-        //glitch detection loop
-        while(nglitch_flag==0) //if the command received is the same as the last one, enter the while loop
+        while(new_frame)
         {
-            glitch_watchdog_counter++;    //and increase the global z counter
-            if(glitch_watchdog_counter==65530) //after many cycles, assume glitch and turn off the motors and servos
+            current_command = rx1();                //read the character on uart1
+            if(current_command != 0xFF)
             {
-                current_command=0x6F;       //this is the command to turn off motors and servos
-                glitch_watchdog_counter=0;  //reset counter
-                nglitch_flag=1;             //exit loop
-                previous_command=0;         //clear previous received command
+                if(current_command == previous_command) //Check if the received command is the same as the previous received command
+                {
+                    glitch_watchdog_counter++;          //if it is, start counting how many times
+                    if(glitch_watchdog_counter >= 400)  //once the received command is the same as the previous command a certain number of times, send a 'o' character to the servo controller and motor controller
+                    {
+                        forwarded_command = 'o';
+                        high_beams_on();
+                    }
+                    else
+                    {
+                        forwarded_command = current_command; //if not, send the received character to both servo controller and motor controller
+                    }
+                }
+
+                else if(current_command != previous_command) //if the received command is different than the previous command, just send the received command to the servo and motor controllers
+                {
+                    forwarded_command = current_command;
+                    glitch_watchdog_counter = 0;
+                    high_beams_off();
+                }
+
+                previous_command = current_command; //record the received command in order to do comparisons.     
             }
-        }
-        
-        //forward data received @2400Baud on RX1 to SPI_device_3 @ FOSC/64
-        //and to TX2 @ 9600Baud  
-        dummy_spi_tx=spi_data(3,current_command); 
-        tx2(current_command);
-        
-        //Interpret the commands and turn on the LEDs in a pattern depending on 
-        //the data received
-        if(current_command==0x61) //'a'
-        {
-            LATA=0b00000001; //red_led
-        }
+            
+            else
+            {
+                forwarded_command = 'o';
+            }
 
-        else if(current_command==0x64)//'d'
-        {
-            LATA=0b00000010; //green_led
-        }
+            //forward data received @2400Baud on RX1 to SPI_device_3 @ FOSC/64
+            //and to TX2 @ 9600Baud  
+            dummy_spi_tx=spi_data(3,forwarded_command); 
+            tx2(forwarded_command);
 
-        else if(current_command==0x77) //'w'
-        {
-            LATA=0b00000100; //yellow_led
+            //Interpret the commands and turn on the LEDs in a pattern depending on 
+            //the data received
+            switch(forwarded_command)
+            {
+                case('a') :
+                    debug_leds_off();
+                    RED_LED = 1;
+                    break;
+                case('d'):
+                    debug_leds_off();
+                    GREEN_LED = 1;
+                    break;
+                case('w'):
+                    debug_leds_off();
+                    YELLOW_LED = 1;
+                    break;
+                case('o'):
+                    debug_leds_off();
+                    break;
+                case('q'):
+                    high_beams_off();
+                    break;
+                case('e'):
+                    high_beams_on();
+                    break;
+                default:
+                    debug_leds_on();
+                    break;
+            }
+           //new_frame = 0;
+          __delay_ms(16);
+          rx1_overrun_detect_reset();
         }
+       //load_timer1();
+       // __asm("sleep");
         
-        else if(current_command==0x6F) //'o'
-        {
-            LATA=0b00000111; //all leds
-        }
-        
-        //'e' and 'q' are to set or reset a "2 coil latching relay"
-        //'e' will energize the "set" coil
-        //'q' will energize the "reset" coil
-        //therefore, these two characters will turn on and off the head beams. 
-        else if(current_command==0x71) //'q'
-        {
-            LATD=0b00000001; //reset relay to turn off the lights
-            __delay_ms(10);
-            __delay_ms(5);
-            LATD=0;
-        }
-
-        else if(current_command==0x65) //'e'
-        {
-            LATD=0b00000010; //set relay to turn on the lights
-            __delay_ms(10);
-            __delay_ms(5);
-            LATD=0;
-        }
-        
-        //This loop is to check lack of communication between Beaglebone and
-        //signal_distribution board
-        //z gets cleared inside the interrupt, if no interrupt happens,
-        //it means that there is no UART1 reception and the motor controller
-        //and servo controller must stop the motors and servos
-        //z will be incremented every cycle inside the while(1) loop.
-        glitch_watchdog_counter++;
-        if(glitch_watchdog_counter==35530)
-        {
-            current_command=0x6F; //'o'
-            glitch_watchdog_counter=0;
-        }
-
     }
 }

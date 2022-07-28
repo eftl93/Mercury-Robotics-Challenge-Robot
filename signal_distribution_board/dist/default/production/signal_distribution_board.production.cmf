@@ -12,21 +12,35 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\signal_distribution_board.production.o
-cinit CODE 0 30E 30E 14 1 2
+cinit CODE 0 4AC 4AC 5A 1 2
 idloc IDLOC 5 200000 200000 8 1 1
-text0 CODE 0 50 50 188 1 2
-text1 CODE 0 29A 29A 50 1 2
-text2 CODE 0 322 322 8 1 2
-text3 CODE 0 2EA 2EA 24 1 2
-text4 CODE 0 1D8 1D8 C2 1 2
-cstackCOMRAM COMRAM 1 6 6 4 1 1
-temp COMRAM 1 A A 1 1 1
-intcode CODE 0 8 8 44 1 2
-bssCOMRAM COMRAM 1 1 1 5 1 1
+text0 CODE 0 40 40 1C8 1 2
+text1 CODE 0 208 208 F2 1 2
+text2 CODE 0 664 664 16 1 2
+text3 CODE 0 67A 67A 16 1 2
+text4 CODE 0 548 548 34 1 2
+text5 CODE 0 3BC 3BC 8A 1 2
+text6 CODE 0 57C 57C 30 1 2
+text7 CODE 0 2FA 2FA C2 1 2
+text8 CODE 0 648 648 1C 1 2
+text9 CODE 0 62A 62A 1E 1 2
+text10 CODE 0 5DA 5DA 28 1 2
+text11 CODE 0 5AC 5AC 2E 1 2
+text12 CODE 0 602 602 28 1 2
+text13 CODE 0 690 690 6 1 2
+text14 CODE 0 696 696 6 1 2
+idataCOMRAM CODE 0 506 506 42 1 1
+cstackCOMRAM COMRAM 1 4D 4D 9 1 1
+temp COMRAM 1 56 56 1 1 1
+intcode CODE 0 8 8 34 1 2
+idataBANK0 CODE 0 446 446 66 1 1
+dataBANK0 BANK0 1 60 60 66 1 1
+dataCOMRAM COMRAM 1 1 1 42 1 1
+bssCOMRAM COMRAM 1 43 43 A 1 1
 config CONFIG 4 300000 300000 E 1 1
-$C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
+$C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
 idloc IDLOC 5 200000 200000 8 1 1
-init CODE 0 4C 4C 4 1 2
+init CODE 0 3C 3C 4 1 2
 reset_vec CODE 0 0 0 4 1 2
 config CONFIG 4 300000 300000 E 1 1
 # %UNUSED Section
@@ -35,9 +49,9 @@ config CONFIG 4 300000 300000 E 1 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 60-F37 1
+RAM C6-F37 1
 SFR F38-FFF 1
-BANK0 60-FF 1
+BANK0 C6-FF 1
 BANK1 100-1FF 1
 BANK2 200-2FF 1
 BANK3 300-3FF 1
@@ -48,19 +62,20 @@ BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
 CONST 4-7 1
-CONST 32A-FFFF 1
+CONST 69C-FFFF 1
 SMALLCONST 1000-FFFF 1
 CODE 4-7 1
-CODE 32A-FFFF 1
+CODE 69C-FFFF 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
 BANK13 D00-DFF 1
 BANK14 E00-EFF 1
 BANK15 F00-F37 1
-BIGRAM B-F37 1
+BIGRAM 57-5F 1
+BIGRAM C6-F37 1
 BIGSFR F38-FFF 1
-COMRAM B-5F 1
+COMRAM 57-5F 1
 EEDATA F00000-F003FF 1
 MEDIUMCONST 1000-FFFF 1
 # %LINETAB Section
@@ -77,160 +92,303 @@ MEDIUMCONST 1000-FFFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\signal_distribution_board.production.o
-8 intcode CODE >3162:C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
-8 intcode CODE >73:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-A intcode CODE >75:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-18 intcode CODE >77:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-1C intcode CODE >78:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-24 intcode CODE >79:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-36 intcode CODE >81:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-3A intcode CODE >82:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-3E intcode CODE >83:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-3E intcode CODE >85:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-42 intcode CODE >86:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-46 intcode CODE >90:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-48 intcode CODE >91:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-1D8 text4 CODE >40:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-1DA text4 CODE >43:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-1EA text4 CODE >45:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-1EC text4 CODE >46:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-1F0 text4 CODE >47:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-1FE text4 CODE >48:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-200 text4 CODE >49:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-204 text4 CODE >50:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-208 text4 CODE >52:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-218 text4 CODE >54:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-21A text4 CODE >55:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-21E text4 CODE >56:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-22C text4 CODE >57:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-22E text4 CODE >58:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-232 text4 CODE >59:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-236 text4 CODE >61:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-248 text4 CODE >63:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-24A text4 CODE >64:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-24E text4 CODE >65:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-25C text4 CODE >66:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-25E text4 CODE >67:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-262 text4 CODE >68:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-266 text4 CODE >70:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-278 text4 CODE >72:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-27A text4 CODE >73:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-27E text4 CODE >74:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-28C text4 CODE >75:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-28E text4 CODE >76:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-296 text4 CODE >77:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-296 text4 CODE >79:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-298 text4 CODE >80:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-2EA text3 CODE >16:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-2EA text3 CODE >18:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-2EE text3 CODE >19:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-2F2 text3 CODE >20:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-2F6 text3 CODE >21:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-2F8 text3 CODE >22:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-2FA text3 CODE >23:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-2FC text3 CODE >24:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-2FE text3 CODE >25:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-300 text3 CODE >26:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-302 text3 CODE >27:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-304 text3 CODE >28:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-306 text3 CODE >29:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-308 text3 CODE >30:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-30A text3 CODE >31:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-30C text3 CODE >32:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
-322 text2 CODE >58:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-324 text2 CODE >60:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-328 text2 CODE >61:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-29A text1 CODE >15:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-29A text1 CODE >17:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2A0 text1 CODE >18:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2A4 text1 CODE >19:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2A8 text1 CODE >20:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2AC text1 CODE >21:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2B0 text1 CODE >22:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2B2 text1 CODE >23:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2B4 text1 CODE >24:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2B6 text1 CODE >25:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2B8 text1 CODE >26:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2BC text1 CODE >27:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2C0 text1 CODE >28:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2C4 text1 CODE >29:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2C8 text1 CODE >30:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2CA text1 CODE >31:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2CC text1 CODE >32:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2CE text1 CODE >33:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2D0 text1 CODE >34:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2D2 text1 CODE >35:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2D4 text1 CODE >36:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2D6 text1 CODE >37:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2D8 text1 CODE >38:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2DA text1 CODE >39:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2DC text1 CODE >40:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2DE text1 CODE >41:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2E0 text1 CODE >42:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2E4 text1 CODE >43:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2E6 text1 CODE >44:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-2E8 text1 CODE >47:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
-50 text0 CODE >34:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-50 text0 CODE >38:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-52 text0 CODE >39:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-54 text0 CODE >40:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-58 text0 CODE >41:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-5C text0 CODE >42:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-60 text0 CODE >43:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-64 text0 CODE >44:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-68 text0 CODE >46:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-6C text0 CODE >47:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-7A text0 CODE >48:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-8A text0 CODE >49:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-8E text0 CODE >51:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-9C text0 CODE >62:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-A0 text0 CODE >63:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-B6 text0 CODE >65:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-BA text0 CODE >66:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-C2 text0 CODE >67:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-C6 text0 CODE >68:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-CA text0 CODE >60:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-CA text0 CODE >70:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-DA text0 CODE >74:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-E4 text0 CODE >75:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-EA text0 CODE >79:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-FC text0 CODE >81:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-100 text0 CODE >82:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-104 text0 CODE >84:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-116 text0 CODE >86:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-11A text0 CODE >87:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-11E text0 CODE >89:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-130 text0 CODE >91:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-134 text0 CODE >92:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-138 text0 CODE >94:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-14A text0 CODE >96:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-14E text0 CODE >97:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-152 text0 CODE >103:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-164 text0 CODE >105:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-168 text0 CODE >106:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-176 text0 CODE >107:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-186 text0 CODE >108:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-18A text0 CODE >109:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-18E text0 CODE >111:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-1A0 text0 CODE >113:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-1A8 text0 CODE >117:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-1A8 text0 CODE >125:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-1AC text0 CODE >126:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-1C4 text0 CODE >128:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-1C8 text0 CODE >129:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
-30E cinit CODE >1759:C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
-30E cinit CODE >1761:C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
-30E cinit CODE >1764:C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
-30E cinit CODE >1785:C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
-310 cinit CODE >1786:C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
-312 cinit CODE >1787:C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
-314 cinit CODE >1788:C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
-316 cinit CODE >1789:C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
-318 cinit CODE >1795:C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
-318 cinit CODE >1797:C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
-31A cinit CODE >1798:C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
-31C cinit CODE >1799:C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
-31E cinit CODE >1800:C:\Users\eder0\AppData\Local\Temp\xcAsccc.s
+8 intcode CODE >5697:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+8 intcode CODE >72:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+A intcode CODE >74:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+C intcode CODE >75:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+E intcode CODE >76:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+26 intcode CODE >78:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+2E intcode CODE >79:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+32 intcode CODE >81:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+34 intcode CODE >82:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+38 intcode CODE >83:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+696 text14 CODE >47:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+696 text14 CODE >49:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+69A text14 CODE >50:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+690 text13 CODE >52:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+690 text13 CODE >54:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+694 text13 CODE >55:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+602 text12 CODE >39:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+602 text12 CODE >41:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+606 text12 CODE >42:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+614 text12 CODE >43:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+624 text12 CODE >44:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+628 text12 CODE >45:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5AC text11 CODE >12:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5AC text11 CODE >14:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5B2 text11 CODE >15:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5B6 text11 CODE >16:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5BA text11 CODE >17:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5BE text11 CODE >18:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5C2 text11 CODE >19:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5C4 text11 CODE >20:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5C6 text11 CODE >21:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5C8 text11 CODE >22:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5CA text11 CODE >23:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5CC text11 CODE >24:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5D0 text11 CODE >25:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5D4 text11 CODE >26:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5D8 text11 CODE >27:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5DA text10 CODE >32:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5DA text10 CODE >34:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5DE text10 CODE >35:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5EC text10 CODE >36:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+5FC text10 CODE >37:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+600 text10 CODE >38:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
+62A text9 CODE >110:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+62A text9 CODE >113:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+638 text9 CODE >115:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+63C text9 CODE >116:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+63E text9 CODE >117:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+642 text9 CODE >118:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+642 text9 CODE >120:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+644 text9 CODE >122:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+646 text9 CODE >123:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+648 text8 CODE >98:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+648 text8 CODE >100:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+656 text8 CODE >102:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+658 text8 CODE >103:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+660 text8 CODE >104:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+662 text8 CODE >106:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+2FA text7 CODE >46:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+2FC text7 CODE >49:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+30C text7 CODE >51:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+30E text7 CODE >52:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+312 text7 CODE >53:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+320 text7 CODE >54:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+322 text7 CODE >55:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+326 text7 CODE >56:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+32A text7 CODE >58:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+33A text7 CODE >60:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+33C text7 CODE >61:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+340 text7 CODE >62:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+34E text7 CODE >63:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+350 text7 CODE >64:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+354 text7 CODE >65:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+358 text7 CODE >67:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+36A text7 CODE >69:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+36C text7 CODE >70:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+370 text7 CODE >71:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+37E text7 CODE >72:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+380 text7 CODE >73:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+384 text7 CODE >74:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+388 text7 CODE >76:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+39A text7 CODE >78:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+39C text7 CODE >79:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+3A0 text7 CODE >80:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+3AE text7 CODE >81:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+3B0 text7 CODE >82:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+3B8 text7 CODE >83:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+3B8 text7 CODE >85:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+3BA text7 CODE >86:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+57C text6 CODE >18:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+57C text6 CODE >20:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+580 text6 CODE >21:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+582 text6 CODE >22:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+584 text6 CODE >23:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+586 text6 CODE >24:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+58E text6 CODE >25:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+592 text6 CODE >26:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+594 text6 CODE >27:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+596 text6 CODE >28:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+598 text6 CODE >29:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+59A text6 CODE >30:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+59C text6 CODE >31:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+59E text6 CODE >32:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+5A0 text6 CODE >33:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+5A2 text6 CODE >34:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+5A4 text6 CODE >35:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+5A6 text6 CODE >36:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+5A8 text6 CODE >37:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+5AA text6 CODE >38:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
+3BC text5 CODE >25:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3BC text5 CODE >27:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3C4 text5 CODE >28:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3C8 text5 CODE >29:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3CC text5 CODE >30:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3CE text5 CODE >31:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3D0 text5 CODE >32:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3D4 text5 CODE >33:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3D6 text5 CODE >34:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3DA text5 CODE >37:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3DE text5 CODE >38:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3E2 text5 CODE >40:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3EA text5 CODE >41:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3EE text5 CODE >43:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3F6 text5 CODE >44:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3FA text5 CODE >46:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+3FE text5 CODE >47:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+402 text5 CODE >49:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+406 text5 CODE >50:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+414 text5 CODE >50:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+422 text5 CODE >50:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+42A text5 CODE >50:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+432 text5 CODE >50:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+43A text5 CODE >50:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+444 text5 CODE >51:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\timer1.c
+548 text4 CODE >15:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+548 text4 CODE >17:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+54A text4 CODE >18:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+54C text4 CODE >19:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+54E text4 CODE >20:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+550 text4 CODE >21:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+554 text4 CODE >22:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+558 text4 CODE >23:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+55C text4 CODE >24:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+560 text4 CODE >25:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+562 text4 CODE >26:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+564 text4 CODE >27:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+566 text4 CODE >28:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+568 text4 CODE >29:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+56A text4 CODE >30:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+56C text4 CODE >31:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+56E text4 CODE >32:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+570 text4 CODE >33:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+572 text4 CODE >34:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+574 text4 CODE >37:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+576 text4 CODE >43:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+578 text4 CODE >44:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+57A text4 CODE >45:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+67A text3 CODE >50:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+67C text3 CODE >52:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+68A text3 CODE >53:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+68E text3 CODE >54:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+664 text2 CODE >57:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+666 text2 CODE >59:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+674 text2 CODE >60:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+678 text2 CODE >61:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+208 text1 CODE >63:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+20A text1 CODE >65:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+20E text1 CODE >70:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+220 text1 CODE >68:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+238 text1 CODE >72:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+23E text1 CODE >73:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+244 text1 CODE >74:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+24A text1 CODE >75:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+24E text1 CODE >79:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+260 text1 CODE >77:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+278 text1 CODE >81:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+27E text1 CODE >82:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+284 text1 CODE >83:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+28A text1 CODE >84:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+28E text1 CODE >88:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+2A0 text1 CODE >86:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+2B8 text1 CODE >90:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+2BE text1 CODE >91:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+2C4 text1 CODE >92:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+2CA text1 CODE >93:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+2CE text1 CODE >94:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+2D8 text1 CODE >94:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+2E6 text1 CODE >94:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+2EE text1 CODE >94:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+2F8 text1 CODE >97:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+40 text0 CODE >44:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+40 text0 CODE >48:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+42 text0 CODE >49:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+46 text0 CODE >50:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+4A text0 CODE >51:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+4E text0 CODE >52:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+52 text0 CODE >53:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+62 text0 CODE >54:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+6C text0 CODE >55:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+7A text0 CODE >56:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+88 text0 CODE >57:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+96 text0 CODE >58:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+A4 text0 CODE >59:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+A8 text0 CODE >60:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+AC text0 CODE >61:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+B4 text0 CODE >68:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+BA text0 CODE >69:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+CA text0 CODE >71:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+DC text0 CODE >73:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+E0 text0 CODE >74:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+F6 text0 CODE >76:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+FA text0 CODE >77:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+FE text0 CODE >78:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+102 text0 CODE >79:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+102 text0 CODE >81:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+10A text0 CODE >85:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+11C text0 CODE >87:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+120 text0 CODE >88:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+128 text0 CODE >89:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+12C text0 CODE >92:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+130 text0 CODE >93:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+134 text0 CODE >97:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+138 text0 CODE >102:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+142 text0 CODE >103:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+148 text0 CODE >107:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+14C text0 CODE >110:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+150 text0 CODE >111:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+152 text0 CODE >112:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+156 text0 CODE >114:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+15A text0 CODE >115:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+15C text0 CODE >116:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+160 text0 CODE >118:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+164 text0 CODE >119:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+166 text0 CODE >120:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+16A text0 CODE >122:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+16E text0 CODE >123:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+172 text0 CODE >125:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+176 text0 CODE >126:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+17A text0 CODE >128:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+17E text0 CODE >129:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+182 text0 CODE >131:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+186 text0 CODE >132:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+18A text0 CODE >133:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+194 text0 CODE >133:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+1A2 text0 CODE >133:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+1AA text0 CODE >133:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+1B2 text0 CODE >133:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+1BA text0 CODE >133:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+1C2 text0 CODE >133:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+1CA text0 CODE >133:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+1D4 text0 CODE >135:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+1EC text0 CODE >136:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+1F0 text0 CODE >66:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
+4AC cinit CODE >2996:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4AC cinit CODE >2998:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4AC cinit CODE >3001:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4AC cinit CODE >3072:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4AE cinit CODE >3073:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4B0 cinit CODE >3074:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4B2 cinit CODE >3075:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4B4 cinit CODE >3076:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4B6 cinit CODE >3077:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4B8 cinit CODE >3078:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4BC cinit CODE >3079:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4C0 cinit CODE >3080:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4C0 cinit CODE >3081:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4C2 cinit CODE >3082:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4C6 cinit CODE >3083:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4C8 cinit CODE >3084:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4CA cinit CODE >3085:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4CC cinit CODE >3089:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4CE cinit CODE >3090:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4D0 cinit CODE >3091:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4D2 cinit CODE >3092:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4D4 cinit CODE >3093:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4D6 cinit CODE >3094:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4D8 cinit CODE >3095:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4DC cinit CODE >3096:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4E0 cinit CODE >3097:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4E0 cinit CODE >3098:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4E2 cinit CODE >3099:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4E6 cinit CODE >3100:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4E8 cinit CODE >3101:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4EA cinit CODE >3102:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4EC cinit CODE >3106:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4F0 cinit CODE >3107:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4F2 cinit CODE >3108:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4F2 cinit CODE >3109:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4F4 cinit CODE >3110:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4F6 cinit CODE >3111:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4F8 cinit CODE >3117:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4F8 cinit CODE >3119:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4FA cinit CODE >3120:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4FC cinit CODE >3122:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+4FE cinit CODE >3123:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+500 cinit CODE >3124:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+502 cinit CODE >3125:C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -243,61 +401,85 @@ FC text0 CODE >81:E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\ma
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
+__end_of_uart_wr_str 2FA 0 CODE 0 text1 dist/default/production\signal_distribution_board.production.o
+__LdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\signal_distribution_board.production.o
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\signal_distribution_board.production.o
 __Hspace_0 1000 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-__Hspace_1 B 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
+__Hspace_1 C6 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __Hspace_4 60000E 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
+__HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\signal_distribution_board.production.o
 _SSP1STATbits FC7 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\signal_distribution_board.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
+_timer1_reg 43 0 COMRAM 1 bssCOMRAM dist/default/production\signal_distribution_board.production.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\signal_distribution_board.production.o
+_T1CONbits FCD 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\signal_distribution_board.production.o
 _IPEN 7E87 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _LATA F89 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _LATD F8C 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-___sp 0 0 STACK 2 stack C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
-_main 50 0 CODE 0 text0 dist/default/production\signal_distribution_board.production.o
-btemp A 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
-start 4C 0 CODE 0 init C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
+___sp 0 0 STACK 2 stack C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
+_main 40 0 CODE 0 text0 dist/default/production\signal_distribution_board.production.o
+btemp 56 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
+rx1@x 4D 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
+start 3C 0 CODE 0 init C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
+__end_of_rx1_overrun_detect_reset 664 0 CODE 0 text8 dist/default/production\signal_distribution_board.production.o
+_instructions1 60 0 BANK0 1 dataBANK0 dist/default/production\signal_distribution_board.production.o
+_instructions2 4 0 COMRAM 1 dataCOMRAM dist/default/production\signal_distribution_board.production.o
+_instructions3 96 0 BANK0 1 dataBANK0 dist/default/production\signal_distribution_board.production.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\signal_distribution_board.production.o
-spi_data@tx_data 6 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
-__Hpowerup 4C 0 CODE 0 powerup dist/default/production\signal_distribution_board.production.o
-tx2@data2 6 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
-ttemp5 B 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
-ttemp6 E 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
-ttemp7 12 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
-__accesstop 60 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
-intlevel0 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
-intlevel1 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
-intlevel2 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
-intlevel3 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
+__LidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\signal_distribution_board.production.o
+spi_data@tx_data 4D 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
+__Hpowerup 3C 0 CODE 0 powerup dist/default/production\signal_distribution_board.production.o
+tx2@data2 4D 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
+ttemp5 57 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
+ttemp6 5A 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
+ttemp7 5E 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
+__HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\signal_distribution_board.production.o
+__accesstop 60 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
+intlevel0 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
+intlevel1 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
+intlevel2 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
+intlevel3 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\signal_distribution_board.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\signal_distribution_board.production.o
-wtemp8 B 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
+wtemp8 57 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
+_timer1_init 3BC 0 CODE 0 text5 dist/default/production\signal_distribution_board.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\signal_distribution_board.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\signal_distribution_board.production.o
+__pidataCOMRAM 506 0 CODE 0 idataCOMRAM dist/default/production\signal_distribution_board.production.o
+_debug_leds_off 690 0 CODE 0 text13 dist/default/production\signal_distribution_board.production.o
+_high_beams_off 602 0 CODE 0 text12 dist/default/production\signal_distribution_board.production.o
 _ADCON0 FC2 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _ANSELA F38 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _ANSELB F39 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _ANSELC F3A 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _ANSELD F3B 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _ANSELE F3C 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
+__LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\signal_distribution_board.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\signal_distribution_board.production.o
+_debug_leds_on 696 0 CODE 0 text14 dist/default/production\signal_distribution_board.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\signal_distribution_board.production.o
 _CM1CON0bits F79 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _TXSTA1bits FAC 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _TXSTA2bits F72 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\signal_distribution_board.production.o
-__Hintcodelo 4C 0 CODE 0 intcodelo dist/default/production\signal_distribution_board.production.o
-_current_command 5 0 COMRAM 1 bssCOMRAM dist/default/production\signal_distribution_board.production.o
+__Hintcodelo 3C 0 CODE 0 intcodelo dist/default/production\signal_distribution_board.production.o
+_current_command 4C 0 COMRAM 1 bssCOMRAM dist/default/production\signal_distribution_board.production.o
 _INTCON FF2 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-__end_of_spi_master_init 30E 0 CODE 0 text3 dist/default/production\signal_distribution_board.production.o
-__Lintcodelo 4C 0 CODE 0 intcodelo dist/default/production\signal_distribution_board.production.o
-start_initialization 30E 0 CODE 0 cinit dist/default/production\signal_distribution_board.production.o
+__end_of_spi_master_init 5AC 0 CODE 0 text6 dist/default/production\signal_distribution_board.production.o
+_timer1_reg_h 4A 0 COMRAM 1 bssCOMRAM dist/default/production\signal_distribution_board.production.o
+_timer1_reg_l 49 0 COMRAM 1 bssCOMRAM dist/default/production\signal_distribution_board.production.o
+__LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\signal_distribution_board.production.o
+__end_of_debug_leds_off 696 0 CODE 0 text13 dist/default/production\signal_distribution_board.production.o
+__end_of_high_beams_off 62A 0 CODE 0 text12 dist/default/production\signal_distribution_board.production.o
+__Lintcodelo 3C 0 CODE 0 intcodelo dist/default/production\signal_distribution_board.production.o
+start_initialization 4AC 0 CODE 0 cinit dist/default/production\signal_distribution_board.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\signal_distribution_board.production.o
+_TRISAbits F92 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _TRISBbits F93 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _TRISCbits F94 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _TRISDbits F95 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
@@ -307,8 +489,8 @@ _SPBRG1 FAF 0 ABS 0 - dist/default/production\signal_distribution_board.producti
 _SPBRG2 F75 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _TXREG1 FAD 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _TXREG2 F73 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
-_spi_master_init 2EA 0 CODE 0 text3 dist/default/production\signal_distribution_board.production.o
+isa$xinst 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
+_spi_master_init 57C 0 CODE 0 text6 dist/default/production\signal_distribution_board.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\signal_distribution_board.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\signal_distribution_board.production.o
 __Hbank2 0 0 ABS 0 bank2 dist/default/production\signal_distribution_board.production.o
@@ -332,6 +514,11 @@ __Htext1 0 0 ABS 0 text1 dist/default/production\signal_distribution_board.produ
 __Htext2 0 0 ABS 0 text2 dist/default/production\signal_distribution_board.production.o
 __Htext3 0 0 ABS 0 text3 dist/default/production\signal_distribution_board.production.o
 __Htext4 0 0 ABS 0 text4 dist/default/production\signal_distribution_board.production.o
+__Htext5 0 0 ABS 0 text5 dist/default/production\signal_distribution_board.production.o
+__Htext6 0 0 ABS 0 text6 dist/default/production\signal_distribution_board.production.o
+__Htext7 0 0 ABS 0 text7 dist/default/production\signal_distribution_board.production.o
+__Htext8 0 0 ABS 0 text8 dist/default/production\signal_distribution_board.production.o
+__Htext9 0 0 ABS 0 text9 dist/default/production\signal_distribution_board.production.o
 __Hbank10 0 0 ABS 0 bank10 dist/default/production\signal_distribution_board.production.o
 __Hbank11 0 0 ABS 0 bank11 dist/default/production\signal_distribution_board.production.o
 __Hbank12 0 0 ABS 0 bank12 dist/default/production\signal_distribution_board.production.o
@@ -341,7 +528,7 @@ __Hbank15 0 0 ABS 0 bank15 dist/default/production\signal_distribution_board.pro
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\signal_distribution_board.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\signal_distribution_board.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\signal_distribution_board.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\signal_distribution_board.production.o
 __Hconfig 30000E 0 CONFIG 4 config dist/default/production\signal_distribution_board.production.o
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\signal_distribution_board.production.o
@@ -367,45 +554,75 @@ __Ltext1 0 0 ABS 0 text1 dist/default/production\signal_distribution_board.produ
 __Ltext2 0 0 ABS 0 text2 dist/default/production\signal_distribution_board.production.o
 __Ltext3 0 0 ABS 0 text3 dist/default/production\signal_distribution_board.production.o
 __Ltext4 0 0 ABS 0 text4 dist/default/production\signal_distribution_board.production.o
+__Ltext5 0 0 ABS 0 text5 dist/default/production\signal_distribution_board.production.o
+__Ltext6 0 0 ABS 0 text6 dist/default/production\signal_distribution_board.production.o
+__Ltext7 0 0 ABS 0 text7 dist/default/production\signal_distribution_board.production.o
+__Ltext8 0 0 ABS 0 text8 dist/default/production\signal_distribution_board.production.o
+__Ltext9 0 0 ABS 0 text9 dist/default/production\signal_distribution_board.production.o
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\signal_distribution_board.production.o
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\signal_distribution_board.production.o
 __Habs1 0 0 ABS 0 abs1 dist/default/production\signal_distribution_board.production.o
 __Hdata 0 0 ABS 0 data dist/default/production\signal_distribution_board.production.o
 __Hheap 0 0 HEAP 7 heap dist/default/production\signal_distribution_board.production.o
-__Hinit 50 0 CODE 0 init dist/default/production\signal_distribution_board.production.o
+__Hinit 40 0 CODE 0 init dist/default/production\signal_distribution_board.production.o
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\signal_distribution_board.production.o
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production\signal_distribution_board.production.o
-__Htemp B 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
+__Htemp 57 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
 __Htext 0 0 ABS 0 text dist/default/production\signal_distribution_board.production.o
 __Labs1 0 0 ABS 0 abs1 dist/default/production\signal_distribution_board.production.o
 __Ldata 0 0 ABS 0 data dist/default/production\signal_distribution_board.production.o
 __Lheap 0 0 HEAP 7 heap dist/default/production\signal_distribution_board.production.o
-__Linit 4C 0 CODE 0 init dist/default/production\signal_distribution_board.production.o
+__Linit 3C 0 CODE 0 init dist/default/production\signal_distribution_board.production.o
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\signal_distribution_board.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\signal_distribution_board.production.o
-__Ltemp A 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
+__Ltemp 56 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
 __Ltext 0 0 ABS 0 text dist/default/production\signal_distribution_board.production.o
-_SSP1CON1 FC6 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-_SSP1STAT FC7 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-int$flags A 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
+_ticks_per_frame 1 0 COMRAM 1 dataCOMRAM dist/default/production\signal_distribution_board.production.o
+int$flags 56 0 COMRAM 1 temp dist/default/production\signal_distribution_board.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\signal_distribution_board.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\signal_distribution_board.production.o
-__S0 32A 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-__S1 B 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
+__S0 69C 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
+__S1 C6 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __S4 0 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __S5 0 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-_tx2 322 0 CODE 0 text2 dist/default/production\signal_distribution_board.production.o
+_rx1 62A 0 CODE 0 text9 dist/default/production\signal_distribution_board.production.o
+_tx1 67A 0 CODE 0 text3 dist/default/production\signal_distribution_board.production.o
+_tx2 664 0 CODE 0 text2 dist/default/production\signal_distribution_board.production.o
+__end_of_debug_leds_on 69C 0 CODE 0 text14 dist/default/production\signal_distribution_board.production.o
+__end_of_gpio_init 5DA 0 CODE 0 text11 dist/default/production\signal_distribution_board.production.o
+_tick_counter 45 0 COMRAM 1 bssCOMRAM dist/default/production\signal_distribution_board.production.o
+_TIMER1_ISR 8 0 CODE 0 intcode dist/default/production\signal_distribution_board.production.o
+__HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\signal_distribution_board.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\signal_distribution_board.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\signal_distribution_board.production.o
-_previous_command 3 0 COMRAM 1 bssCOMRAM dist/default/production\signal_distribution_board.production.o
-__end_of_tx2 32A 0 CODE 0 text2 dist/default/production\signal_distribution_board.production.o
+_previous_command 4B 0 COMRAM 1 bssCOMRAM dist/default/production\signal_distribution_board.production.o
+__end_of_rx1 648 0 CODE 0 text9 dist/default/production\signal_distribution_board.production.o
+__end_of_tx1 690 0 CODE 0 text3 dist/default/production\signal_distribution_board.production.o
+__end_of_tx2 67A 0 CODE 0 text2 dist/default/production\signal_distribution_board.production.o
+_gpio_init 5AC 0 CODE 0 text11 dist/default/production\signal_distribution_board.production.o
+timer1_init@cnts_to_overflow 4D 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
 __Lintentry 0 0 ABS 0 intentry dist/default/production\signal_distribution_board.production.o
+__end_of_timer1_init 446 0 CODE 0 text5 dist/default/production\signal_distribution_board.production.o
 __Hramtop 1000 0 RAM 0 ramtop dist/default/production\signal_distribution_board.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\signal_distribution_board.production.o
-__activetblptr 0 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
+__pdataBANK0 60 0 BANK0 1 dataBANK0 dist/default/production\signal_distribution_board.production.o
+__activetblptr 2 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\signal_distribution_board.production.o
-_glitch_watchdog_counter 1 0 COMRAM 1 bssCOMRAM dist/default/production\signal_distribution_board.production.o
+__Htext10 0 0 ABS 0 text10 dist/default/production\signal_distribution_board.production.o
+__Htext11 0 0 ABS 0 text11 dist/default/production\signal_distribution_board.production.o
+__Htext12 0 0 ABS 0 text12 dist/default/production\signal_distribution_board.production.o
+__Htext13 0 0 ABS 0 text13 dist/default/production\signal_distribution_board.production.o
+__Htext14 0 0 ABS 0 text14 dist/default/production\signal_distribution_board.production.o
+_PIE1bits F9D 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
+_uart_wr_str 208 0 CODE 0 text1 dist/default/production\signal_distribution_board.production.o
+_glitch_watchdog_counter 47 0 COMRAM 1 bssCOMRAM dist/default/production\signal_distribution_board.production.o
+__ptext10 5DA 0 CODE 0 text10 dist/default/production\signal_distribution_board.production.o
+__ptext11 5AC 0 CODE 0 text11 dist/default/production\signal_distribution_board.production.o
+__ptext12 602 0 CODE 0 text12 dist/default/production\signal_distribution_board.production.o
+__ptext13 690 0 CODE 0 text13 dist/default/production\signal_distribution_board.production.o
+__ptext14 696 0 CODE 0 text14 dist/default/production\signal_distribution_board.production.o
+_high_beams_on 5DA 0 CODE 0 text10 dist/default/production\signal_distribution_board.production.o
 __Lbank10 0 0 ABS 0 bank10 dist/default/production\signal_distribution_board.production.o
 __Lbank11 0 0 ABS 0 bank11 dist/default/production\signal_distribution_board.production.o
 __Lbank12 0 0 ABS 0 bank12 dist/default/production\signal_distribution_board.production.o
@@ -417,61 +634,83 @@ __Lbigram 0 0 ABS 0 bigram dist/default/production\signal_distribution_board.pro
 __Lbigsfr 0 0 ABS 0 bigsfr dist/default/production\signal_distribution_board.production.o
 __Lcomram 0 0 ABS 0 comram dist/default/production\signal_distribution_board.production.o
 __Lconfig 0 0 CONFIG 4 config dist/default/production\signal_distribution_board.production.o
+_LATAbits F89 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _LATBbits F8A 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
+_new_frame 3 0 COMRAM 1 dataCOMRAM dist/default/production\signal_distribution_board.production.o
+_rx1_overrun_detect_reset 648 0 CODE 0 text8 dist/default/production\signal_distribution_board.production.o
 _RCSTA1bits FAB 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _RCSTA2bits F71 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\signal_distribution_board.production.o
+__end_of_TIMER1_ISR 3C 0 CODE 0 intcode dist/default/production\signal_distribution_board.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\signal_distribution_board.production.o
-isa$std 1 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
-stackhi 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
-stacklo 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
+isa$std 1 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
+stackhi 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
+stacklo 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\signal_distribution_board.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\signal_distribution_board.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\signal_distribution_board.production.o
 _CM2CON0bits F78 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-spi_data@device 8 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
+main@forwarded_command 55 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
+spi_data@device 4F 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
 __Lspace_0 0 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __Lspace_1 0 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __Lspace_2 0 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __Lspace_4 0 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-__pbssCOMRAM 1 0 COMRAM 1 bssCOMRAM dist/default/production\signal_distribution_board.production.o
+__pbssCOMRAM 43 0 COMRAM 1 bssCOMRAM dist/default/production\signal_distribution_board.production.o
+_PIR1bits F9E 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
+_PIR3bits FA4 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
-end_of_initialization 318 0 CODE 0 cinit dist/default/production\signal_distribution_board.production.o
+end_of_initialization 4F8 0 CODE 0 cinit dist/default/production\signal_distribution_board.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\signal_distribution_board.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production\signal_distribution_board.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\signal_distribution_board.production.o
 __Lramtop 1000 0 RAM 0 ramtop dist/default/production\signal_distribution_board.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\signal_distribution_board.production.o
-__pcinit 30E 0 CODE 0 cinit dist/default/production\signal_distribution_board.production.o
-__end_of_uart_init 2EA 0 CODE 0 text1 dist/default/production\signal_distribution_board.production.o
-__ptext0 50 0 CODE 0 text0 dist/default/production\signal_distribution_board.production.o
-__ptext1 29A 0 CODE 0 text1 dist/default/production\signal_distribution_board.production.o
-__ptext2 322 0 CODE 0 text2 dist/default/production\signal_distribution_board.production.o
-__ptext3 2EA 0 CODE 0 text3 dist/default/production\signal_distribution_board.production.o
-__ptext4 1D8 0 CODE 0 text4 dist/default/production\signal_distribution_board.production.o
+__pcinit 4AC 0 CODE 0 cinit dist/default/production\signal_distribution_board.production.o
+__end_of_uart_init 57C 0 CODE 0 text4 dist/default/production\signal_distribution_board.production.o
+__ptext0 40 0 CODE 0 text0 dist/default/production\signal_distribution_board.production.o
+__ptext1 208 0 CODE 0 text1 dist/default/production\signal_distribution_board.production.o
+__ptext2 664 0 CODE 0 text2 dist/default/production\signal_distribution_board.production.o
+__ptext3 67A 0 CODE 0 text3 dist/default/production\signal_distribution_board.production.o
+__ptext4 548 0 CODE 0 text4 dist/default/production\signal_distribution_board.production.o
+__ptext5 3BC 0 CODE 0 text5 dist/default/production\signal_distribution_board.production.o
+__ptext6 57C 0 CODE 0 text6 dist/default/production\signal_distribution_board.production.o
+__ptext7 2FA 0 CODE 0 text7 dist/default/production\signal_distribution_board.production.o
+__ptext8 648 0 CODE 0 text8 dist/default/production\signal_distribution_board.production.o
+__ptext9 62A 0 CODE 0 text9 dist/default/production\signal_distribution_board.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\signal_distribution_board.production.o
-__ramtop 1000 0 RAM 0 ramtop C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
-__Lpowerup 4C 0 CODE 0 powerup dist/default/production\signal_distribution_board.production.o
+uart_wr_str@str 4E 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
+__Ltext10 0 0 ABS 0 text10 dist/default/production\signal_distribution_board.production.o
+__Ltext11 0 0 ABS 0 text11 dist/default/production\signal_distribution_board.production.o
+__Ltext12 0 0 ABS 0 text12 dist/default/production\signal_distribution_board.production.o
+__Ltext13 0 0 ABS 0 text13 dist/default/production\signal_distribution_board.production.o
+__Ltext14 0 0 ABS 0 text14 dist/default/production\signal_distribution_board.production.o
+__ramtop 1000 0 RAM 0 ramtop C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
+uart_wr_str@port 52 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
+__Lpowerup 3C 0 CODE 0 powerup dist/default/production\signal_distribution_board.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\signal_distribution_board.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\signal_distribution_board.production.o
-_uart_init 29A 0 CODE 0 text1 dist/default/production\signal_distribution_board.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
-___heap_lo 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAsccc.o
+tx1@data1 4D 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
+_uart_init 548 0 CODE 0 text4 dist/default/production\signal_distribution_board.production.o
+___heap_hi 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
+___heap_lo 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAshvs.o
 ___param_bank 0 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\signal_distribution_board.production.o
-__end_of__initialization 318 0 CODE 0 cinit dist/default/production\signal_distribution_board.production.o
+__end_of__initialization 4F8 0 CODE 0 cinit dist/default/production\signal_distribution_board.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\signal_distribution_board.production.o
-_nglitch_flag 4 0 COMRAM 1 bssCOMRAM dist/default/production\signal_distribution_board.production.o
+__pidataBANK0 446 0 CODE 0 idataBANK0 dist/default/production\signal_distribution_board.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\signal_distribution_board.production.o
+_SSP1CON1bits FC6 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _SPBRGH1 FB0 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _SPBRGH2 F76 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-__pcstackCOMRAM 6 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
+__pcstackCOMRAM 4D 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
+__end_of_high_beams_on 602 0 CODE 0 text10 dist/default/production\signal_distribution_board.production.o
+_SSP1ADD FC8 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _SSP1BUF FC9 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-__end_of_main 1D8 0 CODE 0 text0 dist/default/production\signal_distribution_board.production.o
+__end_of_main 208 0 CODE 0 text0 dist/default/production\signal_distribution_board.production.o
 __pintcode 8 0 CODE 0 intcode dist/default/production\signal_distribution_board.production.o
-_RC1IE 7CED 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-_RC1IF 7CF5 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-_TRISA F92 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
+_TMR1H FCF 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
+_TMR1L FCE 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _TRISD F95 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __HRAM 0 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 __Hbss 0 0 RAM 1 bss dist/default/production\signal_distribution_board.production.o
@@ -481,19 +720,21 @@ __LRAM 1 0 ABS 0 - dist/default/production\signal_distribution_board.production.
 __Lbss 0 0 RAM 1 bss dist/default/production\signal_distribution_board.production.o
 __Lram 0 0 ABS 0 ram dist/default/production\signal_distribution_board.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\signal_distribution_board.production.o
-spi_data@data_read 7 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
-_UART_ISR 8 0 CODE 0 intcode dist/default/production\signal_distribution_board.production.o
-__initialization 30E 0 CODE 0 cinit dist/default/production\signal_distribution_board.production.o
+spi_data@data_read 4E 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
+_text1 33 0 COMRAM 1 dataCOMRAM dist/default/production\signal_distribution_board.production.o
+timer1_init@prescaler 4F 0 COMRAM 1 cstackCOMRAM dist/default/production\signal_distribution_board.production.o
+__HdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\signal_distribution_board.production.o
+__initialization 4AC 0 CODE 0 cinit dist/default/production\signal_distribution_board.production.o
 _BAUDCON1bits FB8 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
 _BAUDCON2bits F70 0 ABS 0 - dist/default/production\signal_distribution_board.production.o
-__end_of_UART_ISR 4C 0 CODE 0 intcode dist/default/production\signal_distribution_board.production.o
-_spi_data 1D8 0 CODE 0 text4 dist/default/production\signal_distribution_board.production.o
+__pdataCOMRAM 1 0 COMRAM 1 dataCOMRAM dist/default/production\signal_distribution_board.production.o
+_spi_data 2FA 0 CODE 0 text7 dist/default/production\signal_distribution_board.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\signal_distribution_board.production.o
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\signal_distribution_board.production.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\signal_distribution_board.production.o
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\signal_distribution_board.production.o
-__Hintcode 4C 0 CODE 0 intcode dist/default/production\signal_distribution_board.production.o
-__end_of_spi_data 29A 0 CODE 0 text4 dist/default/production\signal_distribution_board.production.o
+__Hintcode 3C 0 CODE 0 intcode dist/default/production\signal_distribution_board.production.o
+__end_of_spi_data 3BC 0 CODE 0 text7 dist/default/production\signal_distribution_board.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -519,8 +760,9 @@ __end_of_spi_data 29A 0 CODE 0 text4 dist/default/production\signal_distribution
 # All other numeric quantities are in decimal.
 %SEGMENTS
 reset_vec 0 0 0 4 1
-intcode 0 8 8 322 1
-bssCOMRAM 1 1 1 A 1
+intcode 0 8 8 694 1
+dataBANK0 1 60 60 66 1
+dataCOMRAM 1 1 1 56 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal
