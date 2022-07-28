@@ -9902,8 +9902,11 @@ unsigned char spi_data(unsigned char device, unsigned char tx_data);
 
 void spi_master_init(void)
 {
-    SSP1STAT=0x00;
-    SSP1CON1=0b00100010;
+    SSP1ADD= 31;
+    SSP1STATbits.SMP = 0;
+    SSP1STATbits.CKE = 1;
+    SSP1CON1bits.CKP = 0;
+    SSP1CON1bits.SSPM = 0x0A;
     ADCON0=0x00;
     TRISBbits.RB2=0;
     TRISBbits.RB3=0;
@@ -9916,6 +9919,7 @@ void spi_master_init(void)
     LATBbits.LATB3=1;
     LATBbits.LATB4=1;
     LATBbits.LATB5=1;
+    SSP1CON1bits.SSPEN = 1;
 }
 
 
