@@ -340,7 +340,7 @@ dataBANK0 60 C5 BANK0 60 1
 %locals
 dist/default/production\signal_distribution_board.production.o
 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
-C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+C:\Users\eder0\AppData\Local\Temp\xcAs4j0.s
 2996 4AC 0 CODE 0
 2998 4AC 0 CODE 0
 3001 4AC 0 CODE 0
@@ -643,7 +643,7 @@ gpio.c
 47 696 0 CODE 0
 49 696 0 CODE 0
 50 69A 0 CODE 0
-C:\Users\eder0\AppData\Local\Temp\xcAshvs.s
+C:\Users\eder0\AppData\Local\Temp\xcAs4j0.s
 5697 8 0 CODE 0
 timer1.c
 72 8 0 CODE 0

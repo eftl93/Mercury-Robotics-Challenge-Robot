@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.36 build 20220127204148 
-                                                                                               Wed Jul 27 20:55:18 2022
+                                                                                               Wed Jul 27 21:04:55 2022
 
 Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1 
      1                           	processor	18F46K22
@@ -2840,7 +2840,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.36 build 20220127204148 
-Symbol Table                                                                                   Wed Jul 27 20:55:18 2022
+Symbol Table                                                                                   Wed Jul 27 21:04:55 2022
 
                   uart_wr_str@str 004E          _rx1_overrun_detect_reset 0648  
                  uart_wr_str@port 0052                                l60 0102  
