@@ -56,11 +56,20 @@ Declaration
 #define LM629_1_CS  PORTBbits.RB2 //Chip Select 1
 #define LM629_2_CS  PORTAbits.RA0 //Chip Select 2
 #define LM629_3_CS  PORTBbits.RB4 //Chip Select 3
+#define LM629_0_CS_DIR TRISDbits.TRISD3
+#define LM629_1_CS_DIR TRISBbits.TRISB2
+#define LM629_2_CS_DIR TRISAbits.TRISA0
+#define LM629_3_CS_DIR TRISBbits.TRISB4
+
 
 #define LM629_RD    PORTDbits.RD2 //~Read
 #define LM629_PS    PORTCbits.RC2 //~Port Select
 #define LM629_WR    PORTDbits.RD1 //~Write (command byte is latched into the LM629 on the rising edge)
 #define LM629_RST   PORTBbits.RB5
+#define LM629_RD_DIR    TRISDbits.TRISD2
+#define LM629_PS_DIR    TRISCbits.TRISC2 
+#define LM629_WR_DIR    TRISDbits.TRISD1 
+#define LM629_RST_DIR   TRISBbits.TRISB5
 
 
 #define D0          PORTCbits.RC6

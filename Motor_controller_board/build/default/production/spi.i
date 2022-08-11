@@ -9661,8 +9661,10 @@ volatile unsigned char spi_read_data;
 
 void spi_slave_init()
 {
-    SSPSTAT = 0x00;
-    SSPCON1 = 0b00100100;
+    SSP1STATbits.SMP = 0;
+    SSP1STATbits.CKE = 1;
+    SSP1CON1bits.CKP = 0;
+    SSP1CON1bits.SSPM = 0x04;
     SSP1CON3 = 0b00010000;
     ADCON0 = 0x00;
     ADCON1 = 0x00;
@@ -9673,6 +9675,7 @@ void spi_slave_init()
     SSP1IE=1;
     PEIE=1;
     GIE=1;
+    SSP1CON1bits.SSPEN = 1;
 }
 
 void spi_data(unsigned char tx_data)
@@ -9684,8 +9687,8 @@ void __attribute__((picinterrupt(("")))) SPI_ISR(void)
 {
     if(SSPIF)
     {
-        SSP1IF=0;
         spi_read_data=SSP1BUF;
+        SSP1IF=0;
         SSP1BUF = 0x55;
     }
 }

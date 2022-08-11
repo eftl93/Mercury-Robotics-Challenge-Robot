@@ -9645,7 +9645,7 @@ unsigned char __t3rd16on(void);
 # 116 "main.c" 2
 
 # 1 "./lm629.h" 1
-# 76 "./lm629.h"
+# 85 "./lm629.h"
 void LM629_init(void);
 void DATABUS_DIR(unsigned char dir);
 unsigned char DATABUS(unsigned char dir1, unsigned char byte0);
@@ -9736,6 +9736,10 @@ extern volatile unsigned char spi_read_data;
 
 void main(void)
 {
+    unsigned char received_data;
+    unsigned char dummy_data;
+    received_data = 0x00;
+    dummy_data = 0x55;
     RCON &= 0x7F;
     INTCON=0;
     ANSELA=0;
@@ -9756,14 +9760,11 @@ void main(void)
     VREFCON0=0x00;
     VREFCON1=0x00;
     HLVDCON=0x00;
-
+    _delay((unsigned long)((1000)*(64000000/4000.0)));
     LM629_init();
     spi_slave_init();
-    unsigned char received_data;
-    unsigned char dummy_data;
-    received_data = 0x00;
-    dummy_data = 0x55;
     spi_data(dummy_data);
+
 
 
 
@@ -9798,17 +9799,17 @@ void main(void)
             right();
         }
 
-        else if(received_data==0x6F)
-        {
-            all_off();
-        }
+
+
+
+
 
         else if(received_data==0x62)
         {
             all_break();
         }
 
-        else if (received_data==0)
+        else if (received_data== '0')
         {
             all_off();
         }
@@ -9839,5 +9840,6 @@ void main(void)
 
 
     }
+
 
 }

@@ -27,12 +27,12 @@ unsigned char read_status()
 	unsigned char status;
 	DATABUS_DIR(0xFF);
 	LM629_PS=0;
-	_delay(3);
+	__delay_us(1);
 	LM629_RD=0;
-	_delay(12);
+	__delay_us(1);
 	status=DATABUS(0xFF,0);
 	LM629_RD=1;
-	_delay(5);
+	__delay_us(5);
 	LM629_PS=1;
 
 return status;
@@ -106,9 +106,14 @@ void LM629_init()
 {
 	unsigned char x;
 	x=0;
-	TRISB&=0b11000011;
-	TRISD&=0b11110001;
-	TRISC&=0b11111011;
+    LM629_RD_DIR = 0;
+    LM629_PS_DIR = 0;
+    LM629_WR_DIR = 0;
+    LM629_RST_DIR= 0;
+    LM629_0_CS_DIR = 0;
+    LM629_1_CS_DIR = 0;
+    LM629_2_CS_DIR = 0;
+    LM629_3_CS_DIR = 0;
 	LM629_PS=1;
 	LM629_RD=1;
 	LM629_WR=1;
@@ -117,7 +122,7 @@ void LM629_init()
 beginning:
 	__delay_us(10);
 	LM629_RST=0;
-	__delay_us(2);
+	__delay_us(12);
 	LM629_RST=1;
 	__delay_ms(2);
 	x=read_status();
@@ -143,7 +148,7 @@ beginning:
 beginning1:
 	__delay_us(10);
 	LM629_RST=0;
-	__delay_us(2);
+	__delay_us(12);
 	LM629_RST=1;
 	__delay_ms(2);
 	x=read_status();
@@ -165,11 +170,37 @@ beginning1:
 				}
 		}
 
+    	chip_select(2);
+beginning2:
+	__delay_us(10);
+	LM629_RST=0;
+	__delay_us(12);
+	LM629_RST=1;
+	__delay_ms(2);
+	x=read_status();
+	if(!(x==0xC4 || x==0x84))
+		{
+		goto beginning2;
+		}
+	else
+		{
+			check_busy();
+			write_command(0x1D);
+        	check_busy();
+			write_data(0x00,0x00);
+			check_busy();
+			x=read_status();
+            if(!(x==0xC0 || x==0x80))
+				{	
+				goto beginning2;
+				}
+		}
+    
 	chip_select(3);
 beginning3:
 	__delay_us(10);
 	LM629_RST=0;
-	__delay_us(2);
+	__delay_us(12);
 	LM629_RST=1;
 	__delay_ms(2);
 	x=read_status();
@@ -242,17 +273,7 @@ if(dir1==0)
 
 else if (dir1==0xFF)
 {
-    x |= (D7 << 7);
-    x |= (D6 << 6);
-    x |= (D5 << 5);
-    x |= (D4 << 4);
-    x |= (D3 << 3);
-    x |= (D2 << 2);
-    x |= (D1 << 1);
-    x |= D0;
-    
-    //xc8 compiler seems to not like this
-/*            
+         
     x |= D7;
     x = (x<<1) | D6;
     x = (x<<1) | D5;
@@ -261,7 +282,6 @@ else if (dir1==0xFF)
     x = (x<<1) | D2;
     x = (x<<1) | D1;
     x = (x<<1) | D0; 
- */
 }
 return x;
 }
@@ -369,7 +389,7 @@ void filter_module()
     check_busy();
 }
 
-void simple_absolute_postion()
+void simple_absolute_position()
 {
     write_command(LTRJ);
     check_busy();
@@ -390,6 +410,7 @@ void simple_absolute_postion()
     write_command(STT);
 }
 
+
 void simple_relative_position()
 {
     write_command(LTRJ);
@@ -398,15 +419,15 @@ void simple_relative_position()
     check_busy();
     write_data(0x00,0x00); //Acc. High
     check_busy();
-    write_data(0x00,0x11); //Acc. Low
+    write_data(0x00,0x40); //Acc. Low
     check_busy();
-    write_data(0x00,0x02); //Vel. High
+    write_data(0x00,0x05); //Vel. High
     check_busy();
     write_data(0x75,0x3F); //Vel. Low
     check_busy();
-    write_data(0xFF,0xFE); //Pos. High
+    write_data(0x00,0x01); //Pos. High (0xff,0xFE)
     check_busy();
-    write_data(0x2B,0x40); //Pos. Low
+    write_data(0x00,0x40); //Pos. Low
     check_busy();
     write_command(STT);
 }

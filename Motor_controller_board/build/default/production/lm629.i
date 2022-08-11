@@ -9652,7 +9652,7 @@ unsigned char __t3rd16on(void);
 # 9 "lm629.c" 2
 
 # 1 "./lm629.h" 1
-# 76 "./lm629.h"
+# 85 "./lm629.h"
 void LM629_init(void);
 void DATABUS_DIR(unsigned char dir);
 unsigned char DATABUS(unsigned char dir1, unsigned char byte0);
@@ -9701,12 +9701,12 @@ unsigned char read_status()
  unsigned char status;
  DATABUS_DIR(0xFF);
  PORTCbits.RC2=0;
- _delay(3);
+ _delay((unsigned long)((1)*(64000000/4000000.0)));
  PORTDbits.RD2=0;
- _delay(12);
+ _delay((unsigned long)((1)*(64000000/4000000.0)));
  status=DATABUS(0xFF,0);
  PORTDbits.RD2=1;
- _delay(5);
+ _delay((unsigned long)((5)*(64000000/4000000.0)));
  PORTCbits.RC2=1;
 
 return status;
@@ -9780,9 +9780,14 @@ void LM629_init()
 {
  unsigned char x;
  x=0;
- TRISB&=0b11000011;
- TRISD&=0b11110001;
- TRISC&=0b11111011;
+    TRISDbits.TRISD2 = 0;
+    TRISCbits.TRISC2 = 0;
+    TRISDbits.TRISD1 = 0;
+    TRISBbits.TRISB5= 0;
+    TRISDbits.TRISD3 = 0;
+    TRISBbits.TRISB2 = 0;
+    TRISAbits.TRISA0 = 0;
+    TRISBbits.TRISB4 = 0;
  PORTCbits.RC2=1;
  PORTDbits.RD2=1;
  PORTDbits.RD1=1;
@@ -9791,7 +9796,7 @@ void LM629_init()
 beginning:
  _delay((unsigned long)((10)*(64000000/4000000.0)));
  PORTBbits.RB5=0;
- _delay((unsigned long)((2)*(64000000/4000000.0)));
+ _delay((unsigned long)((12)*(64000000/4000000.0)));
  PORTBbits.RB5=1;
  _delay((unsigned long)((2)*(64000000/4000.0)));
  x=read_status();
@@ -9817,7 +9822,7 @@ beginning:
 beginning1:
  _delay((unsigned long)((10)*(64000000/4000000.0)));
  PORTBbits.RB5=0;
- _delay((unsigned long)((2)*(64000000/4000000.0)));
+ _delay((unsigned long)((12)*(64000000/4000000.0)));
  PORTBbits.RB5=1;
  _delay((unsigned long)((2)*(64000000/4000.0)));
  x=read_status();
@@ -9839,11 +9844,37 @@ beginning1:
     }
   }
 
+     chip_select(2);
+beginning2:
+ _delay((unsigned long)((10)*(64000000/4000000.0)));
+ PORTBbits.RB5=0;
+ _delay((unsigned long)((12)*(64000000/4000000.0)));
+ PORTBbits.RB5=1;
+ _delay((unsigned long)((2)*(64000000/4000.0)));
+ x=read_status();
+ if(!(x==0xC4 || x==0x84))
+  {
+  goto beginning2;
+  }
+ else
+  {
+   check_busy();
+   write_command(0x1D);
+         check_busy();
+   write_data(0x00,0x00);
+   check_busy();
+   x=read_status();
+            if(!(x==0xC0 || x==0x80))
+    {
+    goto beginning2;
+    }
+  }
+
  chip_select(3);
 beginning3:
  _delay((unsigned long)((10)*(64000000/4000000.0)));
  PORTBbits.RB5=0;
- _delay((unsigned long)((2)*(64000000/4000000.0)));
+ _delay((unsigned long)((12)*(64000000/4000000.0)));
  PORTBbits.RB5=1;
  _delay((unsigned long)((2)*(64000000/4000.0)));
  x=read_status();
@@ -9916,15 +9947,15 @@ if(dir1==0)
 
 else if (dir1==0xFF)
 {
-    x |= (PORTBbits.RB1 << 7);
-    x |= (PORTBbits.RB0 << 6);
-    x |= (PORTDbits.RD7 << 5);
-    x |= (PORTDbits.RD6 << 4);
-    x |= (PORTDbits.RD5 << 3);
-    x |= (PORTDbits.RD4 << 2);
-    x |= (PORTCbits.RC7 << 1);
-    x |= PORTCbits.RC6;
-# 265 "lm629.c"
+
+    x |= PORTBbits.RB1;
+    x = (x<<1) | PORTBbits.RB0;
+    x = (x<<1) | PORTDbits.RD7;
+    x = (x<<1) | PORTDbits.RD6;
+    x = (x<<1) | PORTDbits.RD5;
+    x = (x<<1) | PORTDbits.RD4;
+    x = (x<<1) | PORTCbits.RC7;
+    x = (x<<1) | PORTCbits.RC6;
 }
 return x;
 }
@@ -10032,7 +10063,7 @@ void filter_module()
     check_busy();
 }
 
-void simple_absolute_postion()
+void simple_absolute_position()
 {
     write_command(0x1F);
     check_busy();
@@ -10053,6 +10084,7 @@ void simple_absolute_postion()
     write_command(0x01);
 }
 
+
 void simple_relative_position()
 {
     write_command(0x1F);
@@ -10061,15 +10093,15 @@ void simple_relative_position()
     check_busy();
     write_data(0x00,0x00);
     check_busy();
-    write_data(0x00,0x11);
+    write_data(0x00,0x40);
     check_busy();
-    write_data(0x00,0x02);
+    write_data(0x00,0x05);
     check_busy();
     write_data(0x75,0x3F);
     check_busy();
-    write_data(0xFF,0xFE);
+    write_data(0x00,0x01);
     check_busy();
-    write_data(0x2B,0x40);
+    write_data(0x00,0x40);
     check_busy();
     write_command(0x01);
 }

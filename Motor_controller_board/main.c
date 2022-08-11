@@ -128,6 +128,10 @@ extern volatile unsigned char spi_read_data;
 
 void main(void)
 {
+    unsigned char received_data;
+    unsigned char dummy_data;
+    received_data = 0x00;
+    dummy_data = 0x55;
     RCON &= 0x7F;   //RCONbits.IPEN = 0, Disable priority level on interrupts
     INTCON=0;       //disable global interrupt and peripheral interrupts
     ANSELA=0;       //disable analog output on port A
@@ -147,14 +151,10 @@ void main(void)
     SRCON0=0x00;    //disable SR-latch
     VREFCON0=0x00;  //disables fixed voltage reference
     VREFCON1=0x00;  //disables the DDC
-    HLVDCON=0x00;   //disables the high/low voltage detect module
-    
+    HLVDCON=0x00;   //disables the high/low voltage detect module  
+    __delay_ms(1000);
     LM629_init();       //initializes the four LM629 (precision Motion Controllers)
     spi_slave_init();   //initializes the SSP as an SPI slave device
-    unsigned char received_data;
-    unsigned char dummy_data;
-    received_data = 0x00;
-    dummy_data = 0x55;
     spi_data(dummy_data); //load the SPI buffer with a dummy
     
     //every time this MCU receives a character via SPI, the ISR will read the buffer
@@ -162,6 +162,7 @@ void main(void)
     //correct function is called, each function is meant to send commands to the
     //LM629s in order to generate the correct PWM signals which are fed to H-Bridges
     //to start mobilizing the robot
+    
     while(1)
     {
         received_data = spi_read_data;
@@ -190,17 +191,17 @@ void main(void)
             right();
         }
 
-        else if(received_data==0x6F)//'o'
-        {
-            all_off();
-        }
+   //     else if(received_data==0x6F)//'o'
+   //     {
+   //         all_off();
+   //     }
 
         else if(received_data==0x62)//'b'
         {
             all_break();
         }
 
-        else if (received_data==0) //'\0'
+        else if (received_data== '0') //'0'
         {
             all_off();
         }
@@ -232,6 +233,7 @@ void main(void)
 
     }
 
+    
 }
 ////////////////////////////////////////////////////////////////////////////////
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
