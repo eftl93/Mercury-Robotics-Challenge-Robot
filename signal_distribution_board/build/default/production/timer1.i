@@ -9892,16 +9892,3 @@ void load_timer1(void)
     PIR1bits.TMR1IF = 0;
     PIE1bits.TMR1IE = 1;
 }
-
-void __attribute__((picinterrupt(("")))) TIMER1_ISR(void)
-{
-    PIE1bits.TMR1IE = 0;
-    PIR1bits.TMR1IF = 0;
-    if(tick_counter == ticks_per_frame)
-    {
-        tick_counter = 0;
-        new_frame = 1;
-    }
-    LATAbits.LATA2 ^= 1;
-   tick_counter++;
-}

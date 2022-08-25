@@ -61,10 +61,10 @@
 #define YELLOW_LED_DIR  TRISAbits.TRISA2
 #define YELLOW_LED      LATAbits.LATA2
 
-//#define UART1_INTERRUPT 1
+#define UART1_INTERRUPT 1
 //#define UART2_INTERRUPT 1
 //#define SSP1_INTERRUPT 1
-#define TIMER1_INTERRUPT 1
+//#define TIMER1_INTERRUPT 1
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

@@ -58,23 +58,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9514
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 9514: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
 [v _PIR1bits `VS440 ~T0 @X0 0 e@3998 ]
-[t ~ __interrupt . k ]
-[t T1 __interrupt ]
-"7567
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7567:     struct {
-[s S380 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S380 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
-"7577
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7577:     struct {
-[s S381 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S381 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
-"7566
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7566: typedef union {
-[u S379 `S380 1 `S381 1 ]
-[n S379 . . . ]
-"7588
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7588: extern volatile LATAbits_t LATAbits __attribute__((address(0xF89)));
-[v _LATAbits `VS379 ~T0 @X0 0 e@3977 ]
 "55 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 55: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -1061,45 +1044,4 @@ Version 4.0 HI-TECH Software Intermediate Code
 "70
 [; ;timer1.c: 70: }
 [e :UE 864 ]
-}
-[v $root$_TIMER1_ISR `(v ~T0 @X0 0 e ]
-"72
-[; ;timer1.c: 72: void __attribute__((picinterrupt(("")))) TIMER1_ISR(void)
-[v _TIMER1_ISR `(v ~T1 @X0 1 ef ]
-"73
-[; ;timer1.c: 73: {
-{
-[e :U _TIMER1_ISR ]
-[f ]
-"74
-[; ;timer1.c: 74:     PIE1bits.TMR1IE = 0;
-[e = . . _PIE1bits 0 0 -> -> 0 `i `uc ]
-"75
-[; ;timer1.c: 75:     PIR1bits.TMR1IF = 0;
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-"76
-[; ;timer1.c: 76:     if(tick_counter == ticks_per_frame)
-[e $ ! == -> _tick_counter `ui -> _ticks_per_frame `ui 869  ]
-"77
-[; ;timer1.c: 77:     {
-{
-"78
-[; ;timer1.c: 78:         tick_counter = 0;
-[e = _tick_counter -> -> 0 `i `us ]
-"79
-[; ;timer1.c: 79:         new_frame = 1;
-[e = _new_frame -> -> 1 `i `uc ]
-"80
-[; ;timer1.c: 80:     }
-}
-[e :U 869 ]
-"81
-[; ;timer1.c: 81:     LATAbits.LATA2 ^= 1;
-[e =^ . . _LATAbits 0 2 -> -> 1 `i `Vuc ]
-"82
-[; ;timer1.c: 82:    tick_counter++;
-[e ++ _tick_counter -> -> 1 `i `Vus ]
-"83
-[; ;timer1.c: 83: }
-[e :UE 868 ]
 }

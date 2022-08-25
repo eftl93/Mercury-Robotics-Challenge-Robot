@@ -23,6 +23,8 @@ void uart_init(void);
 void tx1(char data1);
 void tx2(char data2);
 void uart_wr_str(uint8_t port, uint8_t *str);
+void uart_rd_str(uint8_t port, uint8_t *str);
+uint8_t uart_rd_custom_block(uint8_t *str, uint8_t start_char, uint8_t end_char);
 void rx1_overrun_detect_reset(void);
 
 #ifndef UART1_INTERRUPT

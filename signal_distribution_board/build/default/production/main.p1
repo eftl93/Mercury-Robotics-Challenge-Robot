@@ -1,5 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
+"33 main.c
+[; ;main.c: 33: extern volatile uint8_t *rx_str_interrupt;
+[v _rx_str_interrupt `*Vuc ~T0 @X0 0 e ]
 "18667 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 18667: extern volatile __bit IPEN __attribute__((address(0x7E87)));
 [v _IPEN `Vb ~T0 @X0 0 e@32391 ]
@@ -15,31 +18,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 "22 ./uart.h
 [; ;./uart.h: 22: void uart_init(void);
 [v _uart_init `(v ~T0 @X0 0 ef ]
-"17 ./timer1.h
-[; ;./timer1.h: 17: void timer1_init(uint16_t cnts_to_overflow, uint8_t prescaler);
-[v _timer1_init `(v ~T0 @X0 0 ef2`us`uc ]
+"16933 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 16933:     struct {
+[s S826 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S826 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"16943
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 16943:     struct {
+[s S827 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S827 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"16953
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 16953:     struct {
+[s S828 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S828 . . GIEL GIEH ]
+"16932
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 16932: typedef union {
+[u S825 `S826 1 `S827 1 `S828 1 ]
+[n S825 . . . . ]
+"16959
+[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 16959: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS825 ~T0 @X0 0 e@4082 ]
 "26 ./spi.h
 [; ;./spi.h: 26: unsigned char spi_data(unsigned char device, unsigned char tx_data);
 [v _spi_data `(uc ~T0 @X0 0 ef2`uc`uc ]
 "25 ./uart.h
 [; ;./uart.h: 25: void uart_wr_str(uint8_t port, uint8_t *str);
 [v _uart_wr_str `(v ~T0 @X0 0 ef2`uc`*uc ]
-"30 main.c
-[; ;main.c: 30: extern volatile unsigned char current_command;
-[v _current_command `Vuc ~T0 @X0 0 e ]
-"32
-[; ;main.c: 32: extern volatile unsigned char previous_command;
-[v _previous_command `Vuc ~T0 @X0 0 e ]
-"29 ./uart.h
-[; ;./uart.h: 29: uint8_t rx1(void);
-[v _rx1 `(uc ~T0 @X0 0 ef ]
-"21 ./gpio.h
-[; ;./gpio.h: 21: void high_beams_on(void);
-[v _high_beams_on `(v ~T0 @X0 0 ef ]
-"22
-[; ;./gpio.h: 22: void high_beams_off(void);
-[v _high_beams_off `(v ~T0 @X0 0 ef ]
-"24 ./uart.h
+"24
 [; ;./uart.h: 24: void tx2(char data2);
 [v _tx2 `(v ~T0 @X0 0 ef1`uc ]
 "24 ./gpio.h
@@ -60,19 +64,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7588
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7588: extern volatile LATAbits_t LATAbits __attribute__((address(0xF89)));
 [v _LATAbits `VS379 ~T0 @X0 0 e@3977 ]
-"23 ./gpio.h
-[; ;./gpio.h: 23: void debug_leds_on(void);
-[v _debug_leds_on `(v ~T0 @X0 0 ef ]
+"22 ./gpio.h
+[; ;./gpio.h: 22: void high_beams_off(void);
+[v _high_beams_off `(v ~T0 @X0 0 ef ]
+"21
+[; ;./gpio.h: 21: void high_beams_on(void);
+[v _high_beams_on `(v ~T0 @X0 0 ef ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
-"26 ./uart.h
-[; ;./uart.h: 26: void rx1_overrun_detect_reset(void);
+"28 ./uart.h
+[; ;./uart.h: 28: void rx1_overrun_detect_reset(void);
 [v _rx1_overrun_detect_reset `(v ~T0 @X0 0 ef ]
-"35 main.c
-[; ;main.c: 35: extern volatile uint8_t new_frame;
-[v _new_frame `Vuc ~T0 @X0 0 e ]
 "55 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 55: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -880,14 +884,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR0  =  OFF   EBTR1  =  OFF   EBTR2  =  OFF   EBTR3  =  OFF ]
 "55
 [p x EBTRB  =  OFF ]
-"31 main.c
-[; ;main.c: 31: unsigned int glitch_watchdog_counter = 0 ;
-[v _glitch_watchdog_counter `ui ~T0 @X0 1 e ]
-[i _glitch_watchdog_counter
--> -> 0 `i `ui
-]
-"37
-[; ;main.c: 37: uint8_t text1[] = "Hello, Welcome!";
+"35 main.c
+[; ;main.c: 35: uint8_t text1[] = "Hello, Welcome!";
 [v _text1 `uc ~T0 @X0 -> 16 `i e ]
 [i _text1
 :U ..
@@ -909,8 +907,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"38
-[; ;main.c: 38: uint8_t instructions1[] = "Press 'w' and 's' to move robot forward and backwards";
+"36
+[; ;main.c: 36: uint8_t instructions1[] = "Press 'w' and 's' to move robot forward and backwards";
 [v _instructions1 `uc ~T0 @X0 -> 54 `i e ]
 [i _instructions1
 :U ..
@@ -970,8 +968,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"39
-[; ;main.c: 39: uint8_t instructions2[] = "Press 'a' and 'd' to spin robot left and right";
+"37
+[; ;main.c: 37: uint8_t instructions2[] = "Press 'a' and 'd' to spin robot left and right";
 [v _instructions2 `uc ~T0 @X0 -> 47 `i e ]
 [i _instructions2
 :U ..
@@ -1024,8 +1022,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"40
-[; ;main.c: 40: uint8_t instructions3[] = "Press 'q' and 'e' to turn light beam off and on";
+"38
+[; ;main.c: 38: uint8_t instructions3[] = "Press 'q' and 'e' to turn light beam off and on";
 [v _instructions3 `uc ~T0 @X0 -> 48 `i e ]
 [i _instructions3
 :U ..
@@ -1079,286 +1077,230 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
+"39
+[; ;main.c: 39: uint8_t success[] = "success";
+[v _success `uc ~T0 @X0 -> 8 `i e ]
+[i _success
+:U ..
+-> 115 `c
+-> 117 `c
+-> 99 `c
+-> 99 `c
+-> 101 `c
+-> 115 `c
+-> 115 `c
+-> 0 `c
+..
+]
+"40
+[; ;main.c: 40: uint8_t fail[] = "fail";
+[v _fail `uc ~T0 @X0 -> 5 `i e ]
+[i _fail
+:U ..
+-> 102 `c
+-> 97 `c
+-> 105 `c
+-> 108 `c
+-> 0 `c
+..
+]
+"41
+[; ;main.c: 41: uint8_t wii_classic_packet[] = "hello!!";
+[v _wii_classic_packet `uc ~T0 @X0 -> 8 `i e ]
+[i _wii_classic_packet
+:U ..
+-> 104 `c
+-> 101 `c
+-> 108 `c
+-> 108 `c
+-> 111 `c
+-> 33 `c
+-> 33 `c
+-> 0 `c
+..
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"44
-[; ;main.c: 44: void main()
-[v _main `(v ~T0 @X0 1 ef ]
 "45
-[; ;main.c: 45: {
+[; ;main.c: 45: void main()
+[v _main `(v ~T0 @X0 1 ef ]
+"46
+[; ;main.c: 46: {
 {
 [e :U _main ]
 [f ]
-"46
-[; ;main.c: 46:     uint8_t dummy_spi_tx;
-[v _dummy_spi_tx `uc ~T0 @X0 1 a ]
 "47
-[; ;main.c: 47:     uint8_t forwarded_command;
-[v _forwarded_command `uc ~T0 @X0 1 a ]
+[; ;main.c: 47:     rx_str_interrupt = &wii_classic_packet;
+[e = _rx_str_interrupt -> &U _wii_classic_packet `*Vuc ]
 "48
-[; ;main.c: 48:     IPEN=0;
-[e = _IPEN -> -> 0 `i `b ]
+[; ;main.c: 48:     uint8_t dummy_spi_tx;
+[v _dummy_spi_tx `uc ~T0 @X0 1 a ]
 "49
-[; ;main.c: 49:     INTCON=0b00000000;
-[e = _INTCON -> -> 0 `i `uc ]
+[; ;main.c: 49:     uint8_t forwarded_command;
+[v _forwarded_command `uc ~T0 @X0 1 a ]
 "50
-[; ;main.c: 50:     gpio_init();
-[e ( _gpio_init ..  ]
+[; ;main.c: 50:     IPEN=0;
+[e = _IPEN -> -> 0 `i `b ]
 "51
-[; ;main.c: 51:     spi_master_init();
-[e ( _spi_master_init ..  ]
+[; ;main.c: 51:     INTCON=0b00000000;
+[e = _INTCON -> -> 0 `i `uc ]
 "52
-[; ;main.c: 52:     uart_init();
-[e ( _uart_init ..  ]
+[; ;main.c: 52:     gpio_init();
+[e ( _gpio_init ..  ]
 "53
-[; ;main.c: 53:     timer1_init(60000,8);
-[e ( _timer1_init (2 , -> -> 60000 `l `us -> -> 8 `i `uc ]
+[; ;main.c: 53:     spi_master_init();
+[e ( _spi_master_init ..  ]
 "54
-[; ;main.c: 54:     dummy_spi_tx=spi_data(3,0x6F);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc -> -> 111 `i `uc ]
-"55
-[; ;main.c: 55:     uart_wr_str(1, text1);
-[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _text1 ]
+[; ;main.c: 54:     uart_init();
+[e ( _uart_init ..  ]
 "56
-[; ;main.c: 56:     uart_wr_str(1, instructions1);
-[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _instructions1 ]
+[; ;main.c: 56:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "57
-[; ;main.c: 57:     uart_wr_str(1, instructions2);
-[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _instructions2 ]
-"58
-[; ;main.c: 58:     uart_wr_str(1, instructions3);
-[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _instructions3 ]
+[; ;main.c: 57:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
 "59
-[; ;main.c: 59:     current_command = 0x00;
-[e = _current_command -> -> 0 `i `uc ]
+[; ;main.c: 59:     dummy_spi_tx=spi_data(3,0x6F);
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc -> -> 111 `i `uc ]
 "60
-[; ;main.c: 60:     previous_command = 0x00;
-[e = _previous_command -> -> 0 `i `uc ]
+[; ;main.c: 60:     uart_wr_str(1, text1);
+[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _text1 ]
 "61
-[; ;main.c: 61:     forwarded_command = 'o';
-[e = _forwarded_command -> -> 111 `ui `uc ]
+[; ;main.c: 61:     uart_wr_str(1, instructions1);
+[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _instructions1 ]
+"62
+[; ;main.c: 62:     uart_wr_str(1, instructions2);
+[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _instructions2 ]
+"63
+[; ;main.c: 63:     uart_wr_str(1, instructions3);
+[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _instructions3 ]
 "64
-[; ;main.c: 64:     while(1)
-[e :U 859 ]
-"65
-[; ;main.c: 65:     {
-{
+[; ;main.c: 64:     forwarded_command = 'o';
+[e = _forwarded_command -> -> 111 `ui `uc ]
 "66
-[; ;main.c: 66:         while(new_frame)
-[e $U 861  ]
-[e :U 862 ]
+[; ;main.c: 66:     while(1)
+[e :U 859 ]
 "67
-[; ;main.c: 67:         {
+[; ;main.c: 67:     {
 {
 "68
-[; ;main.c: 68:             current_command = rx1();
-[e = _current_command ( _rx1 ..  ]
+[; ;main.c: 68:             forwarded_command = wii_classic_packet[1];
+[e = _forwarded_command *U + &U _wii_classic_packet * -> -> -> 1 `i `ui `ux -> -> # *U &U _wii_classic_packet `ui `ux ]
 "69
-[; ;main.c: 69:             if(current_command != 0xFF)
-[e $ ! != -> _current_command `i -> 255 `i 864  ]
+[; ;main.c: 69:             dummy_spi_tx = spi_data(3,'o');
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc -> -> 111 `ui `uc ]
 "70
-[; ;main.c: 70:             {
-{
+[; ;main.c: 70:             tx2('o');
+[e ( _tx2 (1 -> -> 111 `ui `uc ]
 "71
-[; ;main.c: 71:                 if(current_command == previous_command)
-[e $ ! == -> _current_command `i -> _previous_command `i 865  ]
+[; ;main.c: 71:             wii_classic_packet[7] = '\0';
+[e = *U + &U _wii_classic_packet * -> -> -> 7 `i `ui `ux -> -> # *U &U _wii_classic_packet `ui `ux -> -> 0 `ui `uc ]
 "72
-[; ;main.c: 72:                 {
-{
-"73
-[; ;main.c: 73:                     glitch_watchdog_counter++;
-[e ++ _glitch_watchdog_counter -> -> 1 `i `ui ]
-"74
-[; ;main.c: 74:                     if(glitch_watchdog_counter >= 400)
-[e $ ! >= _glitch_watchdog_counter -> -> 400 `i `ui 866  ]
-"75
-[; ;main.c: 75:                     {
-{
+[; ;main.c: 72:             uart_wr_str(1,wii_classic_packet);
+[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _wii_classic_packet ]
 "76
-[; ;main.c: 76:                         forwarded_command = 'o';
-[e = _forwarded_command -> -> 111 `ui `uc ]
+[; ;main.c: 76:             switch(forwarded_command)
+[e $U 862  ]
 "77
-[; ;main.c: 77:                         high_beams_on();
-[e ( _high_beams_on ..  ]
+[; ;main.c: 77:             {
+{
 "78
-[; ;main.c: 78:                     }
-}
-[e $U 867  ]
-"79
-[; ;main.c: 79:                     else
-[e :U 866 ]
-"80
-[; ;main.c: 80:                     {
-{
-"81
-[; ;main.c: 81:                         forwarded_command = current_command;
-[e = _forwarded_command _current_command ]
-"82
-[; ;main.c: 82:                     }
-}
-[e :U 867 ]
-"83
-[; ;main.c: 83:                 }
-}
-[e $U 868  ]
-"85
-[; ;main.c: 85:                 else if(current_command != previous_command)
-[e :U 865 ]
-[e $ ! != -> _current_command `i -> _previous_command `i 869  ]
-"86
-[; ;main.c: 86:                 {
-{
-"87
-[; ;main.c: 87:                     forwarded_command = current_command;
-[e = _forwarded_command _current_command ]
-"88
-[; ;main.c: 88:                     glitch_watchdog_counter = 0;
-[e = _glitch_watchdog_counter -> -> 0 `i `ui ]
-"89
-[; ;main.c: 89:                     high_beams_off();
-[e ( _high_beams_off ..  ]
-"90
-[; ;main.c: 90:                 }
-}
-[e :U 869 ]
-[e :U 868 ]
-"92
-[; ;main.c: 92:                 previous_command = current_command;
-[e = _previous_command _current_command ]
-"93
-[; ;main.c: 93:             }
-}
-[e $U 870  ]
-"95
-[; ;main.c: 95:             else
-[e :U 864 ]
-"96
-[; ;main.c: 96:             {
-{
-"97
-[; ;main.c: 97:                 forwarded_command = 'o';
-[e = _forwarded_command -> -> 111 `ui `uc ]
-"98
-[; ;main.c: 98:             }
-}
-[e :U 870 ]
-"102
-[; ;main.c: 102:             dummy_spi_tx=spi_data(3,forwarded_command);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc _forwarded_command ]
-"103
-[; ;main.c: 103:             tx2(forwarded_command);
-[e ( _tx2 (1 -> _forwarded_command `uc ]
-"107
-[; ;main.c: 107:             switch(forwarded_command)
-[e $U 872  ]
-"108
-[; ;main.c: 108:             {
-{
-"109
-[; ;main.c: 109:                 case('a') :
-[e :U 873 ]
-"110
-[; ;main.c: 110:                     debug_leds_off();
-[e ( _debug_leds_off ..  ]
-"111
-[; ;main.c: 111:                     LATAbits.LATA0 = 1;
-[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
-"112
-[; ;main.c: 112:                     break;
-[e $U 871  ]
-"113
-[; ;main.c: 113:                 case('d'):
-[e :U 874 ]
-"114
-[; ;main.c: 114:                     debug_leds_off();
-[e ( _debug_leds_off ..  ]
-"115
-[; ;main.c: 115:                     LATAbits.LATA1 = 1;
-[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
-"116
-[; ;main.c: 116:                     break;
-[e $U 871  ]
-"117
-[; ;main.c: 117:                 case('w'):
-[e :U 875 ]
-"118
-[; ;main.c: 118:                     debug_leds_off();
-[e ( _debug_leds_off ..  ]
-"119
-[; ;main.c: 119:                     LATAbits.LATA2 = 1;
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-"120
-[; ;main.c: 120:                     break;
-[e $U 871  ]
-"121
-[; ;main.c: 121:                 case('o'):
-[e :U 876 ]
-"122
-[; ;main.c: 122:                     debug_leds_off();
-[e ( _debug_leds_off ..  ]
-"123
-[; ;main.c: 123:                     break;
-[e $U 871  ]
-"124
-[; ;main.c: 124:                 case('q'):
-[e :U 877 ]
-"125
-[; ;main.c: 125:                     high_beams_off();
-[e ( _high_beams_off ..  ]
-"126
-[; ;main.c: 126:                     break;
-[e $U 871  ]
-"127
-[; ;main.c: 127:                 case('e'):
-[e :U 878 ]
-"128
-[; ;main.c: 128:                     high_beams_on();
-[e ( _high_beams_on ..  ]
-"129
-[; ;main.c: 129:                     break;
-[e $U 871  ]
-"130
-[; ;main.c: 130:                 default:
-[e :U 879 ]
-"131
-[; ;main.c: 131:                     debug_leds_on();
-[e ( _debug_leds_on ..  ]
-"132
-[; ;main.c: 132:                     break;
-[e $U 871  ]
-"133
-[; ;main.c: 133:             }
-}
-[e $U 871  ]
-[e :U 872 ]
-[e [\ -> _forwarded_command `i , $ -> -> 97 `ui `i 873
- , $ -> -> 100 `ui `i 874
- , $ -> -> 119 `ui `i 875
- , $ -> -> 111 `ui `i 876
- , $ -> -> 113 `ui `i 877
- , $ -> -> 101 `ui `i 878
- 879 ]
-[e :U 871 ]
-"135
-[; ;main.c: 135:           _delay((unsigned long)((16)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 16 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"136
-[; ;main.c: 136:           rx1_overrun_detect_reset();
-[e ( _rx1_overrun_detect_reset ..  ]
-"137
-[; ;main.c: 137:         }
-}
-[e :U 861 ]
-"66
-[; ;main.c: 66:         while(new_frame)
-[e $ != -> _new_frame `i -> 0 `i 862  ]
+[; ;main.c: 78:                 case('a') :
 [e :U 863 ]
-"141
-[; ;main.c: 141:     }
+"79
+[; ;main.c: 79:                     debug_leds_off();
+[e ( _debug_leds_off ..  ]
+"80
+[; ;main.c: 80:                     LATAbits.LATA0 = 1;
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
+"81
+[; ;main.c: 81:                     break;
+[e $U 861  ]
+"82
+[; ;main.c: 82:                 case('d'):
+[e :U 864 ]
+"83
+[; ;main.c: 83:                     debug_leds_off();
+[e ( _debug_leds_off ..  ]
+"84
+[; ;main.c: 84:                     LATAbits.LATA1 = 1;
+[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
+"85
+[; ;main.c: 85:                     break;
+[e $U 861  ]
+"86
+[; ;main.c: 86:                 case('w'):
+[e :U 865 ]
+"87
+[; ;main.c: 87:                     debug_leds_off();
+[e ( _debug_leds_off ..  ]
+"88
+[; ;main.c: 88:                     LATAbits.LATA2 = 1;
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+"89
+[; ;main.c: 89:                     break;
+[e $U 861  ]
+"90
+[; ;main.c: 90:                 case('o'):
+[e :U 866 ]
+"91
+[; ;main.c: 91:                     debug_leds_off();
+[e ( _debug_leds_off ..  ]
+"92
+[; ;main.c: 92:                     break;
+[e $U 861  ]
+"93
+[; ;main.c: 93:                 case('1'):
+[e :U 867 ]
+"94
+[; ;main.c: 94:                     high_beams_off();
+[e ( _high_beams_off ..  ]
+"95
+[; ;main.c: 95:                     break;
+[e $U 861  ]
+"96
+[; ;main.c: 96:                 case('@'):
+[e :U 868 ]
+"97
+[; ;main.c: 97:                     high_beams_on();
+[e ( _high_beams_on ..  ]
+"98
+[; ;main.c: 98:                     break;
+[e $U 861  ]
+"99
+[; ;main.c: 99:                 default:
+[e :U 869 ]
+"100
+[; ;main.c: 100:                     LATAbits.LATA2 = 1;
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+"101
+[; ;main.c: 101:                     break;
+[e $U 861  ]
+"102
+[; ;main.c: 102:             }
+}
+[e $U 861  ]
+[e :U 862 ]
+[e [\ -> _forwarded_command `i , $ -> -> 97 `ui `i 863
+ , $ -> -> 100 `ui `i 864
+ , $ -> -> 119 `ui `i 865
+ , $ -> -> 111 `ui `i 866
+ , $ -> -> 49 `ui `i 867
+ , $ -> -> 64 `ui `i 868
+ 869 ]
+[e :U 861 ]
+"103
+[; ;main.c: 103:          _delay((unsigned long)((1)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"104
+[; ;main.c: 104:           rx1_overrun_detect_reset();
+[e ( _rx1_overrun_detect_reset ..  ]
+"109
+[; ;main.c: 109:     }
 }
 [e :U 858 ]
 [e $U 859  ]
 [e :U 860 ]
-"142
-[; ;main.c: 142: }
+"110
+[; ;main.c: 110: }
 [e :UE 857 ]
 }

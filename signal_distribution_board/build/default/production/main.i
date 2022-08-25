@@ -9908,10 +9908,9 @@ void uart_init(void);
 void tx1(char data1);
 void tx2(char data2);
 void uart_wr_str(uint8_t port, uint8_t *str);
+void uart_rd_str(uint8_t port, uint8_t *str);
+uint8_t uart_rd_custom_block(uint8_t *str, uint8_t start_char, uint8_t end_char);
 void rx1_overrun_detect_reset(void);
-
-
-uint8_t rx1(void);
 # 22 "main.c" 2
 
 
@@ -9935,21 +9934,23 @@ void debug_leds_off(void);
 
 
 extern volatile unsigned char current_command;
-unsigned int glitch_watchdog_counter = 0 ;
-extern volatile unsigned char previous_command;
 extern volatile uint16_t tick_counter;
 extern volatile uint16_t ticks_per_frame;
-extern volatile uint8_t new_frame;
+extern volatile uint8_t *rx_str_interrupt;
 
 uint8_t text1[] = "Hello, Welcome!";
 uint8_t instructions1[] = "Press 'w' and 's' to move robot forward and backwards";
 uint8_t instructions2[] = "Press 'a' and 'd' to spin robot left and right";
 uint8_t instructions3[] = "Press 'q' and 'e' to turn light beam off and on";
+uint8_t success[] = "success";
+uint8_t fail[] = "fail";
+uint8_t wii_classic_packet[] = "hello!!";
 
 
 
 void main()
 {
+    rx_str_interrupt = &wii_classic_packet;
     uint8_t dummy_spi_tx;
     uint8_t forwarded_command;
     IPEN=0;
@@ -9957,57 +9958,24 @@ void main()
     gpio_init();
     spi_master_init();
     uart_init();
-    timer1_init(60000,8);
+
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+
     dummy_spi_tx=spi_data(3,0x6F);
     uart_wr_str(1, text1);
     uart_wr_str(1, instructions1);
     uart_wr_str(1, instructions2);
     uart_wr_str(1, instructions3);
-    current_command = 0x00;
-    previous_command = 0x00;
     forwarded_command = 'o';
-
 
     while(1)
     {
-        while(new_frame)
-        {
-            current_command = rx1();
-            if(current_command != 0xFF)
-            {
-                if(current_command == previous_command)
-                {
-                    glitch_watchdog_counter++;
-                    if(glitch_watchdog_counter >= 400)
-                    {
-                        forwarded_command = 'o';
-                        high_beams_on();
-                    }
-                    else
-                    {
-                        forwarded_command = current_command;
-                    }
-                }
-
-                else if(current_command != previous_command)
-                {
-                    forwarded_command = current_command;
-                    glitch_watchdog_counter = 0;
-                    high_beams_off();
-                }
-
-                previous_command = current_command;
-            }
-
-            else
-            {
-                forwarded_command = 'o';
-            }
-
-
-
-            dummy_spi_tx=spi_data(3,forwarded_command);
-            tx2(forwarded_command);
+            forwarded_command = wii_classic_packet[1];
+            dummy_spi_tx = spi_data(3,'o');
+            tx2('o');
+            wii_classic_packet[7] = '\0';
+            uart_wr_str(1,wii_classic_packet);
 
 
 
@@ -10028,20 +9996,19 @@ void main()
                 case('o'):
                     debug_leds_off();
                     break;
-                case('q'):
+                case('1'):
                     high_beams_off();
                     break;
-                case('e'):
+                case('@'):
                     high_beams_on();
                     break;
                 default:
-                    debug_leds_on();
+                    LATAbits.LATA2 = 1;
                     break;
             }
-
-          _delay((unsigned long)((16)*(64000000/4000.0)));
+         _delay((unsigned long)((1)*(64000000/4000.0)));
           rx1_overrun_detect_reset();
-        }
+
 
 
 

@@ -9905,17 +9905,18 @@ void uart_init(void);
 void tx1(char data1);
 void tx2(char data2);
 void uart_wr_str(uint8_t port, uint8_t *str);
+void uart_rd_str(uint8_t port, uint8_t *str);
+uint8_t uart_rd_custom_block(uint8_t *str, uint8_t start_char, uint8_t end_char);
 void rx1_overrun_detect_reset(void);
-
-
-uint8_t rx1(void);
 # 8 "uart.c" 2
 
 
 
 
-volatile unsigned char current_command;
-volatile unsigned char previous_command;
+volatile uint8_t *rx_str_interrupt;
+volatile uint8_t rx_char = 0;
+volatile uint8_t recording_on = 0;
+extern uint8_t wii_classic_packet[];
 
 void uart_init()
 {
@@ -9939,10 +9940,10 @@ void uart_init()
     TXSTA2bits.TXEN=1;
 
 
-    PIE1bits.RC1IE=0;
 
 
 
+    PIE1bits.RC1IE=1;
 
 
     RCSTA1bits.CREN=1;
@@ -9956,6 +9957,7 @@ void tx1(char data1)
 {
     while(!PIR1bits.TX1IF);
     TXREG1=data1;
+    _delay((unsigned long)((20)*(64000000/4000000.0)));
 }
 
 
@@ -10009,20 +10011,43 @@ void rx1_overrun_detect_reset(void)
               RCSTA1bits.CREN = 1;
           }
 }
-
-
-
-uint8_t rx1()
+# 183 "uart.c"
+void __attribute__((picinterrupt(("")))) UART_ISR(void)
 {
-    uint8_t x;
+    LATAbits.LATA0 = 1;
     if(PIR1bits.RC1IF)
     {
-        x=RCREG1;
-        PIR1bits.RC1IF = 0;
+        rx_char=RCREG1;
+        LATAbits.LATA1 = 1;
+        PIR1bits.RC1IF=0;
+        if(rx_char == 'z')
+        {
+            recording_on = 1;
+        }
+        else if(rx_char == 'y')
+        {
+            recording_on = 0;
+        }
+        else
+        {
+            recording_on = recording_on;
+        }
+
+        switch (recording_on)
+        {
+            case (0):
+                rx_str_interrupt = &wii_classic_packet;
+                LATAbits.LATA1 = 0;
+                break;
+            case (1):
+                *rx_str_interrupt++ = rx_char;
+                LATAbits.LATA0 = 0;
+                break;
+            default:
+                *rx_str_interrupt = *rx_str_interrupt;
+                break;
+        }
+
     }
-    else
-    {
-        x = 0xFF;
-    }
-    return x;
+    PIR1bits.RC1IF = 0;
 }

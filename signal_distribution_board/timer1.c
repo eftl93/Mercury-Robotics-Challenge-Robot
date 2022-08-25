@@ -69,6 +69,7 @@ void load_timer1(void)
     PIE1bits.TMR1IE = 1; //enable interrupt vectoring for timer 1
 }
 
+#ifdef UART1_TIMER1_INTERRUPT
 void __interrupt() TIMER1_ISR(void)
 {
     PIE1bits.TMR1IE = 0; //disable interrupt vectoring for timer 1
@@ -81,3 +82,4 @@ void __interrupt() TIMER1_ISR(void)
     YELLOW_LED ^= 1;
    tick_counter++;              
 }
+#endif
