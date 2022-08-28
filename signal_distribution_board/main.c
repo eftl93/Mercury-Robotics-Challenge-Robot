@@ -48,7 +48,7 @@ void main()
     uint8_t dummy_spi_tx;
     uint8_t forwarded_command;
     IPEN=0; //disable priority levels on interrupts (pic16cxxx compatibility mode)
-    INTCON=0b00000000;
+    INTCON=0b00000000;      //disable global and peripheral interrupts
     gpio_init();            //initialize GPIOs, set leds and relay controller as output. Turn off all the lights
     spi_master_init();      //initialize SPI in master mode
     uart_init();            //initialize both UART1 and UART2 module
