@@ -9,8 +9,10 @@
 #include "main.h"
 #include <stdio.h>
 
-volatile unsigned char current_command;
-volatile unsigned char previous_command;
+volatile uint8_t *rx_str_interrupt;
+volatile uint8_t rx_char = 0;
+volatile uint8_t recording_on = 0;
+extern uint8_t wii_classic_packet[];
 
 void uart_init()
 {
@@ -51,6 +53,7 @@ void tx1(char data1)
 {
     while(!PIR1bits.TX1IF); //keep checking until the txbuffer is empty
     TXREG1=data1;
+    __delay_us(1);
 }
 
 //function used to transmit commands to the servo controller
@@ -69,32 +72,23 @@ void uart_wr_str(uint8_t port, uint8_t *str)
             {
                 tx1(*str++);
             }
-            tx1('\0');
-            tx1('\n');
-            tx1('\r');
             break;
         case(2):
             while(*str != '\0')
             {
                 tx2(*str++);
             }
-            tx2('\0');
-            tx2('\n');
-            tx2('\r');
             break;
         default:
             while(*str != '\0')
             {
                 tx1(*str++);
             }
-            tx1('\0');
-            tx1('\n');
-            tx1('\r');
             break;
     }
-            
-                
+            tx1('\0');              
 }
+
 void rx1_overrun_detect_reset(void)
 {
           if(RCSTA1bits.OERR)
@@ -114,23 +108,102 @@ uint8_t rx1()
     {
         x=RCREG1;
         PIR1bits.RC1IF = 0;
+        __delay_us(10);
     }
     else
     {
-        x = 0xFF;
+        x = 'x';
+        __delay_us(10);
     }
     return x;
 }
+
+void uart_rd_str(uint8_t port, uint8_t *str)
+{
+    switch(port)
+    {
+        case (1):
+            while(*str != '\0')
+            {
+                *str++ = rx1();
+            }
+            break;
+            
+        case(2): //UART2 RX is pending to be implemented
+            while(*str != '\0')
+            {
+                *str++ = rx1();
+            }
+            break;
+            
+        default: //by default read RX1
+            while(*str != '\0')
+            {
+                *str++ = rx1();
+            }
+            break;
+    }
+}
+
+uint8_t uart_rd_custom_block(uint8_t *str, uint8_t start_char, uint8_t end_char)
+{
+    uint8_t length = 0;
+    rx_char = rx1();
+    __delay_us(5);
+    if(rx_char == start_char)
+    {
+        while(*str != end_char)
+        {
+            rx_char = rx1();
+            __delay_us(5);
+            rx1_overrun_detect_reset();
+            if(rx_char != 'x')
+            {
+            *str++ = rx_char;
+            length++;
+            }
+        }
+    }
+    return length;
+}
 #endif
+
 
 //This ISR takes care of RX1, this signal comes from the SBC (Beaglebone Black in this case)
 #ifdef UART1_INTERRUPT
 void __interrupt() UART_ISR(void)
 {
-    if(RC1IF)
+    if(PIR1bits.RC1IF)
     {
-        current_command=RCREG1; //save content into global variable
+        rx_char=RCREG1; //save content into global variable
+        PIR1bits.RC1IF=0;
+        if(rx_char == 'z')
+        {
+            recording_on = 1;            
+        }
+        else if(rx_char == 'y')
+        {
+            recording_on = 0;
+        }
+        else
+        {
+            recording_on = recording_on;
+        }
+        
+        switch (recording_on)
+        {
+            case (0):
+                rx_str_interrupt = &wii_classic_packet;
+                break;
+            case (1):
+                *rx_str_interrupt++ = rx_char;
+                break;
+            default:
+                *rx_str_interrupt = *rx_str_interrupt;
+                break;                 
+        }
+
     }
-    RC1IF=0;
+    PIR1bits.RC1IF = 0;
 }
 #endif

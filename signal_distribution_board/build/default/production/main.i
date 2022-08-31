@@ -16,35 +16,35 @@ extern double __fpnormalize(double);
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\xc8debug.h" 1 3
+# 1 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\xc8debug.h" 1 3
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 1 3
+# 1 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 1 3
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 2 3
+# 1 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\musl_xc8.h" 1 3
+# 4 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 2 3
 
 
 
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\features.h" 1 3
-# 10 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 2 3
-# 21 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 18 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\features.h" 1 3
+# 10 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 2 3
+# 21 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 3
+# 1 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 18 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long int wchar_t;
-# 122 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 122 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned size_t;
-# 168 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 168 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __int24 int24_t;
-# 204 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 204 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __uint24 uint24_t;
-# 21 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdlib.h" 2 3
+# 21 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 2 3
 
 
 int atoi (const char *);
@@ -102,7 +102,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\xc8debug.h" 2 3
+# 4 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\xc8debug.h" 2 3
 
 
 
@@ -118,21 +118,21 @@ extern void __builtin_software_breakpoint(void);
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 1 3
-# 22 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 127 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdint.h" 3
+# 1 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 127 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned long uintptr_t;
-# 142 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 142 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long intptr_t;
-# 158 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 158 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef signed char int8_t;
 
 
 
 
 typedef short int16_t;
-# 173 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 173 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long int32_t;
 
 
@@ -140,7 +140,7 @@ typedef long int32_t;
 
 
 typedef long long int64_t;
-# 188 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 188 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long long intmax_t;
 
 
@@ -153,7 +153,7 @@ typedef unsigned char uint8_t;
 
 
 typedef unsigned short uint16_t;
-# 209 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 209 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned long uint32_t;
 
 
@@ -161,9 +161,9 @@ typedef unsigned long uint32_t;
 
 
 typedef unsigned long long uint64_t;
-# 229 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 229 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned long long uintmax_t;
-# 22 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 2 3
+# 22 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdint.h" 2 3
 
 
 typedef int8_t int_fast8_t;
@@ -196,13 +196,13 @@ typedef uint24_t uint_fast24_t;
 typedef uint32_t uint_least32_t;
 
 typedef uint64_t uint_least64_t;
-# 144 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/stdint.h" 1 3
+# 144 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdint.h" 3
+# 1 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/stdint.h" 1 3
 typedef int16_t int_fast16_t;
 typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
-# 144 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdint.h" 2 3
+# 144 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdint.h" 2 3
 # 5 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\builtins.h" 2 3
 
 
@@ -9644,9 +9644,9 @@ unsigned char __t3rd16on(void);
 # 34 "C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\\pic\\include\\xc.h" 2 3
 # 18 "main.c" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 1 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
+# 24 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
+# 1 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 1 3
 
 
 
@@ -9658,14 +9658,14 @@ typedef void * va_list[1];
 
 
 typedef void * __isoc_va_list[1];
-# 137 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 137 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long ssize_t;
-# 246 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 246 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef long long off_t;
-# 399 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 399 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef struct _IO_FILE FILE;
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
+# 24 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
 typedef union _G_fpos64_t {
  char __opaque[16];
  double __align;
@@ -9790,12 +9790,12 @@ char *ctermid(char *);
 char *tempnam(const char *, const char *);
 # 19 "main.c" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 1 3
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 411 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 3
+# 1 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\string.h" 1 3
+# 25 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\string.h" 3
+# 1 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 411 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef struct __locale_struct * locale_t;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 2 3
+# 25 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\string.h" 2 3
 
 
 void *memcpy (void *restrict, const void *restrict, size_t);
@@ -9828,7 +9828,7 @@ char *strtok (char *restrict, const char *restrict);
 size_t strlen (const char *);
 
 char *strerror (int);
-# 65 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\string.h" 3
+# 65 "E:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\string.h" 3
 char *strtok_r (char *restrict, const char *restrict, char **restrict);
 int strerror_r (int, char *, size_t);
 char *stpcpy(char *restrict, const char *restrict);
@@ -9908,10 +9908,9 @@ void uart_init(void);
 void tx1(char data1);
 void tx2(char data2);
 void uart_wr_str(uint8_t port, uint8_t *str);
+void uart_rd_str(uint8_t port, uint8_t *str);
+uint8_t uart_rd_custom_block(uint8_t *str, uint8_t start_char, uint8_t end_char);
 void rx1_overrun_detect_reset(void);
-
-
-uint8_t rx1(void);
 # 22 "main.c" 2
 
 
@@ -9934,114 +9933,113 @@ void debug_leds_off(void);
 
 
 
-extern volatile unsigned char current_command;
-unsigned int glitch_watchdog_counter = 0 ;
-extern volatile unsigned char previous_command;
-extern volatile uint16_t tick_counter;
-extern volatile uint16_t ticks_per_frame;
-extern volatile uint8_t new_frame;
+extern volatile uint8_t *rx_str_interrupt;
 
 uint8_t text1[] = "Hello, Welcome!";
-uint8_t instructions1[] = "Press 'w' and 's' to move robot forward and backwards";
-uint8_t instructions2[] = "Press 'a' and 'd' to spin robot left and right";
+uint8_t instructions1[] = "Use left joystick to move left wheel";
+uint8_t instructions2[] = "Use right joystick to move right wheel";
 uint8_t instructions3[] = "Press 'q' and 'e' to turn light beam off and on";
+uint8_t wii_classic_packet[] = "hello!!";
 
+struct uart_package
+{
+    uint8_t lx_joystick;
+    uint8_t ly_joystick;
+    uint8_t rx_joystick;
+    uint8_t ry_joystick;
+    uint8_t d_pad;
+    uint8_t action_buttons;
+};
+
+struct ctrl_buttons
+{
+    uint8_t a;
+    uint8_t b;
+    uint8_t x;
+    uint8_t y;
+};
+
+struct uart_package classic_ctrl;
+struct ctrl_buttons act_buttons;
 
 
 void main()
 {
     uint8_t dummy_spi_tx;
-    uint8_t forwarded_command;
+    rx_str_interrupt = &wii_classic_packet;
     IPEN=0;
     INTCON=0b00000000;
     gpio_init();
     spi_master_init();
     uart_init();
-    timer1_init(60000,8);
+
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+
     dummy_spi_tx=spi_data(3,0x6F);
     uart_wr_str(1, text1);
+    tx1('\n');
+    tx1('\r');
     uart_wr_str(1, instructions1);
+    tx1('\n');
+    tx1('\r');
     uart_wr_str(1, instructions2);
+    tx1('\n');
+    tx1('\r');
     uart_wr_str(1, instructions3);
-    current_command = 0x00;
-    previous_command = 0x00;
-    forwarded_command = 'o';
-
+    tx1('\n');
+    tx1('\r');
 
     while(1)
     {
-        while(new_frame)
+
+        classic_ctrl.lx_joystick = wii_classic_packet[1] - 33;
+        classic_ctrl.ly_joystick = wii_classic_packet[2] - 33;
+        classic_ctrl.rx_joystick = wii_classic_packet[3] - 33;
+        classic_ctrl.ry_joystick = wii_classic_packet[4] - 33;
+        classic_ctrl.d_pad = wii_classic_packet[5] - 33;
+        classic_ctrl.action_buttons = wii_classic_packet[6] - 33;
+        wii_classic_packet[7] = '\0';
+
+
+        tx2(classic_ctrl.d_pad);
+        uart_wr_str(1,wii_classic_packet);
+        tx1('\r');
+
+
+        dummy_spi_tx = spi_data(3,'z');
+        dummy_spi_tx = spi_data(3,classic_ctrl.lx_joystick);
+        dummy_spi_tx = spi_data(3,classic_ctrl.ly_joystick);
+        dummy_spi_tx = spi_data(3,classic_ctrl.rx_joystick);
+        dummy_spi_tx = spi_data(3,classic_ctrl.ry_joystick);
+        dummy_spi_tx = spi_data(3,'y');
+
+
+        act_buttons.a = ((classic_ctrl.action_buttons & 0b00001000) >> 3);
+        act_buttons.b = ((classic_ctrl.action_buttons & 0b00000100) >> 2);
+        act_buttons.x = ((classic_ctrl.action_buttons & 0b00000010) >> 1);
+        act_buttons.y = ((classic_ctrl.action_buttons & 0b00000001) >> 0);
+
+
+
+        LATAbits.LATA0 = act_buttons.a;
+        LATAbits.LATA1 = act_buttons.b;
+        if((act_buttons.x) & (!act_buttons.y))
         {
-            current_command = rx1();
-            if(current_command != 0xFF)
-            {
-                if(current_command == previous_command)
-                {
-                    glitch_watchdog_counter++;
-                    if(glitch_watchdog_counter >= 400)
-                    {
-                        forwarded_command = 'o';
-                        high_beams_on();
-                    }
-                    else
-                    {
-                        forwarded_command = current_command;
-                    }
-                }
-
-                else if(current_command != previous_command)
-                {
-                    forwarded_command = current_command;
-                    glitch_watchdog_counter = 0;
-                    high_beams_off();
-                }
-
-                previous_command = current_command;
-            }
-
-            else
-            {
-                forwarded_command = 'o';
-            }
-
-
-
-            dummy_spi_tx=spi_data(3,forwarded_command);
-            tx2(forwarded_command);
-
-
-
-            switch(forwarded_command)
-            {
-                case('a') :
-                    debug_leds_off();
-                    LATAbits.LATA0 = 1;
-                    break;
-                case('d'):
-                    debug_leds_off();
-                    LATAbits.LATA1 = 1;
-                    break;
-                case('w'):
-                    debug_leds_off();
-                    LATAbits.LATA2 = 1;
-                    break;
-                case('o'):
-                    debug_leds_off();
-                    break;
-                case('q'):
-                    high_beams_off();
-                    break;
-                case('e'):
-                    high_beams_on();
-                    break;
-                default:
-                    debug_leds_on();
-                    break;
-            }
-
-          _delay((unsigned long)((16)*(64000000/4000.0)));
-          rx1_overrun_detect_reset();
+            high_beams_on();
         }
+        else if((!act_buttons.x) & (act_buttons.y))
+        {
+            high_beams_off();
+        }
+        else
+        {
+
+        }
+
+
+      rx1_overrun_detect_reset();
+
 
 
 
