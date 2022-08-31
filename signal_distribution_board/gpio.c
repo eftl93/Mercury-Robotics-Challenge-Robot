@@ -25,10 +25,8 @@ void gpio_init(void)
    debug_leds_off();
    high_beams_off();
 }
-//'e' and 'q' are to set or reset a "2 coil latching relay"
-//'e' will energize the "set" coil
-//'q' will energize the "reset" coil
-//therefore, these two characters will turn on and off the head beams. 
+
+//set the relay to turn on the lights
 void high_beams_on(void)
 {
     LATD=0b00000010; //set relay to turn on the lights
@@ -36,20 +34,24 @@ void high_beams_on(void)
     __delay_ms(5);
     LATD=0; 
 }
+
+//reset the relay to turn on off the lights
 void high_beams_off(void)
 {
-    LATD = 0b00000001; //reset the relay to turn on off the lights
+    LATD = 0b00000001; 
     __delay_ms(10);
     __delay_ms(5);
     LATD=0;
 }
 
+//turns all the debug leds on
 void debug_leds_on(void)
 {
     LATA |= 0x07;    
 }
 
+//Turn off the onboard diagnostic LEDs  
 void debug_leds_off(void)
 {
-   LATA &= 0xF8;   //Turn off the onboard diagnostic LEDs  
+   LATA &= 0xF8;   
 }

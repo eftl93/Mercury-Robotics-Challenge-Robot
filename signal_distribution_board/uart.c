@@ -46,9 +46,7 @@ void uart_init()
     RCSTA2bits.CREN=1;      //Receiver enabled
 }
 
-//function to transmit to Beaglebone, it was not used for SR. Design 2
-//but it was to be used to send sensor information back to the driver of
-//the robot
+//Functions that sends one byte through uart1
 void tx1(char data1)
 {
     while(!PIR1bits.TX1IF); //keep checking until the txbuffer is empty
@@ -63,6 +61,10 @@ void tx2(char data2)
     TXREG2=data2;
 }
 
+//First arguments choose either rx1 or rx2 (1 or 2)
+//Second argument takes a pointer to a char
+//This function will keep sending chars until the character to be
+//is the nul character (\n)
 void uart_wr_str(uint8_t port, uint8_t *str)
 {
     switch(port)
@@ -89,6 +91,8 @@ void uart_wr_str(uint8_t port, uint8_t *str)
             tx1('\0');              
 }
 
+//resets the uart1 module in case that another byte is
+//received while the buffer still holds the previous byte
 void rx1_overrun_detect_reset(void)
 {
           if(RCSTA1bits.OERR)
