@@ -53,7 +53,7 @@ void tx1(char data1)
 {
     while(!PIR1bits.TX1IF); //keep checking until the txbuffer is empty
     TXREG1=data1;
-    __delay_us(20);
+    __delay_us(1);
 }
 
 //function used to transmit commands to the servo controller
@@ -72,32 +72,23 @@ void uart_wr_str(uint8_t port, uint8_t *str)
             {
                 tx1(*str++);
             }
-            tx1('\0');
-            tx1('\n');
-            tx1('\r');
             break;
         case(2):
             while(*str != '\0')
             {
                 tx2(*str++);
             }
-            tx2('\0');
-            tx2('\n');
-            tx2('\r');
             break;
         default:
             while(*str != '\0')
             {
                 tx1(*str++);
             }
-            tx1('\0');
-            tx1('\n');
-            tx1('\r');
             break;
     }
-            
-                
+            tx1('\0');              
 }
+
 void rx1_overrun_detect_reset(void)
 {
           if(RCSTA1bits.OERR)
@@ -169,10 +160,10 @@ uint8_t uart_rd_custom_block(uint8_t *str, uint8_t start_char, uint8_t end_char)
             if(rx_char != 'x')
             {
             *str++ = rx_char;
+            length++;
             }
         }
     }
-    length = 2;
     return length;
 }
 #endif
@@ -182,11 +173,9 @@ uint8_t uart_rd_custom_block(uint8_t *str, uint8_t start_char, uint8_t end_char)
 #ifdef UART1_INTERRUPT
 void __interrupt() UART_ISR(void)
 {
-    RED_LED = 1;
     if(PIR1bits.RC1IF)
     {
         rx_char=RCREG1; //save content into global variable
-        GREEN_LED = 1;
         PIR1bits.RC1IF=0;
         if(rx_char == 'z')
         {
@@ -205,11 +194,9 @@ void __interrupt() UART_ISR(void)
         {
             case (0):
                 rx_str_interrupt = &wii_classic_packet;
-                GREEN_LED = 0;
                 break;
             case (1):
                 *rx_str_interrupt++ = rx_char;
-                RED_LED = 0;
                 break;
             default:
                 *rx_str_interrupt = *rx_str_interrupt;

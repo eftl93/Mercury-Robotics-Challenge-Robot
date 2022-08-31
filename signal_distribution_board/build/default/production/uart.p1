@@ -252,21 +252,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _TXREG2 `Vuc ~T0 @X0 0 e@3955 ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
-"7567
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7567:     struct {
-[s S380 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S380 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
-"7577
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7577:     struct {
-[s S381 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S381 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
-"7566
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7566: typedef union {
-[u S379 `S380 1 `S381 1 ]
-[n S379 . . . ]
-"7588
-[; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 7588: extern volatile LATAbits_t LATAbits __attribute__((address(0xF89)));
-[v _LATAbits `VS379 ~T0 @X0 0 e@3977 ]
 "11289
 [; ;C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h: 11289: extern volatile unsigned char RCREG1 __attribute__((address(0xFAE)));
 [v _RCREG1 `Vuc ~T0 @X0 0 e@4014 ]
@@ -1194,8 +1179,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;uart.c: 55:     TXREG1=data1;
 [e = _TXREG1 -> _data1 `uc ]
 "56
-[; ;uart.c: 56:     _delay((unsigned long)((20)*(64000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
+[; ;uart.c: 56:     _delay((unsigned long)((1)*(64000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
 "57
 [; ;uart.c: 57: }
 [e :UE 858 ]
@@ -1269,85 +1254,58 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ != -> *U _str `ui -> 0 `ui 871  ]
 [e :U 872 ]
 "75
-[; ;uart.c: 75:             tx1('\0');
-[e ( _tx1 (1 -> -> 0 `ui `uc ]
-"76
-[; ;uart.c: 76:             tx1('\n');
-[e ( _tx1 (1 -> -> 10 `ui `uc ]
-"77
-[; ;uart.c: 77:             tx1('\r');
-[e ( _tx1 (1 -> -> 13 `ui `uc ]
-"78
-[; ;uart.c: 78:             break;
+[; ;uart.c: 75:             break;
 [e $U 867  ]
-"79
-[; ;uart.c: 79:         case(2):
+"76
+[; ;uart.c: 76:         case(2):
 [e :U 873 ]
-"80
-[; ;uart.c: 80:             while(*str != '\0')
+"77
+[; ;uart.c: 77:             while(*str != '\0')
 [e $U 874  ]
 [e :U 875 ]
-"81
-[; ;uart.c: 81:             {
+"78
+[; ;uart.c: 78:             {
 {
-"82
-[; ;uart.c: 82:                 tx2(*str++);
+"79
+[; ;uart.c: 79:                 tx2(*str++);
 [e ( _tx2 (1 -> *U ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x `uc ]
-"83
-[; ;uart.c: 83:             }
+"80
+[; ;uart.c: 80:             }
 }
 [e :U 874 ]
-"80
-[; ;uart.c: 80:             while(*str != '\0')
+"77
+[; ;uart.c: 77:             while(*str != '\0')
 [e $ != -> *U _str `ui -> 0 `ui 875  ]
 [e :U 876 ]
+"81
+[; ;uart.c: 81:             break;
+[e $U 867  ]
+"82
+[; ;uart.c: 82:         default:
+[e :U 877 ]
+"83
+[; ;uart.c: 83:             while(*str != '\0')
+[e $U 878  ]
+[e :U 879 ]
 "84
-[; ;uart.c: 84:             tx2('\0');
-[e ( _tx2 (1 -> -> 0 `ui `uc ]
+[; ;uart.c: 84:             {
+{
 "85
-[; ;uart.c: 85:             tx2('\n');
-[e ( _tx2 (1 -> -> 10 `ui `uc ]
+[; ;uart.c: 85:                 tx1(*str++);
+[e ( _tx1 (1 -> *U ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x `uc ]
 "86
-[; ;uart.c: 86:             tx2('\r');
-[e ( _tx2 (1 -> -> 13 `ui `uc ]
+[; ;uart.c: 86:             }
+}
+[e :U 878 ]
+"83
+[; ;uart.c: 83:             while(*str != '\0')
+[e $ != -> *U _str `ui -> 0 `ui 879  ]
+[e :U 880 ]
 "87
 [; ;uart.c: 87:             break;
 [e $U 867  ]
 "88
-[; ;uart.c: 88:         default:
-[e :U 877 ]
-"89
-[; ;uart.c: 89:             while(*str != '\0')
-[e $U 878  ]
-[e :U 879 ]
-"90
-[; ;uart.c: 90:             {
-{
-"91
-[; ;uart.c: 91:                 tx1(*str++);
-[e ( _tx1 (1 -> *U ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x `uc ]
-"92
-[; ;uart.c: 92:             }
-}
-[e :U 878 ]
-"89
-[; ;uart.c: 89:             while(*str != '\0')
-[e $ != -> *U _str `ui -> 0 `ui 879  ]
-[e :U 880 ]
-"93
-[; ;uart.c: 93:             tx1('\0');
-[e ( _tx1 (1 -> -> 0 `ui `uc ]
-"94
-[; ;uart.c: 94:             tx1('\n');
-[e ( _tx1 (1 -> -> 10 `ui `uc ]
-"95
-[; ;uart.c: 95:             tx1('\r');
-[e ( _tx1 (1 -> -> 13 `ui `uc ]
-"96
-[; ;uart.c: 96:             break;
-[e $U 867  ]
-"97
-[; ;uart.c: 97:     }
+[; ;uart.c: 88:     }
 }
 [e $U 867  ]
 [e :U 868 ]
@@ -1355,150 +1313,141 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 2 `i 873
  877 ]
 [e :U 867 ]
-"100
-[; ;uart.c: 100: }
+"89
+[; ;uart.c: 89:             tx1('\0');
+[e ( _tx1 (1 -> -> 0 `ui `uc ]
+"90
+[; ;uart.c: 90: }
 [e :UE 866 ]
 }
-"101
-[; ;uart.c: 101: void rx1_overrun_detect_reset(void)
+"92
+[; ;uart.c: 92: void rx1_overrun_detect_reset(void)
 [v _rx1_overrun_detect_reset `(v ~T0 @X0 1 ef ]
-"102
-[; ;uart.c: 102: {
+"93
+[; ;uart.c: 93: {
 {
 [e :U _rx1_overrun_detect_reset ]
 [f ]
-"103
-[; ;uart.c: 103:           if(RCSTA1bits.OERR)
+"94
+[; ;uart.c: 94:           if(RCSTA1bits.OERR)
 [e $ ! != -> . . _RCSTA1bits 0 1 `i -> 0 `i 882  ]
-"104
-[; ;uart.c: 104:           {
+"95
+[; ;uart.c: 95:           {
 {
-"105
-[; ;uart.c: 105:               RCSTA1bits.CREN = 0;
+"96
+[; ;uart.c: 96:               RCSTA1bits.CREN = 0;
 [e = . . _RCSTA1bits 0 4 -> -> 0 `i `uc ]
-"106
-[; ;uart.c: 106:               _delay((unsigned long)((4)*(64000000/4000000.0)));
+"97
+[; ;uart.c: 97:               _delay((unsigned long)((4)*(64000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 4 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"107
-[; ;uart.c: 107:               RCSTA1bits.CREN = 1;
+"98
+[; ;uart.c: 98:               RCSTA1bits.CREN = 1;
 [e = . . _RCSTA1bits 0 4 -> -> 1 `i `uc ]
-"108
-[; ;uart.c: 108:           }
+"99
+[; ;uart.c: 99:           }
 }
 [e :U 882 ]
-"109
-[; ;uart.c: 109: }
+"100
+[; ;uart.c: 100: }
 [e :UE 881 ]
 }
 [v $root$_UART_ISR `(v ~T0 @X0 0 e ]
-"183
-[; ;uart.c: 183: void __attribute__((picinterrupt(("")))) UART_ISR(void)
+"174
+[; ;uart.c: 174: void __attribute__((picinterrupt(("")))) UART_ISR(void)
 [v _UART_ISR `(v ~T1 @X0 1 ef ]
-"184
-[; ;uart.c: 184: {
+"175
+[; ;uart.c: 175: {
 {
 [e :U _UART_ISR ]
 [f ]
-"185
-[; ;uart.c: 185:     LATAbits.LATA0 = 1;
-[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
-"186
-[; ;uart.c: 186:     if(PIR1bits.RC1IF)
+"176
+[; ;uart.c: 176:     if(PIR1bits.RC1IF)
 [e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 884  ]
-"187
-[; ;uart.c: 187:     {
+"177
+[; ;uart.c: 177:     {
 {
-"188
-[; ;uart.c: 188:         rx_char=RCREG1;
+"178
+[; ;uart.c: 178:         rx_char=RCREG1;
 [e = _rx_char _RCREG1 ]
-"189
-[; ;uart.c: 189:         LATAbits.LATA1 = 1;
-[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
-"190
-[; ;uart.c: 190:         PIR1bits.RC1IF=0;
+"179
+[; ;uart.c: 179:         PIR1bits.RC1IF=0;
 [e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"191
-[; ;uart.c: 191:         if(rx_char == 'z')
+"180
+[; ;uart.c: 180:         if(rx_char == 'z')
 [e $ ! == -> _rx_char `ui -> 122 `ui 885  ]
-"192
-[; ;uart.c: 192:         {
+"181
+[; ;uart.c: 181:         {
 {
-"193
-[; ;uart.c: 193:             recording_on = 1;
+"182
+[; ;uart.c: 182:             recording_on = 1;
 [e = _recording_on -> -> 1 `i `uc ]
-"194
-[; ;uart.c: 194:         }
+"183
+[; ;uart.c: 183:         }
 }
 [e $U 886  ]
-"195
-[; ;uart.c: 195:         else if(rx_char == 'y')
+"184
+[; ;uart.c: 184:         else if(rx_char == 'y')
 [e :U 885 ]
 [e $ ! == -> _rx_char `ui -> 121 `ui 887  ]
-"196
-[; ;uart.c: 196:         {
+"185
+[; ;uart.c: 185:         {
 {
-"197
-[; ;uart.c: 197:             recording_on = 0;
+"186
+[; ;uart.c: 186:             recording_on = 0;
 [e = _recording_on -> -> 0 `i `uc ]
-"198
-[; ;uart.c: 198:         }
+"187
+[; ;uart.c: 187:         }
 }
 [e $U 888  ]
-"199
-[; ;uart.c: 199:         else
+"188
+[; ;uart.c: 188:         else
 [e :U 887 ]
-"200
-[; ;uart.c: 200:         {
+"189
+[; ;uart.c: 189:         {
 {
-"201
-[; ;uart.c: 201:             recording_on = recording_on;
+"190
+[; ;uart.c: 190:             recording_on = recording_on;
 [e = _recording_on _recording_on ]
-"202
-[; ;uart.c: 202:         }
+"191
+[; ;uart.c: 191:         }
 }
 [e :U 888 ]
 [e :U 886 ]
-"204
-[; ;uart.c: 204:         switch (recording_on)
+"193
+[; ;uart.c: 193:         switch (recording_on)
 [e $U 890  ]
-"205
-[; ;uart.c: 205:         {
+"194
+[; ;uart.c: 194:         {
 {
-"206
-[; ;uart.c: 206:             case (0):
+"195
+[; ;uart.c: 195:             case (0):
 [e :U 891 ]
-"207
-[; ;uart.c: 207:                 rx_str_interrupt = &wii_classic_packet;
+"196
+[; ;uart.c: 196:                 rx_str_interrupt = &wii_classic_packet;
 [e = _rx_str_interrupt -> &U _wii_classic_packet `*Vuc ]
-"208
-[; ;uart.c: 208:                 LATAbits.LATA1 = 0;
-[e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
-"209
-[; ;uart.c: 209:                 break;
+"197
+[; ;uart.c: 197:                 break;
 [e $U 889  ]
-"210
-[; ;uart.c: 210:             case (1):
+"198
+[; ;uart.c: 198:             case (1):
 [e :U 892 ]
-"211
-[; ;uart.c: 211:                 *rx_str_interrupt++ = rx_char;
+"199
+[; ;uart.c: 199:                 *rx_str_interrupt++ = rx_char;
 [e = *U ++ _rx_str_interrupt * -> -> 1 `i `x -> -> # *U _rx_str_interrupt `i `x _rx_char ]
-"212
-[; ;uart.c: 212:                 LATAbits.LATA0 = 0;
-[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
-"213
-[; ;uart.c: 213:                 break;
+"200
+[; ;uart.c: 200:                 break;
 [e $U 889  ]
-"214
-[; ;uart.c: 214:             default:
+"201
+[; ;uart.c: 201:             default:
 [e :U 893 ]
-"215
-[; ;uart.c: 215:                 *rx_str_interrupt = *rx_str_interrupt;
+"202
+[; ;uart.c: 202:                 *rx_str_interrupt = *rx_str_interrupt;
 [e = *U _rx_str_interrupt *U _rx_str_interrupt ]
-"216
-[; ;uart.c: 216:                 break;
+"203
+[; ;uart.c: 203:                 break;
 [e $U 889  ]
-"217
-[; ;uart.c: 217:         }
+"204
+[; ;uart.c: 204:         }
 }
 [e $U 889  ]
 [e :U 890 ]
@@ -1506,14 +1455,14 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 1 `i 892
  893 ]
 [e :U 889 ]
-"219
-[; ;uart.c: 219:     }
+"206
+[; ;uart.c: 206:     }
 }
 [e :U 884 ]
-"220
-[; ;uart.c: 220:     PIR1bits.RC1IF = 0;
+"207
+[; ;uart.c: 207:     PIR1bits.RC1IF = 0;
 [e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"221
-[; ;uart.c: 221: }
+"208
+[; ;uart.c: 208: }
 [e :UE 883 ]
 }

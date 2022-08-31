@@ -27,28 +27,42 @@
 #define _XTAL_FREQ 64000000
 
 
-extern volatile unsigned char current_command;
-extern volatile uint16_t tick_counter;
-extern volatile uint16_t ticks_per_frame;
 extern volatile uint8_t *rx_str_interrupt;
 
 uint8_t text1[] = "Hello, Welcome!";
 uint8_t instructions1[] = "Use left joystick to move left wheel";
 uint8_t instructions2[] = "Use right joystick to move right wheel";
 uint8_t instructions3[] = "Press 'q' and 'e' to turn light beam off and on";
-uint8_t success[] = "success";
-uint8_t fail[] = "fail";
 uint8_t wii_classic_packet[] = "hello!!";
 
+struct uart_package
+{
+    uint8_t lx_joystick;
+    uint8_t ly_joystick;
+    uint8_t rx_joystick;
+    uint8_t ry_joystick;
+    uint8_t d_pad;
+    uint8_t action_buttons;
+};
+
+struct ctrl_buttons
+{
+    uint8_t a;
+    uint8_t b;
+    uint8_t x;
+    uint8_t y;
+};
+
+struct uart_package classic_ctrl;
+struct ctrl_buttons act_buttons;
 
 
 void main()
 {
-    rx_str_interrupt = &wii_classic_packet; //copy the address of wii_classic_packet[] to rx_str_interrupt
     uint8_t dummy_spi_tx;
-    uint8_t forwarded_command;
+    rx_str_interrupt = &wii_classic_packet; //copy the address of wii_classic_packet[] to rx_str_interrupt 
     IPEN=0; //disable priority levels on interrupts (pic16cxxx compatibility mode)
-    INTCON=0b00000000;      //disable global and peripheral interrupts
+    INTCON=0b00000000;      //disables all interrupts
     gpio_init();            //initialize GPIOs, set leds and relay controller as output. Turn off all the lights
     spi_master_init();      //initialize SPI in master mode
     uart_init();            //initialize both UART1 and UART2 module
@@ -58,50 +72,67 @@ void main()
     
     dummy_spi_tx=spi_data(3,0x6F); //send an 'o' to the motor controller board to turn off the motors
     uart_wr_str(1, text1);
+    tx1('\n'); //new line
+    tx1('\r'); //return to the beginning of the same line
     uart_wr_str(1, instructions1);
+    tx1('\n');
+    tx1('\r');
     uart_wr_str(1, instructions2);
+    tx1('\n');
+    tx1('\r');
     uart_wr_str(1, instructions3);
-    forwarded_command = 'o';
+    tx1('\n');
+    tx1('\r');
 
     while(1)
     {
-            forwarded_command = wii_classic_packet[1];
-            dummy_spi_tx = spi_data(3,'o'); //send 'o' to SPI device 3 @FOSC/64
-            tx2('o');                       //send 'o' to uart2 TX
-            wii_classic_packet[7] = '\0';
-            uart_wr_str(1,wii_classic_packet);
+        //remove the offset given by the HID keyboard controller and save the values to a struct
+        classic_ctrl.lx_joystick = wii_classic_packet[1] - 33;
+        classic_ctrl.ly_joystick = wii_classic_packet[2] - 33;
+        classic_ctrl.rx_joystick = wii_classic_packet[3] - 33;
+        classic_ctrl.ry_joystick = wii_classic_packet[4] - 33;
+        classic_ctrl.d_pad       = wii_classic_packet[5] - 33;
+        classic_ctrl.action_buttons = wii_classic_packet[6] - 33;
+        wii_classic_packet[7] = '\0';
+
+        //dummy_spi_tx = spi_data(3,'o'); //send 'o' to SPI device 3 @FOSC/64
+        tx2(classic_ctrl.d_pad);         //send directional pad info to servo controller
+        uart_wr_str(1,wii_classic_packet); //sending the whole string received on uart1_rx back to uart1_tx for debugging purposes
+        tx1('\r');
+
+        //sending set of data to motor controller board through spi, starting with 'z' and ending with 'y' to set start and end of package
+        dummy_spi_tx = spi_data(3,'z');
+        dummy_spi_tx = spi_data(3,classic_ctrl.lx_joystick);
+        dummy_spi_tx = spi_data(3,classic_ctrl.ly_joystick);
+        dummy_spi_tx = spi_data(3,classic_ctrl.rx_joystick);
+        dummy_spi_tx = spi_data(3,classic_ctrl.ry_joystick);
+        dummy_spi_tx = spi_data(3,'y');
+        
+        //read the status of each of the action buttons
+        act_buttons.a = ((classic_ctrl.action_buttons & 0b00001000) >> 3);
+        act_buttons.b = ((classic_ctrl.action_buttons & 0b00000100) >> 2);
+        act_buttons.x = ((classic_ctrl.action_buttons & 0b00000010) >> 1);
+        act_buttons.y = ((classic_ctrl.action_buttons & 0b00000001) >> 0);
+
+        //Interpret the commands and turn on the LEDs in a pattern depending on 
+        //the data received
+        RED_LED = act_buttons.a;
+        GREEN_LED = act_buttons.b;
+        if((act_buttons.x) & (!act_buttons.y))
+        {
+            high_beams_on();
+        }
+        else if((!act_buttons.x) & (act_buttons.y))
+        {
+            high_beams_off();
+        }
+        else
+        {
             
-            //Interpret the commands and turn on the LEDs in a pattern depending on 
-            //the data received
-            switch(forwarded_command)
-            {
-                case('a') :
-                    debug_leds_off();
-                    RED_LED = 1;
-                    break;
-                case('d'):
-                    debug_leds_off();
-                    GREEN_LED = 1;
-                    break;
-                case('w'):
-                    debug_leds_off();
-                    YELLOW_LED = 1;
-                    break;
-                case('o'):
-                    debug_leds_off();
-                    break;
-                case('1'):
-                    high_beams_off();
-                    break;
-                case('@'):
-                    high_beams_on();
-                    break;
-                default:
-                    YELLOW_LED = 1;
-                    break;
-            }
-         __delay_ms(1);
-          rx1_overrun_detect_reset();
+        }
+        
+
+      rx1_overrun_detect_reset();
         
        //load_timer1();
        // __asm("sleep");
