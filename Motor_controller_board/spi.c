@@ -8,6 +8,10 @@
  */
 #include <xc.h>
 #include "spi.h"
+volatile uint8_t spi_read_data;
+volatile uint8_t recording_on;
+volatile uint8_t *spi_str_interrupt;
+extern uint8_t signal_distribution_packet[];
 
 void spi_slave_init()
 {
@@ -35,10 +39,35 @@ void spi_data(unsigned char tx_data)
 
 void __interrupt() SPI_ISR(void)
 {
-    if(SSPIF)
+    if(PIR1bits.SSP1IF)
     {
-        spi_read_data=SSP1BUF;  //
-        SSP1IF=0;
+        spi_read_data=SSP1BUF;  //Save content in a global variable
+        if(spi_read_data == 'z')
+        {
+            recording_on = 1;
+        }
+        else if(spi_read_data == 'y')
+        {
+            recording_on = 0;
+        }
+        else
+        {
+            recording_on = recording_on;
+        }
+        
+        switch(recording_on)
+        {
+            case(0):
+                spi_str_interrupt = &signal_distribution_packet;
+                break;
+            case(1):
+                *spi_str_interrupt++ = spi_read_data;
+                break;
+            default:
+                *spi_str_interrupt = *spi_str_interrupt;
+                break;
+        } 
+        PIR1bits.SSP1IF=0;
         SSP1BUF = 0x55;         //fill the buffer with dummy data
     }
 }

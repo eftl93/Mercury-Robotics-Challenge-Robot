@@ -33,7 +33,7 @@ End of Revisions
 
 void spi_slave_init(void);
 void spi_data(unsigned char tx_data);
-volatile unsigned char spi_read_data;
+
 
 #endif 
 

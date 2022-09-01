@@ -98,7 +98,7 @@ void all_break(void);
 void motor_off(void);
 void all_off(void);
 void filter_module(void);
-void simple_absolute_position(void);
+void simple_absolute_position(uint8_t motor);
 void simple_relative_position(void);
 void velocity_mode_breakpoints(void);
 void forward(void);
@@ -109,6 +109,7 @@ void forward_right(void);
 void forward_left(void);
 void reverse_right(void);
 void reverse_left(void);
+void set_absolute_velocity(uint8_t motor);
 /***********************************************************************
 End of Declaration
 ***********************************************************************/

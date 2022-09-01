@@ -3,29 +3,29 @@
 [d edition pro ]
 [d chip 18F46K22 ]
 [d frameptr 4065 ]
-"4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\fleq.c
+"4 E:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
-"62 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\float.c
+"62 E:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
-"86 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftadd.c
+"86 E:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
-"54 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftdiv.c
+"54 E:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 4 0 ]
-"62 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftmul.c
+"62 E:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftmul.c
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
-"19 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftsub.c
+"19 E:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
-"10 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcadd.c
+"10 E:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
 [v ___flsub __flsub `(d  1 e 4 0 ]
-"11 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcdiv.c
+"11 E:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
-"8 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcmul.c
+"8 E:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
-"15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul32.c
+"15 E:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"91 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul64.c
+"91 E:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
 "15 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
 [v _check_busy check_busy `(v  1 e 1 0 ]
@@ -69,17 +69,15 @@
 [v _reverse_left reverse_left `(v  1 e 1 0 ]
 "1105
 [v _reverse_right reverse_right `(v  1 e 1 0 ]
-"129 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+"130 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
 [v _main main `(v  1 e 1 0 ]
-"12 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+"16 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
 [v _spi_slave_init spi_slave_init `(v  1 e 1 0 ]
-"31
+"35
 [v _spi_data spi_data `(v  1 e 1 0 ]
-"36
+"40
 [v _SPI_ISR SPI_ISR `IIH(v  1 e 1 0 ]
-"36 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board/spi.h
-[v _spi_read_data spi_read_data `VEuc  1 e 1 0 ]
-"53 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f46k22.h
+"53 E:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f46k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
 "98
 [v _ANSELB ANSELB `VEuc  1 e 1 @3897 ]
@@ -400,6 +398,22 @@
 [v _TRISDbits TRISDbits `VES379  1 e 1 @3989 ]
 "9135
 [v _HLVDCON HLVDCON `VEuc  1 e 1 @3996 ]
+[s S1176 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"9514
+[s S1184 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+]
+[u S1189 . 1 `S1176 1 . 1 0 `S1184 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES1189  1 e 1 @3998 ]
 "13544
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "13612
@@ -524,32 +538,36 @@
 [v _PEIE PEIE `VEb  1 e 0 @32662 ]
 "19836
 [v _SSP1IE SSP1IE `VEb  1 e 0 @31979 ]
-"19839
-[v _SSP1IF SSP1IF `VEb  1 e 0 @31987 ]
-"19863
-[v _SSPIF SSPIF `VEb  1 e 0 @31987 ]
-"129 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+"128 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+[v _signal_distribution_packet signal_distribution_packet `[9]uc  1 e 9 0 ]
+"11 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+[v _spi_read_data spi_read_data `VEuc  1 e 1 0 ]
+"12
+[v _recording_on recording_on `VEuc  1 e 1 0 ]
+"13
+[v _spi_str_interrupt spi_str_interrupt `*.39VEuc  1 e 2 0 ]
+"130 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"131
-[v main@received_data received_data `uc  1 a 1 12 ]
 "132
-[v main@dummy_data dummy_data `uc  1 a 1 11 ]
-"237
+[v main@received_data received_data `uc  1 a 1 18 ]
+"133
+[v main@dummy_data dummy_data `uc  1 a 1 17 ]
+"238
 } 0
-"12 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+"16 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
 [v _spi_slave_init spi_slave_init `(v  1 e 1 0 ]
 {
-"29
+"33
 } 0
-"31
+"35
 [v _spi_data spi_data `(v  1 e 1 0 ]
 {
 [v spi_data@tx_data tx_data `uc  1 a 1 wreg ]
 [v spi_data@tx_data tx_data `uc  1 a 1 wreg ]
-"33
-[v spi_data@tx_data tx_data `uc  1 a 1 0 ]
-"34
+"37
+[v spi_data@tx_data tx_data `uc  1 a 1 6 ]
+"38
 } 0
 "631 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
 [v _right right `(v  1 e 1 0 ]
@@ -615,7 +633,7 @@
 [v _LM629_init LM629_init `(v  1 e 1 0 ]
 {
 "107
-[v LM629_init@x x `uc  1 a 1 8 ]
+[v LM629_init@x x `uc  1 a 1 14 ]
 "232
 } 0
 "374
@@ -628,9 +646,9 @@
 {
 [v write_data@byte1 byte1 `uc  1 a 1 wreg ]
 [v write_data@byte1 byte1 `uc  1 a 1 wreg ]
-[v write_data@byte2 byte2 `uc  1 p 1 5 ]
+[v write_data@byte2 byte2 `uc  1 p 1 11 ]
 "69
-[v write_data@byte1 byte1 `uc  1 a 1 6 ]
+[v write_data@byte1 byte1 `uc  1 a 1 12 ]
 "87
 } 0
 "89
@@ -639,21 +657,21 @@
 [v write_command@command command `uc  1 a 1 wreg ]
 [v write_command@command command `uc  1 a 1 wreg ]
 "91
-[v write_command@command command `uc  1 a 1 5 ]
+[v write_command@command command `uc  1 a 1 11 ]
 "103
 } 0
 "15
 [v _check_busy check_busy `(v  1 e 1 0 ]
 {
 "17
-[v check_busy@x x `uc  1 a 1 6 ]
+[v check_busy@x x `uc  1 a 1 12 ]
 "23
 } 0
 "25
 [v _read_status read_status `(uc  1 e 1 0 ]
 {
 "27
-[v read_status@status status `uc  1 a 1 5 ]
+[v read_status@status status `uc  1 a 1 11 ]
 "39
 } 0
 "239
@@ -662,7 +680,7 @@
 [v DATABUS_DIR@dir dir `uc  1 a 1 wreg ]
 [v DATABUS_DIR@dir dir `uc  1 a 1 wreg ]
 "241
-[v DATABUS_DIR@dir dir `uc  1 a 1 0 ]
+[v DATABUS_DIR@dir dir `uc  1 a 1 6 ]
 "253
 } 0
 "258
@@ -670,12 +688,12 @@
 {
 [v DATABUS@dir1 dir1 `uc  1 a 1 wreg ]
 "260
-[v DATABUS@x x `uc  1 a 1 4 ]
+[v DATABUS@x x `uc  1 a 1 10 ]
 "258
 [v DATABUS@dir1 dir1 `uc  1 a 1 wreg ]
-[v DATABUS@byte0 byte0 `uc  1 p 1 0 ]
+[v DATABUS@byte0 byte0 `uc  1 p 1 6 ]
 "261
-[v DATABUS@dir1 dir1 `uc  1 a 1 3 ]
+[v DATABUS@dir1 dir1 `uc  1 a 1 9 ]
 "287
 } 0
 "289
@@ -684,11 +702,11 @@
 [v chip_select@chip chip `uc  1 a 1 wreg ]
 [v chip_select@chip chip `uc  1 a 1 wreg ]
 "291
-[v chip_select@chip chip `uc  1 a 1 0 ]
+[v chip_select@chip chip `uc  1 a 1 6 ]
 "328
 } 0
-"36 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+"40 E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
 [v _SPI_ISR SPI_ISR `IIH(v  1 e 1 0 ]
 {
-"44
+"73
 } 0

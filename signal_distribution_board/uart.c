@@ -64,7 +64,7 @@ void tx2(char data2)
 //First arguments choose either rx1 or rx2 (1 or 2)
 //Second argument takes a pointer to a char
 //This function will keep sending chars until the character to be
-//is the nul character (\n)
+//sent is the nul character (\n)
 void uart_wr_str(uint8_t port, uint8_t *str)
 {
     switch(port)
@@ -108,7 +108,7 @@ void rx1_overrun_detect_reset(void)
 uint8_t rx1()
 {
     uint8_t x;
-    if(PIR1bits.RC1IF) //keep if rcbuffer is full
+    if(PIR1bits.RC1IF) //keep checking untill rcbuffer is full
     {
         x=RCREG1;
         PIR1bits.RC1IF = 0;

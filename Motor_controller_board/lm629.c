@@ -389,8 +389,9 @@ void filter_module()
     check_busy();
 }
 
-void simple_absolute_position()
+void simple_absolute_position(uint8_t motor)
 {
+    chip_select(motor);
     write_command(LTRJ);
     check_busy();
     write_data(0x00,0x24);
@@ -1194,6 +1195,31 @@ void reverse_right()
 
     chip_select(3);
     write_command(STT);
+    check_busy();
+}
+
+void set_absolute_velocity(uint8_t motor, uint8_t velocity)
+{
+    uint8_t high_byte;
+    uint8_t low_byte;
+    high_byte = velocity; //needs to adjust this
+    low_byte = velocity;  //needs to adjust this
+    chip_select(motor);
+    check_busy();
+    motor_off();
+    write_command(LTRJ);
+    check_busy();
+    write_data(0x18,0x28); //seems to be the velocity (signed)
+    check_busy();
+
+    write_data(0x00,0x00);
+    check_busy();
+    write_data(0x00,0x48);
+    check_busy();
+
+    write_data(0x00,0x01);
+    check_busy();
+    write_data(0xFA,0xD0);
     check_busy();
 }
 /***********************************************************************

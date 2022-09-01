@@ -113,7 +113,7 @@ White>>>>>>Hall Sensor B Output
 //Clock correctly. Formated C main file. 
 
 
-#include <xc.h>                  //For use in Hi-Tech, change to <xc.h> for xc8
+#include <xc.h>                  
 #include "lm629.h"
 #include "spi.h"
 #include "main.h"
@@ -124,7 +124,17 @@ White>>>>>>Hall Sensor B Output
 //%///////////////////////////Start Main Loop////////////////////////////////%//
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
 ////////////////////////////////////////////////////////////////////////////////
-extern volatile unsigned char spi_read_data;
+extern volatile uint8_t spi_read_data;
+uint8_t signal_distribution_packet[6];
+struct spi_package
+{
+    uint8_t lx_joystick;
+    uint8_t ly_joystick;
+    uint8_t rx_joystick;
+    uint8_t ry_joystick;
+};
+
+struct spi_package classic_ctrl;
 
 void main(void)
 {
@@ -165,75 +175,17 @@ void main(void)
     
     while(1)
     {
+        classic_ctrl.lx_joystick = signal_distribution_packet[1];
+        classic_ctrl.ly_joystick = signal_distribution_packet[2];
+        classic_ctrl.rx_joystick = signal_distribution_packet[3];
+        classic_ctrl.ry_joystick = signal_distribution_packet[4];
+        signal_distribution_packet = '\n';
+        
         received_data = spi_read_data;
+        set_absolute_velocity(0,classic_ctrl.ly_joystick);
+        set_absolute_velocity(1,classic_ctrl.ry_joystick);
 
-        if(received_data==0x77) //'w'
-        {
-            all_off();
-            forward();
-        }
-
-        else if(received_data==0x73)//'s'
-        {
-            all_off();
-            reverse();
-        }
-
-        else if(received_data==0x61)//'a'
-        {
-            all_off();
-            left();
-        }
-
-        else if(received_data==0x64)//'d'
-        {
-            all_off();
-            right();
-        }
-
-   //     else if(received_data==0x6F)//'o'
-   //     {
-   //         all_off();
-   //     }
-
-        else if(received_data==0x62)//'b'
-        {
-            all_break();
-        }
-
-        else if (received_data== '0') //'0'
-        {
-            all_off();
-        }
-
-        else if(received_data==0x34) //'4'
-        {
-            all_off();
-            forward_right();
-        }
-
-        else if(received_data==0x31) //'1'
-        {
-            all_off();
-            forward_left();
-        }
-
-        else if(received_data==0x32) //'2'
-        {
-            all_off();
-            reverse_left();
-        }
-
-        else if(received_data==0x33) //'3'
-        {
-            all_off();
-            reverse_right();
-        }
-
-
-    }
-
-    
+    } 
 }
 ////////////////////////////////////////////////////////////////////////////////
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
