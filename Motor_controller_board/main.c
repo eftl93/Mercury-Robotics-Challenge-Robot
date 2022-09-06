@@ -162,8 +162,9 @@ void main(void)
     VREFCON0=0x00;  //disables fixed voltage reference
     VREFCON1=0x00;  //disables the DDC
     HLVDCON=0x00;   //disables the high/low voltage detect module  
-    __delay_ms(1000);
+    __delay_ms(100);
     LM629_init();       //initializes the four LM629 (precision Motion Controllers)
+    __delay_ms(100);
     spi_slave_init();   //initializes the SSP as an SPI slave device
     spi_data(dummy_data); //load the SPI buffer with a dummy
     
@@ -179,11 +180,11 @@ void main(void)
         classic_ctrl.ly_joystick = signal_distribution_packet[2];
         classic_ctrl.rx_joystick = signal_distribution_packet[3];
         classic_ctrl.ry_joystick = signal_distribution_packet[4];
-        signal_distribution_packet = '\n';
+        signal_distribution_packet[5] = '\n';
         
-        received_data = spi_read_data;
-        set_absolute_velocity(0,classic_ctrl.ly_joystick);
-        set_absolute_velocity(1,classic_ctrl.ry_joystick);
+        set_absolute_velocity(1,classic_ctrl.ly_joystick);
+        set_absolute_velocity(3,classic_ctrl.ry_joystick);
+
 
     } 
 }

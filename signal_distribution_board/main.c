@@ -100,13 +100,26 @@ void main()
         uart_wr_str(1,wii_classic_packet); //sending the whole string received on uart1_rx back to uart1_tx for debugging purposes
         tx1('\r');
 
-        //sending set of data to motor controller board through spi, starting with 'z' and ending with 'y' to set start and end of package
+        //sending set of data to motor controller board(3) through spi, starting with 'z' and ending with 'y' to set start and end of package
+        //sending a copy to channel device 0 for debugging
         dummy_spi_tx = spi_data(3,'z');
+        dummy_spi_tx = spi_data(0,'z');
         dummy_spi_tx = spi_data(3,classic_ctrl.lx_joystick);
+        dummy_spi_tx = spi_data(0,classic_ctrl.lx_joystick);
         dummy_spi_tx = spi_data(3,classic_ctrl.ly_joystick);
+        dummy_spi_tx = spi_data(0,classic_ctrl.ly_joystick);
         dummy_spi_tx = spi_data(3,classic_ctrl.rx_joystick);
+        dummy_spi_tx = spi_data(0,classic_ctrl.rx_joystick);
         dummy_spi_tx = spi_data(3,classic_ctrl.ry_joystick);
+        dummy_spi_tx = spi_data(0,classic_ctrl.ry_joystick);
         dummy_spi_tx = spi_data(3,'y');
+        dummy_spi_tx = spi_data(0,'y');
+        
+        
+        
+        
+        
+        
         
         //read the status of each of the action buttons
         act_buttons.a = ((classic_ctrl.action_buttons & 0b00001000) >> 3);

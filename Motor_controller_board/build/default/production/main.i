@@ -9654,7 +9654,7 @@ void LM629_position_start(const unsigned char chip, const unsigned long vel, con
 void check_busy(void);
 unsigned char read_status(void);
 unsigned int read_data(void);
-void write_data(unsigned char byte1, unsigned char byte2);
+void write_data(uint8_t MSB, uint8_t LSB);
 void write_command(unsigned char command);
 void chip_select(unsigned char chip);
 void motor_break(void);
@@ -9664,15 +9664,9 @@ void all_off(void);
 void filter_module(void);
 void simple_absolute_position(void);
 void simple_relative_position(void);
-void velocity_mode_breakpoints(void);
-void forward(void);
-void reverse(void);
-void left(void);
-void right(void);
-void forward_right(void);
-void forward_left(void);
-void reverse_right(void);
-void reverse_left(void);
+void set_absolute_velocity(uint8_t motor, uint8_t analog_in);
+uint32_t lm629_velocity(uint8_t analog_value);
+void set_absolute_acceleration(uint8_t motor, uint32_t acceleration);
 # 117 "main.c" 2
 
 # 1 "./spi.h" 1
@@ -9732,7 +9726,16 @@ void spi_data(unsigned char tx_data);
 
 
 extern volatile uint8_t spi_read_data;
-uint8_t signal_distribution_packet[9];
+uint8_t signal_distribution_packet[6];
+struct spi_package
+{
+    uint8_t lx_joystick;
+    uint8_t ly_joystick;
+    uint8_t rx_joystick;
+    uint8_t ry_joystick;
+};
+
+struct spi_package classic_ctrl;
 
 void main(void)
 {
@@ -9760,8 +9763,9 @@ void main(void)
     VREFCON0=0x00;
     VREFCON1=0x00;
     HLVDCON=0x00;
-    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    _delay((unsigned long)((100)*(64000000/4000.0)));
     LM629_init();
+    _delay((unsigned long)((100)*(64000000/4000.0)));
     spi_slave_init();
     spi_data(dummy_data);
 
@@ -9773,73 +9777,15 @@ void main(void)
 
     while(1)
     {
-        received_data = spi_read_data;
+        classic_ctrl.lx_joystick = signal_distribution_packet[1];
+        classic_ctrl.ly_joystick = signal_distribution_packet[2];
+        classic_ctrl.rx_joystick = signal_distribution_packet[3];
+        classic_ctrl.ry_joystick = signal_distribution_packet[4];
+        signal_distribution_packet[5] = '\n';
 
-        if(received_data==0x77)
-        {
-            all_off();
-            forward();
-        }
-
-        else if(received_data==0x73)
-        {
-            all_off();
-            reverse();
-        }
-
-        else if(received_data==0x61)
-        {
-            all_off();
-            left();
-        }
-
-        else if(received_data==0x64)
-        {
-            all_off();
-            right();
-        }
-
-
-
-
-
-
-        else if(received_data==0x62)
-        {
-            all_break();
-        }
-
-        else if (received_data== '0')
-        {
-            all_off();
-        }
-
-        else if(received_data==0x34)
-        {
-            all_off();
-            forward_right();
-        }
-
-        else if(received_data==0x31)
-        {
-            all_off();
-            forward_left();
-        }
-
-        else if(received_data==0x32)
-        {
-            all_off();
-            reverse_left();
-        }
-
-        else if(received_data==0x33)
-        {
-            all_off();
-            reverse_right();
-        }
+        set_absolute_velocity(1,classic_ctrl.ly_joystick);
+        set_absolute_velocity(3,classic_ctrl.ry_joystick);
 
 
     }
-
-
 }

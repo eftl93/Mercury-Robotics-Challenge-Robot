@@ -1032,28 +1032,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;gpio.c: 27: }
 [e :UE 856 ]
 }
-"32
-[; ;gpio.c: 32: void high_beams_on(void)
+"30
+[; ;gpio.c: 30: void high_beams_on(void)
 [v _high_beams_on `(v ~T0 @X0 1 ef ]
-"33
-[; ;gpio.c: 33: {
+"31
+[; ;gpio.c: 31: {
 {
 [e :U _high_beams_on ]
 [f ]
-"34
-[; ;gpio.c: 34:     LATD=0b00000010;
+"32
+[; ;gpio.c: 32:     LATD=0b00000010;
 [e = _LATD -> -> 2 `i `uc ]
-"35
-[; ;gpio.c: 35:     _delay((unsigned long)((10)*(64000000/4000.0)));
+"33
+[; ;gpio.c: 33:     _delay((unsigned long)((10)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"36
-[; ;gpio.c: 36:     _delay((unsigned long)((5)*(64000000/4000.0)));
+"34
+[; ;gpio.c: 34:     _delay((unsigned long)((5)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"37
-[; ;gpio.c: 37:     LATD=0;
+"35
+[; ;gpio.c: 35:     LATD=0;
 [e = _LATD -> -> 0 `i `uc ]
-"38
-[; ;gpio.c: 38: }
+"36
+[; ;gpio.c: 36: }
 [e :UE 857 ]
 }
 "39
@@ -1080,33 +1080,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;gpio.c: 45: }
 [e :UE 858 ]
 }
-"47
-[; ;gpio.c: 47: void debug_leds_on(void)
-[v _debug_leds_on `(v ~T0 @X0 1 ef ]
 "48
-[; ;gpio.c: 48: {
+[; ;gpio.c: 48: void debug_leds_on(void)
+[v _debug_leds_on `(v ~T0 @X0 1 ef ]
+"49
+[; ;gpio.c: 49: {
 {
 [e :U _debug_leds_on ]
 [f ]
-"49
-[; ;gpio.c: 49:     LATA |= 0x07;
-[e =| _LATA -> -> 7 `i `Vuc ]
 "50
-[; ;gpio.c: 50: }
+[; ;gpio.c: 50:     LATA |= 0x07;
+[e =| _LATA -> -> 7 `i `Vuc ]
+"51
+[; ;gpio.c: 51: }
 [e :UE 859 ]
 }
-"52
-[; ;gpio.c: 52: void debug_leds_off(void)
+"54
+[; ;gpio.c: 54: void debug_leds_off(void)
 [v _debug_leds_off `(v ~T0 @X0 1 ef ]
-"53
-[; ;gpio.c: 53: {
+"55
+[; ;gpio.c: 55: {
 {
 [e :U _debug_leds_off ]
 [f ]
-"54
-[; ;gpio.c: 54:    LATA &= 0xF8;
+"56
+[; ;gpio.c: 56:    LATA &= 0xF8;
 [e =& _LATA -> -> 248 `i `Vuc ]
-"55
-[; ;gpio.c: 55: }
+"57
+[; ;gpio.c: 57: }
 [e :UE 860 ]
 }

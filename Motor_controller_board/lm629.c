@@ -8,10 +8,29 @@
 
 #include <xc.h>
 #include "lm629.h"
+
+
+//look up table
+uint32_t lm629_velocity(uint8_t analog_value)
+{
+    uint32_t velocity;
+    static const uint32_t lookup_table[32] = 
+    {
+         21475, 20133, 18790, 17448, 16106, 14764, 13422, 12080,
+         10737, 9395,  8053,  6711,  5369,  4027,  2684,  1342,
+         0,     1432,  2863,  4295,  5727,  7158,  8590,  10022,
+         11453, 12885, 14317, 15748, 17180, 18612, 20043, 21475
+    };
+    
+    velocity = lookup_table[analog_value];
+    return velocity;
+}
 /***********************************************************************
 Definition of Functions
 ***********************************************************************/
 
+//Read the status register and check the value of bit 1 (busy_bit), if it equals
+//to 1, keep polling the register until it becomes 0. 
 void check_busy()
 {
 	unsigned char x;
@@ -21,85 +40,96 @@ void check_busy()
 			x=read_status();
 		}
 }
-	
+
+//This function will return the status register, it returns a byte
 unsigned char read_status()
 {
 	unsigned char status;
-	DATABUS_DIR(0xFF);
-	LM629_PS=0;
-	__delay_us(1);
-	LM629_RD=0;
-	__delay_us(1);
-	status=DATABUS(0xFF,0);
-	LM629_RD=1;
-	__delay_us(5);
-	LM629_PS=1;
+	DATABUS_DIR(0xFF); //Set the data bus mcu pins as inputs
+	LM629_PS=0;        //To Read status register PS pin must be LOW
+	_delay(3);        //PS setup time: T8 delay = min 30 ns
+	LM629_RD=0;        //RD pin strobed to 0, status will remain valid while RD==0
+	_delay(5);        //data will come valid at a max of 180ns 
+	status=DATABUS(0xFF,0); //reading the status by reading the DATABUS
+	LM629_RD=1;        //return RD to default RD=1
+	_delay(3);       //RD setup time: T9 delay = 30 ns
+	LM629_PS=1;        //return PS to default PS=1
+    _delay(3);
 
 return status;
 }
 
+// reads 16 bits of data from the LM629
+// it returns a 16 bit number. 
+//chip_select() must be called before if more than one LM629 is being used
 unsigned int read_data()
 {
 	unsigned char left_value;
 	unsigned char right_value;
 	unsigned int data;
-	DATABUS_DIR(0xFF);
-	LM629_PS=1;
-	_delay(3);
-	LM629_RD=0;
-	_delay(12);
-	left_value=DATABUS(0xFF,0);
-	LM629_RD=1;
-	_delay(12);
-	LM629_RD=0;
-	_delay(12);
-	right_value=DATABUS(0xFF,0);
-	LM629_RD=1;
-	_delay(3);
-	LM629_PS=1;
+	DATABUS_DIR(0xFF); //set the MCU bus as an input to read values
+	LM629_PS=1;        //PS must equal 1 to read data
+	_delay(5);         //T10 delay
+	LM629_RD=0;        //in order to read data, the RD pin must be strobed
+	_delay(5);        //a delay is needed for data to become valid (180ns Max)
+	left_value=DATABUS(0xFF,0); //save the MSB of the data
+	LM629_RD=1;        //strobe needed for second byte. 
+	_delay(5);         //T17 Read recovery time, Min=120ns
+	LM629_RD=0;        //Strobing RD pin to read the LSB of the two-byte word 
+	_delay(5);
+	right_value=DATABUS(0xFF,0); //save the LSB of the data
+	LM629_RD=1;        //Latches second byte and return to default RD=1
+	_delay(5);
+	LM629_PS=1;        //make sure RD still on default value of PS=1
 	data=left_value;
 	data=data<<8;
-	data=data+right_value;	
-    
+	data=data+right_value;	//joining the bytes to form a 16 bit word
+    check_busy();    
 	return data;
 }
 
-void write_data( unsigned char byte1, unsigned char byte2)
+//writes 16 bits of data to the LM629
+//chip_select() must be called before if more than one LM629 is being used
+void write_data(uint8_t MSB, uint8_t LSB)
 {
-	__delay_us(1);
-	DATABUS_DIR(0);
-	LM629_PS=1;
-	_delay(3);
-	LM629_WR=0;
-	_delay(8);
-	DATABUS(0,byte1);
+    check_busy();
+	DATABUS_DIR(0); //Sets the MCU pins as outputs
+	LM629_PS=1;     //To write data the PS pin must be set HIGH
 	_delay(5);
-	LM629_WR=1;
-	_delay(10);
-	LM629_WR=0;
+	LM629_WR=0;     //To write data the WR pin must be strobe
 	_delay(5);
-	DATABUS(0,byte2);
+	DATABUS(0,MSB); //Write MSB to the Databus pins
 	_delay(5);
-	LM629_WR=1;
-	_delay(3);
-	LM629_PS=1;
-
+	LM629_WR=1;     //Latches first byte
+	_delay(5);
+	LM629_WR=0;     //needs to strobe for second byte
+	_delay(5);
+	DATABUS(0,LSB); //Write LSB to the databus pins
+	_delay(5);
+	LM629_WR=1;     //Latches second byte and returns to default value of WR=1
+	_delay(5);
+	LM629_PS=1;     //make sure PS still on default value of PS=1
+    _delay(5);
+    check_busy();
 }
 
+//writes command to the LM629
+//chip_select() must be called before if more than one LM629 is being used
 void write_command(unsigned char command)
 {
-	DATABUS_DIR(0);
-	LM629_PS=0;
-	_delay(3);
-	LM629_WR=0;
+    check_busy();
+	DATABUS_DIR(0); //set the MCU pin as outputs
+	LM629_PS=0;     //to write commands the PS pin must be set LOW
 	_delay(5);
-	DATABUS(0,command);
+	LM629_WR=0;     //WR must be strobe to write into the bus
 	_delay(5);
-	LM629_WR=1;
-	_delay(3);
-	LM629_PS=1;
-	_delay(11);
-		
+	DATABUS(0,command); //Puts command on the bus
+	_delay(5);
+	LM629_WR=1;     //latches the command into the LM629
+	_delay(5);
+	LM629_PS=1;     //return PS to default PS=1
+	_delay(5);
+    check_busy();
 }
 
 void LM629_init()
@@ -229,11 +259,13 @@ chip_select(2);
 filter_module();
 chip_select(3);
 filter_module();
+set_absolute_acceleration(1,0x00000250);
+set_absolute_acceleration(3,0x00000250);
 }
 
 //Since the same bus is used for both reading and writing
-//the direction of the bus must be changed to input or output
-//before writing or reading data to the bus
+//the direction of the bus must be changed to input or output from the mcu
+//point of view before writing or reading data to the bus
 //if arg is 0x00, the direction will be OUT
 //if arg is 0xFF, the direction will be IN
 void DATABUS_DIR(unsigned char dir)
@@ -324,27 +356,21 @@ void chip_select(unsigned char chip)
 		LM629_3_CS=1;	
 	}		
 
-	__delay_us(10);
+	__delay_us(1);
 }
 
 void motor_off()
 {
     write_command(LTRJ);
-    check_busy();
     write_data(0x01,0x00);
-    check_busy();
     write_command(STT);
-    check_busy();
 }
 
 void motor_break()
 {
     write_command(LTRJ);
-    check_busy();
     write_data(0x02,0x00);
-    check_busy();
     write_command(STT);
-    check_busy();
 }
 
 void all_break()
@@ -374,40 +400,24 @@ void all_off()
 void filter_module()
 {
     write_command(LFIL);
-    check_busy();
     write_data(0x00,0x0F); //set all coefficients kp, ki, kd, il
-    check_busy();
     write_data(0x01,0x0F); //kp
-    check_busy();
     write_data(0x00,0x04); //ki
-    check_busy();
     write_data(0x7F,0xFF); //kd
-    check_busy();
     write_data(0x00,0xFF); //il
-    check_busy();
     write_command(UDF);
-    check_busy();
 }
 
-void simple_absolute_position(uint8_t motor)
+void simple_absolute_position()
 {
-    chip_select(motor);
     write_command(LTRJ);
-    check_busy();
     write_data(0x00,0x24);
-    check_busy();
     write_data(0x00,0x00);
-    check_busy();
     write_data(0x00,0x02);
-    check_busy();
     write_data(0x00,0x00);
-    check_busy();
     write_data(0x34,0x6E);
-    check_busy();
     write_data(0x00,0x00);
-    check_busy();
     write_data(0x1F,0x40);
-    check_busy();
     write_command(STT);
 }
 
@@ -415,812 +425,91 @@ void simple_absolute_position(uint8_t motor)
 void simple_relative_position()
 {
     write_command(LTRJ);
-    check_busy();
     write_data(0x00,0x2B); //All parameter will be loaded Vel & Acc
-    check_busy();
     write_data(0x00,0x00); //Acc. High
-    check_busy();
     write_data(0x00,0x40); //Acc. Low
-    check_busy();
     write_data(0x00,0x05); //Vel. High
-    check_busy();
     write_data(0x75,0x3F); //Vel. Low
-    check_busy();
     write_data(0x00,0x01); //Pos. High (0xff,0xFE)
-    check_busy();
     write_data(0x00,0x40); //Pos. Low
-    check_busy();
     write_command(STT);
 }
 
-void velocity_mode_breakpoints()
+void set_absolute_acceleration(uint8_t motor, uint32_t acceleration_value)
 {
-
-}
-
-void forward()
-{
-    chip_select(0);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(1);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(2);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(3);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(0);
-    write_command(STT);
-    check_busy();
-
-    chip_select(2);
-    write_command(STT);
-    check_busy();
-
-    chip_select(1);
-    write_command(STT);
-    check_busy();
-
-    chip_select(3);
-    write_command(STT);
-    check_busy();
-}
-
-
-void reverse()
-{
-    chip_select(1);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(0);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-
-    chip_select(3);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-    chip_select(2);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(0);
-    write_command(STT);
-    check_busy();
-
-    chip_select(2);
-    write_command(STT);
-    check_busy();
-
-    chip_select(1);
-    write_command(STT);
-    check_busy();
-
-    chip_select(3);
-    write_command(STT);
-    check_busy();
-}
-
-void right()
-{
-    chip_select(0);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(1);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(2);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(3);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(0);
-    write_command(STT);
-    check_busy();
-
-    chip_select(2);
-    write_command(STT);
-    check_busy();
-
-    chip_select(1);
-    write_command(STT);
-    check_busy();
-
-    chip_select(3);
-    write_command(STT);
-    check_busy();
-}
-
-void left()
-{
-    chip_select(0);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-    chip_select(1);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(2);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(3);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(0);
-    write_command(STT);
-    check_busy();
-
-    chip_select(2);
-    write_command(STT);
-    check_busy();
-
-    chip_select(1);
-    write_command(STT);
-    check_busy();
-
-    chip_select(3);
-    write_command(STT);
-    check_busy();
-}
-
-void forward_left()
-{
-    chip_select(0);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(1); 
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0xFD,0x68);
-    check_busy();
-
-
-    chip_select(2); 
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0xFD,0x68);
-    check_busy();
-
-
-    chip_select(3);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(0);
-    write_command(STT);
-    check_busy();
-
-    chip_select(2);
-    write_command(STT);
-    check_busy();
-
-    chip_select(1);
-    write_command(STT);
-    check_busy();
-
-    chip_select(3);
-    write_command(STT);
-    check_busy();
-    }
-
-    void forward_right()
-    {
-    chip_select(0);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);  //right wheel
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0xFD,0x68);
-    check_busy();
-
-
-    chip_select(1);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(2);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(3);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28); //right wheel
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0xFD,0x68);
-    check_busy();
-
-
-    chip_select(0);
-    write_command(STT);
-    check_busy();
-
-    chip_select(2);
-    write_command(STT);
-    check_busy();
-
-    chip_select(1);
-    write_command(STT);
-    check_busy();
-
-    chip_select(3);
-    write_command(STT);
-    check_busy();
-    }
-
-    void reverse_left()
-    {
-    chip_select(1);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(0); 
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0xFD,0x68);
-    check_busy();
-
-
-
-    chip_select(3); 
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0xFD,0x68);
-    check_busy();
-
-    chip_select(2);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-    chip_select(0);
-    write_command(STT);
-    check_busy();
-
-    chip_select(2);
-    write_command(STT);
-    check_busy();
-
-    chip_select(1);
-    write_command(STT);
-    check_busy();
-
-    chip_select(3);
-    write_command(STT);
-    check_busy();
-}
-
-void reverse_right()
-{
-    chip_select(1);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0xFD,0x68);
-    check_busy();
-
-
-    chip_select(0); 
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-
-
-    chip_select(3); 
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x08,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
-
-    chip_select(2);
-    check_busy();
-    motor_off();
-    write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
-
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0xFD,0x68);
-    check_busy();
-
-
-    chip_select(0);
-    write_command(STT);
-    check_busy();
-
-    chip_select(2);
-    write_command(STT);
-    check_busy();
-
-    chip_select(1);
-    write_command(STT);
-    check_busy();
-
-    chip_select(3);
-    write_command(STT);
-    check_busy();
-}
-
-void set_absolute_velocity(uint8_t motor, uint8_t velocity)
-{
-    uint8_t high_byte;
-    uint8_t low_byte;
-    high_byte = velocity; //needs to adjust this
-    low_byte = velocity;  //needs to adjust this
+    uint8_t trajectory_control_MSB = 0x00; 
+    uint8_t trajectory_control_LSB = 0x20; //acceleration will be loaded and is not relative
+    uint8_t high_word_MSB;
+    uint8_t high_word_LSB;
+    uint8_t low_word_MSB;
+    uint8_t low_word_LSB;
+    high_word_MSB = ((acceleration_value & 0xFF000000) >> 24 ); 
+    high_word_LSB = ((acceleration_value & 0x00FF0000) >> 16 );
+    low_word_MSB = ((acceleration_value & 0x0000FF00) >> 8 );
+    low_word_LSB = ((acceleration_value & 0x000000FF) >> 0 );
+    
     chip_select(motor);
-    check_busy();
-    motor_off();
     write_command(LTRJ);
-    check_busy();
-    write_data(0x18,0x28); //seems to be the velocity (signed)
-    check_busy();
+    write_data(trajectory_control_MSB,trajectory_control_LSB);
+    write_data(high_word_MSB, high_word_LSB);
+    write_data(low_word_MSB, low_word_LSB);
+    write_command(STT);
+    chip_select(5);
+}
 
-    write_data(0x00,0x00);
-    check_busy();
-    write_data(0x00,0x48);
-    check_busy();
+void set_absolute_velocity(uint8_t motor, uint8_t analog_in)
+{
+    uint8_t trajectory_control_MSB = 0x18; //direction is forward by default, velocity mode
+    uint8_t trajectory_control_LSB = 0x08; //velocity will be loaded and is not relative
+    uint32_t velocity_value;
+    uint8_t high_word_MSB;
+    uint8_t high_word_LSB;
+    uint8_t low_word_MSB;
+    uint8_t low_word_LSB;
+    
+    
+    switch(motor)
+    {
+            case (3): //this is the left motor, it needs to spin opposite direction as the right motor
+            {
+                if(analog_in <= 15)
+                {
+                    trajectory_control_MSB &= 0x0F;
+                }
+                else
+                {
+                    trajectory_control_MSB |= 0x10;
+                }
+                break;
+            }
+            case(1): //this is the right motor, it needs to spin opposite direction as the left motor
+            {
+                if(analog_in > 15)
+                {
+                    trajectory_control_MSB &= 0x0F;
+                }
+                else
+                {
+                    trajectory_control_MSB |= 0x10;
+                }
+                break;                
+            }
+    }
 
-    write_data(0x00,0x01);
-    check_busy();
-    write_data(0xFA,0xD0);
-    check_busy();
+    velocity_value = lm629_velocity(analog_in);
+    high_word_MSB = ((velocity_value & 0xFF000000) >> 24 ); 
+    high_word_LSB = ((velocity_value & 0x00FF0000) >> 16 );
+    low_word_MSB = ((velocity_value & 0x0000FF00) >> 8 );
+    low_word_LSB = ((velocity_value & 0x000000FF) >> 0 );
+    
+    chip_select(motor);
+    write_command(LTRJ);
+    write_data(trajectory_control_MSB, trajectory_control_LSB); 
+    write_data(high_word_MSB, high_word_LSB);
+    write_data(low_word_MSB, low_word_LSB);
+    write_command(STT);
+    chip_select(5);
+     
 }
 /***********************************************************************
 End of definition of functions

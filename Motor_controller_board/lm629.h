@@ -90,7 +90,7 @@ void LM629_position_start(const unsigned char chip, const unsigned long vel, con
 void check_busy(void);
 unsigned char read_status(void);
 unsigned int read_data(void);
-void write_data(unsigned char byte1, unsigned char byte2);
+void write_data(uint8_t MSB, uint8_t LSB);
 void write_command(unsigned char command);
 void chip_select(unsigned char chip);
 void motor_break(void);
@@ -98,18 +98,11 @@ void all_break(void);
 void motor_off(void);
 void all_off(void);
 void filter_module(void);
-void simple_absolute_position(uint8_t motor);
+void simple_absolute_position(void);
 void simple_relative_position(void);
-void velocity_mode_breakpoints(void);
-void forward(void);
-void reverse(void);
-void left(void);
-void right(void);
-void forward_right(void);
-void forward_left(void);
-void reverse_right(void);
-void reverse_left(void);
-void set_absolute_velocity(uint8_t motor);
+void set_absolute_velocity(uint8_t motor, uint8_t analog_in);
+uint32_t lm629_velocity(uint8_t analog_value);
+void set_absolute_acceleration(uint8_t motor, uint32_t acceleration);
 /***********************************************************************
 End of Declaration
 ***********************************************************************/

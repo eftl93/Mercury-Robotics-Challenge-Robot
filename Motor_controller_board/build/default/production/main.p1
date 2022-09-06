@@ -1,4 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"130 main.c
+[; ;main.c: 130: {
+[s S854 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S854 spi_package lx_joystick ly_joystick rx_joystick ry_joystick ]
 [p mainexit ]
 "15829 E:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f46k22.h
 [; ;E:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f46k22.h: 15829: extern volatile unsigned char RCON __attribute__((address(0xFD0)));
@@ -73,39 +77,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "35
 [; ;./spi.h: 35: void spi_data(unsigned char tx_data);
 [v _spi_data `(v ~T0 @X0 0 ef1`uc ]
-"127 main.c
-[; ;main.c: 127: extern volatile uint8_t spi_read_data;
-[v _spi_read_data `Vuc ~T0 @X0 0 e ]
-"99 ./lm629.h
-[; ;./lm629.h: 99: void all_off(void);
-[v _all_off `(v ~T0 @X0 0 ef ]
-"104
-[; ;./lm629.h: 104: void forward(void);
-[v _forward `(v ~T0 @X0 0 ef ]
-"105
-[; ;./lm629.h: 105: void reverse(void);
-[v _reverse `(v ~T0 @X0 0 ef ]
-"106
-[; ;./lm629.h: 106: void left(void);
-[v _left `(v ~T0 @X0 0 ef ]
-"107
-[; ;./lm629.h: 107: void right(void);
-[v _right `(v ~T0 @X0 0 ef ]
-"97
-[; ;./lm629.h: 97: void all_break(void);
-[v _all_break `(v ~T0 @X0 0 ef ]
-"108
-[; ;./lm629.h: 108: void forward_right(void);
-[v _forward_right `(v ~T0 @X0 0 ef ]
-"109
-[; ;./lm629.h: 109: void forward_left(void);
-[v _forward_left `(v ~T0 @X0 0 ef ]
-"111
-[; ;./lm629.h: 111: void reverse_left(void);
-[v _reverse_left `(v ~T0 @X0 0 ef ]
-"110
-[; ;./lm629.h: 110: void reverse_right(void);
-[v _reverse_right `(v ~T0 @X0 0 ef ]
+"103 ./lm629.h
+[; ;./lm629.h: 103: void set_absolute_velocity(uint8_t motor, uint8_t analog_in);
+[v _set_absolute_velocity `(v ~T0 @X0 0 ef2`uc`uc ]
 "55 E:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f46k22.h
 [; ;E:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f46k22.h: 55: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -914,289 +888,141 @@ Version 4.0 HI-TECH Software Intermediate Code
 "54
 [p x EBTRB  =  OFF ]
 "128 main.c
-[; ;main.c: 128: uint8_t signal_distribution_packet[9];
-[v _signal_distribution_packet `uc ~T0 @X0 -> 9 `i e ]
+[; ;main.c: 128: uint8_t signal_distribution_packet[6];
+[v _signal_distribution_packet `uc ~T0 @X0 -> 6 `i e ]
+"137
+[; ;main.c: 137: struct spi_package classic_ctrl;
+[v _classic_ctrl `S854 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"130
-[; ;main.c: 130: void main(void)
+"139
+[; ;main.c: 139: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"131
-[; ;main.c: 131: {
+"140
+[; ;main.c: 140: {
 {
 [e :U _main ]
 [f ]
-"132
-[; ;main.c: 132:     unsigned char received_data;
-[v _received_data `uc ~T0 @X0 1 a ]
-"133
-[; ;main.c: 133:     unsigned char dummy_data;
-[v _dummy_data `uc ~T0 @X0 1 a ]
-"134
-[; ;main.c: 134:     received_data = 0x00;
-[e = _received_data -> -> 0 `i `uc ]
-"135
-[; ;main.c: 135:     dummy_data = 0x55;
-[e = _dummy_data -> -> 85 `i `uc ]
-"136
-[; ;main.c: 136:     RCON &= 0x7F;
-[e =& _RCON -> -> 127 `i `Vuc ]
-"137
-[; ;main.c: 137:     INTCON=0;
-[e = _INTCON -> -> 0 `i `uc ]
-"138
-[; ;main.c: 138:     ANSELA=0;
-[e = _ANSELA -> -> 0 `i `uc ]
-"139
-[; ;main.c: 139:     ANSELB=0;
-[e = _ANSELB -> -> 0 `i `uc ]
-"140
-[; ;main.c: 140:     ANSELC=0;
-[e = _ANSELC -> -> 0 `i `uc ]
 "141
-[; ;main.c: 141:     ANSELD=0;
-[e = _ANSELD -> -> 0 `i `uc ]
+[; ;main.c: 141:     unsigned char received_data;
+[v _received_data `uc ~T0 @X0 1 a ]
 "142
-[; ;main.c: 142:     ANSELE=0;
-[e = _ANSELE -> -> 0 `i `uc ]
+[; ;main.c: 142:     unsigned char dummy_data;
+[v _dummy_data `uc ~T0 @X0 1 a ]
 "143
-[; ;main.c: 143:     SSP1CON1=0x00;
-[e = _SSP1CON1 -> -> 0 `i `uc ]
+[; ;main.c: 143:     received_data = 0x00;
+[e = _received_data -> -> 0 `i `uc ]
 "144
-[; ;main.c: 144:     SSP2CON1=0x00;
-[e = _SSP2CON1 -> -> 0 `i `uc ]
+[; ;main.c: 144:     dummy_data = 0x55;
+[e = _dummy_data -> -> 85 `i `uc ]
 "145
-[; ;main.c: 145:     CM1CON0=0b00000000;
-[e = _CM1CON0 -> -> 0 `i `uc ]
+[; ;main.c: 145:     RCON &= 0x7F;
+[e =& _RCON -> -> 127 `i `Vuc ]
 "146
-[; ;main.c: 146:     CM2CON0=0b00000000;
-[e = _CM2CON0 -> -> 0 `i `uc ]
+[; ;main.c: 146:     INTCON=0;
+[e = _INTCON -> -> 0 `i `uc ]
 "147
-[; ;main.c: 147:     TRISA=0xFF;
-[e = _TRISA -> -> 255 `i `uc ]
+[; ;main.c: 147:     ANSELA=0;
+[e = _ANSELA -> -> 0 `i `uc ]
 "148
-[; ;main.c: 148:     TRISD=0xFF;
-[e = _TRISD -> -> 255 `i `uc ]
+[; ;main.c: 148:     ANSELB=0;
+[e = _ANSELB -> -> 0 `i `uc ]
 "149
-[; ;main.c: 149:     TRISB=0xFF;
-[e = _TRISB -> -> 255 `i `uc ]
+[; ;main.c: 149:     ANSELC=0;
+[e = _ANSELC -> -> 0 `i `uc ]
 "150
-[; ;main.c: 150:     TRISC=0xFF;
-[e = _TRISC -> -> 255 `i `uc ]
+[; ;main.c: 150:     ANSELD=0;
+[e = _ANSELD -> -> 0 `i `uc ]
 "151
-[; ;main.c: 151:     CTMUCONH=0x00;
-[e = _CTMUCONH -> -> 0 `i `uc ]
+[; ;main.c: 151:     ANSELE=0;
+[e = _ANSELE -> -> 0 `i `uc ]
 "152
-[; ;main.c: 152:     SRCON0=0x00;
-[e = _SRCON0 -> -> 0 `i `uc ]
+[; ;main.c: 152:     SSP1CON1=0x00;
+[e = _SSP1CON1 -> -> 0 `i `uc ]
 "153
-[; ;main.c: 153:     VREFCON0=0x00;
-[e = _VREFCON0 -> -> 0 `i `uc ]
+[; ;main.c: 153:     SSP2CON1=0x00;
+[e = _SSP2CON1 -> -> 0 `i `uc ]
 "154
-[; ;main.c: 154:     VREFCON1=0x00;
-[e = _VREFCON1 -> -> 0 `i `uc ]
+[; ;main.c: 154:     CM1CON0=0b00000000;
+[e = _CM1CON0 -> -> 0 `i `uc ]
 "155
-[; ;main.c: 155:     HLVDCON=0x00;
-[e = _HLVDCON -> -> 0 `i `uc ]
+[; ;main.c: 155:     CM2CON0=0b00000000;
+[e = _CM2CON0 -> -> 0 `i `uc ]
 "156
-[; ;main.c: 156:     _delay((unsigned long)((1000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 156:     TRISA=0xFF;
+[e = _TRISA -> -> 255 `i `uc ]
 "157
-[; ;main.c: 157:     LM629_init();
-[e ( _LM629_init ..  ]
+[; ;main.c: 157:     TRISD=0xFF;
+[e = _TRISD -> -> 255 `i `uc ]
 "158
-[; ;main.c: 158:     spi_slave_init();
-[e ( _spi_slave_init ..  ]
+[; ;main.c: 158:     TRISB=0xFF;
+[e = _TRISB -> -> 255 `i `uc ]
 "159
-[; ;main.c: 159:     spi_data(dummy_data);
-[e ( _spi_data (1 _dummy_data ]
+[; ;main.c: 159:     TRISC=0xFF;
+[e = _TRISC -> -> 255 `i `uc ]
+"160
+[; ;main.c: 160:     CTMUCONH=0x00;
+[e = _CTMUCONH -> -> 0 `i `uc ]
+"161
+[; ;main.c: 161:     SRCON0=0x00;
+[e = _SRCON0 -> -> 0 `i `uc ]
+"162
+[; ;main.c: 162:     VREFCON0=0x00;
+[e = _VREFCON0 -> -> 0 `i `uc ]
+"163
+[; ;main.c: 163:     VREFCON1=0x00;
+[e = _VREFCON1 -> -> 0 `i `uc ]
+"164
+[; ;main.c: 164:     HLVDCON=0x00;
+[e = _HLVDCON -> -> 0 `i `uc ]
+"165
+[; ;main.c: 165:     _delay((unsigned long)((100)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"166
+[; ;main.c: 166:     LM629_init();
+[e ( _LM629_init ..  ]
 "167
-[; ;main.c: 167:     while(1)
-[e :U 856 ]
+[; ;main.c: 167:     _delay((unsigned long)((100)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "168
-[; ;main.c: 168:     {
-{
+[; ;main.c: 168:     spi_slave_init();
+[e ( _spi_slave_init ..  ]
 "169
-[; ;main.c: 169:         received_data = spi_read_data;
-[e = _received_data _spi_read_data ]
-"171
-[; ;main.c: 171:         if(received_data==0x77)
-[e $ ! == -> _received_data `i -> 119 `i 858  ]
-"172
-[; ;main.c: 172:         {
-{
-"173
-[; ;main.c: 173:             all_off();
-[e ( _all_off ..  ]
-"174
-[; ;main.c: 174:             forward();
-[e ( _forward ..  ]
-"175
-[; ;main.c: 175:         }
-}
-[e $U 859  ]
+[; ;main.c: 169:     spi_data(dummy_data);
+[e ( _spi_data (1 _dummy_data ]
 "177
-[; ;main.c: 177:         else if(received_data==0x73)
-[e :U 858 ]
-[e $ ! == -> _received_data `i -> 115 `i 860  ]
+[; ;main.c: 177:     while(1)
+[e :U 857 ]
 "178
-[; ;main.c: 178:         {
+[; ;main.c: 178:     {
 {
 "179
-[; ;main.c: 179:             all_off();
-[e ( _all_off ..  ]
+[; ;main.c: 179:         classic_ctrl.lx_joystick = signal_distribution_packet[1];
+[e = . _classic_ctrl 0 *U + &U _signal_distribution_packet * -> -> -> 1 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux ]
 "180
-[; ;main.c: 180:             reverse();
-[e ( _reverse ..  ]
+[; ;main.c: 180:         classic_ctrl.ly_joystick = signal_distribution_packet[2];
+[e = . _classic_ctrl 1 *U + &U _signal_distribution_packet * -> -> -> 2 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux ]
 "181
-[; ;main.c: 181:         }
-}
-[e $U 861  ]
+[; ;main.c: 181:         classic_ctrl.rx_joystick = signal_distribution_packet[3];
+[e = . _classic_ctrl 2 *U + &U _signal_distribution_packet * -> -> -> 3 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux ]
+"182
+[; ;main.c: 182:         classic_ctrl.ry_joystick = signal_distribution_packet[4];
+[e = . _classic_ctrl 3 *U + &U _signal_distribution_packet * -> -> -> 4 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux ]
 "183
-[; ;main.c: 183:         else if(received_data==0x61)
-[e :U 860 ]
-[e $ ! == -> _received_data `i -> 97 `i 862  ]
-"184
-[; ;main.c: 184:         {
-{
+[; ;main.c: 183:         signal_distribution_packet[5] = '\n';
+[e = *U + &U _signal_distribution_packet * -> -> -> 5 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux -> -> 10 `ui `uc ]
 "185
-[; ;main.c: 185:             all_off();
-[e ( _all_off ..  ]
+[; ;main.c: 185:         set_absolute_velocity(1,classic_ctrl.ly_joystick);
+[e ( _set_absolute_velocity (2 , -> -> 1 `i `uc . _classic_ctrl 1 ]
 "186
-[; ;main.c: 186:             left();
-[e ( _left ..  ]
-"187
-[; ;main.c: 187:         }
-}
-[e $U 863  ]
+[; ;main.c: 186:         set_absolute_velocity(3,classic_ctrl.ry_joystick);
+[e ( _set_absolute_velocity (2 , -> -> 3 `i `uc . _classic_ctrl 3 ]
 "189
-[; ;main.c: 189:         else if(received_data==0x64)
-[e :U 862 ]
-[e $ ! == -> _received_data `i -> 100 `i 864  ]
+[; ;main.c: 189:     }
+}
+[e :U 856 ]
+[e $U 857  ]
+[e :U 858 ]
 "190
-[; ;main.c: 190:         {
-{
-"191
-[; ;main.c: 191:             all_off();
-[e ( _all_off ..  ]
-"192
-[; ;main.c: 192:             right();
-[e ( _right ..  ]
-"193
-[; ;main.c: 193:         }
-}
-[e $U 865  ]
-"200
-[; ;main.c: 200:         else if(received_data==0x62)
-[e :U 864 ]
-[e $ ! == -> _received_data `i -> 98 `i 866  ]
-"201
-[; ;main.c: 201:         {
-{
-"202
-[; ;main.c: 202:             all_break();
-[e ( _all_break ..  ]
-"203
-[; ;main.c: 203:         }
-}
-[e $U 867  ]
-"205
-[; ;main.c: 205:         else if (received_data== '0')
-[e :U 866 ]
-[e $ ! == -> _received_data `ui -> 48 `ui 868  ]
-"206
-[; ;main.c: 206:         {
-{
-"207
-[; ;main.c: 207:             all_off();
-[e ( _all_off ..  ]
-"208
-[; ;main.c: 208:         }
-}
-[e $U 869  ]
-"210
-[; ;main.c: 210:         else if(received_data==0x34)
-[e :U 868 ]
-[e $ ! == -> _received_data `i -> 52 `i 870  ]
-"211
-[; ;main.c: 211:         {
-{
-"212
-[; ;main.c: 212:             all_off();
-[e ( _all_off ..  ]
-"213
-[; ;main.c: 213:             forward_right();
-[e ( _forward_right ..  ]
-"214
-[; ;main.c: 214:         }
-}
-[e $U 871  ]
-"216
-[; ;main.c: 216:         else if(received_data==0x31)
-[e :U 870 ]
-[e $ ! == -> _received_data `i -> 49 `i 872  ]
-"217
-[; ;main.c: 217:         {
-{
-"218
-[; ;main.c: 218:             all_off();
-[e ( _all_off ..  ]
-"219
-[; ;main.c: 219:             forward_left();
-[e ( _forward_left ..  ]
-"220
-[; ;main.c: 220:         }
-}
-[e $U 873  ]
-"222
-[; ;main.c: 222:         else if(received_data==0x32)
-[e :U 872 ]
-[e $ ! == -> _received_data `i -> 50 `i 874  ]
-"223
-[; ;main.c: 223:         {
-{
-"224
-[; ;main.c: 224:             all_off();
-[e ( _all_off ..  ]
-"225
-[; ;main.c: 225:             reverse_left();
-[e ( _reverse_left ..  ]
-"226
-[; ;main.c: 226:         }
-}
-[e $U 875  ]
-"228
-[; ;main.c: 228:         else if(received_data==0x33)
-[e :U 874 ]
-[e $ ! == -> _received_data `i -> 51 `i 876  ]
-"229
-[; ;main.c: 229:         {
-{
-"230
-[; ;main.c: 230:             all_off();
-[e ( _all_off ..  ]
-"231
-[; ;main.c: 231:             reverse_right();
-[e ( _reverse_right ..  ]
-"232
-[; ;main.c: 232:         }
-}
-[e :U 876 ]
-[e :U 875 ]
-[e :U 873 ]
-[e :U 871 ]
-[e :U 869 ]
-[e :U 867 ]
-[e :U 865 ]
-[e :U 863 ]
-[e :U 861 ]
-[e :U 859 ]
-"235
-[; ;main.c: 235:     }
-}
-[e :U 855 ]
-[e $U 856  ]
-[e :U 857 ]
-"238
-[; ;main.c: 238: }
-[e :UE 854 ]
+[; ;main.c: 190: }
+[e :UE 855 ]
 }

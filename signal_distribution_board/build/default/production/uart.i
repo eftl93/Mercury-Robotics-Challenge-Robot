@@ -9951,8 +9951,6 @@ void uart_init()
 }
 
 
-
-
 void tx1(char data1)
 {
     while(!PIR1bits.TX1IF);
@@ -9966,6 +9964,10 @@ void tx2(char data2)
     while(!PIR3bits.TX2IF);
     TXREG2=data2;
 }
+
+
+
+
 
 void uart_wr_str(uint8_t port, uint8_t *str)
 {
@@ -9993,6 +9995,8 @@ void uart_wr_str(uint8_t port, uint8_t *str)
             tx1('\0');
 }
 
+
+
 void rx1_overrun_detect_reset(void)
 {
           if(RCSTA1bits.OERR)
@@ -10002,7 +10006,7 @@ void rx1_overrun_detect_reset(void)
               RCSTA1bits.CREN = 1;
           }
 }
-# 174 "uart.c"
+# 178 "uart.c"
 void __attribute__((picinterrupt(("")))) UART_ISR(void)
 {
     if(PIR1bits.RC1IF)

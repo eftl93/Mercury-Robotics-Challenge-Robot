@@ -10007,14 +10007,20 @@ void main()
         tx1('\r');
 
 
+
         dummy_spi_tx = spi_data(3,'z');
+        dummy_spi_tx = spi_data(0,'z');
         dummy_spi_tx = spi_data(3,classic_ctrl.lx_joystick);
+        dummy_spi_tx = spi_data(0,classic_ctrl.lx_joystick);
         dummy_spi_tx = spi_data(3,classic_ctrl.ly_joystick);
+        dummy_spi_tx = spi_data(0,classic_ctrl.ly_joystick);
         dummy_spi_tx = spi_data(3,classic_ctrl.rx_joystick);
+        dummy_spi_tx = spi_data(0,classic_ctrl.rx_joystick);
         dummy_spi_tx = spi_data(3,classic_ctrl.ry_joystick);
+        dummy_spi_tx = spi_data(0,classic_ctrl.ry_joystick);
         dummy_spi_tx = spi_data(3,'y');
-
-
+        dummy_spi_tx = spi_data(0,'y');
+# 125 "main.c"
         act_buttons.a = ((classic_ctrl.action_buttons & 0b00001000) >> 3);
         act_buttons.b = ((classic_ctrl.action_buttons & 0b00000100) >> 2);
         act_buttons.x = ((classic_ctrl.action_buttons & 0b00000010) >> 1);
