@@ -12,30 +12,32 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\Motor_controller_board.production.o
-cinit CODE 0 1968 1968 1A 1 2
+cinit CODE 0 182C 182C 1A 1 2
 idloc IDLOC 5 200000 200000 8 1 1
-text0 CODE 0 161C 161C BA 1 2
-text1 CODE 0 193C 193C 2C 1 2
-text2 CODE 0 1998 1998 8 1 2
-text3 CODE 0 1558 1558 C4 1 2
-text4 CODE 0 18D0 18D0 3C 1 2
-text5 CODE 0 1082 1082 2E6 1 2
-text6 CODE 0 17C0 17C0 4E 1 2
-text7 CODE 0 16D6 16D6 88 1 2
-text8 CODE 0 1850 1850 40 1 2
-text9 CODE 0 175E 175E 62 1 2
-text10 CODE 0 180E 180E 42 1 2
-text11 CODE 0 1982 1982 16 1 2
-text12 CODE 0 190C 190C 30 1 2
-text13 CODE 0 1890 1890 40 1 2
-text14 CODE 0 1368 1368 1F0 1 2
+text0 CODE 0 1408 1408 CE 1 2
+text1 CODE 0 1800 1800 2C 1 2
+text2 CODE 0 188A 188A 8 1 2
+text3 CODE 0 14D6 14D6 C4 1 2
+text4 CODE 0 1794 1794 3C 1 2
+text5 CODE 0 185E 185E 16 1 2
+text6 CODE 0 1846 1846 18 1 2
+text7 CODE 0 1272 1272 196 1 2
+text8 CODE 0 1684 1684 4E 1 2
+text9 CODE 0 159A 159A 88 1 2
+text10 CODE 0 1714 1714 40 1 2
+text11 CODE 0 1622 1622 62 1 2
+text12 CODE 0 16D2 16D2 42 1 2
+text13 CODE 0 1874 1874 16 1 2
+text14 CODE 0 17D0 17D0 30 1 2
+text15 CODE 0 1754 1754 40 1 2
+text16 CODE 0 1082 1082 1F0 1 2
 cstackCOMRAM COMRAM 1 1 1 1F 1 1
 temp COMRAM 1 2E 2E 1 1 1
 intcode CODE 0 8 8 D8 1 2
 smallconst SMALLCONST 0 1000 1000 82 1 2
 bssCOMRAM COMRAM 1 20 20 E 1 1
 config CONFIG 4 300000 300000 E 1 1
-$C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
+$C:\Users\eder0\AppData\Local\Temp\xcAs904.o
 idloc IDLOC 5 200000 200000 8 1 1
 init CODE 0 E0 E0 4 1 2
 reset_vec CODE 0 0 0 4 1 2
@@ -60,11 +62,11 @@ BANK8 800-8FF 1
 BANK9 900-9FF 1
 CONST 4-7 1
 CONST E4-FFF 1
-CONST 19A0-FFFF 1
-SMALLCONST 19A0-FFFF 1
+CONST 1892-FFFF 1
+SMALLCONST 1892-FFFF 1
 CODE 4-7 1
 CODE E4-FFF 1
-CODE 19A0-FFFF 1
+CODE 1892-FFFF 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
@@ -75,7 +77,7 @@ BIGRAM 2F-F37 1
 BIGSFR F38-FFF 1
 COMRAM 2F-5F 1
 EEDATA F00000-F003FF 1
-MEDIUMCONST 19A0-FFFF 1
+MEDIUMCONST 1892-FFFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -90,7 +92,7 @@ MEDIUMCONST 19A0-FFFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Motor_controller_board.production.o
-8 intcode CODE >5445:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
+8 intcode CODE >5340:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
 8 intcode CODE >40:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
 1A intcode CODE >42:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
 28 intcode CODE >44:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
@@ -115,334 +117,316 @@ BC intcode CODE >69:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi
 C6 intcode CODE >70:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
 C8 intcode CODE >71:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
 CC intcode CODE >73:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-1368 text14 CODE >290:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-136A text14 CODE >293:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-137A text14 CODE >295:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1392 text14 CODE >296:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-13AC text14 CODE >297:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-13C8 text14 CODE >298:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-13EA text14 CODE >299:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1408 text14 CODE >300:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-142C text14 CODE >301:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-144C text14 CODE >302:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1464 text14 CODE >303:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1468 text14 CODE >304:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-146C text14 CODE >306:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-147C text14 CODE >309:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1490 text14 CODE >310:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-14AC text14 CODE >311:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-14C8 text14 CODE >312:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-14E4 text14 CODE >313:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1500 text14 CODE >314:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-151C text14 CODE >315:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1538 text14 CODE >316:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1554 text14 CODE >318:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1556 text14 CODE >319:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1890 text13 CODE >271:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1892 text13 CODE >273:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-18A2 text13 CODE >275:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-18A6 text13 CODE >276:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-18AA text13 CODE >277:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-18AE text13 CODE >278:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-18B2 text13 CODE >279:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-18C2 text13 CODE >281:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-18C6 text13 CODE >282:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-18CA text13 CODE >283:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-18CE text13 CODE >285:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-190C text12 CODE >45:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-190C text12 CODE >48:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1912 text12 CODE >49:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1914 text12 CODE >50:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1918 text12 CODE >51:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-191A text12 CODE >52:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1920 text12 CODE >53:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-192C text12 CODE >54:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-192E text12 CODE >55:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1932 text12 CODE >56:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1934 text12 CODE >57:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1938 text12 CODE >59:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-193A text12 CODE >60:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1982 text11 CODE >34:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1982 text11 CODE >37:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1988 text11 CODE >38:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1996 text11 CODE >42:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-180E text10 CODE >118:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1810 text10 CODE >120:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1814 text10 CODE >121:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-181A text10 CODE >122:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-181C text10 CODE >123:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1822 text10 CODE >124:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1824 text10 CODE >125:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-182A text10 CODE >126:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1834 text10 CODE >127:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-183A text10 CODE >128:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-183C text10 CODE >129:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1842 text10 CODE >130:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1844 text10 CODE >131:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-184A text10 CODE >132:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-184E text10 CODE >133:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-175E text9 CODE >93:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1760 text9 CODE >95:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1764 text9 CODE >96:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-176A text9 CODE >97:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-176C text9 CODE >98:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1772 text9 CODE >99:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1774 text9 CODE >100:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-177A text9 CODE >101:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1784 text9 CODE >102:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-178A text9 CODE >103:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-178C text9 CODE >104:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1792 text9 CODE >105:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1794 text9 CODE >106:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-179A text9 CODE >107:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17A4 text9 CODE >108:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17AA text9 CODE >109:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17AC text9 CODE >110:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17B2 text9 CODE >111:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17B4 text9 CODE >112:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17BA text9 CODE >113:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17BE text9 CODE >114:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1850 text8 CODE >400:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1850 text8 CODE >402:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1856 text8 CODE >403:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1860 text8 CODE >404:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-186A text8 CODE >405:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1874 text8 CODE >406:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-187E text8 CODE >407:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1888 text8 CODE >408:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-188E text8 CODE >409:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-16D6 text7 CODE >321:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-16D8 text7 CODE >323:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-16E8 text7 CODE >325:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-16EA text7 CODE >326:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-16EC text7 CODE >327:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-16EE text7 CODE >328:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-16F0 text7 CODE >329:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-16F4 text7 CODE >330:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1704 text7 CODE >332:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1706 text7 CODE >333:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1708 text7 CODE >334:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-170A text7 CODE >335:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-170C text7 CODE >336:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1710 text7 CODE >337:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1722 text7 CODE >339:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1724 text7 CODE >340:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1726 text7 CODE >341:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1728 text7 CODE >342:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-172A text7 CODE >343:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-172E text7 CODE >344:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1740 text7 CODE >346:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1742 text7 CODE >347:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1744 text7 CODE >348:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1746 text7 CODE >349:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1748 text7 CODE >350:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-174C text7 CODE >351:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-174C text7 CODE >353:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-174E text7 CODE >354:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1750 text7 CODE >355:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1752 text7 CODE >356:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1754 text7 CODE >359:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-175C text7 CODE >360:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17C0 text6 CODE >438:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17C2 text6 CODE >440:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17C2 text6 CODE >441:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17C6 text6 CODE >446:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17CA text6 CODE >447:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17CE text6 CODE >448:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17D2 text6 CODE >449:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17D6 text6 CODE >451:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17DC text6 CODE >452:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17E2 text6 CODE >453:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17EC text6 CODE >454:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-17F6 text6 CODE >455:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1800 text6 CODE >456:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1806 text6 CODE >457:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-180C text6 CODE >458:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1082 text5 CODE >135:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1082 text5 CODE >138:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1082 text5 CODE >139:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1084 text5 CODE >140:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1086 text5 CODE >141:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1088 text5 CODE >142:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-108A text5 CODE >143:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-108C text5 CODE >144:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-108E text5 CODE >145:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1090 text5 CODE >146:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1092 text5 CODE >147:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1094 text5 CODE >148:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1096 text5 CODE >149:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1098 text5 CODE >150:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-109A text5 CODE >151:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-10A0 text5 CODE >153:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-10A8 text5 CODE >154:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-10AA text5 CODE >155:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-10B0 text5 CODE >156:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-10B2 text5 CODE >157:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-10C0 text5 CODE >158:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-10C6 text5 CODE >159:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-10EE text5 CODE >165:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-10F2 text5 CODE >166:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-10F8 text5 CODE >167:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-10FC text5 CODE >168:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1106 text5 CODE >169:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-110A text5 CODE >170:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1110 text5 CODE >171:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1138 text5 CODE >177:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-113E text5 CODE >179:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1146 text5 CODE >180:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1148 text5 CODE >181:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-114E text5 CODE >182:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1150 text5 CODE >183:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-115E text5 CODE >184:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1164 text5 CODE >185:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-118C text5 CODE >191:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1190 text5 CODE >192:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1196 text5 CODE >193:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-119A text5 CODE >194:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-11A4 text5 CODE >195:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-11A8 text5 CODE >196:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-11AE text5 CODE >197:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-11D6 text5 CODE >203:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-11DC text5 CODE >205:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-11E4 text5 CODE >206:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-11E6 text5 CODE >207:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-11EC text5 CODE >208:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-11EE text5 CODE >209:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-11FC text5 CODE >210:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1202 text5 CODE >211:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-122A text5 CODE >217:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-122E text5 CODE >218:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1234 text5 CODE >219:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1238 text5 CODE >220:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1242 text5 CODE >221:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1246 text5 CODE >222:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-124C text5 CODE >223:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1274 text5 CODE >229:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-127A text5 CODE >231:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1282 text5 CODE >232:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1284 text5 CODE >233:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-128A text5 CODE >234:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-128C text5 CODE >235:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-129A text5 CODE >236:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-12A0 text5 CODE >237:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-12C8 text5 CODE >243:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-12CC text5 CODE >244:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-12D2 text5 CODE >245:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-12D6 text5 CODE >246:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-12E0 text5 CODE >247:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-12E4 text5 CODE >248:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-12EA text5 CODE >249:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1312 text5 CODE >254:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1318 text5 CODE >255:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-131C text5 CODE >256:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1322 text5 CODE >257:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1326 text5 CODE >258:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-132C text5 CODE >259:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1330 text5 CODE >260:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1336 text5 CODE >261:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-133A text5 CODE >262:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1350 text5 CODE >263:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1366 text5 CODE >264:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-18D0 text4 CODE >14:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-18D2 text4 CODE >25:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-18FA text4 CODE >26:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-190A text4 CODE >27:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1558 text3 CODE >460:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-155A text3 CODE >462:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-155E text3 CODE >471:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1562 text3 CODE >475:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1572 text3 CODE >477:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1576 text3 CODE >478:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-157A text3 CODE >481:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1580 text3 CODE >487:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1594 text3 CODE >497:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-159E text3 CODE >497:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-15AC text3 CODE >497:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-15B4 text3 CODE >497:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-15BE text3 CODE >499:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-15D4 text3 CODE >500:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-15D8 text3 CODE >501:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-15DC text3 CODE >502:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-15E0 text3 CODE >503:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-15E4 text3 CODE >505:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-15EA text3 CODE >506:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-15F0 text3 CODE >507:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-15FA text3 CODE >508:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1604 text3 CODE >509:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-160E text3 CODE >510:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1614 text3 CODE >511:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-161A text3 CODE >513:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
-1998 text2 CODE >35:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-199A text2 CODE >37:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-199E text2 CODE >38:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-193C text1 CODE >16:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-193C text1 CODE >18:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-193E text1 CODE >19:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-1940 text1 CODE >20:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-1942 text1 CODE >21:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-194A text1 CODE >22:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-194E text1 CODE >23:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-1952 text1 CODE >24:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-1956 text1 CODE >25:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-1958 text1 CODE >26:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-195A text1 CODE >27:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-195C text1 CODE >28:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-195E text1 CODE >29:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-1960 text1 CODE >30:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-1962 text1 CODE >31:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-1964 text1 CODE >32:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-1966 text1 CODE >33:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
-161C text0 CODE >139:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-161C text0 CODE >143:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-161C text0 CODE >144:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1620 text0 CODE >145:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1622 text0 CODE >146:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1626 text0 CODE >147:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-162C text0 CODE >148:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1630 text0 CODE >149:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1634 text0 CODE >150:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1638 text0 CODE >151:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-163C text0 CODE >152:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1640 text0 CODE >153:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1644 text0 CODE >154:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1648 text0 CODE >155:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-164C text0 CODE >156:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-164E text0 CODE >157:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1650 text0 CODE >158:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1652 text0 CODE >159:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1654 text0 CODE >160:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1658 text0 CODE >161:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-165C text0 CODE >162:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1660 text0 CODE >163:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1664 text0 CODE >164:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1668 text0 CODE >165:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1680 text0 CODE >166:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1684 text0 CODE >167:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-169C text0 CODE >168:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-16A0 text0 CODE >169:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-16A6 text0 CODE >179:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-16AA text0 CODE >180:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-16AE text0 CODE >181:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-16B2 text0 CODE >182:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-16B6 text0 CODE >183:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-16BA text0 CODE >185:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-16C4 text0 CODE >186:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
-1968 cinit CODE >1862:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-1968 cinit CODE >1864:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-1968 cinit CODE >1867:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-1968 cinit CODE >1891:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-196C cinit CODE >1892:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-196E cinit CODE >1893:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-196E cinit CODE >1894:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-1970 cinit CODE >1895:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-1972 cinit CODE >1896:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-1974 cinit CODE >1902:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-1974 cinit CODE >1904:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-1976 cinit CODE >1905:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-1978 cinit CODE >1907:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-197A cinit CODE >1908:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-197C cinit CODE >1909:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
-197E cinit CODE >1910:C:\Users\eder0\AppData\Local\Temp\xcAs1jk.s
+1082 text16 CODE >290:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1084 text16 CODE >293:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1094 text16 CODE >295:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+10AC text16 CODE >296:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+10C6 text16 CODE >297:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+10E2 text16 CODE >298:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1104 text16 CODE >299:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1122 text16 CODE >300:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1146 text16 CODE >301:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1166 text16 CODE >302:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+117E text16 CODE >303:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1182 text16 CODE >304:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1186 text16 CODE >306:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1196 text16 CODE >309:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+11AA text16 CODE >310:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+11C6 text16 CODE >311:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+11E2 text16 CODE >312:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+11FE text16 CODE >313:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+121A text16 CODE >314:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1236 text16 CODE >315:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1252 text16 CODE >316:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+126E text16 CODE >318:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1270 text16 CODE >319:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1754 text15 CODE >271:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1756 text15 CODE >273:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1766 text15 CODE >275:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+176A text15 CODE >276:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+176E text15 CODE >277:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1772 text15 CODE >278:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1776 text15 CODE >279:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1786 text15 CODE >281:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+178A text15 CODE >282:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+178E text15 CODE >283:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1792 text15 CODE >285:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17D0 text14 CODE >45:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17D0 text14 CODE >48:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17D6 text14 CODE >49:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17D8 text14 CODE >50:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17DC text14 CODE >51:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17DE text14 CODE >52:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17E4 text14 CODE >53:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17F0 text14 CODE >54:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17F2 text14 CODE >55:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17F6 text14 CODE >56:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17F8 text14 CODE >57:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17FC text14 CODE >59:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17FE text14 CODE >60:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1874 text13 CODE >34:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1874 text13 CODE >37:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+187A text13 CODE >38:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1888 text13 CODE >42:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16D2 text12 CODE >118:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16D4 text12 CODE >120:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16D8 text12 CODE >121:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16DE text12 CODE >122:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16E0 text12 CODE >123:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16E6 text12 CODE >124:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16E8 text12 CODE >125:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16EE text12 CODE >126:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16F8 text12 CODE >127:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16FE text12 CODE >128:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1700 text12 CODE >129:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1706 text12 CODE >130:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1708 text12 CODE >131:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+170E text12 CODE >132:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1712 text12 CODE >133:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1622 text11 CODE >93:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1624 text11 CODE >95:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1628 text11 CODE >96:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+162E text11 CODE >97:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1630 text11 CODE >98:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1636 text11 CODE >99:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1638 text11 CODE >100:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+163E text11 CODE >101:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1648 text11 CODE >102:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+164E text11 CODE >103:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1650 text11 CODE >104:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1656 text11 CODE >105:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1658 text11 CODE >106:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+165E text11 CODE >107:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1668 text11 CODE >108:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+166E text11 CODE >109:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1670 text11 CODE >110:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1676 text11 CODE >111:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1678 text11 CODE >112:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+167E text11 CODE >113:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1682 text11 CODE >114:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1714 text10 CODE >400:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1714 text10 CODE >402:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+171A text10 CODE >403:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1724 text10 CODE >404:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+172E text10 CODE >405:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1738 text10 CODE >406:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1742 text10 CODE >407:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+174C text10 CODE >408:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1752 text10 CODE >409:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+159A text9 CODE >321:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+159C text9 CODE >323:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15AC text9 CODE >325:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15AE text9 CODE >326:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15B0 text9 CODE >327:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15B2 text9 CODE >328:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15B4 text9 CODE >329:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15B8 text9 CODE >330:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15C8 text9 CODE >332:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15CA text9 CODE >333:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15CC text9 CODE >334:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15CE text9 CODE >335:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15D0 text9 CODE >336:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15D4 text9 CODE >337:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15E6 text9 CODE >339:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15E8 text9 CODE >340:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15EA text9 CODE >341:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15EC text9 CODE >342:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15EE text9 CODE >343:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+15F2 text9 CODE >344:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1604 text9 CODE >346:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1606 text9 CODE >347:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1608 text9 CODE >348:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+160A text9 CODE >349:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+160C text9 CODE >350:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1610 text9 CODE >351:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1610 text9 CODE >353:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1612 text9 CODE >354:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1614 text9 CODE >355:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1616 text9 CODE >356:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1618 text9 CODE >359:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1620 text9 CODE >360:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1684 text8 CODE >438:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1686 text8 CODE >440:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1686 text8 CODE >441:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+168A text8 CODE >446:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+168E text8 CODE >447:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1692 text8 CODE >448:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1696 text8 CODE >449:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+169A text8 CODE >451:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16A0 text8 CODE >452:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16A6 text8 CODE >453:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16B0 text8 CODE >454:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16BA text8 CODE >455:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16C4 text8 CODE >456:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16CA text8 CODE >457:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+16D0 text8 CODE >458:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1272 text7 CODE >135:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1272 text7 CODE >138:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1272 text7 CODE >139:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1274 text7 CODE >140:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1276 text7 CODE >141:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1278 text7 CODE >142:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+127A text7 CODE >143:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+127C text7 CODE >144:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+127E text7 CODE >145:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1280 text7 CODE >146:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1282 text7 CODE >147:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1284 text7 CODE >148:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1286 text7 CODE >149:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1288 text7 CODE >150:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+128A text7 CODE >177:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1290 text7 CODE >179:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1298 text7 CODE >180:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+129A text7 CODE >181:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+12A0 text7 CODE >182:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+12A2 text7 CODE >183:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+12B0 text7 CODE >184:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+12B6 text7 CODE >185:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+12DE text7 CODE >191:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+12E2 text7 CODE >192:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+12E8 text7 CODE >193:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+12EC text7 CODE >194:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+12F6 text7 CODE >195:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+12FA text7 CODE >196:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1300 text7 CODE >197:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1328 text7 CODE >229:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+132E text7 CODE >231:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1336 text7 CODE >232:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1338 text7 CODE >233:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+133E text7 CODE >234:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1340 text7 CODE >235:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+134E text7 CODE >236:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1354 text7 CODE >237:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+137C text7 CODE >243:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1380 text7 CODE >244:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1386 text7 CODE >245:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+138A text7 CODE >246:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1394 text7 CODE >247:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1398 text7 CODE >248:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+139E text7 CODE >249:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+13C6 text7 CODE >256:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+13CC text7 CODE >257:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+13D0 text7 CODE >260:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+13D6 text7 CODE >261:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+13DA text7 CODE >262:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+13F0 text7 CODE >263:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1406 text7 CODE >264:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1846 text6 CODE >362:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1846 text6 CODE >364:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+184C text6 CODE >365:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1856 text6 CODE >366:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+185C text6 CODE >367:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+185E text5 CODE >388:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+185E text5 CODE >392:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1864 text5 CODE >393:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1868 text5 CODE >396:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+186E text5 CODE >397:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1872 text5 CODE >398:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1794 text4 CODE >14:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1796 text4 CODE >25:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17BE text4 CODE >26:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+17CE text4 CODE >27:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+14D6 text3 CODE >460:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+14D8 text3 CODE >462:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+14DC text3 CODE >471:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+14E0 text3 CODE >475:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+14F0 text3 CODE >477:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+14F4 text3 CODE >478:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+14F8 text3 CODE >481:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+14FE text3 CODE >487:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1512 text3 CODE >497:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+151C text3 CODE >497:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+152A text3 CODE >497:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1532 text3 CODE >497:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+153C text3 CODE >499:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1552 text3 CODE >500:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1556 text3 CODE >501:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+155A text3 CODE >502:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+155E text3 CODE >503:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1562 text3 CODE >505:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1568 text3 CODE >506:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+156E text3 CODE >507:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1578 text3 CODE >508:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1582 text3 CODE >509:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+158C text3 CODE >510:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1592 text3 CODE >511:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+1598 text3 CODE >513:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\lm629.c
+188A text2 CODE >35:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+188C text2 CODE >37:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+1890 text2 CODE >38:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+1800 text1 CODE >16:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+1800 text1 CODE >18:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+1802 text1 CODE >19:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+1804 text1 CODE >20:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+1806 text1 CODE >21:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+180E text1 CODE >22:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+1812 text1 CODE >23:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+1816 text1 CODE >24:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+181A text1 CODE >25:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+181C text1 CODE >26:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+181E text1 CODE >27:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+1820 text1 CODE >28:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+1822 text1 CODE >29:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+1824 text1 CODE >30:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+1826 text1 CODE >31:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+1828 text1 CODE >32:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+182A text1 CODE >33:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi.c
+1408 text0 CODE >139:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1408 text0 CODE >143:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1408 text0 CODE >144:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+140C text0 CODE >145:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+140E text0 CODE >146:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1412 text0 CODE >147:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1418 text0 CODE >148:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+141C text0 CODE >149:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1420 text0 CODE >150:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1424 text0 CODE >151:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1428 text0 CODE >152:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+142C text0 CODE >153:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1430 text0 CODE >154:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1434 text0 CODE >155:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1438 text0 CODE >156:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+143A text0 CODE >157:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+143C text0 CODE >158:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+143E text0 CODE >159:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1440 text0 CODE >160:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1444 text0 CODE >161:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1448 text0 CODE >162:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+144C text0 CODE >163:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1450 text0 CODE >164:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1454 text0 CODE >165:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+146C text0 CODE >166:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1470 text0 CODE >167:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1488 text0 CODE >168:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+148C text0 CODE >169:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1492 text0 CODE >170:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+1496 text0 CODE >171:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+149A text0 CODE >172:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+149E text0 CODE >173:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+14A2 text0 CODE >174:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+14A6 text0 CODE >184:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+14AA text0 CODE >185:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+14AE text0 CODE >186:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+14B2 text0 CODE >187:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+14B6 text0 CODE >188:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+14BA text0 CODE >190:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+14C4 text0 CODE >191:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\main.c
+182C cinit CODE >1867:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+182C cinit CODE >1869:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+182C cinit CODE >1872:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+182C cinit CODE >1896:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+1830 cinit CODE >1897:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+1832 cinit CODE >1898:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+1832 cinit CODE >1899:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+1834 cinit CODE >1900:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+1836 cinit CODE >1901:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+1838 cinit CODE >1907:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+1838 cinit CODE >1909:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+183A cinit CODE >1910:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+183C cinit CODE >1912:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+183E cinit CODE >1913:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+1840 cinit CODE >1914:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
+1842 cinit CODE >1915:C:\Users\eder0\AppData\Local\Temp\xcAs904.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -455,30 +439,30 @@ CC intcode CODE >73:E:\GitHub\TI_Innovation_Challenge\Motor_controller_board\spi
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__end_of_set_absolute_velocity 161C 0 CODE 0 text3 dist/default/production\Motor_controller_board.production.o
-_spi_slave_init 193C 0 CODE 0 text1 dist/default/production\Motor_controller_board.production.o
+__end_of_set_absolute_velocity 159A 0 CODE 0 text3 dist/default/production\Motor_controller_board.production.o
+_spi_slave_init 1800 0 CODE 0 text1 dist/default/production\Motor_controller_board.production.o
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\Motor_controller_board.production.o
 set_absolute_velocity@motor 17 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
-__Hspace_0 19A0 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
+__Hspace_0 1892 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 __Hspace_1 2F 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 __Hspace_4 60000E 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 _CM1CON0 F79 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 _CM2CON0 F78 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 _SSP1STATbits FC7 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
-__end_of_write_data 17C0 0 CODE 0 text9 dist/default/production\Motor_controller_board.production.o
+__end_of_write_data 1684 0 CODE 0 text11 dist/default/production\Motor_controller_board.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\Motor_controller_board.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\eder0\AppData\Local\Temp\xcAs904.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Motor_controller_board.production.o
-_set_absolute_velocity 1558 0 CODE 0 text3 dist/default/production\Motor_controller_board.production.o
+_set_absolute_velocity 14D6 0 CODE 0 text3 dist/default/production\Motor_controller_board.production.o
 __Lsmallconst 1000 0 SMALLCONST 0 smallconst dist/default/production\Motor_controller_board.production.o
 _PEIE 7F96 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 _RCON FD0 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
-___sp 0 0 STACK 2 stack C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
-_main 161C 0 CODE 0 text0 dist/default/production\Motor_controller_board.production.o
+___sp 0 0 STACK 2 stack C:\Users\eder0\AppData\Local\Temp\xcAs904.o
+_main 1408 0 CODE 0 text0 dist/default/production\Motor_controller_board.production.o
 btemp 2E 0 COMRAM 1 temp dist/default/production\Motor_controller_board.production.o
-_LM629_init 1082 0 CODE 0 text5 dist/default/production\Motor_controller_board.production.o
-start E0 0 CODE 0 init C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
+_LM629_init 1272 0 CODE 0 text7 dist/default/production\Motor_controller_board.production.o
+start E0 0 CODE 0 init C:\Users\eder0\AppData\Local\Temp\xcAs904.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\Motor_controller_board.production.o
 spi_data@tx_data 7 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
 __Hpowerup E0 0 CODE 0 powerup dist/default/production\Motor_controller_board.production.o
@@ -486,12 +470,12 @@ set_absolute_velocity@trajectory_control_MSB 18 0 COMRAM 1 cstackCOMRAM dist/def
 ttemp5 2F 0 COMRAM 1 temp dist/default/production\Motor_controller_board.production.o
 ttemp6 32 0 COMRAM 1 temp dist/default/production\Motor_controller_board.production.o
 ttemp7 36 0 COMRAM 1 temp dist/default/production\Motor_controller_board.production.o
-__end_of_spi_slave_init 1968 0 CODE 0 text1 dist/default/production\Motor_controller_board.production.o
-__accesstop 60 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
-intlevel0 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
-intlevel1 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
-intlevel2 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
-intlevel3 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
+__end_of_spi_slave_init 182C 0 CODE 0 text1 dist/default/production\Motor_controller_board.production.o
+__accesstop 60 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAs904.o
+intlevel0 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAs904.o
+intlevel1 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAs904.o
+intlevel2 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAs904.o
+intlevel3 0 0 CODE 0 text C:\Users\eder0\AppData\Local\Temp\xcAs904.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\Motor_controller_board.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\Motor_controller_board.production.o
 wtemp8 2F 0 COMRAM 1 temp dist/default/production\Motor_controller_board.production.o
@@ -506,23 +490,23 @@ _ANSELB F39 0 ABS 0 - dist/default/production\Motor_controller_board.production.
 _ANSELC F3A 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 _ANSELD F3B 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 _ANSELE F3C 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
-__end_of_LM629_init 1368 0 CODE 0 text5 dist/default/production\Motor_controller_board.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
+__end_of_LM629_init 1408 0 CODE 0 text7 dist/default/production\Motor_controller_board.production.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\eder0\AppData\Local\Temp\xcAs904.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\eder0\AppData\Local\Temp\xcAs904.o
 set_absolute_velocity@analog_in 10 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
-__end_of_DATABUS_DIR 18D0 0 CODE 0 text13 dist/default/production\Motor_controller_board.production.o
+__end_of_DATABUS_DIR 1794 0 CODE 0 text15 dist/default/production\Motor_controller_board.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\Motor_controller_board.production.o
-_DATABUS 1368 0 CODE 0 text14 dist/default/production\Motor_controller_board.production.o
+_DATABUS 1082 0 CODE 0 text16 dist/default/production\Motor_controller_board.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\Motor_controller_board.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\Motor_controller_board.production.o
 __Hintcodelo E0 0 CODE 0 intcodelo dist/default/production\Motor_controller_board.production.o
 _INTCON FF2 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
-_check_busy 1982 0 CODE 0 text11 dist/default/production\Motor_controller_board.production.o
-__end_of_set_absolute_acceleration 180E 0 CODE 0 text6 dist/default/production\Motor_controller_board.production.o
+_check_busy 1874 0 CODE 0 text13 dist/default/production\Motor_controller_board.production.o
+__end_of_set_absolute_acceleration 16D2 0 CODE 0 text8 dist/default/production\Motor_controller_board.production.o
 set_absolute_acceleration@low_word_LSB 19 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
 set_absolute_acceleration@low_word_MSB 18 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
 __Lintcodelo E0 0 CODE 0 intcodelo dist/default/production\Motor_controller_board.production.o
-start_initialization 1968 0 CODE 0 cinit dist/default/production\Motor_controller_board.production.o
+start_initialization 182C 0 CODE 0 cinit dist/default/production\Motor_controller_board.production.o
 lm629_velocity@lookup_table 1001 0 SMALLCONST 0 smallconst dist/default/production\Motor_controller_board.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\Motor_controller_board.production.o
 _TRISAbits F92 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
@@ -530,11 +514,12 @@ _TRISBbits F93 0 ABS 0 - dist/default/production\Motor_controller_board.producti
 _TRISCbits F94 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 _TRISDbits F95 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 check_busy@x D 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
+_all_off 185E 0 CODE 0 text5 dist/default/production\Motor_controller_board.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 DATABUS@dir1 A 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
 _SRCON0 F47 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 _SSP1IE 7CEB 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
+isa$xinst 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAs904.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\Motor_controller_board.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\Motor_controller_board.production.o
 __Hbank2 0 0 ABS 0 bank2 dist/default/production\Motor_controller_board.production.o
@@ -549,7 +534,7 @@ __Hcinit 0 0 ABS 0 cinit dist/default/production\Motor_controller_board.producti
 __Hconst 0 0 CONST 0 const dist/default/production\Motor_controller_board.production.o
 __Hidata 0 0 CODE 0 idata dist/default/production\Motor_controller_board.production.o
 __Hidloc 200008 0 IDLOC 5 idloc dist/default/production\Motor_controller_board.production.o
-__end_of_check_busy 1998 0 CODE 0 text11 dist/default/production\Motor_controller_board.production.o
+__end_of_check_busy 188A 0 CODE 0 text13 dist/default/production\Motor_controller_board.production.o
 __Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\Motor_controller_board.production.o
 __Hparam 0 0 COMRAM 1 rparam dist/default/production\Motor_controller_board.production.o
 __Hrdata 0 0 COMRAM 1 rdata dist/default/production\Motor_controller_board.production.o
@@ -573,7 +558,7 @@ __Hbank15 0 0 ABS 0 bank15 dist/default/production\Motor_controller_board.produc
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\Motor_controller_board.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\Motor_controller_board.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\Motor_controller_board.production.o
-__smallconst 1000 0 SMALLCONST 0 smallconst C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
+__smallconst 1000 0 SMALLCONST 0 smallconst C:\Users\eder0\AppData\Local\Temp\xcAs904.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\Motor_controller_board.production.o
 __Hconfig 30000E 0 CONFIG 4 config dist/default/production\Motor_controller_board.production.o
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\Motor_controller_board.production.o
@@ -634,13 +619,13 @@ __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\Motor_controller_
 __Hintret 0 0 ABS 0 intret dist/default/production\Motor_controller_board.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\Motor_controller_board.production.o
 _GIE 7F97 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
-__S0 19A0 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
+__S0 1892 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 __S1 2F 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 __S4 0 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 __S5 0 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 _spi_read_data 27 0 COMRAM 1 bssCOMRAM dist/default/production\Motor_controller_board.production.o
 __end_of_SPI_ISR E0 0 CODE 0 intcode dist/default/production\Motor_controller_board.production.o
-_chip_select 16D6 0 CODE 0 text7 dist/default/production\Motor_controller_board.production.o
+_chip_select 159A 0 CODE 0 text9 dist/default/production\Motor_controller_board.production.o
 _HLVDCON F9C 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\Motor_controller_board.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\Motor_controller_board.production.o
@@ -648,7 +633,7 @@ __Lintentry 0 0 ABS 0 intentry dist/default/production\Motor_controller_board.pr
 set_absolute_velocity@velocity_value 19 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
 __Hramtop 1000 0 RAM 0 ramtop dist/default/production\Motor_controller_board.production.o
 _classic_ctrl 20 0 COMRAM 1 bssCOMRAM dist/default/production\Motor_controller_board.production.o
-_read_status 190C 0 CODE 0 text12 dist/default/production\Motor_controller_board.production.o
+_read_status 17D0 0 CODE 0 text14 dist/default/production\Motor_controller_board.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\Motor_controller_board.production.o
 set_absolute_acceleration@motor 14 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
 __activetblptr 2 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
@@ -658,12 +643,17 @@ __Htext11 0 0 ABS 0 text11 dist/default/production\Motor_controller_board.produc
 __Htext12 0 0 ABS 0 text12 dist/default/production\Motor_controller_board.production.o
 __Htext13 0 0 ABS 0 text13 dist/default/production\Motor_controller_board.production.o
 __Htext14 0 0 ABS 0 text14 dist/default/production\Motor_controller_board.production.o
-_filter_module 1850 0 CODE 0 text8 dist/default/production\Motor_controller_board.production.o
-__ptext10 180E 0 CODE 0 text10 dist/default/production\Motor_controller_board.production.o
-__ptext11 1982 0 CODE 0 text11 dist/default/production\Motor_controller_board.production.o
-__ptext12 190C 0 CODE 0 text12 dist/default/production\Motor_controller_board.production.o
-__ptext13 1890 0 CODE 0 text13 dist/default/production\Motor_controller_board.production.o
-__ptext14 1368 0 CODE 0 text14 dist/default/production\Motor_controller_board.production.o
+__Htext15 0 0 ABS 0 text15 dist/default/production\Motor_controller_board.production.o
+__Htext16 0 0 ABS 0 text16 dist/default/production\Motor_controller_board.production.o
+_filter_module 1714 0 CODE 0 text10 dist/default/production\Motor_controller_board.production.o
+__ptext10 1714 0 CODE 0 text10 dist/default/production\Motor_controller_board.production.o
+__ptext11 1622 0 CODE 0 text11 dist/default/production\Motor_controller_board.production.o
+__ptext12 16D2 0 CODE 0 text12 dist/default/production\Motor_controller_board.production.o
+__ptext13 1874 0 CODE 0 text13 dist/default/production\Motor_controller_board.production.o
+__ptext14 17D0 0 CODE 0 text14 dist/default/production\Motor_controller_board.production.o
+__ptext15 1754 0 CODE 0 text15 dist/default/production\Motor_controller_board.production.o
+__ptext16 1082 0 CODE 0 text16 dist/default/production\Motor_controller_board.production.o
+__end_of_motor_off 185E 0 CODE 0 text6 dist/default/production\Motor_controller_board.production.o
 read_status@status C 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
 __Lbank10 0 0 ABS 0 bank10 dist/default/production\Motor_controller_board.production.o
 __Lbank11 0 0 ABS 0 bank11 dist/default/production\Motor_controller_board.production.o
@@ -678,17 +668,18 @@ _recording_on 26 0 COMRAM 1 bssCOMRAM dist/default/production\Motor_controller_b
 __Lcomram 0 0 ABS 0 comram dist/default/production\Motor_controller_board.production.o
 __Lconfig 0 0 CONFIG 4 config dist/default/production\Motor_controller_board.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\Motor_controller_board.production.o
-_set_absolute_acceleration 17C0 0 CODE 0 text6 dist/default/production\Motor_controller_board.production.o
+_set_absolute_acceleration 1684 0 CODE 0 text8 dist/default/production\Motor_controller_board.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\Motor_controller_board.production.o
-isa$std 1 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
-stackhi 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
-stacklo 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
+isa$std 1 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAs904.o
+_motor_off 1846 0 CODE 0 text6 dist/default/production\Motor_controller_board.production.o
+stackhi 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAs904.o
+stacklo 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAs904.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\Motor_controller_board.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\Motor_controller_board.production.o
 chip_select@chip 7 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\Motor_controller_board.production.o
 lm629_velocity@analog_value F 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
-_write_command 180E 0 CODE 0 text10 dist/default/production\Motor_controller_board.production.o
+_write_command 16D2 0 CODE 0 text12 dist/default/production\Motor_controller_board.production.o
 __Lspace_0 0 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 __Lspace_1 0 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 __Lspace_2 0 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
@@ -696,7 +687,7 @@ __Lspace_4 0 0 ABS 0 - dist/default/production\Motor_controller_board.production
 __pbssCOMRAM 20 0 COMRAM 1 bssCOMRAM dist/default/production\Motor_controller_board.production.o
 _PIR1bits F9E 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
-end_of_initialization 1974 0 CODE 0 cinit dist/default/production\Motor_controller_board.production.o
+end_of_initialization 1838 0 CODE 0 cinit dist/default/production\Motor_controller_board.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\Motor_controller_board.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production\Motor_controller_board.production.o
 DATABUS@x B 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
@@ -706,21 +697,21 @@ set_absolute_acceleration@high_word_MSB 16 0 COMRAM 1 cstackCOMRAM dist/default/
 LM629_init@x 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\Motor_controller_board.production.o
 __Lramtop 1000 0 RAM 0 ramtop dist/default/production\Motor_controller_board.production.o
-_lm629_velocity 18D0 0 CODE 0 text4 dist/default/production\Motor_controller_board.production.o
+_lm629_velocity 1794 0 CODE 0 text4 dist/default/production\Motor_controller_board.production.o
 DATABUS@byte0 7 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\Motor_controller_board.production.o
-__pcinit 1968 0 CODE 0 cinit dist/default/production\Motor_controller_board.production.o
+__pcinit 182C 0 CODE 0 cinit dist/default/production\Motor_controller_board.production.o
 set_absolute_acceleration@acceleration_value 10 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
-__ptext0 161C 0 CODE 0 text0 dist/default/production\Motor_controller_board.production.o
-__ptext1 193C 0 CODE 0 text1 dist/default/production\Motor_controller_board.production.o
-__ptext2 1998 0 CODE 0 text2 dist/default/production\Motor_controller_board.production.o
-__ptext3 1558 0 CODE 0 text3 dist/default/production\Motor_controller_board.production.o
-__ptext4 18D0 0 CODE 0 text4 dist/default/production\Motor_controller_board.production.o
-__ptext5 1082 0 CODE 0 text5 dist/default/production\Motor_controller_board.production.o
-__ptext6 17C0 0 CODE 0 text6 dist/default/production\Motor_controller_board.production.o
-__ptext7 16D6 0 CODE 0 text7 dist/default/production\Motor_controller_board.production.o
-__ptext8 1850 0 CODE 0 text8 dist/default/production\Motor_controller_board.production.o
-__ptext9 175E 0 CODE 0 text9 dist/default/production\Motor_controller_board.production.o
+__ptext0 1408 0 CODE 0 text0 dist/default/production\Motor_controller_board.production.o
+__ptext1 1800 0 CODE 0 text1 dist/default/production\Motor_controller_board.production.o
+__ptext2 188A 0 CODE 0 text2 dist/default/production\Motor_controller_board.production.o
+__ptext3 14D6 0 CODE 0 text3 dist/default/production\Motor_controller_board.production.o
+__ptext4 1794 0 CODE 0 text4 dist/default/production\Motor_controller_board.production.o
+__ptext5 185E 0 CODE 0 text5 dist/default/production\Motor_controller_board.production.o
+__ptext6 1846 0 CODE 0 text6 dist/default/production\Motor_controller_board.production.o
+__ptext7 1272 0 CODE 0 text7 dist/default/production\Motor_controller_board.production.o
+__ptext8 1684 0 CODE 0 text8 dist/default/production\Motor_controller_board.production.o
+__ptext9 159A 0 CODE 0 text9 dist/default/production\Motor_controller_board.production.o
 lm629_velocity@velocity B 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\Motor_controller_board.production.o
 __Ltext10 0 0 ABS 0 text10 dist/default/production\Motor_controller_board.production.o
@@ -728,8 +719,10 @@ __Ltext11 0 0 ABS 0 text11 dist/default/production\Motor_controller_board.produc
 __Ltext12 0 0 ABS 0 text12 dist/default/production\Motor_controller_board.production.o
 __Ltext13 0 0 ABS 0 text13 dist/default/production\Motor_controller_board.production.o
 __Ltext14 0 0 ABS 0 text14 dist/default/production\Motor_controller_board.production.o
+__Ltext15 0 0 ABS 0 text15 dist/default/production\Motor_controller_board.production.o
+__Ltext16 0 0 ABS 0 text16 dist/default/production\Motor_controller_board.production.o
 DATABUS_DIR@dir 7 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
-__ramtop 1000 0 RAM 0 ramtop C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
+__ramtop 1000 0 RAM 0 ramtop C:\Users\eder0\AppData\Local\Temp\xcAs904.o
 __Lpowerup E0 0 CODE 0 powerup dist/default/production\Motor_controller_board.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Motor_controller_board.production.o
 write_data@LSB E 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
@@ -738,30 +731,30 @@ set_absolute_velocity@high_word_LSB 14 0 COMRAM 1 cstackCOMRAM dist/default/prod
 set_absolute_velocity@high_word_MSB 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
 __psmallconst 1000 0 SMALLCONST 0 smallconst dist/default/production\Motor_controller_board.production.o
 main@dummy_data 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
-_DATABUS_DIR 1890 0 CODE 0 text13 dist/default/production\Motor_controller_board.production.o
+_DATABUS_DIR 1754 0 CODE 0 text15 dist/default/production\Motor_controller_board.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\Motor_controller_board.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
-___heap_lo 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAs1jk.o
+___heap_hi 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAs904.o
+___heap_lo 0 0 ABS 0 - C:\Users\eder0\AppData\Local\Temp\xcAs904.o
 set_absolute_acceleration@trajectory_control_LSB 15 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\Motor_controller_board.production.o
 _spi_str_interrupt 24 0 COMRAM 1 bssCOMRAM dist/default/production\Motor_controller_board.production.o
-__end_of__initialization 1974 0 CODE 0 cinit dist/default/production\Motor_controller_board.production.o
+__end_of__initialization 1838 0 CODE 0 cinit dist/default/production\Motor_controller_board.production.o
 _VREFCON0 F42 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 _VREFCON1 F41 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\Motor_controller_board.production.o
-__end_of_DATABUS 1558 0 CODE 0 text14 dist/default/production\Motor_controller_board.production.o
+__end_of_DATABUS 1272 0 CODE 0 text16 dist/default/production\Motor_controller_board.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\Motor_controller_board.production.o
 _SSP1CON1bits FC6 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
-__end_of_filter_module 1890 0 CODE 0 text8 dist/default/production\Motor_controller_board.production.o
+__end_of_filter_module 1754 0 CODE 0 text10 dist/default/production\Motor_controller_board.production.o
 _SPI_ISR 8 0 CODE 0 intcode dist/default/production\Motor_controller_board.production.o
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
-__end_of_lm629_velocity 190C 0 CODE 0 text4 dist/default/production\Motor_controller_board.production.o
-_write_data 175E 0 CODE 0 text9 dist/default/production\Motor_controller_board.production.o
+__end_of_lm629_velocity 17D0 0 CODE 0 text4 dist/default/production\Motor_controller_board.production.o
+_write_data 1622 0 CODE 0 text11 dist/default/production\Motor_controller_board.production.o
 _SSP1BUF FC9 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
-__end_of_main 16D6 0 CODE 0 text0 dist/default/production\Motor_controller_board.production.o
+__end_of_main 14D6 0 CODE 0 text0 dist/default/production\Motor_controller_board.production.o
 __pintcode 8 0 CODE 0 intcode dist/default/production\Motor_controller_board.production.o
-__end_of_chip_select 175E 0 CODE 0 text7 dist/default/production\Motor_controller_board.production.o
+__end_of_chip_select 1622 0 CODE 0 text9 dist/default/production\Motor_controller_board.production.o
 ?_lm629_velocity 7 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
 _TRISA F92 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 _TRISB F93 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
@@ -776,18 +769,19 @@ __Lbss 0 0 RAM 1 bss dist/default/production\Motor_controller_board.production.o
 __Lram 0 0 ABS 0 ram dist/default/production\Motor_controller_board.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\Motor_controller_board.production.o
 __end_oflm629_velocity@lookup_table 1081 0 SMALLCONST 0 smallconst dist/default/production\Motor_controller_board.production.o
-__initialization 1968 0 CODE 0 cinit dist/default/production\Motor_controller_board.production.o
-__end_of_read_status 193C 0 CODE 0 text12 dist/default/production\Motor_controller_board.production.o
+__initialization 182C 0 CODE 0 cinit dist/default/production\Motor_controller_board.production.o
+__end_of_read_status 1800 0 CODE 0 text14 dist/default/production\Motor_controller_board.production.o
 write_command@command E 0 COMRAM 1 cstackCOMRAM dist/default/production\Motor_controller_board.production.o
-_spi_data 1998 0 CODE 0 text2 dist/default/production\Motor_controller_board.production.o
+_spi_data 188A 0 CODE 0 text2 dist/default/production\Motor_controller_board.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\Motor_controller_board.production.o
 __Hsmallconst 1082 0 SMALLCONST 0 smallconst dist/default/production\Motor_controller_board.production.o
-__end_of_write_command 1850 0 CODE 0 text10 dist/default/production\Motor_controller_board.production.o
+__end_of_all_off 1874 0 CODE 0 text5 dist/default/production\Motor_controller_board.production.o
+__end_of_write_command 1714 0 CODE 0 text12 dist/default/production\Motor_controller_board.production.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\Motor_controller_board.production.o
 _CTMUCONH F45 0 ABS 0 - dist/default/production\Motor_controller_board.production.o
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\Motor_controller_board.production.o
 __Hintcode E0 0 CODE 0 intcode dist/default/production\Motor_controller_board.production.o
-__end_of_spi_data 19A0 0 CODE 0 text2 dist/default/production\Motor_controller_board.production.o
+__end_of_spi_data 1892 0 CODE 0 text2 dist/default/production\Motor_controller_board.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -812,7 +806,7 @@ __end_of_spi_data 19A0 0 CODE 0 text2 dist/default/production\Motor_controller_b
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text5 0 1082 1082 91E 1
+text16 0 1082 1082 810 1
 cstackCOMRAM 1 1 1 2E 1
 reset_vec 0 0 0 4 1
 intcode 0 8 8 DC 1

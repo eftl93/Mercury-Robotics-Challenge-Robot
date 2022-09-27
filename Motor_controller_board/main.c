@@ -167,6 +167,11 @@ void main(void)
     __delay_ms(100);
     spi_slave_init();   //initializes the SSP as an SPI slave device
     spi_data(dummy_data); //load the SPI buffer with a dummy
+    all_off(); //initiate motors off
+    signal_distribution_packet[1] = 16;
+    signal_distribution_packet[2] = 16;
+    signal_distribution_packet[3] = 16;
+    signal_distribution_packet[4] = 16;
     
     //every time this MCU receives a character via SPI, the ISR will read the buffer
     //in this infinite loop, the value of the received character is read and the 

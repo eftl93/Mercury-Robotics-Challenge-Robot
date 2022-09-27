@@ -1428,90 +1428,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "150
 [; ;lm629.c: 150:  PORTBbits.RB5=1;
 [e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
-"151
-[; ;lm629.c: 151:  chip_select(0);
-[e ( _chip_select (1 -> -> 0 `i `uc ]
-"152
-[; ;lm629.c: 152: beginning:
-[e :U 864 ]
-"153
-[; ;lm629.c: 153:  _delay((unsigned long)((10)*(64000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"154
-[; ;lm629.c: 154:  PORTBbits.RB5=0;
-[e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
-"155
-[; ;lm629.c: 155:  _delay((unsigned long)((12)*(64000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 12 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"156
-[; ;lm629.c: 156:  PORTBbits.RB5=1;
-[e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
-"157
-[; ;lm629.c: 157:  _delay((unsigned long)((2)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"158
-[; ;lm629.c: 158:  x=read_status();
-[e = _x ( _read_status ..  ]
-"159
-[; ;lm629.c: 159:  if(!(x==0xC4 || x==0x84))
-[e $ ! ! || == -> _x `i -> 196 `i == -> _x `i -> 132 `i 865  ]
-"160
-[; ;lm629.c: 160:   {
-{
-"161
-[; ;lm629.c: 161:   goto beginning;
-[e $U 864  ]
-"162
-[; ;lm629.c: 162:   }
-}
-[e $U 866  ]
-"163
-[; ;lm629.c: 163:  else
-[e :U 865 ]
-"164
-[; ;lm629.c: 164:   {
-{
-"165
-[; ;lm629.c: 165:    check_busy();
-[e ( _check_busy ..  ]
-"166
-[; ;lm629.c: 166:    write_command(0x1D);
-[e ( _write_command (1 -> -> 29 `i `uc ]
-"167
-[; ;lm629.c: 167:          check_busy();
-[e ( _check_busy ..  ]
-"168
-[; ;lm629.c: 168:    write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"169
-[; ;lm629.c: 169:    check_busy();
-[e ( _check_busy ..  ]
-"170
-[; ;lm629.c: 170:    x=read_status();
-[e = _x ( _read_status ..  ]
-"171
-[; ;lm629.c: 171:             if(!(x==0xC0 || x==0x80))
-[e $ ! ! || == -> _x `i -> 192 `i == -> _x `i -> 128 `i 867  ]
-"172
-[; ;lm629.c: 172:     {
-{
-"173
-[; ;lm629.c: 173:     goto beginning;
-[e $U 864  ]
-"174
-[; ;lm629.c: 174:     }
-}
-[e :U 867 ]
-"175
-[; ;lm629.c: 175:   }
-}
-[e :U 866 ]
 "177
 [; ;lm629.c: 177:  chip_select(1);
 [e ( _chip_select (1 -> -> 1 `i `uc ]
 "178
 [; ;lm629.c: 178: beginning1:
-[e :U 868 ]
+[e :U 864 ]
 "179
 [; ;lm629.c: 179:  _delay((unsigned long)((10)*(64000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
@@ -1532,20 +1454,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _x ( _read_status ..  ]
 "185
 [; ;lm629.c: 185:  if(!(x==0xC4 || x==0x84))
-[e $ ! ! || == -> _x `i -> 196 `i == -> _x `i -> 132 `i 869  ]
+[e $ ! ! || == -> _x `i -> 196 `i == -> _x `i -> 132 `i 865  ]
 "186
 [; ;lm629.c: 186:   {
 {
 "187
 [; ;lm629.c: 187:   goto beginning1;
-[e $U 868  ]
+[e $U 864  ]
 "188
 [; ;lm629.c: 188:   }
 }
-[e $U 870  ]
+[e $U 866  ]
 "189
 [; ;lm629.c: 189:  else
-[e :U 869 ]
+[e :U 865 ]
 "190
 [; ;lm629.c: 190:   {
 {
@@ -1569,105 +1491,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _x ( _read_status ..  ]
 "197
 [; ;lm629.c: 197:             if(!(x==0xC0 || x==0x80))
-[e $ ! ! || == -> _x `i -> 192 `i == -> _x `i -> 128 `i 871  ]
+[e $ ! ! || == -> _x `i -> 192 `i == -> _x `i -> 128 `i 867  ]
 "198
 [; ;lm629.c: 198:     {
 {
 "199
 [; ;lm629.c: 199:     goto beginning1;
-[e $U 868  ]
+[e $U 864  ]
 "200
 [; ;lm629.c: 200:     }
 }
-[e :U 871 ]
+[e :U 867 ]
 "201
 [; ;lm629.c: 201:   }
 }
-[e :U 870 ]
-"203
-[; ;lm629.c: 203:      chip_select(2);
-[e ( _chip_select (1 -> -> 2 `i `uc ]
-"204
-[; ;lm629.c: 204: beginning2:
-[e :U 872 ]
-"205
-[; ;lm629.c: 205:  _delay((unsigned long)((10)*(64000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"206
-[; ;lm629.c: 206:  PORTBbits.RB5=0;
-[e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
-"207
-[; ;lm629.c: 207:  _delay((unsigned long)((12)*(64000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 12 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
-"208
-[; ;lm629.c: 208:  PORTBbits.RB5=1;
-[e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
-"209
-[; ;lm629.c: 209:  _delay((unsigned long)((2)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"210
-[; ;lm629.c: 210:  x=read_status();
-[e = _x ( _read_status ..  ]
-"211
-[; ;lm629.c: 211:  if(!(x==0xC4 || x==0x84))
-[e $ ! ! || == -> _x `i -> 196 `i == -> _x `i -> 132 `i 873  ]
-"212
-[; ;lm629.c: 212:   {
-{
-"213
-[; ;lm629.c: 213:   goto beginning2;
-[e $U 872  ]
-"214
-[; ;lm629.c: 214:   }
-}
-[e $U 874  ]
-"215
-[; ;lm629.c: 215:  else
-[e :U 873 ]
-"216
-[; ;lm629.c: 216:   {
-{
-"217
-[; ;lm629.c: 217:    check_busy();
-[e ( _check_busy ..  ]
-"218
-[; ;lm629.c: 218:    write_command(0x1D);
-[e ( _write_command (1 -> -> 29 `i `uc ]
-"219
-[; ;lm629.c: 219:          check_busy();
-[e ( _check_busy ..  ]
-"220
-[; ;lm629.c: 220:    write_data(0x00,0x00);
-[e ( _write_data (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"221
-[; ;lm629.c: 221:    check_busy();
-[e ( _check_busy ..  ]
-"222
-[; ;lm629.c: 222:    x=read_status();
-[e = _x ( _read_status ..  ]
-"223
-[; ;lm629.c: 223:             if(!(x==0xC0 || x==0x80))
-[e $ ! ! || == -> _x `i -> 192 `i == -> _x `i -> 128 `i 875  ]
-"224
-[; ;lm629.c: 224:     {
-{
-"225
-[; ;lm629.c: 225:     goto beginning2;
-[e $U 872  ]
-"226
-[; ;lm629.c: 226:     }
-}
-[e :U 875 ]
-"227
-[; ;lm629.c: 227:   }
-}
-[e :U 874 ]
+[e :U 866 ]
 "229
 [; ;lm629.c: 229:  chip_select(3);
 [e ( _chip_select (1 -> -> 3 `i `uc ]
 "230
 [; ;lm629.c: 230: beginning3:
-[e :U 876 ]
+[e :U 868 ]
 "231
 [; ;lm629.c: 231:  _delay((unsigned long)((10)*(64000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
@@ -1688,20 +1532,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _x ( _read_status ..  ]
 "237
 [; ;lm629.c: 237:  if(!(x==0xC4 || x==0x84))
-[e $ ! ! || == -> _x `i -> 196 `i == -> _x `i -> 132 `i 877  ]
+[e $ ! ! || == -> _x `i -> 196 `i == -> _x `i -> 132 `i 869  ]
 "238
 [; ;lm629.c: 238:   {
 {
 "239
 [; ;lm629.c: 239:   goto beginning3;
-[e $U 876  ]
+[e $U 868  ]
 "240
 [; ;lm629.c: 240:   }
 }
-[e $U 878  ]
+[e $U 870  ]
 "241
 [; ;lm629.c: 241:  else
-[e :U 877 ]
+[e :U 869 ]
 "242
 [; ;lm629.c: 242:   {
 {
@@ -1725,38 +1569,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _x ( _read_status ..  ]
 "249
 [; ;lm629.c: 249:             if(!(x==0xC0 || x==0x80))
-[e $ ! ! || == -> _x `i -> 192 `i == -> _x `i -> 128 `i 879  ]
+[e $ ! ! || == -> _x `i -> 192 `i == -> _x `i -> 128 `i 871  ]
 "250
 [; ;lm629.c: 250:     {
 {
 "251
 [; ;lm629.c: 251:     goto beginning3;
-[e $U 876  ]
+[e $U 868  ]
 "252
 [; ;lm629.c: 252:     }
 }
-[e :U 879 ]
+[e :U 871 ]
 "253
 [; ;lm629.c: 253:   }
 }
-[e :U 878 ]
-"254
-[; ;lm629.c: 254: chip_select(0);
-[e ( _chip_select (1 -> -> 0 `i `uc ]
-"255
-[; ;lm629.c: 255: filter_module();
-[e ( _filter_module ..  ]
+[e :U 870 ]
 "256
 [; ;lm629.c: 256: chip_select(1);
 [e ( _chip_select (1 -> -> 1 `i `uc ]
 "257
 [; ;lm629.c: 257: filter_module();
-[e ( _filter_module ..  ]
-"258
-[; ;lm629.c: 258: chip_select(2);
-[e ( _chip_select (1 -> -> 2 `i `uc ]
-"259
-[; ;lm629.c: 259: filter_module();
 [e ( _filter_module ..  ]
 "260
 [; ;lm629.c: 260: chip_select(3);
@@ -1789,7 +1621,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "273
 [; ;lm629.c: 273:     if(dir==0)
-[e $ ! == -> _dir `i -> 0 `i 881  ]
+[e $ ! == -> _dir `i -> 0 `i 873  ]
 "274
 [; ;lm629.c: 274:     {
 {
@@ -1805,11 +1637,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "278
 [; ;lm629.c: 278:     }
 }
-[e $U 882  ]
+[e $U 874  ]
 "279
 [; ;lm629.c: 279:     else if(dir==0xFF)
-[e :U 881 ]
-[e $ ! == -> _dir `i -> 255 `i 883  ]
+[e :U 873 ]
+[e $ ! == -> _dir `i -> 255 `i 875  ]
 "280
 [; ;lm629.c: 280:     {
 {
@@ -1825,11 +1657,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "284
 [; ;lm629.c: 284:     }
 }
-[e :U 883 ]
-[e :U 882 ]
+[e :U 875 ]
+[e :U 874 ]
 "285
 [; ;lm629.c: 285: }
-[e :UE 880 ]
+[e :UE 872 ]
 }
 "290
 [; ;lm629.c: 290: unsigned char DATABUS(unsigned char dir1, unsigned char byte0)
@@ -1850,7 +1682,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _x `uc ~T0 @X0 1 a ]
 "293
 [; ;lm629.c: 293: if(dir1==0)
-[e $ ! == -> _dir1 `i -> 0 `i 885  ]
+[e $ ! == -> _dir1 `i -> 0 `i 877  ]
 "294
 [; ;lm629.c: 294: {
 {
@@ -1884,11 +1716,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "304
 [; ;lm629.c: 304: }
 }
-[e $U 886  ]
+[e $U 878  ]
 "306
 [; ;lm629.c: 306: else if (dir1==0xFF)
-[e :U 885 ]
-[e $ ! == -> _dir1 `i -> 255 `i 887  ]
+[e :U 877 ]
+[e $ ! == -> _dir1 `i -> 255 `i 879  ]
 "307
 [; ;lm629.c: 307: {
 {
@@ -1919,15 +1751,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "317
 [; ;lm629.c: 317: }
 }
-[e :U 887 ]
-[e :U 886 ]
+[e :U 879 ]
+[e :U 878 ]
 "318
 [; ;lm629.c: 318: return x;
 [e ) _x ]
-[e $UE 884  ]
+[e $UE 876  ]
 "319
 [; ;lm629.c: 319: }
-[e :UE 884 ]
+[e :UE 876 ]
 }
 "321
 [; ;lm629.c: 321: void chip_select(unsigned char chip)
@@ -1944,7 +1776,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "323
 [; ;lm629.c: 323:  if(chip==0)
-[e $ ! == -> _chip `i -> 0 `i 889  ]
+[e $ ! == -> _chip `i -> 0 `i 881  ]
 "324
 [; ;lm629.c: 324:  {
 {
@@ -1963,11 +1795,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "329
 [; ;lm629.c: 329:  }
 }
-[e $U 890  ]
+[e $U 882  ]
 "330
 [; ;lm629.c: 330:  else if(chip==1)
-[e :U 889 ]
-[e $ ! == -> _chip `i -> 1 `i 891  ]
+[e :U 881 ]
+[e $ ! == -> _chip `i -> 1 `i 883  ]
 "331
 [; ;lm629.c: 331:  {
 {
@@ -1986,11 +1818,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "336
 [; ;lm629.c: 336:  }
 }
-[e $U 892  ]
+[e $U 884  ]
 "337
 [; ;lm629.c: 337:  else if(chip==2)
-[e :U 891 ]
-[e $ ! == -> _chip `i -> 2 `i 893  ]
+[e :U 883 ]
+[e $ ! == -> _chip `i -> 2 `i 885  ]
 "338
 [; ;lm629.c: 338:  {
 {
@@ -2009,11 +1841,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "343
 [; ;lm629.c: 343:  }
 }
-[e $U 894  ]
+[e $U 886  ]
 "344
 [; ;lm629.c: 344:  else if(chip==3)
-[e :U 893 ]
-[e $ ! == -> _chip `i -> 3 `i 895  ]
+[e :U 885 ]
+[e $ ! == -> _chip `i -> 3 `i 887  ]
 "345
 [; ;lm629.c: 345:  {
 {
@@ -2032,10 +1864,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "350
 [; ;lm629.c: 350:  }
 }
-[e $U 896  ]
+[e $U 888  ]
 "351
 [; ;lm629.c: 351:  else
-[e :U 895 ]
+[e :U 887 ]
 "352
 [; ;lm629.c: 352:  {
 {
@@ -2054,16 +1886,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "357
 [; ;lm629.c: 357:  }
 }
-[e :U 896 ]
-[e :U 894 ]
-[e :U 892 ]
-[e :U 890 ]
+[e :U 888 ]
+[e :U 886 ]
+[e :U 884 ]
+[e :U 882 ]
 "359
 [; ;lm629.c: 359:  _delay((unsigned long)((1)*(64000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
 "360
 [; ;lm629.c: 360: }
-[e :UE 888 ]
+[e :UE 880 ]
 }
 "362
 [; ;lm629.c: 362: void motor_off()
@@ -2084,7 +1916,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _write_command (1 -> -> 1 `i `uc ]
 "367
 [; ;lm629.c: 367: }
-[e :UE 897 ]
+[e :UE 889 ]
 }
 "369
 [; ;lm629.c: 369: void motor_break()
@@ -2105,7 +1937,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _write_command (1 -> -> 1 `i `uc ]
 "374
 [; ;lm629.c: 374: }
-[e :UE 898 ]
+[e :UE 890 ]
 }
 "376
 [; ;lm629.c: 376: void all_break()
@@ -2115,23 +1947,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _all_break ]
 [f ]
-"378
-[; ;lm629.c: 378:     chip_select(0);
-[e ( _chip_select (1 -> -> 0 `i `uc ]
-"379
-[; ;lm629.c: 379:     motor_break();
-[e ( _motor_break ..  ]
 "380
 [; ;lm629.c: 380:     chip_select(1);
 [e ( _chip_select (1 -> -> 1 `i `uc ]
 "381
 [; ;lm629.c: 381:     motor_break();
-[e ( _motor_break ..  ]
-"382
-[; ;lm629.c: 382:     chip_select(2);
-[e ( _chip_select (1 -> -> 2 `i `uc ]
-"383
-[; ;lm629.c: 383:     motor_break();
 [e ( _motor_break ..  ]
 "384
 [; ;lm629.c: 384:     chip_select(3);
@@ -2141,7 +1961,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _motor_break ..  ]
 "386
 [; ;lm629.c: 386: }
-[e :UE 899 ]
+[e :UE 891 ]
 }
 "388
 [; ;lm629.c: 388: void all_off()
@@ -2151,23 +1971,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _all_off ]
 [f ]
-"390
-[; ;lm629.c: 390:     chip_select(0);
-[e ( _chip_select (1 -> -> 0 `i `uc ]
-"391
-[; ;lm629.c: 391:     motor_off();
-[e ( _motor_off ..  ]
 "392
 [; ;lm629.c: 392:     chip_select(1);
 [e ( _chip_select (1 -> -> 1 `i `uc ]
 "393
 [; ;lm629.c: 393:     motor_off();
-[e ( _motor_off ..  ]
-"394
-[; ;lm629.c: 394:     chip_select(2);
-[e ( _chip_select (1 -> -> 2 `i `uc ]
-"395
-[; ;lm629.c: 395:     motor_off();
 [e ( _motor_off ..  ]
 "396
 [; ;lm629.c: 396:     chip_select(3);
@@ -2177,7 +1985,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _motor_off ..  ]
 "398
 [; ;lm629.c: 398: }
-[e :UE 900 ]
+[e :UE 892 ]
 }
 "400
 [; ;lm629.c: 400: void filter_module()
@@ -2210,7 +2018,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _write_command (1 -> -> 4 `i `uc ]
 "409
 [; ;lm629.c: 409: }
-[e :UE 901 ]
+[e :UE 893 ]
 }
 "411
 [; ;lm629.c: 411: void simple_absolute_position()
@@ -2249,7 +2057,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _write_command (1 -> -> 1 `i `uc ]
 "422
 [; ;lm629.c: 422: }
-[e :UE 902 ]
+[e :UE 894 ]
 }
 "425
 [; ;lm629.c: 425: void simple_relative_position()
@@ -2288,7 +2096,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _write_command (1 -> -> 1 `i `uc ]
 "436
 [; ;lm629.c: 436: }
-[e :UE 903 ]
+[e :UE 895 ]
 }
 "438
 [; ;lm629.c: 438: void set_absolute_acceleration(uint8_t motor, uint32_t acceleration_value)
@@ -2359,7 +2167,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _chip_select (1 -> -> 5 `i `uc ]
 "458
 [; ;lm629.c: 458: }
-[e :UE 904 ]
+[e :UE 896 ]
 }
 "460
 [; ;lm629.c: 460: void set_absolute_velocity(uint8_t motor, uint8_t analog_in)
@@ -2400,19 +2208,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _low_word_LSB `uc ~T0 @X0 1 a ]
 "471
 [; ;lm629.c: 471:     switch(motor)
-[e $U 907  ]
+[e $U 899  ]
 "472
 [; ;lm629.c: 472:     {
 {
 "473
 [; ;lm629.c: 473:             case (3):
-[e :U 908 ]
+[e :U 900 ]
 "474
 [; ;lm629.c: 474:             {
 {
 "475
 [; ;lm629.c: 475:                 if(analog_in <= 15)
-[e $ ! <= -> _analog_in `i -> 15 `i 909  ]
+[e $ ! <= -> _analog_in `i -> 15 `i 901  ]
 "476
 [; ;lm629.c: 476:                 {
 {
@@ -2422,10 +2230,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "478
 [; ;lm629.c: 478:                 }
 }
-[e $U 910  ]
+[e $U 902  ]
 "479
 [; ;lm629.c: 479:                 else
-[e :U 909 ]
+[e :U 901 ]
 "480
 [; ;lm629.c: 480:                 {
 {
@@ -2435,22 +2243,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "482
 [; ;lm629.c: 482:                 }
 }
-[e :U 910 ]
+[e :U 902 ]
 "483
 [; ;lm629.c: 483:                 break;
-[e $U 906  ]
+[e $U 898  ]
 "484
 [; ;lm629.c: 484:             }
 }
 "485
 [; ;lm629.c: 485:             case(1):
-[e :U 911 ]
+[e :U 903 ]
 "486
 [; ;lm629.c: 486:             {
 {
 "487
 [; ;lm629.c: 487:                 if(analog_in > 15)
-[e $ ! > -> _analog_in `i -> 15 `i 912  ]
+[e $ ! > -> _analog_in `i -> 15 `i 904  ]
 "488
 [; ;lm629.c: 488:                 {
 {
@@ -2460,10 +2268,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "490
 [; ;lm629.c: 490:                 }
 }
-[e $U 913  ]
+[e $U 905  ]
 "491
 [; ;lm629.c: 491:                 else
-[e :U 912 ]
+[e :U 904 ]
 "492
 [; ;lm629.c: 492:                 {
 {
@@ -2473,22 +2281,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "494
 [; ;lm629.c: 494:                 }
 }
-[e :U 913 ]
+[e :U 905 ]
 "495
 [; ;lm629.c: 495:                 break;
-[e $U 906  ]
+[e $U 898  ]
 "496
 [; ;lm629.c: 496:             }
 }
 "497
 [; ;lm629.c: 497:     }
 }
-[e $U 906  ]
-[e :U 907 ]
-[e [\ -> _motor `i , $ -> 3 `i 908
- , $ -> 1 `i 911
- 906 ]
-[e :U 906 ]
+[e $U 898  ]
+[e :U 899 ]
+[e [\ -> _motor `i , $ -> 3 `i 900
+ , $ -> 1 `i 903
+ 898 ]
+[e :U 898 ]
 "499
 [; ;lm629.c: 499:     velocity_value = lm629_velocity(analog_in);
 [e = _velocity_value ( _lm629_velocity (1 _analog_in ]
@@ -2527,5 +2335,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _chip_select (1 -> -> 5 `i `uc ]
 "513
 [; ;lm629.c: 513: }
-[e :UE 905 ]
+[e :UE 897 ]
 }

@@ -148,7 +148,7 @@ void LM629_init()
 	LM629_RD=1;
 	LM629_WR=1;
 	LM629_RST=1;
-	chip_select(0);
+/*	chip_select(0);
 beginning:
 	__delay_us(10);
 	LM629_RST=0;
@@ -173,7 +173,7 @@ beginning:
 				goto beginning;
 				}
 		}
-
+*/
 	chip_select(1);
 beginning1:
 	__delay_us(10);
@@ -200,7 +200,7 @@ beginning1:
 				}
 		}
 
-    	chip_select(2);
+/*    chip_select(2);
 beginning2:
 	__delay_us(10);
 	LM629_RST=0;
@@ -225,7 +225,7 @@ beginning2:
 				goto beginning2;
 				}
 		}
-    
+*/    
 	chip_select(3);
 beginning3:
 	__delay_us(10);
@@ -251,15 +251,15 @@ beginning3:
 				goto beginning3;
 				}
 		}
-chip_select(0);
-filter_module();
+//chip_select(0);
+//filter_module();
 chip_select(1);
 filter_module();
-chip_select(2);
-filter_module();
+//chip_select(2);
+//filter_module();
 chip_select(3);
 filter_module();
-set_absolute_acceleration(1,0x00000250);
+set_absolute_acceleration(1,0x00000250); //set this acceleration through trial and error in such a way it had a comfortable reaction
 set_absolute_acceleration(3,0x00000250);
 }
 
@@ -375,24 +375,24 @@ void motor_break()
 
 void all_break()
 {
-    chip_select(0);
-    motor_break();
+    //chip_select(0);
+    //motor_break();
     chip_select(1);
     motor_break();
-    chip_select(2);
-    motor_break();
+    //chip_select(2);
+    //motor_break();
     chip_select(3);
     motor_break();
 }
 
 void all_off()
 {
-    chip_select(0);
-    motor_off();
+    //chip_select(0);
+    //motor_off();
     chip_select(1);
     motor_off();
-    chip_select(2);
-    motor_off();
+    //chip_select(2);
+    //motor_off();
     chip_select(3);
     motor_off();
 }

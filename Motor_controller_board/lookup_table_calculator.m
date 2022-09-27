@@ -17,9 +17,6 @@ clc
 %--LM629 Frequency
 LM629_freq = 4000000
 
-%--GearBox ratio
-gear_ratio = 29/1
-
 %--Encoder lines per shaft Revolution
 enc_lines_motor_shaft = 64
 

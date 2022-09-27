@@ -77,7 +77,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "35
 [; ;./spi.h: 35: void spi_data(unsigned char tx_data);
 [v _spi_data `(v ~T0 @X0 0 ef1`uc ]
-"103 ./lm629.h
+"99 ./lm629.h
+[; ;./lm629.h: 99: void all_off(void);
+[v _all_off `(v ~T0 @X0 0 ef ]
+"103
 [; ;./lm629.h: 103: void set_absolute_velocity(uint8_t motor, uint8_t analog_in);
 [v _set_absolute_velocity `(v ~T0 @X0 0 ef2`uc`uc ]
 "55 E:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f46k22.h
@@ -989,40 +992,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 "169
 [; ;main.c: 169:     spi_data(dummy_data);
 [e ( _spi_data (1 _dummy_data ]
-"177
-[; ;main.c: 177:     while(1)
-[e :U 857 ]
-"178
-[; ;main.c: 178:     {
-{
-"179
-[; ;main.c: 179:         classic_ctrl.lx_joystick = signal_distribution_packet[1];
-[e = . _classic_ctrl 0 *U + &U _signal_distribution_packet * -> -> -> 1 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux ]
-"180
-[; ;main.c: 180:         classic_ctrl.ly_joystick = signal_distribution_packet[2];
-[e = . _classic_ctrl 1 *U + &U _signal_distribution_packet * -> -> -> 2 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux ]
-"181
-[; ;main.c: 181:         classic_ctrl.rx_joystick = signal_distribution_packet[3];
-[e = . _classic_ctrl 2 *U + &U _signal_distribution_packet * -> -> -> 3 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux ]
+"170
+[; ;main.c: 170:     all_off();
+[e ( _all_off ..  ]
+"171
+[; ;main.c: 171:     signal_distribution_packet[1] = 16;
+[e = *U + &U _signal_distribution_packet * -> -> -> 1 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux -> -> 16 `i `uc ]
+"172
+[; ;main.c: 172:     signal_distribution_packet[2] = 16;
+[e = *U + &U _signal_distribution_packet * -> -> -> 2 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux -> -> 16 `i `uc ]
+"173
+[; ;main.c: 173:     signal_distribution_packet[3] = 16;
+[e = *U + &U _signal_distribution_packet * -> -> -> 3 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux -> -> 16 `i `uc ]
+"174
+[; ;main.c: 174:     signal_distribution_packet[4] = 16;
+[e = *U + &U _signal_distribution_packet * -> -> -> 4 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux -> -> 16 `i `uc ]
 "182
-[; ;main.c: 182:         classic_ctrl.ry_joystick = signal_distribution_packet[4];
-[e = . _classic_ctrl 3 *U + &U _signal_distribution_packet * -> -> -> 4 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux ]
+[; ;main.c: 182:     while(1)
+[e :U 857 ]
 "183
-[; ;main.c: 183:         signal_distribution_packet[5] = '\n';
-[e = *U + &U _signal_distribution_packet * -> -> -> 5 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux -> -> 10 `ui `uc ]
+[; ;main.c: 183:     {
+{
+"184
+[; ;main.c: 184:         classic_ctrl.lx_joystick = signal_distribution_packet[1];
+[e = . _classic_ctrl 0 *U + &U _signal_distribution_packet * -> -> -> 1 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux ]
 "185
-[; ;main.c: 185:         set_absolute_velocity(1,classic_ctrl.ly_joystick);
-[e ( _set_absolute_velocity (2 , -> -> 1 `i `uc . _classic_ctrl 1 ]
+[; ;main.c: 185:         classic_ctrl.ly_joystick = signal_distribution_packet[2];
+[e = . _classic_ctrl 1 *U + &U _signal_distribution_packet * -> -> -> 2 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux ]
 "186
-[; ;main.c: 186:         set_absolute_velocity(3,classic_ctrl.ry_joystick);
+[; ;main.c: 186:         classic_ctrl.rx_joystick = signal_distribution_packet[3];
+[e = . _classic_ctrl 2 *U + &U _signal_distribution_packet * -> -> -> 3 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux ]
+"187
+[; ;main.c: 187:         classic_ctrl.ry_joystick = signal_distribution_packet[4];
+[e = . _classic_ctrl 3 *U + &U _signal_distribution_packet * -> -> -> 4 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux ]
+"188
+[; ;main.c: 188:         signal_distribution_packet[5] = '\n';
+[e = *U + &U _signal_distribution_packet * -> -> -> 5 `i `ui `ux -> -> # *U &U _signal_distribution_packet `ui `ux -> -> 10 `ui `uc ]
+"190
+[; ;main.c: 190:         set_absolute_velocity(1,classic_ctrl.ly_joystick);
+[e ( _set_absolute_velocity (2 , -> -> 1 `i `uc . _classic_ctrl 1 ]
+"191
+[; ;main.c: 191:         set_absolute_velocity(3,classic_ctrl.ry_joystick);
 [e ( _set_absolute_velocity (2 , -> -> 3 `i `uc . _classic_ctrl 3 ]
-"189
-[; ;main.c: 189:     }
+"194
+[; ;main.c: 194:     }
 }
 [e :U 856 ]
 [e $U 857  ]
 [e :U 858 ]
-"190
-[; ;main.c: 190: }
+"195
+[; ;main.c: 195: }
 [e :UE 855 ]
 }

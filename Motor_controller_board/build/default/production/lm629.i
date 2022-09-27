@@ -9816,32 +9816,7 @@ void LM629_init()
  PORTDbits.RD2=1;
  PORTDbits.RD1=1;
  PORTBbits.RB5=1;
- chip_select(0);
-beginning:
- _delay((unsigned long)((10)*(64000000/4000000.0)));
- PORTBbits.RB5=0;
- _delay((unsigned long)((12)*(64000000/4000000.0)));
- PORTBbits.RB5=1;
- _delay((unsigned long)((2)*(64000000/4000.0)));
- x=read_status();
- if(!(x==0xC4 || x==0x84))
-  {
-  goto beginning;
-  }
- else
-  {
-   check_busy();
-   write_command(0x1D);
-         check_busy();
-   write_data(0x00,0x00);
-   check_busy();
-   x=read_status();
-            if(!(x==0xC0 || x==0x80))
-    {
-    goto beginning;
-    }
-  }
-
+# 177 "lm629.c"
  chip_select(1);
 beginning1:
  _delay((unsigned long)((10)*(64000000/4000000.0)));
@@ -9867,33 +9842,7 @@ beginning1:
     goto beginning1;
     }
   }
-
-     chip_select(2);
-beginning2:
- _delay((unsigned long)((10)*(64000000/4000000.0)));
- PORTBbits.RB5=0;
- _delay((unsigned long)((12)*(64000000/4000000.0)));
- PORTBbits.RB5=1;
- _delay((unsigned long)((2)*(64000000/4000.0)));
- x=read_status();
- if(!(x==0xC4 || x==0x84))
-  {
-  goto beginning2;
-  }
- else
-  {
-   check_busy();
-   write_command(0x1D);
-         check_busy();
-   write_data(0x00,0x00);
-   check_busy();
-   x=read_status();
-            if(!(x==0xC0 || x==0x80))
-    {
-    goto beginning2;
-    }
-  }
-
+# 229 "lm629.c"
  chip_select(3);
 beginning3:
  _delay((unsigned long)((10)*(64000000/4000000.0)));
@@ -9919,12 +9868,12 @@ beginning3:
     goto beginning3;
     }
   }
-chip_select(0);
-filter_module();
+
+
 chip_select(1);
 filter_module();
-chip_select(2);
-filter_module();
+
+
 chip_select(3);
 filter_module();
 set_absolute_acceleration(1,0x00000250);
@@ -10043,24 +9992,24 @@ void motor_break()
 
 void all_break()
 {
-    chip_select(0);
-    motor_break();
+
+
     chip_select(1);
     motor_break();
-    chip_select(2);
-    motor_break();
+
+
     chip_select(3);
     motor_break();
 }
 
 void all_off()
 {
-    chip_select(0);
-    motor_off();
+
+
     chip_select(1);
     motor_off();
-    chip_select(2);
-    motor_off();
+
+
     chip_select(3);
     motor_off();
 }

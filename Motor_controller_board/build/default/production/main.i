@@ -9768,6 +9768,11 @@ void main(void)
     _delay((unsigned long)((100)*(64000000/4000.0)));
     spi_slave_init();
     spi_data(dummy_data);
+    all_off();
+    signal_distribution_packet[1] = 16;
+    signal_distribution_packet[2] = 16;
+    signal_distribution_packet[3] = 16;
+    signal_distribution_packet[4] = 16;
 
 
 
