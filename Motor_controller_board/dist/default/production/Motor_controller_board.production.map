@@ -6,10 +6,10 @@ Linker command line:
   --edf=E:\Program Files\Microchip\xc8\v2.40\pic\dat\20220703182018_en.msgs \
   -cn -h+dist/default/production\Motor_controller_board.production.sym \
   --cmf=dist/default/production\Motor_controller_board.production.cmf -z \
-  -Q18F46K22 -oC:\Users\eder0\AppData\Local\Temp\xcAs904.4 \
+  -Q18F46K22 -oC:\Users\eder0\AppData\Local\Temp\xcAsftc.4 \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/Motor_controller_board.production.map \
-  --md=C:\Users\eder0\AppData\Local\Temp\xcAs904.dat -E1 -ver=XC8 Compiler \
+  --md=C:\Users\eder0\AppData\Local\Temp\xcAsftc.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh \
   -ASMALLCONST=01000h-010FFhx240 -AMEDIUMCONST=01000h-0FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0F37h -ABIGRAM=01h-0F37h \
@@ -29,7 +29,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\eder0\AppData\Local\Temp\xcAs904.o \
+  C:\Users\eder0\AppData\Local\Temp\xcAsftc.o \
   dist/default/production\Motor_controller_board.production.o 
 
 Object code version is 3.11
@@ -39,7 +39,7 @@ Machine type is 18F46K22
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\eder0\AppData\Local\Temp\xcAs904.o
+C:\Users\eder0\AppData\Local\Temp\xcAsftc.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                 E0       E0        4        4       0
@@ -51,25 +51,25 @@ dist/default/production\Motor_controller_board.production.o
                 temp                                 2E       2E        1        1       1
                 smallconst                         1000     1000       82      800       0
                 text16                             1082     1082      1F0      841       0
-                text15                             1754     1754       40      841       0
-                text14                             17D0     17D0       30      841       0
-                text13                             1874     1874       16      841       0
-                text12                             16D2     16D2       42      841       0
-                text11                             1622     1622       62      841       0
-                text10                             1714     1714       40      841       0
-                text9                              159A     159A       88      841       0
-                text8                              1684     1684       4E      841       0
-                text7                              1272     1272      196      841       0
-                text6                              1846     1846       18      841       0
-                text5                              185E     185E       16      841       0
-                text4                              1794     1794       3C      841       0
-                text3                              14D6     14D6       C4      841       0
-                text2                              188A     188A        8      841       0
-                text1                              1800     1800       2C      841       0
-                text0                              1408     1408       CE      841       0
+                text15                             1766     1766       40      841       0
+                text14                             17E2     17E2       30      841       0
+                text13                             1886     1886       16      841       0
+                text12                             16E4     16E4       42      841       0
+                text11                             1634     1634       62      841       0
+                text10                             1726     1726       40      841       0
+                text9                              15AC     15AC       88      841       0
+                text8                              1696     1696       4E      841       0
+                text7                              1272     1272      1A8      841       0
+                text6                              1858     1858       18      841       0
+                text5                              1870     1870       16      841       0
+                text4                              17A6     17A6       3C      841       0
+                text3                              14E8     14E8       C4      841       0
+                text2                              189C     189C        8      841       0
+                text1                              1812     1812       2C      841       0
+                text0                              141A     141A       CE      841       0
                 cstackCOMRAM                          1        1       1F        1       1
                 bssCOMRAM                            20       20        E        1       1
-                cinit                              182C     182C       1A      841       0
+                cinit                              183E     183E       1A      841       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
@@ -77,23 +77,23 @@ TOTAL           Name                               Link     Load   Length     Sp
                 init                                 E0       E0        4         0
                 reset_vec                             0        0        4         0
                 text16                             1082     1082      1F0         0
-                text15                             1754     1754       40         0
-                text14                             17D0     17D0       30         0
-                text13                             1874     1874       16         0
-                text12                             16D2     16D2       42         0
-                text11                             1622     1622       62         0
-                text10                             1714     1714       40         0
-                text9                              159A     159A       88         0
-                text8                              1684     1684       4E         0
-                text7                              1272     1272      196         0
-                text6                              1846     1846       18         0
-                text5                              185E     185E       16         0
-                text4                              1794     1794       3C         0
-                text3                              14D6     14D6       C4         0
-                text2                              188A     188A        8         0
-                text1                              1800     1800       2C         0
-                text0                              1408     1408       CE         0
-                cinit                              182C     182C       1A         0
+                text15                             1766     1766       40         0
+                text14                             17E2     17E2       30         0
+                text13                             1886     1886       16         0
+                text12                             16E4     16E4       42         0
+                text11                             1634     1634       62         0
+                text10                             1726     1726       40         0
+                text9                              15AC     15AC       88         0
+                text8                              1696     1696       4E         0
+                text7                              1272     1272      1A8         0
+                text6                              1858     1858       18         0
+                text5                              1870     1870       16         0
+                text4                              17A6     17A6       3C         0
+                text3                              14E8     14E8       C4         0
+                text2                              189C     189C        8         0
+                text1                              1812     1812       2C         0
+                text0                              141A     141A       CE         0
+                cinit                              183E     183E       1A         0
 
         CLASS   CONST          
 
@@ -171,7 +171,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 cstackCOMRAM                   000001  00002E  00002F         1       1  COMRAM  
                 intcode                        000008  0000DC  0000E4         4       0  CODE    
                 smallconst                     001000  000082  001082       800       0  SMALLCON
-                text16                         001082  000810  001892       841       0  CODE    
+                text16                         001082  000822  0018A4       841       0  CODE    
 
 
 UNUSED ADDRESS RANGES
@@ -197,16 +197,16 @@ UNUSED ADDRESS RANGES
         BIGSFR           000F38-000FFF               C8
         CODE             000004-000007                4
                          0000E4-000FFF              F1C
-                         001892-00FFFF             E76E
+                         0018A4-00FFFF             E75C
         COMRAM           00002F-00005F               31
         CONST            000004-000007                4
                          0000E4-000FFF              F1C
-                         001892-00FFFF             E76E
+                         0018A4-00FFFF             E75C
         EEDATA           F00000-F003FF              400
-        MEDIUMCONST      001892-00FFFF             E76E
+        MEDIUMCONST      0018A4-00FFFF             E75C
         RAM              000060-000F37              100
         SFR              000F38-000FFF               28
-        SMALLCONST       001892-00FFFF              100
+        SMALLCONST       0018A4-00FFFF              100
 
                                   Symbol Table
 
@@ -227,7 +227,7 @@ _CM1CON0                                         (abs)        000F79
 _CM2CON0                                         (abs)        000F78
 _CTMUCONH                                        (abs)        000F45
 _DATABUS                                         text16       001082
-_DATABUS_DIR                                     text15       001754
+_DATABUS_DIR                                     text15       001766
 _GIE                                             (abs)        007F97
 _HLVDCON                                         (abs)        000F9C
 _INTCON                                          (abs)        000FF2
@@ -320,7 +320,7 @@ __Hreset_vec                                     reset_vec    000004
 __Hrparam                                        rparam       000000
 __Hsfr                                           sfr          000000
 __Hsmallconst                                    smallconst   001082
-__Hspace_0                                       (abs)        001892
+__Hspace_0                                       (abs)        0018A4
 __Hspace_1                                       (abs)        00002F
 __Hspace_2                                       (abs)        000000
 __Hspace_4                                       (abs)        60000E
@@ -432,7 +432,7 @@ __Ltext6                                         text6        000000
 __Ltext7                                         text7        000000
 __Ltext8                                         text8        000000
 __Ltext9                                         text9        000000
-__S0                                             (abs)        001892
+__S0                                             (abs)        0018A4
 __S1                                             (abs)        00002F
 __S4                                             (abs)        000000
 __S5                                             (abs)        000000
@@ -446,74 +446,74 @@ ___sp                                            stack        000000
 __accesstop                                      (abs)        000060
 __activetblptr                                   (abs)        000002
 __end_of_DATABUS                                 text16       001272
-__end_of_DATABUS_DIR                             text15       001794
-__end_of_LM629_init                              text7        001408
+__end_of_DATABUS_DIR                             text15       0017A6
+__end_of_LM629_init                              text7        00141A
 __end_of_SPI_ISR                                 intcode      0000E0
-__end_of__initialization                         cinit        001838
-__end_of_all_off                                 text5        001874
-__end_of_check_busy                              text13       00188A
-__end_of_chip_select                             text9        001622
-__end_of_filter_module                           text10       001754
-__end_of_lm629_velocity                          text4        0017D0
-__end_of_main                                    text0        0014D6
-__end_of_motor_off                               text6        00185E
-__end_of_read_status                             text14       001800
-__end_of_set_absolute_acceleration               text8        0016D2
-__end_of_set_absolute_velocity                   text3        00159A
-__end_of_spi_data                                text2        001892
-__end_of_spi_slave_init                          text1        00182C
-__end_of_write_command                           text12       001714
-__end_of_write_data                              text11       001684
+__end_of__initialization                         cinit        00184A
+__end_of_all_off                                 text5        001886
+__end_of_check_busy                              text13       00189C
+__end_of_chip_select                             text9        001634
+__end_of_filter_module                           text10       001766
+__end_of_lm629_velocity                          text4        0017E2
+__end_of_main                                    text0        0014E8
+__end_of_motor_off                               text6        001870
+__end_of_read_status                             text14       001812
+__end_of_set_absolute_acceleration               text8        0016E4
+__end_of_set_absolute_velocity                   text3        0015AC
+__end_of_spi_data                                text2        0018A4
+__end_of_spi_slave_init                          text1        00183E
+__end_of_write_command                           text12       001726
+__end_of_write_data                              text11       001696
 __end_oflm629_velocity@lookup_table              smallconst   001081
-__initialization                                 cinit        00182C
+__initialization                                 cinit        00183E
 __mediumconst                                    mediumconst  000000
 __pbssCOMRAM                                     bssCOMRAM    000020
-__pcinit                                         cinit        00182C
+__pcinit                                         cinit        00183E
 __pcstackCOMRAM                                  cstackCOMRAM 000001
 __pintcode                                       intcode      000008
 __psmallconst                                    smallconst   001000
-__ptext0                                         text0        001408
-__ptext1                                         text1        001800
-__ptext10                                        text10       001714
-__ptext11                                        text11       001622
-__ptext12                                        text12       0016D2
-__ptext13                                        text13       001874
-__ptext14                                        text14       0017D0
-__ptext15                                        text15       001754
+__ptext0                                         text0        00141A
+__ptext1                                         text1        001812
+__ptext10                                        text10       001726
+__ptext11                                        text11       001634
+__ptext12                                        text12       0016E4
+__ptext13                                        text13       001886
+__ptext14                                        text14       0017E2
+__ptext15                                        text15       001766
 __ptext16                                        text16       001082
-__ptext2                                         text2        00188A
-__ptext3                                         text3        0014D6
-__ptext4                                         text4        001794
-__ptext5                                         text5        00185E
-__ptext6                                         text6        001846
+__ptext2                                         text2        00189C
+__ptext3                                         text3        0014E8
+__ptext4                                         text4        0017A6
+__ptext5                                         text5        001870
+__ptext6                                         text6        001858
 __ptext7                                         text7        001272
-__ptext8                                         text8        001684
-__ptext9                                         text9        00159A
+__ptext8                                         text8        001696
+__ptext9                                         text9        0015AC
 __ramtop                                         ramtop       001000
 __smallconst                                     smallconst   001000
-_all_off                                         text5        00185E
-_check_busy                                      text13       001874
-_chip_select                                     text9        00159A
+_all_off                                         text5        001870
+_check_busy                                      text13       001886
+_chip_select                                     text9        0015AC
 _classic_ctrl                                    bssCOMRAM    000020
-_filter_module                                   text10       001714
-_lm629_velocity                                  text4        001794
-_main                                            text0        001408
-_motor_off                                       text6        001846
-_read_status                                     text14       0017D0
+_filter_module                                   text10       001726
+_lm629_velocity                                  text4        0017A6
+_main                                            text0        00141A
+_motor_off                                       text6        001858
+_read_status                                     text14       0017E2
 _recording_on                                    bssCOMRAM    000026
-_set_absolute_acceleration                       text8        001684
-_set_absolute_velocity                           text3        0014D6
+_set_absolute_acceleration                       text8        001696
+_set_absolute_velocity                           text3        0014E8
 _signal_distribution_packet                      bssCOMRAM    000028
-_spi_data                                        text2        00188A
+_spi_data                                        text2        00189C
 _spi_read_data                                   bssCOMRAM    000027
-_spi_slave_init                                  text1        001800
+_spi_slave_init                                  text1        001812
 _spi_str_interrupt                               bssCOMRAM    000024
-_write_command                                   text12       0016D2
-_write_data                                      text11       001622
+_write_command                                   text12       0016E4
+_write_data                                      text11       001634
 btemp                                            temp         00002E
 check_busy@x                                     cstackCOMRAM 00000D
 chip_select@chip                                 cstackCOMRAM 000007
-end_of_initialization                            cinit        001838
+end_of_initialization                            cinit        00184A
 int$flags                                        temp         00002E
 intlevel0                                        text         000000
 intlevel1                                        text         000000
@@ -545,7 +545,7 @@ spi_data@tx_data                                 cstackCOMRAM 000007
 stackhi                                          (abs)        000000
 stacklo                                          (abs)        000000
 start                                            init         0000E0
-start_initialization                             cinit        00182C
+start_initialization                             cinit        00183E
 ttemp5                                           temp         00002F
 ttemp6                                           temp         000032
 ttemp7                                           temp         000036
@@ -560,37 +560,37 @@ MODULE INFORMATION
 Module		Function		Class		Link	Load	Size
 lm629.c
 		_DATABUS       		CODE           	1082	0000	496
-		_DATABUS_DIR   		CODE           	1754	0000	64
-		_filter_module 		CODE           	1714	0000	64
-		_write_data    		CODE           	1622	0000	98
-		_lm629_velocity		CODE           	1794	0000	60
-		_write_command 		CODE           	16D2	0000	66
-		_set_absolute_acceleration		CODE           	1684	0000	78
-		_all_off       		CODE           	185E	0000	22
-		_check_busy    		CODE           	1874	0000	22
-		_motor_off     		CODE           	1846	0000	24
-		_LM629_init    		CODE           	1272	0000	406
-		_set_absolute_velocity		CODE           	14D6	0000	196
-		_chip_select   		CODE           	159A	0000	136
-		_read_status   		CODE           	17D0	0000	48
+		_DATABUS_DIR   		CODE           	1766	0000	64
+		_filter_module 		CODE           	1726	0000	64
+		_write_data    		CODE           	1634	0000	98
+		_lm629_velocity		CODE           	17A6	0000	60
+		_write_command 		CODE           	16E4	0000	66
+		_set_absolute_acceleration		CODE           	1696	0000	78
+		_all_off       		CODE           	1870	0000	22
+		_check_busy    		CODE           	1886	0000	22
+		_motor_off     		CODE           	1858	0000	24
+		_LM629_init    		CODE           	1272	0000	424
+		_set_absolute_velocity		CODE           	14E8	0000	196
+		_chip_select   		CODE           	15AC	0000	136
+		_read_status   		CODE           	17E2	0000	48
 
-lm629.c estimated size: 1780
+lm629.c estimated size: 1798
 
 spi.c
-		_spi_slave_init		CODE           	1800	0000	44
+		_spi_slave_init		CODE           	1812	0000	44
 		_SPI_ISR       		CODE           	0008	0000	216
-		_spi_data      		CODE           	188A	0000	8
+		_spi_data      		CODE           	189C	0000	8
 
 spi.c estimated size: 268
 
 shared
 		lm629_velocity@lookup_table		SMALLCONST     	1001	0000	128
-		__initialization		CODE           	182C	0000	12
+		__initialization		CODE           	183E	0000	12
 
 shared estimated size: 140
 
 main.c
-		_main          		CODE           	1408	0000	206
+		_main          		CODE           	141A	0000	206
 
 main.c estimated size: 206
 

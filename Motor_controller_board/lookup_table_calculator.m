@@ -20,11 +20,14 @@ LM629_freq = 4000000
 %--Encoder lines per shaft Revolution
 enc_lines_motor_shaft = 64
 
+%--Encoder lines per gearbox output revolution
+enc_lines_gearbox_output = enc_lines_motor_shaft * 29
+
 %--LM629 Resolution multiplier (As per datasheet)
 resolution = 4
 
 %--Encoder lines with * Resolution
-R = enc_lines_motor_shaft * resolution
+R = enc_lines_gearbox_output * resolution
 
 %--Sample time (as per datasheet)
 T = 2048/LM629_freq
@@ -34,7 +37,7 @@ C = 1/60
 
 
 
-rpm_per_pwm_step = 150/255
+rpm_per_pwm_step = 40/255
 pwm_duty_per_analog_step_positive = 255/15
 pwm_duty_per_analog_step_negative = 255/16
 

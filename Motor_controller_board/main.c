@@ -189,6 +189,8 @@ void main(void)
         
         set_absolute_velocity(1,classic_ctrl.ly_joystick);
         set_absolute_velocity(3,classic_ctrl.ry_joystick);
+        //set_absolute_velocity(1,31);
+        //set_absolute_velocity(3,31);
 
 
     } 

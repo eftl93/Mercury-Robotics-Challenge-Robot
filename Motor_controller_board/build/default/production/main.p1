@@ -1034,13 +1034,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "191
 [; ;main.c: 191:         set_absolute_velocity(3,classic_ctrl.ry_joystick);
 [e ( _set_absolute_velocity (2 , -> -> 3 `i `uc . _classic_ctrl 3 ]
-"194
-[; ;main.c: 194:     }
+"196
+[; ;main.c: 196:     }
 }
 [e :U 856 ]
 [e $U 857  ]
 [e :U 858 ]
-"195
-[; ;main.c: 195: }
+"197
+[; ;main.c: 197: }
 [e :UE 855 ]
 }

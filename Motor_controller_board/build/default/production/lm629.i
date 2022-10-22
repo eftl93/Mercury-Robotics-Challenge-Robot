@@ -9684,10 +9684,10 @@ uint32_t lm629_velocity(uint8_t analog_value)
     uint32_t velocity;
     static const uint32_t lookup_table[32] =
     {
-         21475, 20133, 18790, 17448, 16106, 14764, 13422, 12080,
-         10737, 9395, 8053, 6711, 5369, 4027, 2684, 1342,
-         0, 1432, 2863, 4295, 5727, 7158, 8590, 10022,
-         11453, 12885, 14317, 15748, 17180, 18612, 20043, 21475
+ 166072, 155693, 145313, 134934, 124554, 114175, 103795, 93416,
+ 83036, 72657, 62277, 51898, 41518, 31139, 20759, 10380,
+ 0, 11071, 22143, 33214, 44286, 55357, 66429, 77500,
+ 88572, 99643, 110715, 121786, 132858, 143929, 155001, 166072
     };
 
     velocity = lookup_table[analog_value];
@@ -9821,7 +9821,7 @@ void LM629_init()
 beginning1:
  _delay((unsigned long)((10)*(64000000/4000000.0)));
  PORTBbits.RB5=0;
- _delay((unsigned long)((12)*(64000000/4000000.0)));
+ _delay((unsigned long)((2)*(64000000/4000.0)));
  PORTBbits.RB5=1;
  _delay((unsigned long)((2)*(64000000/4000.0)));
  x=read_status();
@@ -9847,7 +9847,7 @@ beginning1:
 beginning3:
  _delay((unsigned long)((10)*(64000000/4000000.0)));
  PORTBbits.RB5=0;
- _delay((unsigned long)((12)*(64000000/4000000.0)));
+ _delay((unsigned long)((1)*(64000000/4000.0)));
  PORTBbits.RB5=1;
  _delay((unsigned long)((2)*(64000000/4000.0)));
  x=read_status();
