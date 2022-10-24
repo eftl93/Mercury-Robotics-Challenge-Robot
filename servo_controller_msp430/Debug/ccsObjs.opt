@@ -1,1 +1,7 @@
-"./main.obj" "./msp430_gpio.obj" "./msp430_servo.obj" "./msp430_timera.obj" "./msp430_uart.obj" "../lnk_msp430g2553.cmd" -llibc.a 
+"./main.obj"
+"./msp430_gpio.obj"
+"./msp430_servo.obj"
+"./msp430_timera.obj"
+"./msp430_uart.obj"
+"../lnk_msp430g2553.cmd"
+-llibc.a

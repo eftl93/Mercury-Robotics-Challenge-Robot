@@ -4,7 +4,7 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS
+CG_TOOL_ROOT := E:/ti/ccs1200/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
@@ -144,14 +144,14 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 servo_controller_msp430.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/bin/cl430" -vmsp --use_hw_mpy=none --advice:power=all --define=__MSP430G2553__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number -z -m"servo_controller_msp430.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccs1110/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="servo_controller_msp430_linkInfo.xml" --use_hw_mpy=none --rom_model -o "servo_controller_msp430.out" $(ORDERED_OBJS)
+	"E:/ti/ccs1200/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/bin/cl430" -vmsp --use_hw_mpy=none --advice:power=all --define=__MSP430G2553__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number -z -m"servo_controller_msp430.map" --heap_size=80 --stack_size=80 -i"E:/ti/ccs1200/ccs/ccs_base/msp430/include" -i"E:/ti/ccs1200/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/lib" -i"E:/ti/ccs1200/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="servo_controller_msp430_linkInfo.xml" --use_hw_mpy=none --rom_model -o "servo_controller_msp430.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
 servo_controller_msp430.hex: $(EXE_OUTPUTS)
 	@echo 'Building secondary target: "$@"'
 	@echo 'Invoking: MSP430 Hex Utility'
-	"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/bin/hex430" --memwidth=8 --romwidth=8 --diag_wrap=off -o "servo_controller_msp430.hex" $(EXE_OUTPUTS__QUOTED)
+	"E:/ti/ccs1200/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/bin/hex430" --memwidth=8 --romwidth=8 --diag_wrap=off -o "servo_controller_msp430.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building secondary target: "$@"'
 	@echo ' '
 

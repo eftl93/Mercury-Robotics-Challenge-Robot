@@ -30,10 +30,10 @@ struct flags led0_flag, servo0_flag, servo1_flag, servo2_flag, servo3_flag;
 //arm_duty will change the duty cycle of servo signal on pin 2.1
 //cam_tilt_duty will change the duty cycle of servo signal on pin 2.2
 //cam_pan_duty will change the duty cycle of servo signal on pin 2.3
-uint16_t claw_duty = NEUTRAL_DUTY;
-uint16_t arm_duty = NEUTRAL_DUTY;
-uint16_t cam_tilt_duty = NEUTRAL_DUTY;
-uint16_t cam_pan_duty = NEUTRAL_DUTY;
+uint16_t claw_duty = CLAW_MAX_DUTY;
+uint16_t arm_duty = ARM_MAX_DUTY;
+uint16_t cam_tilt_duty = TILT_NEUTRAL_DUTY;
+uint16_t cam_pan_duty = PAN_NEUTRAL_DUTY;
 
 int main(void)
 {

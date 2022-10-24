@@ -8,7 +8,7 @@ SHELL = cmd.exe
 %.obj: ../%.c $(GEN_OPTS) | $(GEN_FILES) $(GEN_MISC_FILES)
 	@echo 'Building file: "$<"'
 	@echo 'Invoking: MSP430 Compiler'
-	"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/bin/cl430" -vmsp --use_hw_mpy=none --include_path="C:/ti/ccs1110/ccs/ccs_base/msp430/include" --include_path="C:/Users/eder0/workspace_v11/servo_controller_msp430" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/include" --advice:power=all --define=__MSP430G2553__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="$(basename $(<F)).d_raw" $(GEN_OPTS__FLAG) "$<"
+	"E:/ti/ccs1200/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/bin/cl430" -vmsp --use_hw_mpy=none --include_path="E:/ti/ccs1200/ccs/ccs_base/msp430/include" --include_path="E:/GitHub/TI_Innovation_Challenge/servo_controller_msp430" --include_path="E:/ti/ccs1200/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/include" --advice:power=all --define=__MSP430G2553__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="$(basename $(<F)).d_raw" $(GEN_OPTS__FLAG) "$<"
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
