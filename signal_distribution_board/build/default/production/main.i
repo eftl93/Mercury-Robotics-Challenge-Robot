@@ -9940,6 +9940,9 @@ uint8_t instructions1[] = "Use left joystick to move left wheel";
 uint8_t instructions2[] = "Use right joystick to move right wheel";
 uint8_t instructions3[] = "Press 'q' and 'e' to turn light beam off and on";
 uint8_t wii_classic_packet[] = "hello!!";
+uint8_t servo_controller_tx = 0x00;
+uint8_t debouncing_counter = 0x00;
+uint8_t debouncing_flag = 0x01;
 
 struct uart_package
 {
@@ -9959,8 +9962,17 @@ struct ctrl_buttons
     uint8_t y;
 };
 
+struct dpad_buttons
+{
+    uint8_t up;
+    uint8_t down;
+    uint8_t left;
+    uint8_t right;
+};
+
 struct uart_package classic_ctrl;
 struct ctrl_buttons act_buttons;
+struct dpad_buttons arrow_buttons;
 
 
 void main()
@@ -10002,7 +10014,7 @@ void main()
         wii_classic_packet[7] = '\0';
 
 
-        tx2(classic_ctrl.d_pad);
+
 
         uart_wr_str(1,wii_classic_packet);
         tx1('\r');
@@ -10021,11 +10033,36 @@ void main()
         dummy_spi_tx = spi_data(0,classic_ctrl.ry_joystick);
         dummy_spi_tx = spi_data(3,'y');
         dummy_spi_tx = spi_data(0,'y');
-# 126 "main.c"
+
+
         act_buttons.a = ((classic_ctrl.action_buttons & 0b00001000) >> 3);
         act_buttons.b = ((classic_ctrl.action_buttons & 0b00000100) >> 2);
         act_buttons.x = ((classic_ctrl.action_buttons & 0b00000010) >> 1);
         act_buttons.y = ((classic_ctrl.action_buttons & 0b00000001) >> 0);
+
+
+        arrow_buttons.up = ((classic_ctrl.d_pad & 0b00001000) >> 3);
+        arrow_buttons.down = ((classic_ctrl.d_pad & 0b00000100) >> 2);
+        arrow_buttons.left = ((classic_ctrl.d_pad & 0b00000010) >> 1);
+        arrow_buttons.right = ((classic_ctrl.d_pad & 0b00000001) >> 0);
+
+
+        debouncing_counter++;
+        if(debouncing_counter == 0x00)
+        {
+            debouncing_flag = (0x03 << 6);
+        }
+        else
+        {
+            debouncing_flag = 0x00;
+            if(debouncing_counter == 0x6F)
+            {
+                debouncing_counter = 0xFF;
+            }
+        }
+
+        servo_controller_tx = (debouncing_flag) | (act_buttons.a << 5) | (act_buttons.b << 4) | (classic_ctrl.d_pad);
+        tx2(servo_controller_tx);
 
 
 

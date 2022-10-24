@@ -45,10 +45,12 @@ int main(void)
     p3_init();
     uart_init();
     servo_init();
+    led_init();
     timera_cc_init(COUNTER_COMPARE);
 
     while(1)
     {
+        led0_toggle();
         //After each timer interrupt, CPU wakes up and runs once before going back to sleep
         //check if any servo flag has been updated and clear/set its signal accordingly
         if(servo0_flag.set)
@@ -104,53 +106,54 @@ int main(void)
         received_byte = uart_rd_char();
         switch(received_byte)
         {
-        case 'j'    :                    //close the claw
+        case (0xE1)    :                 //close the claw
             if(claw_duty < MAX_DUTY)
                 claw_duty++;
             break;
 
-        case 'l'    :                   //open the claw
+        case (0xD1)    :                //open the claw
             if(claw_duty > MIN_DUTY)
                 claw_duty--;
             break;
 
-        case 'i'    :                   //raise the arm
-            if(arm_duty < MAX_DUTY)
+        case (0xE0)    :                   //raise the arm
+            if(arm_duty < ARM_MAX_DUTY)
                 arm_duty++;
             break;
 
-        case 'k'    :                   //lower the arm
-            if(arm_duty > MIN_DUTY)
+        case (0xD0)    :                   //lower the arm
+            if(arm_duty > ARM_MIN_DUTY)
                 arm_duty--;
             break;
 
-        case 't'    :                   //tilt up the camera
-            if(cam_tilt_duty < MAX_DUTY)
+        case (0xC4)    :                   //tilt down the camera
+            if(cam_tilt_duty < TILT_MAX_DUTY)
                 cam_tilt_duty++;
             break;
 
-        case 'g'    :                   //tilt down the camera
-            if(cam_tilt_duty > MIN_DUTY)
+        case (0xC8)    :                   //tilt up the camera
+            if(cam_tilt_duty > TILT_MIN_DUTY)
                 cam_tilt_duty--;
             break;
 
-        case 'f'    :                   //pan left the camera
-            if(cam_pan_duty < MAX_DUTY)
+        case (0xC2)    :                   //pan left the camera
+            if(cam_pan_duty < PAN_MAX_DUTY)
                 cam_pan_duty++;
             break;
 
-        case 'h'    :                   //pan right the camera
-            if(cam_pan_duty > MIN_DUTY)
+        case (0xC1)    :                   //pan right the camera
+            if(cam_pan_duty > PAN_MIN_DUTY)
                 cam_pan_duty--;
             break;
 
-        case 'o'    :                   //if 'o' is received, don't  move the servos
+        case (0)    :                   //if 'o' is received, don't  move the servos
             claw_duty = claw_duty;
             arm_duty = arm_duty;
             cam_tilt_duty = cam_tilt_duty;
             cam_pan_duty = cam_pan_duty;
             break;
         }
+
         //Enable the global interrupt and go to sleep to wait to be waken up by the TimerA interrupt
         __bis_SR_register(LPM0_bits | GIE);
     }

@@ -11,8 +11,10 @@
 
 void led_init(void)
 {
-    P1DIR |= 0x01; //P1.0 are set as output
-    P1OUT &= 0xFE;
+    P1DIR |= 0x01; //P1.0 set as output
+    P1OUT &= 0xFE; //initiates P1.0 as low
+    P2DIR |= 0x20; //P2.5 is set as output
+    P2OUT &= 0xDF; //initiates P2.5 as low
 }
 
 void led0_high(void)
