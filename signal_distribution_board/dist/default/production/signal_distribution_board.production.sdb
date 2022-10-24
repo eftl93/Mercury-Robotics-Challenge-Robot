@@ -43,15 +43,15 @@
 [v _spi_data spi_data `(uc  1 e 1 0 ]
 "17 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
 [v _uart_init uart_init `(v  1 e 1 0 ]
-"50
+"52
 [v _tx1 tx1 `(v  1 e 1 0 ]
-"58
+"60
 [v _tx2 tx2 `(v  1 e 1 0 ]
-"68
+"70
 [v _uart_wr_str uart_wr_str `(v  1 e 1 0 ]
-"96
+"98
 [v _rx1_overrun_detect_reset rx1_overrun_detect_reset `(v  1 e 1 0 ]
-"178
+"180
 [v _UART_ISR UART_ISR `IIH(v  1 e 1 0 ]
 "53 C:/Users/eder0/.mchp_packs/Microchip/PIC18F-K_DFP/1.6.125/xc8\pic\include\proc\pic18f46k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
@@ -711,37 +711,37 @@
 "60 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"154
+"155
 } 0
-"68 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+"70 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
 [v _uart_wr_str uart_wr_str `(v  1 e 1 0 ]
 {
 [v uart_wr_str@port port `uc  1 a 1 wreg ]
 [v uart_wr_str@port port `uc  1 a 1 wreg ]
 [v uart_wr_str@str str `*.39uc  1 p 2 7 ]
 [v uart_wr_str@port port `uc  1 a 1 11 ]
-"92
+"94
 } 0
-"58
+"60
 [v _tx2 tx2 `(v  1 e 1 0 ]
 {
 [v tx2@data2 data2 `uc  1 a 1 wreg ]
 [v tx2@data2 data2 `uc  1 a 1 wreg ]
 [v tx2@data2 data2 `uc  1 a 1 6 ]
-"62
+"64
 } 0
-"50
+"52
 [v _tx1 tx1 `(v  1 e 1 0 ]
 {
 [v tx1@data1 data1 `uc  1 a 1 wreg ]
 [v tx1@data1 data1 `uc  1 a 1 wreg ]
 [v tx1@data1 data1 `uc  1 a 1 6 ]
-"55
+"57
 } 0
 "17
 [v _uart_init uart_init `(v  1 e 1 0 ]
 {
-"47
+"49
 } 0
 "18 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\spi_master.c
 [v _spi_master_init spi_master_init `(v  1 e 1 0 ]
@@ -761,10 +761,10 @@
 [v spi_data@device device `uc  1 a 1 8 ]
 "86
 } 0
-"96 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+"98 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
 [v _rx1_overrun_detect_reset rx1_overrun_detect_reset `(v  1 e 1 0 ]
 {
-"104
+"106
 } 0
 "30 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\gpio.c
 [v _high_beams_on high_beams_on `(v  1 e 1 0 ]
@@ -786,8 +786,8 @@
 {
 "57
 } 0
-"178 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
+"180 E:\GitHub\TI_Innovation_Challenge\signal_distribution_board\uart.c
 [v _UART_ISR UART_ISR `IIH(v  1 e 1 0 ]
 {
-"212
+"214
 } 0

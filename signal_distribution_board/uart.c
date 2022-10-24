@@ -22,8 +22,10 @@ void uart_init()
     BAUDCON2bits.BRG16=1;   //16 bit baud rate generator is used (because of the HS clock)
     SPBRG1=0x8A;            //Set the baud rate to 115200 (spbrgh1:spbrg1 = 138)
     SPBRGH1=0x00;           //Set the baud rate to 115200 (spbrgh1:spbrg1 = 138)
-    SPBRG2=0x82;            //Set the baud rate to 9600 (spbrgh1:spbrg1 = 1666)
-    SPBRGH2=0x06;           //Set the baud rate to 9600 (spbrgh1:spbrg1 = 1666)
+    //SPBRG2=0x82;            //Set the baud rate to 9600 (spbrgh1:spbrg1 = 1666)
+    //SPBRGH2=0x06;           //Set the baud rate to 9600 (spbrgh1:spbrg1 = 1666)
+    SPBRG2=0x8A;            //Set the baud rate to 115200 (spbrgh1:spbrg1 = 138)
+    SPBRGH2=0x00;           //Set the baud rate to 115200 (spbrgh1:spbrg1 = 138)
     RX1_DIR=1;              //RX must be set as an input for uart
     TX1_DIR=1;              //TX must be set as an input for uart
     RX2_DIR=1;              //RX must be set as an input for uart

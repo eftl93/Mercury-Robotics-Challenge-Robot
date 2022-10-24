@@ -97,6 +97,7 @@ void main()
 
         //dummy_spi_tx = spi_data(3,'o'); //send 'o' to SPI device 3 @FOSC/64
         tx2(classic_ctrl.d_pad);         //send directional pad info to servo controller
+        //tx2('z');
         uart_wr_str(1,wii_classic_packet); //sending the whole string received on uart1_rx back to uart1_tx for debugging purposes
         tx1('\r');
 
@@ -114,13 +115,7 @@ void main()
         dummy_spi_tx = spi_data(0,classic_ctrl.ry_joystick);
         dummy_spi_tx = spi_data(3,'y');
         dummy_spi_tx = spi_data(0,'y');
-        
-        
-        
-        
-        
-        
-        
+         
         //read the status of each of the action buttons
         act_buttons.a = ((classic_ctrl.action_buttons & 0b00001000) >> 3);
         act_buttons.b = ((classic_ctrl.action_buttons & 0b00000100) >> 2);

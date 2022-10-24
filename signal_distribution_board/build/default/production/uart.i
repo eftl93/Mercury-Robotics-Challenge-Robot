@@ -9926,8 +9926,10 @@ void uart_init()
     BAUDCON2bits.BRG16=1;
     SPBRG1=0x8A;
     SPBRGH1=0x00;
-    SPBRG2=0x82;
-    SPBRGH2=0x06;
+
+
+    SPBRG2=0x8A;
+    SPBRGH2=0x00;
     TRISCbits.RC6=1;
     TRISCbits.RC7=1;
     TRISDbits.RD6=1;
@@ -10006,7 +10008,7 @@ void rx1_overrun_detect_reset(void)
               RCSTA1bits.CREN = 1;
           }
 }
-# 178 "uart.c"
+# 180 "uart.c"
 void __attribute__((picinterrupt(("")))) UART_ISR(void)
 {
     if(PIR1bits.RC1IF)

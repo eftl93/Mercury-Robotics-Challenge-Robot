@@ -1182,114 +1182,114 @@ Version 4.0 HI-TECH Software Intermediate Code
 "99
 [; ;main.c: 99:         tx2(classic_ctrl.d_pad);
 [e ( _tx2 (1 -> . _classic_ctrl 4 `uc ]
-"100
-[; ;main.c: 100:         uart_wr_str(1,wii_classic_packet);
-[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _wii_classic_packet ]
 "101
-[; ;main.c: 101:         tx1('\r');
+[; ;main.c: 101:         uart_wr_str(1,wii_classic_packet);
+[e ( _uart_wr_str (2 , -> -> 1 `i `uc &U _wii_classic_packet ]
+"102
+[; ;main.c: 102:         tx1('\r');
 [e ( _tx1 (1 -> -> 13 `ui `uc ]
-"105
-[; ;main.c: 105:         dummy_spi_tx = spi_data(3,'z');
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc -> -> 122 `ui `uc ]
 "106
-[; ;main.c: 106:         dummy_spi_tx = spi_data(0,'z');
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 0 `i `uc -> -> 122 `ui `uc ]
+[; ;main.c: 106:         dummy_spi_tx = spi_data(3,'z');
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc -> -> 122 `ui `uc ]
 "107
-[; ;main.c: 107:         dummy_spi_tx = spi_data(3,classic_ctrl.lx_joystick);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc . _classic_ctrl 0 ]
+[; ;main.c: 107:         dummy_spi_tx = spi_data(0,'z');
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 0 `i `uc -> -> 122 `ui `uc ]
 "108
-[; ;main.c: 108:         dummy_spi_tx = spi_data(0,classic_ctrl.lx_joystick);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 0 `i `uc . _classic_ctrl 0 ]
+[; ;main.c: 108:         dummy_spi_tx = spi_data(3,classic_ctrl.lx_joystick);
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc . _classic_ctrl 0 ]
 "109
-[; ;main.c: 109:         dummy_spi_tx = spi_data(3,classic_ctrl.ly_joystick);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc . _classic_ctrl 1 ]
+[; ;main.c: 109:         dummy_spi_tx = spi_data(0,classic_ctrl.lx_joystick);
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 0 `i `uc . _classic_ctrl 0 ]
 "110
-[; ;main.c: 110:         dummy_spi_tx = spi_data(0,classic_ctrl.ly_joystick);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 0 `i `uc . _classic_ctrl 1 ]
+[; ;main.c: 110:         dummy_spi_tx = spi_data(3,classic_ctrl.ly_joystick);
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc . _classic_ctrl 1 ]
 "111
-[; ;main.c: 111:         dummy_spi_tx = spi_data(3,classic_ctrl.rx_joystick);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc . _classic_ctrl 2 ]
+[; ;main.c: 111:         dummy_spi_tx = spi_data(0,classic_ctrl.ly_joystick);
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 0 `i `uc . _classic_ctrl 1 ]
 "112
-[; ;main.c: 112:         dummy_spi_tx = spi_data(0,classic_ctrl.rx_joystick);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 0 `i `uc . _classic_ctrl 2 ]
+[; ;main.c: 112:         dummy_spi_tx = spi_data(3,classic_ctrl.rx_joystick);
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc . _classic_ctrl 2 ]
 "113
-[; ;main.c: 113:         dummy_spi_tx = spi_data(3,classic_ctrl.ry_joystick);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc . _classic_ctrl 3 ]
+[; ;main.c: 113:         dummy_spi_tx = spi_data(0,classic_ctrl.rx_joystick);
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 0 `i `uc . _classic_ctrl 2 ]
 "114
-[; ;main.c: 114:         dummy_spi_tx = spi_data(0,classic_ctrl.ry_joystick);
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 0 `i `uc . _classic_ctrl 3 ]
+[; ;main.c: 114:         dummy_spi_tx = spi_data(3,classic_ctrl.ry_joystick);
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc . _classic_ctrl 3 ]
 "115
-[; ;main.c: 115:         dummy_spi_tx = spi_data(3,'y');
-[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc -> -> 121 `ui `uc ]
+[; ;main.c: 115:         dummy_spi_tx = spi_data(0,classic_ctrl.ry_joystick);
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 0 `i `uc . _classic_ctrl 3 ]
 "116
-[; ;main.c: 116:         dummy_spi_tx = spi_data(0,'y');
+[; ;main.c: 116:         dummy_spi_tx = spi_data(3,'y');
+[e = _dummy_spi_tx ( _spi_data (2 , -> -> 3 `i `uc -> -> 121 `ui `uc ]
+"117
+[; ;main.c: 117:         dummy_spi_tx = spi_data(0,'y');
 [e = _dummy_spi_tx ( _spi_data (2 , -> -> 0 `i `uc -> -> 121 `ui `uc ]
-"125
-[; ;main.c: 125:         act_buttons.a = ((classic_ctrl.action_buttons & 0b00001000) >> 3);
-[e = . _act_buttons 0 -> >> & -> . _classic_ctrl 5 `i -> 8 `i -> 3 `i `uc ]
 "126
-[; ;main.c: 126:         act_buttons.b = ((classic_ctrl.action_buttons & 0b00000100) >> 2);
-[e = . _act_buttons 1 -> >> & -> . _classic_ctrl 5 `i -> 4 `i -> 2 `i `uc ]
+[; ;main.c: 126:         act_buttons.a = ((classic_ctrl.action_buttons & 0b00001000) >> 3);
+[e = . _act_buttons 0 -> >> & -> . _classic_ctrl 5 `i -> 8 `i -> 3 `i `uc ]
 "127
-[; ;main.c: 127:         act_buttons.x = ((classic_ctrl.action_buttons & 0b00000010) >> 1);
-[e = . _act_buttons 2 -> >> & -> . _classic_ctrl 5 `i -> 2 `i -> 1 `i `uc ]
+[; ;main.c: 127:         act_buttons.b = ((classic_ctrl.action_buttons & 0b00000100) >> 2);
+[e = . _act_buttons 1 -> >> & -> . _classic_ctrl 5 `i -> 4 `i -> 2 `i `uc ]
 "128
-[; ;main.c: 128:         act_buttons.y = ((classic_ctrl.action_buttons & 0b00000001) >> 0);
+[; ;main.c: 128:         act_buttons.x = ((classic_ctrl.action_buttons & 0b00000010) >> 1);
+[e = . _act_buttons 2 -> >> & -> . _classic_ctrl 5 `i -> 2 `i -> 1 `i `uc ]
+"129
+[; ;main.c: 129:         act_buttons.y = ((classic_ctrl.action_buttons & 0b00000001) >> 0);
 [e = . _act_buttons 3 -> >> & -> . _classic_ctrl 5 `i -> 1 `i -> 0 `i `uc ]
-"132
-[; ;main.c: 132:         LATAbits.LATA0 = act_buttons.a;
-[e = . . _LATAbits 0 0 . _act_buttons 0 ]
 "133
-[; ;main.c: 133:         LATAbits.LATA1 = act_buttons.b;
-[e = . . _LATAbits 0 1 . _act_buttons 1 ]
+[; ;main.c: 133:         LATAbits.LATA0 = act_buttons.a;
+[e = . . _LATAbits 0 0 . _act_buttons 0 ]
 "134
-[; ;main.c: 134:         if((act_buttons.x) & (!act_buttons.y))
-[e $ ! != & -> . _act_buttons 2 `i -> ! != -> . _act_buttons 3 `i -> 0 `i `i -> 0 `i 863  ]
+[; ;main.c: 134:         LATAbits.LATA1 = act_buttons.b;
+[e = . . _LATAbits 0 1 . _act_buttons 1 ]
 "135
-[; ;main.c: 135:         {
-{
+[; ;main.c: 135:         if((act_buttons.x) & (!act_buttons.y))
+[e $ ! != & -> . _act_buttons 2 `i -> ! != -> . _act_buttons 3 `i -> 0 `i `i -> 0 `i 863  ]
 "136
-[; ;main.c: 136:             high_beams_on();
-[e ( _high_beams_on ..  ]
+[; ;main.c: 136:         {
+{
 "137
-[; ;main.c: 137:         }
+[; ;main.c: 137:             high_beams_on();
+[e ( _high_beams_on ..  ]
+"138
+[; ;main.c: 138:         }
 }
 [e $U 864  ]
-"138
-[; ;main.c: 138:         else if((!act_buttons.x) & (act_buttons.y))
+"139
+[; ;main.c: 139:         else if((!act_buttons.x) & (act_buttons.y))
 [e :U 863 ]
 [e $ ! != & -> ! != -> . _act_buttons 2 `i -> 0 `i `i -> . _act_buttons 3 `i -> 0 `i 865  ]
-"139
-[; ;main.c: 139:         {
-{
 "140
-[; ;main.c: 140:             high_beams_off();
-[e ( _high_beams_off ..  ]
+[; ;main.c: 140:         {
+{
 "141
-[; ;main.c: 141:         }
+[; ;main.c: 141:             high_beams_off();
+[e ( _high_beams_off ..  ]
+"142
+[; ;main.c: 142:         }
 }
 [e $U 866  ]
-"142
-[; ;main.c: 142:         else
-[e :U 865 ]
 "143
-[; ;main.c: 143:         {
+[; ;main.c: 143:         else
+[e :U 865 ]
+"144
+[; ;main.c: 144:         {
 {
-"145
-[; ;main.c: 145:         }
+"146
+[; ;main.c: 146:         }
 }
 [e :U 866 ]
 [e :U 864 ]
-"148
-[; ;main.c: 148:       rx1_overrun_detect_reset();
+"149
+[; ;main.c: 149:       rx1_overrun_detect_reset();
 [e ( _rx1_overrun_detect_reset ..  ]
-"153
-[; ;main.c: 153:     }
+"154
+[; ;main.c: 154:     }
 }
 [e :U 860 ]
 [e $U 861  ]
 [e :U 862 ]
-"154
-[; ;main.c: 154: }
+"155
+[; ;main.c: 155: }
 [e :UE 859 ]
 }

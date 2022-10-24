@@ -10003,6 +10003,7 @@ void main()
 
 
         tx2(classic_ctrl.d_pad);
+
         uart_wr_str(1,wii_classic_packet);
         tx1('\r');
 
@@ -10020,7 +10021,7 @@ void main()
         dummy_spi_tx = spi_data(0,classic_ctrl.ry_joystick);
         dummy_spi_tx = spi_data(3,'y');
         dummy_spi_tx = spi_data(0,'y');
-# 125 "main.c"
+# 126 "main.c"
         act_buttons.a = ((classic_ctrl.action_buttons & 0b00001000) >> 3);
         act_buttons.b = ((classic_ctrl.action_buttons & 0b00000100) >> 2);
         act_buttons.x = ((classic_ctrl.action_buttons & 0b00000010) >> 1);
