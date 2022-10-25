@@ -9939,10 +9939,11 @@ uint8_t text1[] = "Hello, Welcome!";
 uint8_t instructions1[] = "Use left joystick to move left wheel";
 uint8_t instructions2[] = "Use right joystick to move right wheel";
 uint8_t instructions3[] = "Press 'q' and 'e' to turn light beam off and on";
-uint8_t wii_classic_packet[] = "hello!!";
+uint8_t wii_classic_packet[] = "hello!!!";
 uint8_t servo_controller_tx = 0x00;
 uint8_t debouncing_counter = 0x00;
 uint8_t debouncing_flag = 0x01;
+uint8_t demuxed_controller_signals = 0x00;
 
 struct uart_package
 {
@@ -9952,6 +9953,7 @@ struct uart_package
     uint8_t ry_joystick;
     uint8_t d_pad;
     uint8_t action_buttons;
+    uint8_t shoulder_plus_minus;
 };
 
 struct ctrl_buttons
@@ -9970,9 +9972,21 @@ struct dpad_buttons
     uint8_t right;
 };
 
+struct shoulder_plus_minus_buttons
+{
+    uint8_t zl;
+    uint8_t zr;
+    uint8_t lt;
+    uint8_t rt;
+    uint8_t minus;
+    uint8_t plus;
+};
+
 struct uart_package classic_ctrl;
 struct ctrl_buttons act_buttons;
 struct dpad_buttons arrow_buttons;
+struct shoulder_plus_minus_buttons shoulder_buttons;
+struct shoulder_plus_minus_buttons aux_buttons;
 
 
 void main()
@@ -10011,11 +10025,8 @@ void main()
         classic_ctrl.ry_joystick = wii_classic_packet[4] - 33;
         classic_ctrl.d_pad = wii_classic_packet[5] - 33;
         classic_ctrl.action_buttons = wii_classic_packet[6] - 33;
-        wii_classic_packet[7] = '\0';
-
-
-
-
+        classic_ctrl.shoulder_plus_minus = wii_classic_packet[7] - 33;
+        wii_classic_packet[8] = '\0';
         uart_wr_str(1,wii_classic_packet);
         tx1('\r');
 
@@ -10047,6 +10058,16 @@ void main()
         arrow_buttons.right = ((classic_ctrl.d_pad & 0b00000001) >> 0);
 
 
+        shoulder_buttons.zl = ((classic_ctrl.shoulder_plus_minus & 0b00100000) >> 5);
+        shoulder_buttons.zr = ((classic_ctrl.shoulder_plus_minus & 0b00010000) >> 4);
+        shoulder_buttons.lt = ((classic_ctrl.shoulder_plus_minus & 0b00001000) >> 3);
+        shoulder_buttons.rt = ((classic_ctrl.shoulder_plus_minus & 0b00000100) >> 2);
+
+
+        aux_buttons.minus = ((classic_ctrl.shoulder_plus_minus & 0b00000010) >> 1);
+        aux_buttons.plus = ((classic_ctrl.shoulder_plus_minus & 0b00000001) >> 0);
+
+
         debouncing_counter++;
         if(debouncing_counter == 0x00)
         {
@@ -10055,13 +10076,45 @@ void main()
         else
         {
             debouncing_flag = 0x00;
-            if(debouncing_counter == 0x6F)
+            if(debouncing_counter == 0x5F)
             {
                 debouncing_counter = 0xFF;
             }
         }
-
-        servo_controller_tx = (debouncing_flag) | (act_buttons.a << 5) | (act_buttons.b << 4) | (classic_ctrl.d_pad);
+        demuxed_controller_signals = (shoulder_buttons.zl << 7) | (shoulder_buttons.zr << 6) | (act_buttons.a << 5) | (act_buttons.b << 4) | (classic_ctrl.d_pad);
+        switch(demuxed_controller_signals)
+        {
+            case(0x00):
+                servo_controller_tx = 0x00 | debouncing_flag;
+                break;
+            case(0x01):
+                servo_controller_tx = 0x01 | debouncing_flag;
+                break;
+            case(0x02):
+                servo_controller_tx = 0x02 | debouncing_flag;
+                break;
+            case(0x04):
+                servo_controller_tx = 0x03 | debouncing_flag;
+                break;
+            case(0x08):
+                servo_controller_tx = 0x04 | debouncing_flag;
+                break;
+            case(0x10):
+                servo_controller_tx = 0x05 | debouncing_flag;
+                break;
+            case(0x20):
+                servo_controller_tx = 0x06 | debouncing_flag;
+                break;
+            case(0x40):
+                servo_controller_tx = 0x07 | debouncing_flag;
+                break;
+            case(0x80):
+                servo_controller_tx = 0x08 | debouncing_flag;
+                break;
+            default :
+                servo_controller_tx = 0x00;
+                break;
+        }
         tx2(servo_controller_tx);
 
 

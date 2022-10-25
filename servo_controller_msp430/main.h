@@ -11,8 +11,8 @@
 #define MIN_DUTY 32
 #define MAX_DUTY 65
 #define NEUTRAL_DUTY (MIN_DUTY + (MAX_DUTY-MIN_DUTY)/2)
-#define CLAW_MIN_DUTY 17
-#define CLAW_MAX_DUTY 65
+#define CLAW_MIN_DUTY 32
+#define CLAW_MAX_DUTY 50
 #define ARM_MIN_DUTY 40
 #define ARM_MAX_DUTY 82
 #define PAN_MIN_DUTY 23

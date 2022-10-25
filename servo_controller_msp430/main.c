@@ -30,7 +30,7 @@ struct flags led0_flag, servo0_flag, servo1_flag, servo2_flag, servo3_flag;
 //arm_duty will change the duty cycle of servo signal on pin 2.1
 //cam_tilt_duty will change the duty cycle of servo signal on pin 2.2
 //cam_pan_duty will change the duty cycle of servo signal on pin 2.3
-uint16_t claw_duty = CLAW_MAX_DUTY;
+uint16_t claw_duty = CLAW_MIN_DUTY;
 uint16_t arm_duty = ARM_MAX_DUTY;
 uint16_t cam_tilt_duty = TILT_NEUTRAL_DUTY;
 uint16_t cam_pan_duty = PAN_NEUTRAL_DUTY;
@@ -106,32 +106,32 @@ int main(void)
         received_byte = uart_rd_char();
         switch(received_byte)
         {
-        case (0xE1)    :                 //close the claw
-            if(claw_duty < MAX_DUTY)
+        case (0xC8)    :                 //close the claw
+            if(claw_duty < CLAW_MAX_DUTY)
                 claw_duty++;
             break;
 
-        case (0xD1)    :                //open the claw
-            if(claw_duty > MIN_DUTY)
+        case (0xC7)    :                //open the claw
+            if(claw_duty > CLAW_MIN_DUTY)
                 claw_duty--;
             break;
 
-        case (0xE0)    :                   //raise the arm
+        case (0xC6)    :                   //raise the arm
             if(arm_duty < ARM_MAX_DUTY)
                 arm_duty++;
             break;
 
-        case (0xD0)    :                   //lower the arm
+        case (0xC5)    :                   //lower the arm
             if(arm_duty > ARM_MIN_DUTY)
                 arm_duty--;
             break;
 
-        case (0xC4)    :                   //tilt down the camera
+        case (0xC3)    :                   //tilt down the camera
             if(cam_tilt_duty < TILT_MAX_DUTY)
                 cam_tilt_duty++;
             break;
 
-        case (0xC8)    :                   //tilt up the camera
+        case (0xC4)    :                   //tilt up the camera
             if(cam_tilt_duty > TILT_MIN_DUTY)
                 cam_tilt_duty--;
             break;
@@ -146,7 +146,7 @@ int main(void)
                 cam_pan_duty--;
             break;
 
-        case (0)    :                   //if 'o' is received, don't  move the servos
+        default    :                   //if 0xC0 or 0x00 is received, don't  move the servos
             claw_duty = claw_duty;
             arm_duty = arm_duty;
             cam_tilt_duty = cam_tilt_duty;
