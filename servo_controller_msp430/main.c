@@ -23,7 +23,7 @@
 #include "msp430_uart.h"
 #include "msp430_servo.h"
 
-struct flags led0_flag, servo0_flag, servo1_flag, servo2_flag, servo3_flag;
+volatile struct flags led0_flag, servo0_flag, servo1_flag, servo2_flag, servo3_flag;
 
 
 //servo0_duty will change the duty cycle of servo signal on pin 2.0

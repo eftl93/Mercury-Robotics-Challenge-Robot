@@ -31,7 +31,7 @@ struct flags {
     uint8_t state;
 };
 
-extern struct flags led0_flag, servo0_flag, servo1_flag, servo2_flag, servo3_flag;
+extern volatile struct flags led0_flag, servo0_flag, servo1_flag, servo2_flag, servo3_flag;
 extern volatile uint16_t timer_count;
 extern uint16_t servo0_duty;
 extern uint16_t servo1_duty;
