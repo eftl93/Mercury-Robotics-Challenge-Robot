@@ -71,15 +71,19 @@ And the "Servo Controller Board", which is in charge of receiving commands from 
 
 
 ## Level 1 Design
-### 1. Block layout showing data flow direction
-![image](https://user-images.githubusercontent.com/86902176/174416674-cc60901d-9219-4426-ac0f-3b5184c8a9f3.png)
-### 2. Boards and main components interconnected with an overview of the power sources
-![image](https://user-images.githubusercontent.com/86902176/174632935-cef2efe2-cfb8-4333-b616-4f848ba05241.png)
+### 1. Block layout showing data flow direction of both "front-end" and "back-end" of the project.
+![image](https://user-images.githubusercontent.com/86902176/210492465-e26cfaff-28dc-49c3-8fb0-0217a030049c.png)
 
 
 ## Level 2 Design
-### 1. Block layout showing data flow and broken down in smaller modules with a more detailed description of each block actions
-![image](https://user-images.githubusercontent.com/86902176/174446758-db5e3fb6-9d6c-4597-a5c5-6b0e32ab003f.png)
+### 1. Block layout shows the dataflow of the front-end of the project
+![image](https://user-images.githubusercontent.com/86902176/210492917-448a8e00-8317-46eb-9bfd-d9d7d7a50a31.png)
+
+The front-end is comprised of a Windows or Linux machine with GStreamer installed. The machine must be connected to the same network as the robot (back-end). The front-end will connect to the robot using the SSH protocol. To send direction and magnitude of the speed of the motors and the position for the servos, a game console controller is used (it's a hacked controller with an mcu in order to emulate an HID keyboard device).
+
+![image](https://user-images.githubusercontent.com/86902176/210493377-5b98bf4d-e686-45a8-b703-e88e048c15a0.png)![image](https://user-images.githubusercontent.com/86902176/210493387-8cb24274-f5bb-44df-920d-1609c03f2373.png)
+
+
 ### 2. More detail description on how the motor controller boards and servo controller boards are designed and interconnected and major contents
 ![image](https://user-images.githubusercontent.com/86902176/174633484-6e45d11e-2d77-4a2a-971e-131381582f39.png)
 ### 3. More detail description on how the signal distribution board and Beaglebone boards are designed and interconnected and major contents
