@@ -2,11 +2,11 @@
 
 ## Overall Project
 This repository contains code, schematics and other material for a mobile robot. The objective of the robot is to accomplish the following tasks:
-#### 1. It needs to be controlled remotely
-#### 2. It should be capable of going through an obstacle course
-#### 3. It should be able to perform maneuvers in the minimum amount of time
-#### 4. It must be able to pick-up and drop-off a payload
-#### 5. It must be design in a modular manner for easy future upgrades
+##### 1. It needs to be controlled remotely
+##### 2. It should be capable of going through an obstacle course
+##### 3. It should be able to perform maneuvers in the minimum amount of time
+##### 4. It must be able to pick-up and drop-off a payload
+##### 5. It must be designed in a modular manner for easy future upgrades
 
 
 I'm posting this project in hackster.io: https://www.hackster.io/ederfernandotorres3/exploration-robot-with-beaglebone-black-msp430-and-pic-mcu-deeb33
@@ -18,7 +18,9 @@ I'm also posting details on how to compile and install drivers for the Wi-Fi car
 I'm also posting details on how to compile and install GStreamer and enable uvh264 plug-in: https://www.hackster.io/ederfernandotorres3/compilation-of-gstreamer-to-stream-h264-with-linux-3187eb
 
 
-![IMG_7032-25](https://user-images.githubusercontent.com/86902176/210485465-72bf009b-7da3-450a-979c-4d90989f97b9.jpg)
+![IMG_7032-small](https://user-images.githubusercontent.com/86902176/210489498-19b74113-9f76-4846-aa71-b09597b8fc18.jpg)
+
+
 
 ## Software Tools and Libraries
 To develop this robot, the following software and hardware were used:
@@ -30,10 +32,11 @@ To develop this robot, the following software and hardware were used:
   ##### * Open-Source Device Tree Overlays
   ##### * Open-Source GStreamer (compiled from source code)
   ##### * Open-Source 8821AU Wi-Fi Chip Driver (compiled from source)
-#### 3.
-#### 4. 
-#### 5.
-#### 6.
+#### 3. RP2040 MCU on the Raspberry Pi Pico
+  ##### * Open-Source CircuitPython (Variation of Python to run in microcontrollers)
+  ##### * Open-Source HID Device Library
+#### 4. Altium's CircuitMaker
+  ##### * Used to design the schematics and PCBs for the robot
 
 ## Level 0 Design
 In order to accomplish the listed goals, the robot is implemented with the following features:
@@ -49,6 +52,23 @@ In order to accomplish the listed goals, the robot is implemented with the follo
 ![image](https://user-images.githubusercontent.com/86902176/210486303-3b0617af-7adf-4650-8a77-cf55e66d81d8.png)
 
 Level 0 Block Diagram
+
+## Theory of Operation
+In order to complete the project in a modular manner, the mobile robot has been divided in two parts, the "Front-End" and the "Back-End". 
+
+The front-end of the project is where the end-user controls the robot (on a host computer). The end-user will be able to see what the robot sees with the camera. And the end-user will be sending commands to the robot to move, pan/tilt the camera, raise/lower the robotic arm, open/close the claw, and turn on/off the headlights. 
+
+The back-end of the project is the actual mobile robot and is where all the "essential" modules are located. The back-end has been divided even further to accomplish the modular philosophy, the modules are: 
+
+The "BeagleBone Black", which is in charge of connecting to the network and receive commands through SSH from the front-end. It also fetches video feed from a USB camera and sends the video stream to the front end-through the network.
+
+The "Signal Distribution Board" (SDB), which is in charge of receiving commands in form of data packages from the BeagleBone through UART, then it decides who should receive the commands and forwards it to the correct module.
+
+The "Motor Controller Boards", which are composed of one digital signals PCB and an analog signals PCB. The digital board is in charge of receiving speed and direction commands forwarded by the SDB through SPI communication. The digital board will then create the PWM and direction signals and forward them to the analog PCB. The analog signal PCB is in charge of sending power to the motors and receive quadrature signals from the motors, then forward these quadrature signals to the digital signal board for processing. 
+
+And the "Servo Controller Board", which is in charge of receiving commands from the SDB through UART. This module will generate the appropriate waveforms to control the servos. 
+
+
 
 ## Level 1 Design
 ### 1. Block layout showing data flow direction
