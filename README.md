@@ -3,23 +3,48 @@
 ## Overall Project
 This repository contains code, schematics and other material for a mobile robot. The objective of the robot is to accomplish the following tasks:
 #### 1. It needs to be controlled remotely
-### 2. It should be capable of going through an obstacle course
-### 3. It should be able to perform maneuvers in the minimum amount of time
-### 4. It must be able to pick-up and drop-off a payload
-### 5. It must be design in a modular manner for easy future upgrades
+#### 2. It should be capable of going through an obstacle course
+#### 3. It should be able to perform maneuvers in the minimum amount of time
+#### 4. It must be able to pick-up and drop-off a payload
+#### 5. It must be design in a modular manner for easy future upgrades
+
+
+I'm posting this project in hackster.io: https://www.hackster.io/ederfernandotorres3/exploration-robot-with-beaglebone-black-msp430-and-pic-mcu-deeb33
+
+I'm also posting details on how to setup the BeagleBone Black with UART Device Tree Overlay: https://www.hackster.io/ederfernandotorres3/setup-beaglebone-black-with-device-tree-overlays-9e0ded
+
+I'm also posting details on how to compile and install drivers for the Wi-Fi card: https://www.hackster.io/ederfernandotorres3/8821au-wifi-card-and-bbb-22a7ac
+
+I'm also posting details on how to compile and install GStreamer and enable uvh264 plug-in: https://www.hackster.io/ederfernandotorres3/compilation-of-gstreamer-to-stream-h264-with-linux-3187eb
+
 
 ![IMG_7032-25](https://user-images.githubusercontent.com/86902176/210485465-72bf009b-7da3-450a-979c-4d90989f97b9.jpg)
 
+## Software Tools and Libraries
+To develop this robot, the following software and hardware were used:
+#### 1. MSP430 and PIC MCUs on my own PCBs
+  ##### * Code Composer Stude and MSP-FET were used to program and debug the M430G2550
+  ##### * MPLABX and Pickit 3 were used to program and debut the PIC18F46K22
+#### 2. AM335X MPU on a BeagleBone Black
+  ##### * Open-Source Linux
+  ##### * Open-Source Device Tree Overlays
+  ##### * Open-Source GStreamer (compiled from source code)
+  ##### * Open-Source 8821AU Wi-Fi Chip Driver (compiled from source)
+#### 3.
+#### 4. 
+#### 5.
+#### 6.
+
 ## Level 0 Design
 In order to accomplish the listed goals, the robot is implemented with the following features:
-### 1. Use Wi-Fi for the remote communication between the robot and the host computer
-### 2. Send video from a USB camera to the host computer
-### 3. Use servos to pan and tilt the camera
-### 4. Use servos to raise and lower a robotic arm
-### 5. Use servos to open and close a robotic claw
-### 6. Use motor with quadrature encoders to control the speed and number of rotations per wheel
-### 7. Use a high-power LED in order to illuminate dark tunnels
-### 8. The robot will receive movement commands from a host computer, the host computer will use an intuitive controller for ease of use
+#### 1. Use Wi-Fi for the remote communication between the robot and the host computer
+#### 2. Send video from a USB camera to the host computer
+#### 3. Use servos to pan and tilt the camera
+#### 4. Use servos to raise and lower a robotic arm
+#### 5. Use servos to open and close a robotic claw
+#### 6. Use motor with quadrature encoders to control the speed and number of rotations per wheel
+#### 7. Use a high-power LED in order to illuminate dark tunnels
+#### 8. The robot will receive movement commands from a host computer, the host computer will use an intuitive controller for ease of use
 
 ![image](https://user-images.githubusercontent.com/86902176/210486303-3b0617af-7adf-4650-8a77-cf55e66d81d8.png)
 
