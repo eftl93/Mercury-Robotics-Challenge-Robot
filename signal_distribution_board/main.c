@@ -33,7 +33,7 @@ uint8_t text1[] = "Hello, Welcome!";
 uint8_t instructions1[] = "Use left joystick to move left wheel";
 uint8_t instructions2[] = "Use right joystick to move right wheel";
 uint8_t instructions3[] = "Press 'q' and 'e' to turn light beam off and on";
-uint8_t wii_classic_packet[] = "hello!!!";
+uint8_t wii_classic_packet[] = "z1111!!!y";
 uint8_t servo_controller_tx = 0x00;
 uint8_t debouncing_counter = 0x00;
 uint8_t debouncing_flag = 0x01;
@@ -162,47 +162,52 @@ void main()
         aux_buttons.plus    = ((classic_ctrl.shoulder_plus_minus & 0b00000001) >> 0);
         
         //preparing byte with action buttons, d_pad and send status of a counter variable when overflown (for "debouncing")
+        //a timer could be used to send the servo data every so often.
+        //Pretty much, this part of the code sets how many times to loop in the while(1), before marking data as "valid".
+        //This is done so a single tap on the controller won't move the servos to the extreme values, instead, they can move
+        //one step at a time
         debouncing_counter++;
         if(debouncing_counter == 0x00)
         {
-            debouncing_flag = (0x03 << 6);
+            debouncing_flag = (0x03 << 6); //sets the two Most significant bits to "11" (0xC0) after the counter has overflown
         }
         else
         {
             debouncing_flag = 0x00;
-            if(debouncing_counter == 0x5F)
+            if(debouncing_counter == 0x5F) //set how many cycles to ignore before setting the "debouncing_flag" = to 0xC0
             {
                 debouncing_counter = 0xFF;
             }
         }
+        
         demuxed_controller_signals = (shoulder_buttons.zl << 7) | (shoulder_buttons.zr << 6) | (act_buttons.a << 5) | (act_buttons.b << 4) | (classic_ctrl.d_pad);
         switch(demuxed_controller_signals)
         {
-            case(0x00):
+            case(0x00): //no button pressed
                 servo_controller_tx = 0x00 | debouncing_flag;
                 break;
-            case(0x01):
+            case(0x01): //"right" button pressed
                 servo_controller_tx = 0x01 | debouncing_flag;
                 break;
-            case(0x02):
+            case(0x02): //"left"  button pressed
                 servo_controller_tx = 0x02 | debouncing_flag;
                 break;
-            case(0x04):
+            case(0x04): //"down" button pressed
                 servo_controller_tx = 0x03 | debouncing_flag;
                 break;
-            case(0x08):
+            case(0x08): //"up" button pressed
                 servo_controller_tx = 0x04 | debouncing_flag;
                 break;
-            case(0x10):
+            case(0x10): //"b" button Pressed
                 servo_controller_tx = 0x05 | debouncing_flag;
                 break;
-            case(0x20):
+            case(0x20): //"a" button pressed
                 servo_controller_tx = 0x06 | debouncing_flag;
                 break;
-            case(0x40):
+            case(0x40): //"zr" button pressed
                 servo_controller_tx = 0x07 | debouncing_flag;
                 break;
-            case(0x80):
+            case(0x80): //"zl" button Pressed
                 servo_controller_tx = 0x08 | debouncing_flag;
                 break;
             default :

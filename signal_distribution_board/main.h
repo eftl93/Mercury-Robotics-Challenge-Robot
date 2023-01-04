@@ -66,5 +66,5 @@
 //#define SSP1_INTERRUPT 1
 //#define TIMER1_INTERRUPT 1
 
-#endif	/* XC_HEADER_TEMPLATE_H */
+#endif	
 

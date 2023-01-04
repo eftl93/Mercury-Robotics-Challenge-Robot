@@ -6,14 +6,6 @@
 
 //Servo controller will receive characters through the UART peripheral
 //UART is running at 115200 baud rate
-//'d' character increases servo0_duty 
-//'a' character decreases servo0_duty
-//'w' character increases arm_duty
-//'s' character decreases arm_duty
-//'l' character increases cam_tilt_duty
-//'j' character decreases cam_tilt_duty
-//'i' character increases cam_pan_duty
-//'k' character decreases cam_pan_duty
 
 #include <msp430.h> 
 #include <msp430_gpio.h>
@@ -30,10 +22,10 @@ volatile struct flags led0_flag, servo0_flag, servo1_flag, servo2_flag, servo3_f
 //arm_duty will change the duty cycle of servo signal on pin 2.1
 //cam_tilt_duty will change the duty cycle of servo signal on pin 2.2
 //cam_pan_duty will change the duty cycle of servo signal on pin 2.3
-uint16_t claw_duty = CLAW_MIN_DUTY;
-uint16_t arm_duty = ARM_MAX_DUTY;
-uint16_t cam_tilt_duty = TILT_NEUTRAL_DUTY;
-uint16_t cam_pan_duty = PAN_NEUTRAL_DUTY;
+uint16_t claw_duty = CLAW_MIN_DUTY;         //Servo0
+uint16_t arm_duty = ARM_MAX_DUTY;           //Servo1
+uint16_t cam_tilt_duty = TILT_NEUTRAL_DUTY; //Servo2
+uint16_t cam_pan_duty = PAN_NEUTRAL_DUTY;   //Servo3
 
 int main(void)
 {
