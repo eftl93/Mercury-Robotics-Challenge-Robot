@@ -2,8 +2,8 @@
 
 ## Overall Project
 This repository contains code, schematics and other material for a mobile robot. The objective of the robot is to accomplish the following tasks:
-### 1. It needs to be controlled remotely
-### 2. It should be capable of goiang through an obstacle course
+#### 1. It needs to be controlled remotely
+### 2. It should be capable of going through an obstacle course
 ### 3. It should be able to perform maneuvers in the minimum amount of time
 ### 4. It must be able to pick-up and drop-off a payload
 ### 5. It must be design in a modular manner for easy future upgrades
