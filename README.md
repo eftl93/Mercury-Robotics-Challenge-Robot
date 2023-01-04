@@ -1,16 +1,17 @@
 # MERCURY ROBOTICS ROBOT
 
 ## Overall Project
-This repository contains code, schematics and other material for a mobile robot. The objective of the robot was to accomplish the following tasks:
+This repository contains code, schematics and other material for a mobile robot. The objective of the robot is to accomplish the following tasks:
 ### 1. It needs to be controlled remotely
 ### 2. It should be capable of goiang through an obstacle course
 ### 3. It should be able to perform maneuvers in the minimum amount of time
 ### 4. It must be able to pick-up and drop-off a payload
+### 5. It must be design in a modular manner for easy future upgrades
 
 ![IMG_7032-25](https://user-images.githubusercontent.com/86902176/210485465-72bf009b-7da3-450a-979c-4d90989f97b9.jpg)
 
 ## Level 0 Design
-In order to accomplish the listed goals, the robot was implemented with the following features:
+In order to accomplish the listed goals, the robot is implemented with the following features:
 ### 1. Use Wi-Fi for the remote communication between the robot and the host computer
 ### 2. Send video from a USB camera to the host computer
 ### 3. Use servos to pan and tilt the camera
@@ -21,6 +22,7 @@ In order to accomplish the listed goals, the robot was implemented with the foll
 ### 8. The robot will receive movement commands from a host computer, the host computer will use an intuitive controller for ease of use
 
 ![image](https://user-images.githubusercontent.com/86902176/210486303-3b0617af-7adf-4650-8a77-cf55e66d81d8.png)
+
 Level 0 Block Diagram
 
 ## Level 1 Design
