@@ -1,13 +1,27 @@
 # MERCURY ROBOTICS ROBOT
 
 ## Overall Project
-This is the code, schematics, and other materials for a mobile robot. The robot has wheels, a robotic arm, and a camera pan/tilt mount. The robot is controlled via wi-fi through the network.
+This repository contains code, schematics and other material for a mobile robot. The objective of the robot was to accomplish the following tasks:
+### 1. It needs to be controlled remotely
+### 2. It should be capable of goiang through an obstacle course
+### 3. It should be able to perform maneuvers in the minimum amount of time
+### 4. It must be able to pick-up and drop-off a payload
 
-![image](https://user-images.githubusercontent.com/86902176/173216921-7c5da259-d563-4348-b6c3-b946c5602904.png)
+![IMG_7032-25](https://user-images.githubusercontent.com/86902176/210485465-72bf009b-7da3-450a-979c-4d90989f97b9.jpg)
 
 ## Level 0 Design
-![image](https://user-images.githubusercontent.com/86902176/174416714-85278c90-681c-4610-a848-9d21f5e81b58.png)
+In order to accomplish the listed goals, the robot was implemented with the following features:
+### 1. Use Wi-Fi for the remote communication between the robot and the host computer
+### 2. Send video from a USB camera to the host computer
+### 3. Use servos to pan and tilt the camera
+### 4. Use servos to raise and lower a robotic arm
+### 5. Use servos to open and close a robotic claw
+### 6. Use motor with quadrature encoders to control the speed and number of rotations per wheel
+### 7. Use a high-power LED in order to illuminate dark tunnels
+### 8. The robot will receive movement commands from a host computer, the host computer will use an intuitive controller for ease of use
 
+![image](https://user-images.githubusercontent.com/86902176/210486303-3b0617af-7adf-4650-8a77-cf55e66d81d8.png)
+Level 0 Block Diagram
 
 ## Level 1 Design
 ### 1. Block layout showing data flow direction
