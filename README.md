@@ -81,7 +81,7 @@ The front-end is comprised of a Windows or Linux machine with GStreamer installe
 ![image](https://user-images.githubusercontent.com/86902176/210492917-448a8e00-8317-46eb-9bfd-d9d7d7a50a31.png)
 
 
-
+### 2. Host computer showing the camera view and the terminal where commands get entered for movement. Also the back of the gaming-controller showing the microcontroller used to desguise the controller as an HID keyboard.
 ![image](https://user-images.githubusercontent.com/86902176/210493377-5b98bf4d-e686-45a8-b703-e88e048c15a0.png)![image](https://user-images.githubusercontent.com/86902176/210493387-8cb24274-f5bb-44df-920d-1609c03f2373.png)
 
 
