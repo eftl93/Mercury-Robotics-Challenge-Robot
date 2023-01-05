@@ -23,7 +23,7 @@ I'm also posting details on:
 
 ## Software Tools and Libraries
 To develop this robot, the following software and hardware were used:
-#### 1. MSP430 and PIC MCUs on my own PCBs
+#### 1. MSP430 and PIC MCUs on custom PCBs
   - Code Composer Studio and MSP-FET were used to program and debug the M430G2550
   - MPLABX and Pickit 3 were used to program and debug the PIC18F46K22
 #### 2. AM335X MPU on a BeagleBone Black
