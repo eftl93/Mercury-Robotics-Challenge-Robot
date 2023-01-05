@@ -88,8 +88,8 @@ The back-end is composed of 5 different systems/modules to makes the design modu
 1. Block layout shows the dataflow of the modules of the back-end of the project.\
 ![image](https://user-images.githubusercontent.com/86902176/210696106-f420226a-bdaa-43b8-8d37-a618314dc8e8.png)
 
-## Level 3 Design - Back-End - PCB Schematics\
-All PDF schematics for each module can be found in their folder. These are just a quick snapshot of each PCB.
+## Level 3 Design - Back-End - PCB Schematics
+All PDF schematics for each module can be found in their folder. These are just a quick snapshot of each schematic.
 
 1. Signal Distribution Board Schematic\
 ![image](https://user-images.githubusercontent.com/86902176/210705994-c06d46e0-a386-4648-9054-63de097d0f2b.png)
