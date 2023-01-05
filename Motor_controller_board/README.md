@@ -10,3 +10,11 @@
 
 ### Board 2 - H-Bridges with digital isolators  - Most recent revision
 ![image](https://user-images.githubusercontent.com/86902176/176503439-6f964f1b-23b3-45d3-9cb4-33e4f997d4ea.png)
+
+### Board 1 - Microcontroller and speed controllers - Most recent revision
+![IMG_7177 small](https://user-images.githubusercontent.com/86902176/210856783-05f43429-3915-47e5-b956-bd7599c376cf.jpg)
+
+### Board 2 - H-Bridges with digital isolators  - Most recent revision
+![IMG_7178 small](https://user-images.githubusercontent.com/86902176/210856749-2419b5b7-5c5d-4934-94ed-4af678ede0d9.jpg)
+
+
