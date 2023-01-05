@@ -88,11 +88,19 @@ The back-end is composed of 5 different systems/modules to makes the design modu
 1. Block layout shows the dataflow of the modules of the back-end of the project.
 ![image](https://user-images.githubusercontent.com/86902176/210696106-f420226a-bdaa-43b8-8d37-a618314dc8e8.png)
 
-2. Main modules that form the back-end, it excludes the power distribution
-![IMG_7234 small](https://user-images.githubusercontent.com/86902176/210696902-1b8b925c-3115-4474-a6c3-17cbf4c56e45.jpg)
+## Level 3 Design - Back-End - PCB Schematics
+All PDF schematics for each module can be found in their folder. These are just a quick snapshot of each PCB.
 
-3. Main modules that form the back-end inside the chassis, it includes the batteries and power distribution.
-![IMG_7017-10 small](https://user-images.githubusercontent.com/86902176/210700763-516165a9-8409-4700-819b-1f165e2532aa.jpg)
+1. Signal Distribution Board Schematic
+![image](https://user-images.githubusercontent.com/86902176/210705994-c06d46e0-a386-4648-9054-63de097d0f2b.png)
 
-4. Exterior of the back-end seeing from the back, the USB Wi-Fi adapter and the USB camera can be seen connected to the USB hub.
-![IMG_7033-26 small](https://user-images.githubusercontent.com/86902176/210701003-f8afa7e0-ad35-43f0-857d-566cd13bc8fd.jpg)
+2. Servo Controller Board Schematic - Digital side of the PCB and analog side are separated
+![image](https://user-images.githubusercontent.com/86902176/210706305-5fbbff53-45f5-462f-97bf-1a352f3a2b14.png)![image](https://user-images.githubusercontent.com/86902176/210706352-409e2e4a-9fb5-405f-b2b5-e00aa16158ad.png)
+
+3. Motor Controller Board Schematic - Digital Board
+![image](https://user-images.githubusercontent.com/86902176/210706708-271431d6-ad51-4ac0-a936-6fe1c7243b5f.png)
+4. Motor Controller Board Schematic - Analog/Power Board
+![image](https://user-images.githubusercontent.com/86902176/210706596-0c030e02-dabd-4e11-a56a-b1e2b7f5723c.png)
+
+
+
