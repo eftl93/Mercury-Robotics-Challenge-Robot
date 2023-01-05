@@ -1,4 +1,6 @@
 # Servo Controller Board
+This is a modified version of my servo controller code found in:\ 
+https://github.com/eftl93/servo_controller_msp430
 ## Servo controller board with optocouplers (4-Servos, UART only)
 ![image](https://user-images.githubusercontent.com/86902176/174622239-b1181c09-46c7-4f20-95b8-11c4fdaaf4e2.png)
 ## Servo controller board with no optocouplers on a perfboard (4-Servos, UART only)
