@@ -65,42 +65,56 @@ In order to accomplish the listed goals, the robot is implemented with the follo
 7. Use a high-power LED in order to illuminate dark tunnels
 8. The robot will receive movement commands from a host computer, the host computer will use an intuitive controller for ease of use
 
-### 1. Level 0 Block Diagram
+### 1. Level 0 Block Diagram\
 ![image](https://user-images.githubusercontent.com/86902176/210486303-3b0617af-7adf-4650-8a77-cf55e66d81d8.png)
 
 
 ## Level 1 Design
 The level 1 design shows how the front-end and the back-end communicate each other (through Wi-Fi). It also exposes the inputs and outputs of both blocks of the robot. Level 1 block diagram also exposes the datapath between the modules inside each "end".
-1. Block layout showing data flow direction of both "front-end" and "back-end" of the project.
+1. Block layout showing data flow direction of both "front-end" and "back-end" of the project.\
 ![image](https://user-images.githubusercontent.com/86902176/210492465-e26cfaff-28dc-49c3-8fb0-0217a030049c.png)
 
 
 ## Level 2 Design - Front-End
 The front-end is comprised of a Windows or Linux machine with GStreamer installed. The machine must be connected to the same network as the robot (back-end). The front-end will connect to the robot using the SSH protocol. To send direction and magnitude of the speed of the motors and the position for the servos, a game console controller is used (it's a hacked controller with an mcu in order to emulate an HID keyboard device).
-1. Block layout shows the dataflow of the front-end of the project.
+1. Block layout shows the dataflow of the front-end of the project.\
 ![image](https://user-images.githubusercontent.com/86902176/210492917-448a8e00-8317-46eb-9bfd-d9d7d7a50a31.png)
 
-2. Host computer showing the camera view and the terminal where commands get entered for movement. Also the back of the gaming-controller showing the microcontroller used to desguise the controller as an HID keyboard.
+2. Host computer showing the camera view and the terminal where commands get entered for movement. Also the back of the gaming-controller showing the microcontroller used to desguise the controller as an HID keyboard.\
 ![image](https://user-images.githubusercontent.com/86902176/210493377-5b98bf4d-e686-45a8-b703-e88e048c15a0.png)![image](https://user-images.githubusercontent.com/86902176/210493387-8cb24274-f5bb-44df-920d-1609c03f2373.png)
 
 ## Level 2 Design - Back-End
 The back-end is composed of 5 different systems/modules to makes the design modular but some can be added or removed. The current modules are: BeagleBone Black, Signal Distribuition Board (SDB), Servo Controller Board, Motor Controller Boards (digital and analog/power), and Power system.
-1. Block layout shows the dataflow of the modules of the back-end of the project.
+1. Block layout shows the dataflow of the modules of the back-end of the project.\
 ![image](https://user-images.githubusercontent.com/86902176/210696106-f420226a-bdaa-43b8-8d37-a618314dc8e8.png)
 
-## Level 3 Design - Back-End - PCB Schematics
+## Level 3 Design - Back-End - PCB Schematics\
 All PDF schematics for each module can be found in their folder. These are just a quick snapshot of each PCB.
 
-1. Signal Distribution Board Schematic
+1. Signal Distribution Board Schematic\
 ![image](https://user-images.githubusercontent.com/86902176/210705994-c06d46e0-a386-4648-9054-63de097d0f2b.png)
 
-2. Servo Controller Board Schematic - Digital side of the PCB and analog side are separated
+2. Servo Controller Board Schematic - Digital side of the PCB and analog side are separated\
 ![image](https://user-images.githubusercontent.com/86902176/210706305-5fbbff53-45f5-462f-97bf-1a352f3a2b14.png)![image](https://user-images.githubusercontent.com/86902176/210706352-409e2e4a-9fb5-405f-b2b5-e00aa16158ad.png)
 
-3. Motor Controller Board Schematic - Digital Board
+3. Motor Controller Board Schematic - Digital Board\
 ![image](https://user-images.githubusercontent.com/86902176/210706708-271431d6-ad51-4ac0-a936-6fe1c7243b5f.png)
-4. Motor Controller Board Schematic - Analog/Power Board
+4. Motor Controller Board Schematic - Analog/Power Board\
 ![image](https://user-images.githubusercontent.com/86902176/210706596-0c030e02-dabd-4e11-a56a-b1e2b7f5723c.png)
+
+
+## Actual PCBs - Back-End
+These are the PCBs after being manufactured. All parts are hand soldered.
+
+1. Signal Distribution PCB\
+![IMG_7205 small](https://user-images.githubusercontent.com/86902176/210707529-e5189f8d-d040-4c28-9440-9db708ec286e.jpg)
+
+2. Servo Controller PCB\
+![IMG_7215 small](https://user-images.githubusercontent.com/86902176/210707273-ee87da58-5249-4ac9-8f3a-dcf85bbc1875.jpg)
+
+3. Motor Controller PCBs stacked on top of each other and connected with a ribbon cable\
+![IMG_7198 small](https://user-images.githubusercontent.com/86902176/210707456-f860a59f-0f26-4ab8-9321-9175c162ece5.jpg)
+
 
 
 
