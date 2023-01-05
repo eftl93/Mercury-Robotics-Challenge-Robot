@@ -71,17 +71,28 @@ In order to accomplish the listed goals, the robot is implemented with the follo
 
 ## Level 1 Design
 The level 1 design shows how the front-end and the back-end communicate each other (through Wi-Fi). It also exposes the inputs and outputs of both blocks of the robot. Level 1 block diagram also exposes the datapath between the modules inside each "end".
-### 1. Block layout showing data flow direction of both "front-end" and "back-end" of the project.
+1. Block layout showing data flow direction of both "front-end" and "back-end" of the project.
 ![image](https://user-images.githubusercontent.com/86902176/210492465-e26cfaff-28dc-49c3-8fb0-0217a030049c.png)
 
 
 ## Level 2 Design - Front-End
 The front-end is comprised of a Windows or Linux machine with GStreamer installed. The machine must be connected to the same network as the robot (back-end). The front-end will connect to the robot using the SSH protocol. To send direction and magnitude of the speed of the motors and the position for the servos, a game console controller is used (it's a hacked controller with an mcu in order to emulate an HID keyboard device).
-### 1. Block layout shows the dataflow of the front-end of the project
+1. Block layout shows the dataflow of the front-end of the project.
 ![image](https://user-images.githubusercontent.com/86902176/210492917-448a8e00-8317-46eb-9bfd-d9d7d7a50a31.png)
 
-### 2. Host computer showing the camera view and the terminal where commands get entered for movement. Also the back of the gaming-controller showing the microcontroller used to desguise the controller as an HID keyboard.
+2. Host computer showing the camera view and the terminal where commands get entered for movement. Also the back of the gaming-controller showing the microcontroller used to desguise the controller as an HID keyboard.
 ![image](https://user-images.githubusercontent.com/86902176/210493377-5b98bf4d-e686-45a8-b703-e88e048c15a0.png)![image](https://user-images.githubusercontent.com/86902176/210493387-8cb24274-f5bb-44df-920d-1609c03f2373.png)
 
 ## Level 2 Design - Back-End
-The back-end is composed of 4 different modules and several actuators...
+The back-end is composed of 5 different systems/modules to makes the design modular but some can be added or removed. The current modules are: BeagleBone Black, Signal Distribuition Board (SDB), Servo Controller Board, Motor Controller Boards (digital and analog/power), and Power system.
+1. Block layout shows the dataflow of the modules of the back-end of the project.
+![image](https://user-images.githubusercontent.com/86902176/210696106-f420226a-bdaa-43b8-8d37-a618314dc8e8.png)
+
+2. Main modules that form the back-end, it excludes the power distribution
+![IMG_7234 small](https://user-images.githubusercontent.com/86902176/210696902-1b8b925c-3115-4474-a6c3-17cbf4c56e45.jpg)
+
+3. Main modules that form the back-end inside the chassis, it includes the batteries and power distribution.
+![IMG_7017-10 small](https://user-images.githubusercontent.com/86902176/210700763-516165a9-8409-4700-819b-1f165e2532aa.jpg)
+
+4. Exterior of the back-end seeing from the back, the USB Wi-Fi adapter and the USB camera can be seen connected to the USB hub.
+![IMG_7033-26 small](https://user-images.githubusercontent.com/86902176/210701003-f8afa7e0-ad35-43f0-857d-566cd13bc8fd.jpg)
