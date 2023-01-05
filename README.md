@@ -56,16 +56,16 @@ And the "Servo Controller Board", which is in charge of receiving commands from 
 
 ## Level 0 Design
 In order to accomplish the listed goals, the robot is implemented with the following features:
-1. Use Wi-Fi for the remote communication between the robot and the host computer
-2. Send video from a USB camera to the host computer
-3. Use servos to pan and tilt the camera
-4. Use servos to raise and lower a robotic arm
-5. Use servos to open and close a robotic claw
-6. Use motor with quadrature encoders to control the speed and number of rotations per wheel
-7. Use a high-power LED in order to illuminate dark tunnels
-8. The robot will receive movement commands from a host computer, the host computer will use an intuitive controller for ease of use
+- Use Wi-Fi for the remote communication between the robot and the host computer
+- Send video from a USB camera to the host computer
+- Use servos to pan and tilt the camera
+- Use servos to raise and lower a robotic arm
+- Use servos to open and close a robotic claw
+- Use motor with quadrature encoders to control the speed and number of rotations per wheel
+- Use a high-power LED in order to illuminate dark tunnels
+- The robot will receive movement commands from a host computer, the host computer will use an intuitive controller for ease of use
 
-### 1. Level 0 Block Diagram\
+1. Level 0 Block Diagram.\
 ![image](https://user-images.githubusercontent.com/86902176/210486303-3b0617af-7adf-4650-8a77-cf55e66d81d8.png)
 
 
