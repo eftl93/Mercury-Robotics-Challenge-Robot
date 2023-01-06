@@ -9,7 +9,7 @@
 //controllers.
 
 //Name: Eder Torres
-//Project: TI Innovation Challenge
+//Project: Mercury Robotics - Motor Controller board
 
 /********************************************************************************
 ********************************************************************************
