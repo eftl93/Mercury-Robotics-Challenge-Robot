@@ -17,8 +17,7 @@ I'm also posting details on:
 - How to compile and install GStreamer and enable uvh264 plug-in: https://www.hackster.io/ederfernandotorres3/compilation-of-gstreamer-to-stream-h264-with-linux-3187eb
 
 
-![IMG_7032-small](https://user-images.githubusercontent.com/86902176/210489498-19b74113-9f76-4846-aa71-b09597b8fc18.jpg)
-
+<img src="https://user-images.githubusercontent.com/86902176/210908299-32d6d7c0-e4d3-4a94-a6c7-3028bff9f2bf.jpg" width="400">
 
 
 ## Software Tools and Libraries
@@ -72,7 +71,7 @@ In order to accomplish the listed goals, the robot is implemented with the follo
 ## Level 1 Design
 The level 1 design shows how the front-end and the back-end communicate each other (through Wi-Fi). It also exposes the inputs and outputs of both blocks of the robot. Level 1 block diagram also exposes the datapath between the modules inside each "end".
 1. Block layout showing data flow direction of both "front-end" and "back-end" of the project.\
-![image](https://user-images.githubusercontent.com/86902176/210492465-e26cfaff-28dc-49c3-8fb0-0217a030049c.png)
+![image](https://user-images.githubusercontent.com/86902176/210908444-fa9e6243-dd37-4d05-9dc9-58c161157343.png)
 
 
 ## Level 2 Design - Front-End
@@ -81,7 +80,8 @@ The front-end is comprised of a Windows or Linux machine with GStreamer installe
 ![image](https://user-images.githubusercontent.com/86902176/210492917-448a8e00-8317-46eb-9bfd-d9d7d7a50a31.png)
 
 2. Host computer showing the camera view and the terminal where commands get entered for movement. Also the back of the gaming-controller showing the microcontroller used to desguise the controller as an HID keyboard.\
-![image](https://user-images.githubusercontent.com/86902176/210493377-5b98bf4d-e686-45a8-b703-e88e048c15a0.png)![image](https://user-images.githubusercontent.com/86902176/210493387-8cb24274-f5bb-44df-920d-1609c03f2373.png)
+<img src="https://user-images.githubusercontent.com/86902176/210908971-016f76a6-f4bb-4fb2-b1e3-9ace71dcdac5.png" height="250"><img src="https://user-images.githubusercontent.com/86902176/210908633-5c49d080-269e-4061-a423-69dc508bfc7e.jpg" height="250">
+
 
 ## Level 2 Design - Back-End
 The back-end is composed of 5 different systems/modules to makes the design modular but some can be added or removed. The current modules are: BeagleBone Black, Signal Distribuition Board (SDB), Servo Controller Board, Motor Controller Boards (digital and analog/power), and Power system.
@@ -92,10 +92,10 @@ The back-end is composed of 5 different systems/modules to makes the design modu
 All PDF schematics for each module can be found in their folder. These are just a quick snapshot of each schematic.
 
 1. Signal Distribution Board Schematic\
-![image](https://user-images.githubusercontent.com/86902176/210705994-c06d46e0-a386-4648-9054-63de097d0f2b.png)
+<img src="https://user-images.githubusercontent.com/86902176/210705994-c06d46e0-a386-4648-9054-63de097d0f2b.png" width="400">
 
 2. Servo Controller Board Schematic - Digital side of the PCB and analog side are separated\
-![image](https://user-images.githubusercontent.com/86902176/210706305-5fbbff53-45f5-462f-97bf-1a352f3a2b14.png)![image](https://user-images.githubusercontent.com/86902176/210706352-409e2e4a-9fb5-405f-b2b5-e00aa16158ad.png)
+<img src="https://user-images.githubusercontent.com/86902176/210706305-5fbbff53-45f5-462f-97bf-1a352f3a2b14.png" width="400"><img src="https://user-images.githubusercontent.com/86902176/210706352-409e2e4a-9fb5-405f-b2b5-e00aa16158ad.png" width="400">
 
 3. Motor Controller Board Schematic - Digital Board\
 ![image](https://user-images.githubusercontent.com/86902176/210706708-271431d6-ad51-4ac0-a936-6fe1c7243b5f.png)
