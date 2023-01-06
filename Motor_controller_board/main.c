@@ -173,8 +173,8 @@ void main(void)
     signal_distribution_packet[3] = 16;
     signal_distribution_packet[4] = 16;
     
-    //every time this MCU receives a character via SPI, the ISR will read the buffer
-    //in this infinite loop, the value of the received character is read and the 
+    //Every time this MCU receives a character via SPI, the ISR will read the buffer.
+    //In the Super Loop (infinite loop, the value of the received character is read and the 
     //correct function is called, each function is meant to send commands to the
     //LM629s in order to generate the correct PWM signals which are fed to H-Bridges
     //to start mobilizing the robot
