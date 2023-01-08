@@ -91,15 +91,15 @@ The back-end is composed of 5 different systems/modules to makes the design modu
 ## Level 3 Design - Back-End - PCB Schematics
 All PDF schematics for each module can be found in their folder. These are just a quick snapshot of each schematic.
 
-1. Signal Distribution Board Schematic\
+1. Signal Distribution Board Schematic
 <img src="https://user-images.githubusercontent.com/86902176/210705994-c06d46e0-a386-4648-9054-63de097d0f2b.png" width="400">
 
-2. Servo Controller Board Schematic - Digital side of the PCB and analog side are separated\
+2. Servo Controller Board Schematic - Digital side of the PCB and analog side are separated
 <img src="https://user-images.githubusercontent.com/86902176/210706305-5fbbff53-45f5-462f-97bf-1a352f3a2b14.png" width="400"><img src="https://user-images.githubusercontent.com/86902176/210706352-409e2e4a-9fb5-405f-b2b5-e00aa16158ad.png" width="400">
 
-3. Motor Controller Board Schematic - Digital Board\
+3. Motor Controller Board Schematic - Digital Board
 ![image](https://user-images.githubusercontent.com/86902176/210706708-271431d6-ad51-4ac0-a936-6fe1c7243b5f.png)
-4. Motor Controller Board Schematic - Analog/Power Board\
+4. Motor Controller Board Schematic - Analog/Power Board
 ![image](https://user-images.githubusercontent.com/86902176/210706596-0c030e02-dabd-4e11-a56a-b1e2b7f5723c.png)
 
 
