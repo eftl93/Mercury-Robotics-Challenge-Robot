@@ -46,7 +46,7 @@ The back-end of the project is the actual mobile robot and is where all the "ess
 
 The "BeagleBone Black", which is in charge of connecting to the network and receive commands through SSH from the front-end. It also fetches video feed from a USB camera and sends the video stream to the front end-through the network.
 
-The "Signal Distribution Board" (SDB), which is in charge of receiving commands in form of data packages from the BeagleBone through UART, then it decides who should receive the commands and forwards it to the correct module.
+The "Signal Distribution Board" (SDB), which is in charge of receiving commands in form of data packages from the BeagleBone through UART, then it separates and normalizes the commands depending on who the recipient should be and then it forwards them to the correct module.
 
 The "Motor Controller Boards", which are composed of one digital signals PCB and an analog signals PCB. The digital board is in charge of receiving speed and direction commands forwarded by the SDB through SPI communication. The digital board will then create the PWM and direction signals and forward them to the analog PCB. The analog signal PCB is in charge of sending power to the motors and receive quadrature signals from the motors, then forward these quadrature signals to the digital signal board for processing. 
 
